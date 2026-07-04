@@ -1,0 +1,5 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+4/21/2026,Operating Expenses,3549,Spend-transfer,,"Transfer",SETTLED,-1107.70,USD,0.00
+4/14/2026,WOMEN LIFE FRE,,Receive,,"BILL_PAY",SETTLED,+1107.70,USD,1107.70
+4/8/2026,Operating Expenses,3549,Spend-transfer,,"Transfer",SETTLED,-408.24,USD,0.00
+4/6/2026,Operating Expenses,3549,Spend-transfer,,"Transfer",SETTLED,-2000.00,USD,408.24

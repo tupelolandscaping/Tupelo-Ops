@@ -1,0 +1,27 @@
+﻿Insurance
+"Date","Description","Notes","Customer","Equipment","Vendor","Employee","Taxes","Refund","Cost","Amount"
+"April 10, 2026","Commercial Auto (6 months)","","","","Progressive","","$0.00","$0.00","$999.00","$999.00"
+"Total","$0.00","$0.00","$999.00","$999.00",
+
+Miscellaneous
+"Date","Description","Notes","Customer","Equipment","Vendor","Employee","Taxes","Refund","Cost","Amount"
+"June 16, 2026","Xavier Payout","May end up being closer to $1,800 or $2,000","","","","Xavier Beauvais","$0.00","$0.00","$1,800.00","$1,800.00"
+"July 1, 2026","Squarespace Basic Plan July","","","","SquareSpace","","$0.00","$0.00","$25.00","$25.00"
+"Total","$0.00","$0.00","$1,825.00","$1,825.00",
+
+New Equipment
+"Date","Description","Notes","Customer","Equipment","Vendor","Employee","Taxes","Refund","Cost","Amount"
+"April 13, 2026","Truck (including admin/reg fees)","","","2008 Ford F150","","","$0.00","$0.00","$5,000.00","$5,000.00"
+"July 1, 2026","Backpack Sprayer and PPE/small tool replacements","","","","Home Depot","","$0.00","$0.00","$422.26","$422.26"
+"Total","$0.00","$0.00","$5,422.26","$5,422.26",
+
+Payroll
+"Date","Description","Notes","Customer","Equipment","Vendor","Employee","Taxes","Refund","Cost","Amount"
+"June 15, 2026","Payroll 6/1-6/14","","","","","","$442.37","$0.00","$2,018.88","$2,461.25"
+"Total","$442.37","$0.00","$2,018.88","$2,461.25",
+
+,,,,,,Expenses Summary
+,,,,,,"Taxes","442.37"
+,,,,,,"Refunds","0.00"
+,,,,,,"Costs","10,564.14"
+,,,,,,"Amount","11,006.51"

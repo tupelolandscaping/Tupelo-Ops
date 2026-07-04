@@ -1,0 +1,195 @@
+﻿Bagging
+"Customer","Qty","Price","Taxes","Total"
+"Barbara Jyachosky","2.00","$80.00","$4.80","$84.80"
+"Shirley Locke","2.00","$80.00","$4.80","$84.80"
+"Women Life Freedom LLC","7.10","$284.00","$0.00","$284.00"
+"Total","11.10","$444.00","$9.60","$453.60"
+
+
+Debris Removal/Bagging
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","1.00","$40.00","$2.40","$42.40"
+"Anacostia Community Boathouse Association","19.00","$760.00","$45.60","$805.60"
+"Martha Picarello","0.90","$36.00","$2.16","$38.16"
+"Total","20.90","$836.00","$50.16","$886.16"
+
+
+Edging
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","0.50","$20.00","$1.20","$21.20"
+"Total","0.50","$20.00","$1.20","$21.20"
+
+
+Edging/Weed-whacking
+"Customer","Qty","Price","Taxes","Total"
+"Amie Ylda","1.00","$40.00","$2.40","$42.40"
+"Anacostia Community Boathouse Association","3.00","$120.00","$7.20","$127.20"
+"Barbara Jyachosky","0.50","$25.00","$1.50","$26.50"
+"Shirley Locke","0.40","$16.00","$0.96","$16.96"
+"Total","4.90","$201.00","$12.06","$213.06"
+
+
+Felling (Chainsaw)
+"Customer","Qty","Price","Taxes","Total"
+"Anacostia Community Boathouse Association","5.00","$200.00","$12.00","$212.00"
+"Total","5.00","$200.00","$12.00","$212.00"
+
+
+General Maintenance
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","2.00","$80.00","$4.80","$84.80"
+"Women Life Freedom LLC","21.80","$981.00","$58.86","$1,039.86"
+"Total","23.80","$1,061.00","$63.66","$1,124.66"
+
+
+General Maintenance
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","2.00","$80.00","$4.80","$84.80"
+"Anacostia Community Boathouse Association","5.00","$225.00","$13.50","$238.50"
+"Women Life Freedom LLC","1.38","$62.25","$3.73","$65.98"
+"Total","8.38","$367.25","$22.03","$389.28"
+
+
+General Maintenance
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","8.00","$320.00","$19.20","$339.20"
+"Anacostia Community Boathouse Association","4.50","$202.50","$12.15","$214.65"
+"Women Life Freedom LLC","57.90","$2,364.83","$141.89","$2,506.72"
+"Total","70.40","$2,887.33","$173.24","$3,060.57"
+
+
+General Maintenance
+"Customer","Qty","Price","Taxes","Total"
+"Anacostia Community Boathouse Association","5.00","$225.00","$13.50","$238.50"
+"Total","5.00","$225.00","$13.50","$238.50"
+
+
+Hauling (WLF Subcontractor 4/4)
+"Customer","Qty","Price","Taxes","Total"
+"Women Life Freedom LLC","1.00","$1,045.00","$62.70","$1,107.70"
+"Total","1.00","$1,045.00","$62.70","$1,107.70"
+
+
+Hedge/Branch Trimming
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","2.00","$80.00","$4.80","$84.80"
+"Barbara Jyachosky","1.50","$75.00","$4.50","$79.50"
+"Martha Picarello","2.50","$125.00","$7.50","$132.50"
+"Richard Rogers","2.50","$125.00","$7.50","$132.50"
+"Shirley Locke","0.75","$30.00","$1.80","$31.80"
+"Total","9.25","$435.00","$26.10","$461.10"
+
+
+Lawn Care
+"Customer","Qty","Price","Taxes","Total"
+"Katie Wheelbarger","3.00","$140.00","$5.40","$145.40"
+"Martha Picarello","4.00","$190.00","$11.40","$201.40"
+"Shirley Locke","1.60","$71.00","$4.26","$75.26"
+"Total","8.60","$401.00","$21.06","$422.06"
+
+
+Lawn Care
+"Customer","Qty","Price","Taxes","Total"
+"Katie Wheelbarger","1.00","$40.00","$2.40","$42.40"
+"Shirley Locke","0.70","$35.00","$2.10","$37.10"
+"Total","1.70","$75.00","$4.50","$79.50"
+
+
+Leaf Raking
+"Customer","Qty","Price","Taxes","Total"
+"Amie Ylda","4.00","$160.00","$9.60","$169.60"
+"Total","4.00","$160.00","$9.60","$169.60"
+
+
+Mowing
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","0.50","$20.00","$1.20","$21.20"
+"Anacostia Community Boathouse Association","2.00","$80.00","$4.80","$84.80"
+"Barbara Jyachosky","0.40","$20.00","$1.20","$21.20"
+"Shirley Locke","0.50","$20.00","$1.20","$21.20"
+"Total","3.40","$140.00","$8.40","$148.40"
+
+
+Mulching/Soil Placement
+"Customer","Qty","Price","Taxes","Total"
+"Barbara Jyachosky","4.50","$180.00","$10.80","$190.80"
+"Shirley Locke","5.40","$216.00","$12.96","$228.96"
+"Women Life Freedom LLC","1.97","$78.80","$4.73","$83.53"
+"Total","11.87","$474.80","$28.49","$503.29"
+
+
+Planting/Transplanting
+"Customer","Qty","Price","Taxes","Total"
+"Barbara Jyachosky","1.00","$40.00","$2.40","$42.40"
+"Total","1.00","$40.00","$2.40","$42.40"
+
+
+Sod Placement
+"Customer","Qty","Price","Taxes","Total"
+"Barbara Jyachosky","0.50","$20.00","$1.20","$21.20"
+"Total","0.50","$20.00","$1.20","$21.20"
+
+
+Spraying
+"Customer","Qty","Price","Taxes","Total"
+"Anacostia Community Boathouse Association","2.00","$110.00","$6.60","$116.60"
+"Total","2.00","$110.00","$6.60","$116.60"
+
+
+Stump Removal
+"Customer","Qty","Price","Taxes","Total"
+"Alissa Moore","1.00","$40.00","$2.40","$42.40"
+"Barbara Jyachosky","0.25","$10.00","$0.60","$10.60"
+"Total","1.25","$50.00","$3.00","$53.00"
+
+
+Subcontractor Work
+"Customer","Qty","Price","Taxes","Total"
+"Women Life Freedom LLC","1.68","$67.20","$4.03","$71.23"
+"Total","1.68","$67.20","$4.03","$71.23"
+
+
+Vine Removal
+"Customer","Qty","Price","Taxes","Total"
+"Anacostia Community Boathouse Association","30.00","$1,200.00","$72.00","$1,272.00"
+"Martha Picarello","0.75","$30.00","$1.80","$31.80"
+"Richard Rogers","0.75","$30.00","$1.80","$31.80"
+"Total","31.50","$1,260.00","$75.60","$1,335.60"
+
+
+Weed Whacking/Edging
+"Customer","Qty","Price","Taxes","Total"
+"Anacostia Community Boathouse Association","6.50","$325.00","$19.50","$344.50"
+"Total","6.50","$325.00","$19.50","$344.50"
+
+
+Weeding
+"Customer","Qty","Price","Taxes","Total"
+"Amie Ylda","1.00","$40.00","$2.40","$42.40"
+"Barbara Jyachosky","4.50","$180.00","$10.80","$190.80"
+"Richard Rogers","2.50","$100.00","$6.00","$106.00"
+"Shirley Locke","11.00","$440.00","$26.40","$466.40"
+"Total","19.00","$760.00","$45.60","$805.60"
+
+
+Weeding Maintenance
+"Customer","Qty","Price","Taxes","Total"
+"Martha Picarello","1.75","$70.00","$4.20","$74.20"
+"Total","1.75","$70.00","$4.20","$74.20"
+
+
+Weeding Maintenance
+"Customer","Qty","Price","Taxes","Total"
+"Martha Picarello","7.00","$280.00","$16.80","$296.80"
+"Total","7.00","$280.00","$16.80","$296.80"
+
+
+Weeding Maintenance
+"Customer","Qty","Price","Taxes","Total"
+"Martha Picarello","1.75","$70.00","$4.20","$74.20"
+"Total","1.75","$70.00","$4.20","$74.20"
+
+
+Services & Items Summary
+"","Qty","Price","Taxes","Total"
+"","263.73","$12,024.58","$701.43","$12,726.01"

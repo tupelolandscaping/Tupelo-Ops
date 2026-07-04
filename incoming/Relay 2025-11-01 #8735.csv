@@ -1,0 +1,4 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+11/21/2025,WOMEN LIFE FRE,,Receive,,"BILL_PAY",SETTLED,+367.61,USD,583.00
+11/10/2025,WOMEN LIFE FRE,,Receive,,"BILL_PAY",SETTLED,+215.39,USD,215.39
+11/4/2025,Operating Expenses,3549,Spend-transfer,,"Transfer",SETTLED,-456.65,USD,0.00

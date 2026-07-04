@@ -1,0 +1,16 @@
+Date,Payee,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+4/24/2025,GUSTO,Spend,,"NET 128522 - Initiated By Unknown Payee",SETTLED,-119.95,USD,14.61
+4/24/2025,GUSTO,Spend,,"TAX 110448 - Initiated By Unknown Payee",SETTLED,-23.86,USD,134.56
+4/14/2025,GUSTO,Spend,,"NET 745627 - Initiated By Unknown Payee",SETTLED,-508.84,USD,158.42
+4/10/2025,Income,Receive-transfer,,"Transfer",SETTLED,+300.00,USD,667.26
+4/10/2025,GUSTO,Spend,,"TAX 623333 - Initiated By Unknown Payee",SETTLED,-101.41,USD,367.26
+4/10/2025,GUSTO,Receive,,"Returned received ACH transaction #281137909 due to: Account has insufficient funds - Initiated By Unknown Payee",RETURNED,+508.84,USD,468.67
+4/10/2025,GUSTO,Spend,,"NET 623395 - Initiated By Unknown Payee",SETTLED,-508.84,USD,-40.17
+4/10/2025,BUSINESSFILE8887016450,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-225.00,USD,468.67
+4/9/2025,Income,Receive-transfer,,"Transfer",SETTLED,+600.00,USD,693.67
+4/6/2025,Simply Business,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-26.25,USD,93.67
+4/3/2025,USAA CLASSIC CHECKING,Receive,,"ACH Pull",SETTLED,+20.00,USD,119.92
+4/3/2025,USAA CLASSIC CHECKING,Receive,,"ACH Pull",SETTLED,+100.00,USD,99.92
+4/1/2025,GUSTO,Receive,,"Returned received ACH transaction #278075272 due to: Account has insufficient funds - Initiated By Unknown Payee",RETURNED,+0.09,USD,-0.08
+4/1/2025,GUSTO,Spend,,"ACCTVERIFY - Initiated By Unknown Payee",SETTLED,-0.09,USD,-0.17
+4/1/2025,GUSTO,Spend,,"ACCTVERIFY - Initiated By Unknown Payee",SETTLED,-0.08,USD,-0.08

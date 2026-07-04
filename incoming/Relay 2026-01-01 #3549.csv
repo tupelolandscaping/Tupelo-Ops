@@ -1,0 +1,6 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+1/25/2026,Copilot,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,1019.43
+1/6/2026,Simply Business,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-33.75,USD,1158.43
+1/5/2026,GUSTO,,Spend,,"TAX 801051 - Initiated By Unknown Payee",SETTLED,-41.11,USD,1192.18
+1/5/2026,GUSTO,,Spend,,"NET 801432 - Initiated By Unknown Payee",SETTLED,-206.49,USD,1233.29
+1/5/2026,GUSTO,,Spend,,"FEE 808741 - Initiated By Unknown Payee",SETTLED,-109.00,USD,1439.78

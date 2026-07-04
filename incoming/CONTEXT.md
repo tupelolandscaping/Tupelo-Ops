@@ -1,0 +1,283 @@
+# CONTEXT.md — Tupelo Landscaping LLC · Business Operations & Financial Model Repository
+
+**Document purpose:** This is the single handoff document that carries the full context, locked decisions, standing rules, and work queue for this project from its prior home (a Claude "project" workspace) into a GitHub repository executed through Claude Code in VS Code. It is written to be understood by a reader — human or AI — who has **no prior context**. Acronyms are expanded on first use; quantitative claims are traced to a source file wherever an in-repo source exists (where a figure is owner-supplied or awaiting verification, it is labeled as such rather than given a false citation).
+
+**Status:** Draft for review (revision 6). Nothing in the repository has been built or edited yet. This document is the specification for what will be built.
+
+---
+
+## 1. How to Use This Document
+
+- This is the **memory bridge**. A fresh Claude Code session starts with no conversational history; this document supplies it. Read it fully before acting.
+- Decisions recorded in Section 4 are **locked** unless explicitly revisited. Do not silently reverse them.
+- Section 6 ("Decided, Not Yet Applied") is a **reconciliation-and-setup queue to be completed before the model rebuild.** It contains preparation tasks (converting files, correcting stale content, authoring repo files). The model rebuild itself (item E) is the *output* of clearing that queue and is sequenced in Section 10, not performed midway through the queue.
+- Standing rules (Section 5) govern all work and override convenience.
+
+---
+
+## 2. Project Genesis & Evolution
+
+**Origin.** This project began as a strategic analysis of a small landscaping business, commissioned by the owner, spanning nine domains (financial modeling, labor/org design, marketing/acquisition, equipment, owner-transition, risk, pricing/unit-economics, operations/systematization, and legal/compliance). That analysis was synthesized into four core artifacts, all reconciled to one another on **2026-06-17**:
+1. A **One-Year Strategic Plan** (July 2026 – June 2027).
+2. An **Operational Toolkit** (templates, checklists, setup guides).
+3. An **Execution Timeline** (dated milestones, tripwires, revision points).
+4. A **Financial Model** (multi-tab Excel workbook).
+
+**Evolution over the following weeks.** The project matured through iterative working sessions:
+- The service catalog in the CRM (customer-relationship-management platform; see Section 3) was consolidated from a fragmented set of entries to ~16 clean categories, so that reporting KPIs (key performance indicators) stopped reading zero. (The exact pre-consolidation raw count is to be confirmed during the revenue-mapping session — Follow-Up #6 — because two different raw counts have appeared in working notes.)
+- The weekday crew-lead hire (Konji, see Section 3) moved from "conversation underway" to **fully finalized terms**.
+- The starting-cash assumption was corrected from a planning guess to a confirmed bank figure.
+- A structured **biweekly check-in system** was established, with a reusable template and a variance framework (STAY / ADJUST / ESCALATE; the operative rules live in `check-ins/check-in-template.md`, not in this document).
+- Most recently (the sessions immediately preceding this document): a decision to **rebuild the financial model** on a fully traceable architecture, and to **migrate the whole project into a Git repository** executed via Claude Code — the transition this document enables.
+
+**Why the rebuild.** The original model mixed source data and derived outputs in the same cells, and embedded some costs (notably labor) inside blended margin percentages. This made numbers hard to trace and allowed the same fact to exist in multiple places and drift. The rebuild (Section 9) fixes this structurally.
+
+---
+
+## 3. Business Snapshot & Objectives
+
+**The business.** Tupelo Landscaping LLC is a residential and commercial landscaping company based in **Arlington, Virginia, USA**. It operates one truck (a 2008 Ford F-150, ~214,000 miles), a reliable core crew of roughly four workers (high-school and gap-year age), and uses **flat-rate pricing** set from internal hourly estimates (hourly rates are never disclosed to clients). Customer acquisition has historically been owner-led door-to-door canvassing.
+
+**The owner.** A junior at Washington University in St. Louis, studying Organizational & Strategic Management and Philosophy-Neuroscience-Psychology; interested in management consulting and organizational psychology; a self-described beginner in technical subjects (coding, tooling) with a growing interest in AI. **The binding constraint of the entire plan:** the owner relocates out of state for school in **January 2027** and returns each summer. From January 2027, the business must run and grow **without the owner physically present**.
+
+**Objectives (this plan window, July 2026 – June 2027):**
+1. Roughly double peak monthly revenue — anchoring on the **actual May 2026 peak of $4,908** (from the CRM; the strongest single-month figure to date) toward a **~$10,000/month** peak (roughly 2×). This anchor is a single-month actual, not a multi-season average; it will be refined as more seasons of data accumulate.
+2. More importantly, rebuild the business to **operate owner-absent** before the January 2027 relocation.
+- (The long-range ~$20,000/month ambition is treated as a 2028-or-later horizon, not a within-year target.)
+
+**Current economic position.** *The revenue-mix and client-concentration figures below derive from the CRM revenue-by-customer and P&L exports and the model's data-validation rows, and are from the **2026-06-17 snapshot** — flag for recomputation on fresh data during the rebuild. The billed/collected totals and the cash reading are **current as of 2026-07-01** (more recent than that snapshot).*
+- Revenue mix by **service type**: **~58% project work / ~42% recurring maintenance**. **Residential recurring mowing is ~5%** — and it is the intended growth engine, so the growth engine effectively starts near zero.
+- **Client concentration is a material risk:** the top three clients represent ~79% of revenue; the single largest client (a commercial account) represents ~42%. *Note on classification:* the project/maintenance split above is by service type, while concentration is by customer. Several clients — including the large commercial accounts — contribute to **both** project and recurring work depending on what was done for them, so a single client can span both service categories. Customer-level and service-level figures therefore should not be expected to partition identically. Exact per-client service composition is to be verified against the files during the rebuild.
+- Revenue Jan 1 – Jul 1 2026: **$12,726.01 billed / $10,973.57 collected** (per current Homeworks exports; see Section 6 item F). The billed-collected gap (~$1,752) is real and is the reason billing and collection are modeled as separate events (D5a).
+- Cash on hand: **~$1,400 as of 2026-07-01** — a post-payroll reading from the **operating account**, treated as a rough placeholder, not a firm anchor. It is a single-account figure; the *full* cash picture awaits the Relay consolidation (Follow-Up #9). Going forward, cash is read from the **actual monthly bank statements** once consolidation is complete — those statements, not this interim reading or the CRM's "billed" figures, are the source of truth for cash (CRM "billed" is unreliable for cash timing; see the anchor-jump note in Section 6 item F).
+
+**Key people.**
+- **Konji** — Primary crew lead (weekday recurring work is his core, but he leads essentially all work he is present for; see D3). Accepted; terms finalized (Section 4). The single most time-sensitive hire for enabling the owner's departure. Becomes the primary local operator once the owner relocates.
+- **Anais** — Part-time client acquisition / canvassing and backup driver (already a listed insured driver on the auto policy, and to remain so). Substitutes as crew lead only when Konji cannot be present for a given job (e.g., weekend project work he is unavailable for). *Her compensation terms (canvassing rate, backup crew-lead rate) are not yet specified — see Follow-Up #11.*
+- **Xavier** — Business partner with a deferred, interest-free equity arrangement (~$1,800, exact figure unconfirmed), treated as patient capital (functions as equity for cash-buffer purposes because it carries no due date or interest).
+
+**Key tools & platforms.**
+- **Homeworks** — the primary CRM and accounting platform (revenue tracking, accounts-receivable aging, customer-source tracking, and job costing). "Growth" plan purchased. Referred to throughout as "the CRM." Job Costing (per-job cost tracking) is **not yet activated** (target: end of July 2026). Time-tracking has **10 prepaid seats**; see Section 7 #2 for the seat-vs-headcount question (unresolved, deferred to a post-transition session — no headcount figure is asserted here).
+- **Relay** — the business banking platform. Bank statements (actual cash movement) are the truest cash signal and the third leg of reconciliation (model ↔ CRM ↔ bank). Currently fragmented across several account numbers; consolidation is an early post-transition workstream (Section 7 #9) that **gates the first model build**.
+- **Excel** — the current financial model.
+- **GitHub + Claude Code + VS Code (via GitHub Codespaces)** — the destination execution environment (this migration). A **Codespace** is a cloud development machine hosted by GitHub; the owner opens it through the VS Code Desktop app, which acts as a window onto that cloud machine, and saves work by committing and pushing to GitHub.
+- **Google Business Profile (GBP)** — active, but currently generates no reviews and no leads.
+- **Squarespace** — current website host (tupelolandscaping.com), on monthly billing pending a migration decision (not in scope here).
+
+---
+
+## 4. Locked Decisions (with condensed reasoning)
+
+Each decision below is settled. The reasoning is preserved so the choice can be audited and so a reviewer understands *why*, not just *what*. Where a decision references a chosen approach from a set of considered alternatives, the rejected alternatives (if any matter for audit) are recorded in `HISTORY.md`.
+
+**D1 — Materials/fuel costs: explicit-zero placeholder.**
+Model materials and fuel as explicit `$0` lines tagged `BLOCKED` ("not yet tracked"), rather than back-solving an estimate. *Reasoning:* no **per-job, categorized** materials/fuel data exists in any current file. Materials spend *is* being incurred and partially captured (e.g., a $422.26 Home Depot order bundling a backpack sprayer, PPE, and small tools), but only lumped into coarse expense buckets (Insurance, Miscellaneous, New Equipment, Payroll) without per-job attribution. A back-solved residual would be an inference dressed up as a measurement, which violates the standing rules. Real, attributable materials/fuel data becomes available only once Job Costing is activated.
+
+**D2 — Labor: itemized by role, never a raw blended entry.**
+Assume every job has **2 people (one crew lead + one crew member)**, with hours split **50/50**, flagged as an **ESTIMATE**. Role rates are atomic inputs — **crew lead $25/hour, crew member $20/hour** — and any blended labor figure must be a *derived output*, never a typed-in number. Current working estimate of recurring-work labor: **~20 person-hours per two-week period**, covering **recurring work only** (one-off projects are excluded because they cannot be forecast ahead of time). "Person-hours" means total labor across all workers on a job, not clock-hours (a 2-person, 1-hour job = 2 person-hours). *Reasoning:* the owner requires every number traceable to base inputs; the previous model buried labor inside blended margins with no reference to the rate cells. These estimates are to be **replaced with actuals once time-tracking is live** (see Section 7 #2 for the seat question that conditions this).
+
+**D3 — Konji leads the work he is present for; his 6% share is on billed revenue.**
+Konji leads essentially all work he is present for — recurring and project — which in practice is expected to be most work; Anais substitutes only when he cannot be there. His **revenue share is 6% of billed revenue** on jobs he leads (billed, not collected — chosen so the payroll base is a fixed, invoice-time number). It **begins September 2026** (not before), once he is running operations independently.
+
+**D4 — Two-phase crew-lead cost structure.**
+Through May 2027: Konji's full negotiated terms apply. **After May 2027:** the crew-lead position reverts to a generic cost line — $25/hour, no revenue share, no bonuses. Build this as a phase switch in the model. (Konji's finalized terms: $25/hr base from day one; 6% revenue share on jobs he leads from September 2026 through end of May 2027; canvassing at $15/hr plus $15 per fall client signed and $20 per spring client signed; winter business-side project work at $25/hr; committed through end of May 2027; transitions to fuller hours in March 2027, no later than end of March. He is unlikely to relocate with family to Atlanta, so continuation beyond May is plausible but not counted on.)
+
+**D5 — Model architecture: atomic ledger + derived views.**
+A single **atomic actuals ledger** is the source of truth: one row per atomic financial event. Every summary (P&L, quarterly rollups, revenue-by-service, revenue-by-customer, labor blend) is **derived from that ledger by formula** — never typed in. *Reasoning:* single-source-of-truth prevents the same fact from existing in multiple places and drifting (the failure mode that previously caused an accrual entry to be misread as a cash event). Traceability becomes structural rather than a discipline to maintain.
+
+**D5a — Billing and payment are separate atomic events.**
+An invoice is one ledger event (revenue billed); each payment against it is its own ledger event (revenue collected), including partial payments. **Billed revenue = sum of invoice events; collected revenue = sum of payment events.** *Reasoning:* a binary "paid/unpaid" flag cannot represent partial collection and would overstate cash whenever an invoice is partly paid — precisely the error the architecture exists to prevent. Separate events let both billed and collected trace to their own real rows, so any figure references a verified number regardless of which one a calculation needs (Konji's 6% reads billed events; cash-on-hand reads payment/bank events). For this business, given manual CRM entry, the **Relay bank statements are the source of truth for collected cash** — payment events are reconciled to and governed by the bank, not the other way around. This is why bank consolidation (Follow-Up #9) gates the build: standing up the collected/cash view on unreconciled CRM payment data would rebuild the cash side on the very unstable base this architecture exists to escape.
+
+**D6 — Data layer vs. projection layer, separated.**
+The **data layer** (CSV files: actuals plus clearly-flagged estimates) is physically separate from the **projection layer** (the forward model). The projection layer may reference only (a) values derived from the data layer or (b) cells in a clearly-labeled assumptions file — it can never contain a hardcoded number. *Reasoning:* the owner no longer wants projections resting on an unstable base; making hardcoding structurally impossible is stronger than relying on discipline.
+
+**D7 — Model build method: generated workbook.**
+The source of truth is plain-text CSV data files; a Python script (`build_model.py`) reads them and generates the Excel workbook as output. *Reasoning:* Git can show human-readable diffs of every data change (impossible with a binary spreadsheet), the build is reproducible, and the projection layer cannot hardcode numbers. The workbook is disposable output — if lost or corrupted, it is regenerated, not repaired. The one tradeoff (trusting generated output) is mitigated by D8. (This was chosen over the alternative of hand-maintaining a single `.xlsx`, which would preserve the binary-diff problem; the rejected alternative is logged in `HISTORY.md`.) The generated `financial-model.xlsx` is **gitignored, not committed**: it is build output, and tracking a binary that an agent regenerates frequently would pollute `git status`/diffs with per-build noise — the exact problem this architecture avoids. Reproducibility is guaranteed by a pinned `requirements.txt`, not by a stored (possibly stale) binary. Dated `.xlsx` snapshots are committed to `reference/` **only** at genuine milestones — deliberate, append-only artifacts, never per-build. (A future option, not adopted now: a CI action that builds on push and attaches the workbook as a downloadable artifact.)
+
+**D8 — Self-reconciliation tab (scope stated honestly).**
+The generated workbook includes a tab that checks its generated totals against source figures and flags mismatches. **What it can verify:** revenue (against CRM revenue exports) and collected cash (CRM payment events reconciled against the Relay bank statements, which are the cash source of truth per D5a). **What it cannot yet verify:** itemized fixed overhead and materials/fuel, because the CRM expense taxonomy is only four coarse buckets and per-job cost data does not yet exist. For overhead to be reconcilable, the underlying contract figures must be added to `reference/` (see Section 6 item I). *Reasoning:* closes the loop between "reproducible" and "verified" where source data exists — and states plainly where it does not, so the self-check is not mistaken for full coverage.
+
+**D9 — Tooling: lean now, heavyweight orchestration later.**
+Use GitHub + Claude Code in VS Code (via Codespaces), with Git operated through VS Code's built-in Source Control panel (no separate desktop Git client). Write a **lean, project-specific `CLAUDE.md`** now. The Ruflo / claude-flow multi-agent orchestration harness (owner to confirm the exact current tool names before relying on them) is used only as a **structural reference** for what a good `CLAUDE.md` can contain; its full apparatus is deferred until a task actually justifies parallel agents. *Reasoning:* match tool weight to problem weight — a small ledger-and-docs repo maintained by a beginner does not need a multi-agent swarm harness, and some orchestration-harness default directives (e.g., an instruction not to proactively create documentation) would conflict with this project's documentation-first nature.
+
+**D10 — RAG readiness now, adoption on trigger.**
+Keep the repository "retrieval-ready" through structural conventions (plain text, clean sections, front-matter metadata, atomic well-named files) that cost nothing extra. RAG (retrieval-augmented generation) is the pattern of storing documents in a searchable index and retrieving only relevant pieces at query time; a vector database enables semantic (meaning-based) rather than keyword search. Adopt an actual vector database only when a real trigger fires (the accumulated corpus outgrows the context window, or cross-log semantic search becomes a recurring need). Keep the choice tool-agnostic — do not lock into RuVector (a Ruflo subsystem) early. *Reasoning:* same weight-matching logic as D9, applied to retrieval infrastructure.
+
+---
+
+## 5. Standing Rules & Engagement Preferences
+
+**Operating rules (govern all work):**
+1. **Prompt before editing any repository file.** When a file is accessed in the course of answering, ask before modifying it. This matters increasingly as the business and timeline evolve away from initial predictions.
+2. **Review all files for staleness during check-ins or any plan revision.** Sequencing/timeline files especially will drift from initial predictions as action items are carried out; keep them aligned to current progress.
+3. **Verify quantitative structure before reasoning on it.** Before using any figure from the model (or any quantitative file) to support a conclusion, trace how it is actually computed — read the formulas and the cells they reference, not the displayed values. Do not infer a model's internal logic from memory, from what it "should" do, or from a verbal description; confirm it against the file. If a needed number is not explicitly modeled, say so and state what cannot be determined from the file alone. Never substitute a plausible assumption for a verified fact and present it as established. When needed information lives outside the available files, flag that and propose how to retrieve it before proceeding. **A confident wrong answer is worse than a flagged gap — surface uncertainty first, reason second.**
+
+**Engagement preferences (how to communicate):**
+- Layered answers: **direct answer first, then reasoning.** Formal, academic, analytical, educational tone. No motivational language, fluff, or shallow summaries. Optimize for precision, nuance, completeness, and learning value over speed.
+- No hallucination or false certainty. Surface assumptions, tradeoffs, risks, and counterarguments. Prefer evidence-based reasoning; use consensus reasoning where evidence is limited. Use web research for high-stakes factual claims, vet sources, and note conflicts.
+- Beginner-friendly explanations that still push toward expert depth. Concise step-by-step reasoning where helpful. **Iterative collaboration is preferred over one-shot comprehensive dumps.**
+- Actively support the owner's goal of improving at AI use: better prompting, better questions, iterative refinement, token efficiency. Teach **engineering-first thinking** (structure first, then function). During ideation/brainstorming, do extra independent thinking and **push back or offer alternative directions** rather than reflexively agreeing.
+
+---
+
+## 6. Phase 1 Queue — Reconciliation & Setup (Decided, Not Yet Applied)
+
+**These are finalized decisions and preparation tasks not yet written into the files. Complete this queue after repository setup and BEFORE the model rebuild.** The model rebuild (item E) is the *result* of this queue and is sequenced separately in Section 10 — it is not performed partway through the list. Each file edit is done inside the repository (after the baseline import) so it is captured as a reviewable Git diff.
+
+- **A. Import the strategy documents (already Markdown).** `Strategic_Plan_2026-2027.md` → `strategy/strategic-plan.md` and `Operational_Toolkit.md` → `strategy/operational-toolkit.md`. *These arrive as Markdown (the source Word files were exported to Markdown outside the repo), so no in-repo Word conversion is needed — import as-is and kebab-case rename, exactly like the timeline and check-in template.* Commit them as part of the unedited baseline *before* applying items B–D, so the "before" state is preserved in history.
+- **B. Update the Execution Timeline.** Mark the Konji crew-lead tripwire **resolved** (accepted late June 2026, terms finalized ahead of the ~July 7 deadline); mark the **backup-lead search as now active**; add a **Job Costing activation anchor for end of July 2026**; correct the **GBP status** to "active, but no reviews and no leads"; note there is **no residual Konji family-conversation gate**; add the **auto-insurance / Konji-as-insured-driver decision point** (see item J).
+- **C. Update the Strategic Plan.** Replace the placeholder crew-lead compensation line in the Labor & Org section with Konji's finalized structure (D4); check off the "weekday crew lead secured" item in the Owner Transition checklist.
+- **D. Update the Assumptions Log.** Xavier payout: amount **~$1,800 (exact figure not yet confirmed)**, **unpaid**, **demand-triggered for late winter** (only once reserve + cushion are intact), status "Track" — NOT resolved. (A June-16 CRM entry for this is an *accrual reminder that we owe it*, not a cash disbursement; no cash has moved.) *Reconciling the two characterizations:* the arrangement has **no fixed contractual due date** (so it is treated as equity — held off the cash projection — for cash-buffer purposes), yet carries an **intended late-winter payout subordinate to reserves** (so it appears as a contingent ~Q1-2027 outflow in the forward view once reserve + cushion are intact). Both are true; they are not in conflict. Starting-cash anchor: update from the $1,500 planning guess to **$1,400 (2026-07-01 operating-account reading)**, tagged **interim ESTIMATE, not a firm anchor** — it is a single-account figure that the Relay consolidation (Section 10 step 5 / Follow-Up #9) supersedes with the full cash picture. Do not book it as a locked ACTUAL.
+- **F. Reconcile the stale revenue anchor.** The model's Jan–Jun revenue validation figure (`Assumptions!B43 = $9,562.71`, a billed-basis figure) was captured on 2026-06-17 and predates roughly two weeks of subsequently-recorded June invoicing. Current exports through 2026-07-01 show **$12,726.01 billed / $10,973.57 collected** (reconciled across the P&L, revenue-by-customer, and sales-tax reports). Supersede B43 during the rebuild; do not treat it as current. *Surcharge caveat:* the $12,726.01 is **gross of the ~6% invoice surcharge** pending Follow-Up #10 — if the $701.44 surcharge sits *inside* this figure rather than on top, both this anchor and the billed base for Konji's 6% are overstated (by up to ~$701 and ~$42 respectively over the half-year). Carry the anchor and the 6% base as gross-of-surcharge until #10 resolves the composition. *Note:* the increment (~$3,163 — about 25% of the $12,726 half-year total, or ~33% on top of the prior $9,562.71 figure) landed in the ledger within ~two weeks, itself direct evidence that "billed" is a lagging, unreliable cash proxy — reinforcing D5a.
+- **G. Write `CLAUDE.md`** per the specification in Section 8.
+- **G2. Write `SETUP.md`** per the specification in Section 8 — the standalone new-Codespace environment guide.
+- **G3. Write `README.md` and `HISTORY.md`.** `README.md` is the repository map / entry point. `HISTORY.md` is the master append-only audit log (spec in Section 8). Seed `HISTORY.md` with the decisions and events already recorded in this document so the audit trail starts populated, not empty. Include one `DECISION` entry recording the **cross-reference-legibility review check** (Section 8): basis — three external review rounds of this document in which every surviving defect was cross-reference/join drift, not content error.
+- **G4. Author the build-config files** — `.gitignore` (excluding `financial-model.xlsx` and transient build artifacts) and `model/requirements.txt` (pinned dependencies, e.g. openpyxl). **`requirements.txt` is created here, once** — the build step (E) only *appends* any further dependencies `build_model.py` turns out to need; it does not re-create the file. `.gitignore` must exist before the first build (step 6) so D7's gitignore rule holds on the first generated workbook.
+- **H. Record the truck expense entry.** A $5,000 "New Equipment" CRM entry (April 13) is a **retroactive record of an already-owned asset** (the existing F-150) added to make the year-to-date P&L more accurate — it is **not a new capital outflow**. Do not model it as a future cash event.
+- **I. Source itemized overhead.** Add the actual contract figures behind fixed overhead (insurance, workers' comp, commercial auto, payroll provider, CRM subscription) as a small sourced data file in `reference/`, so those figures trace and can be reconciled by D8. The equipment-maintenance line is an **allocation** — and an allocation requires a base and a method (e.g., a flat $X/month, or Y% of the truck's book value). Until that base and method are stated, it is **BLOCKED**, not a silently-modeled figure; once a basis is defined it becomes an **ESTIMATE** carrying that stated basis. (Per Standing Rule 3 and D1, an allocation with no stated basis is exactly the kind of inference the rules forbid presenting as modeled.) *Commercial auto:* the current premium is an ACTUAL sourced here; the prospective increase from adding Konji as an insured driver is tracked separately as BLOCKED pending a quote (item J). Current = ACTUAL, increment = BLOCKED.
+- **J. Auto-insurance / Konji as insured driver.** Adding Konji to the drivers' policy raises the premium (**amount BLOCKED — requires an insurer quote; do not fabricate**). The current term ends **October 10, 2026**. This is a coverage/liability prerequisite, not a mere convenience: if Konji leads a truck-driving crew owner-absent while unlisted on the policy, a loss could be uninsured or a claim denied — a material liability exposure, distinct from the legality of driving itself (the precise legal/coverage characterization is **owner-to-verify with the insurer**, not asserted here). The timing decision (add before Oct 10 vs. wait) trades premium optimization against giving Konji enough supervised owner-absent reps before January 2027. Capture as a model input (BLOCKED pending quote) and a dated timeline decision point. *Scope:* Anais is already a listed insured driver and remains so — the same coverage logic applies to any driver operating owner-absent, so this policy question covers her as well, not only Konji.
+
+- **E. Rebuild the financial model** (sequenced in Section 10, after items B–D, F, H, I, J and after both pre-build gates — bank consolidation, Follow-Up #9, and revenue export-format + service mapping, Follow-Up #6) per the architecture in Section 9: atomic ledger with separate billing/payment events (D5a); itemized labor (D2); materials/fuel placeholder (D1); two-phase crew-lead cost (D4); reconciliation tab with honestly-scoped coverage (D8).
+
+---
+
+## 7. Open Follow-Up List
+
+Items the owner has explicitly flagged to work through in dedicated sessions. These are not yet scheduled or scoped.
+
+1. **Crew reduction** — letting go of workers who do not work consistently. (Related to #2.)
+2. **Time-tracking seat question** — the CRM has 10 prepaid time-tracking seats. The reliable core crew is ~4, but the total roster (including inconsistent / turnover workers) has at times exceeded available seats; the exact reconciliation, which workers to keep, and what the true tracked headcount should be are **deliberately unspecified here** and reserved for a post-transition session. Until resolved, full labor-actuals capture is limited, which is why D2's hours remain an estimate. (No headcount figure is asserted in this document pending that session.)
+3. **CRM "Revenue Forecast" page review** — the owner will share screenshots; the built-in forecast is not currently producing useful output.
+4. **Job Costing activation** — the mechanics of turning it on and logging materials/fuel per job (target: end of July 2026).
+5. **Konji door-to-door package** — business cards, an owner-led training session, a short pitch script with default answers to common questions, and address-based lead tracking (using the existing CRM lead-capture setup). Immediate priority is *starting* lead generation (fall mowing, leaf cleanup, ad-hoc project offers; spring pre-sell deferred to after the fall season). Rationale for urgency: time not spent on lead generation is irreversibly lost.
+6. **Revenue-by-service mapping** — map the raw CRM service entries to the consolidated ~16-item catalog (owner will assist; the mapping cannot be inferred from files alone). This session also resolves the exact raw-entry count. **Also determine the ideal CRM export format** — a flat transaction-line-item report (one row per date/customer/service/amount) is preferable to summary pivots, because it feeds the atomic ledger directly and resolves customer-vs-service classification at the line level. **This gates the first model build** (with a named partial path if deferred — revenue events entered with classification tagged `BLOCKED — unmapped`; see Section 9 and Section 10 step 5). To be worked through with the owner, not prescribed blind.
+7. **CRM expense-tracking convention** — whether to log whole orders or individual line items, given manual entry, including back-dating past obligations and forward-dating future ones. (Example: the $422.26 Home Depot order bundling sprayer, PPE, and tools.)
+8. **Model-P&L ↔ CRM-P&L reconciliation** — build a view cross-referencing the (more accurate) model-generated P&L against the CRM's P&L to reveal where the CRM's manual entries need correcting.
+9. **Bank-statement (Relay) consolidation** — the statements are fragmented across several account numbers, most of which are empty or dormant; consolidate, identify each account's purpose (operating / reserve / dormant), and integrate them as the cash-truth reconciliation source. **This is an early post-transition task and GATES the first model build** — the build waits for bank-verified cash rather than proceeding on CRM data alone — this is a hard gate, not a partial-path gate like #6, because #6 affects only how revenue is *classified* while #9 determines the *accuracy of cash itself*, which is bank-sourced (see D5a for the full reasoning). (Not to be started before the GitHub transition.)
+10. **Sales-tax / surcharge treatment** — the ~6% added to invoices (relative to property location) currently functions as a small buffer the business keeps, not remitted tax. Its correct booking (retained surcharge = revenue, vs. a true pass-through liability), how it appears in the statements, whether the $701.44 figure is inside or on top of the $12,726.01, and whether to *restructure* it are all **open** and reserved for a dedicated session. Until then, do not assert a treatment; in the interim, tag any tax-related figure as `BLOCKED — convention unverified`.
+11. **Anais compensation terms** — her canvassing rate and backup crew-lead rate are **not yet specified** (the strategic plan carries only placeholders). This does not affect D2's recurring-labor estimate (recurring-only, excludes canvassing), but any projection including canvassing spend or backup-lead coverage has an undefined input until these are set. Flagged here so the absence is intentional, not an omission; tag any such figure `BLOCKED` until the rates exist.
+12. **Business-account consolidation** — moving business tooling off personal/work identities onto dedicated business accounts, so the business's digital assets are cleanly owned and portable. (a) **GitHub:** `Tupelo-Ops` lives under a free GitHub account registered to the business email — *in progress now* (see runbook Phase 1). (b) **Claude:** migrate to a Claude subscription under the business email, business-paid (~$20/mo by the owner's estimate, roughly offsetting the Squarespace spend) — *future, non-urgent*; note that the owner's current personal Claude Pro is paid by a third party, so untangling that arrangement is a separate relationship/expense matter, not a technical one. Claude Code authentication is independent of the GitHub account, so (b) does not block (a).
+
+---
+
+## 8. File-Conversion Map, Repository Structure, and File Specifications
+
+**File-conversion map** (note: "import as-is" means *content* is unchanged; files are still relocated into subfolders and renamed to kebab-case per the repo convention):
+
+| Source file | Action | Repo destination | Reason |
+|---|---|---|---|
+| `CheckIn_Template.md` | Import as-is; rename | `check-ins/check-in-template.md` | Already Markdown; diffs cleanly |
+| `Execution_Timeline_2026-2027.md` | Import as-is; rename | `strategy/execution-timeline.md` | Already Markdown |
+| `Strategic_Plan_2026-2027.md` | Import as-is; rename | `strategy/strategic-plan.md` | Already Markdown; diffs cleanly |
+| `Operational_Toolkit.md` | Import as-is; rename | `strategy/operational-toolkit.md` | Already Markdown; diffs cleanly |
+| Homeworks CSV exports, the P&L report `report_profit_and_loss_2.pdf` (period: Jan 1 – Jul 1 2026), Relay bank statements | Import as-is | `reference/` | Raw source data; the audit trail / ground truth |
+| `Landscaping_Financial_Model_3.xlsx` | Decompose into CSV data + build script | `model/` | Per D7 |
+
+**File-naming convention:** all repository files use lowercase kebab-case (e.g., `execution-timeline.md`), except the conventional uppercase root files (`README.md`, `CLAUDE.md`, `CONTEXT.md`, `SETUP.md`, `HISTORY.md`). Original source filenames are not preserved inside the repo.
+
+**Repository structure:**
+
+```
+Tupelo-Ops/                # Repository name; lives under the business's own free GitHub account (registered under the business email — not the owner's personal or work account), so the repo is a clean business asset
+├── README.md              # Repository map and entry point
+├── CLAUDE.md              # Operating instructions for Claude Code (spec below)
+├── CONTEXT.md             # This document
+├── SETUP.md               # New-Codespace environment setup for this repo (spec below)
+├── HISTORY.md             # Master append-only audit log (spec below)
+├── strategy/              # strategic-plan.md, operational-toolkit.md, execution-timeline.md
+├── check-ins/             # check-in-template.md + dated check-in logs
+├── model/
+│   ├── data/              # Atomic ledger + assumption tables (CSV) — SOURCE OF TRUTH
+│   ├── build_model.py     # Generates the workbook from data/
+│   ├── requirements.txt   # Pinned Python dependencies (e.g., openpyxl) — the reproducibility guarantee
+│   └── financial-model.xlsx  # GENERATED OUTPUT — gitignored; regenerated on demand, never hand-edited
+├── reference/             # Raw source data (CRM exports, P&L report, bank statements, overhead contracts) — GROUND TRUTH, never edit; also holds dated .xlsx milestone snapshots (committed deliberately)
+└── .gitignore             # Excludes the generated workbook and transient build artifacts
+```
+
+**`CLAUDE.md` specification (lean, project-specific).** It must contain:
+- **Project identity** — a one-paragraph description of the business and the repository's purpose.
+- **Standing rules and engagement preferences** — Section 5, reworded as operating instructions for Claude Code (prompt before editing files; review for staleness during check-ins; verify quantitative structure before reasoning; never hardcode numbers into projections; flag gaps rather than guess).
+- **Architecture summary** — the ledger-and-derivation model (D5, D5a, D6) in brief.
+- **Model-update operating procedure** — explicit, step-by-step instructions (see the workflow in Section 9). When the owner asks for a change, Claude Code edits the *data or script*, regenerates the workbook, shows what changed, and pauses for review — it never hand-edits the generated `.xlsx`. **Confirmed default behavior:** (1) never hand-edit the generated workbook — fix the data or the script and regenerate; (2) after any data-file edit, immediately regenerate the workbook so data and workbook are never out of sync; (3) report what changed; (4) stop for owner review before committing — never auto-commit. The owner may override per-instance (e.g., "batch several edits before regenerating"), but this is the standing default.
+- **Ground-truth rule** — `reference/` contains raw source data (CRM exports, bank statements, overhead contracts) and is **never edited**; it is the source against which everything reconciles.
+- **File conventions** — plain text (Markdown/CSV) preferred; every quantitative row carries a status tag (`ACTUAL` / `ESTIMATE` / `BLOCKED`); estimates are always flagged; kebab-case naming.
+- **Cross-reference check on structured edits** — when editing or revising any multi-section document, verify the *joins*, not only the parts: after a change, confirm that a reader arriving at the changed section can reach any justification, dependency, or definition it relies on without already knowing where that lives (a reason stated in one section must be *pointed to* from the section where a reader would ask). Unlinked or contradictory cross-references — not wrong content — are the dominant failure mode of structured documents. This is a triggered check (it fires when editing structured docs), not an always-on rule.
+- **History-logging rule** — significant decisions, milestones, revisions, data changes, and tooling changes get one appended entry in `HISTORY.md` (the master log); per-file changelog tables are secondary convenience only.
+- **RAG-readiness conventions** — clean semantic sections, front-matter metadata (date, type, status, tags), atomic well-named files.
+- **Deferred tooling (stated affirmatively)** — this project runs a lean stack. Two capabilities are intentionally deferred: (a) multi-agent orchestration (Ruflo / claude-flow), per D9; and (b) a vector database / RAG retrieval layer (e.g., RuVector), per D10. State affirmatively that neither is in use, so the instruction holds regardless of any configuration outside the repository.
+
+**Correctness note — machine-global Claude Code context.** Claude Code supports a machine-global instruction file (commonly `~/.claude/CLAUDE.md`, in the user's home directory rather than the repository) whose contents can apply across repositories on that machine — including this one. *The exact path and precedence order are a product detail that can change, so confirm them against current Claude Code documentation rather than treating the behavior described here as fixed.* If a machine-global Ruflo context file (from the owner's other setup) exists, it could apply here too, silently reintroducing behavior this project has deferred. The repo-level `CLAUDE.md` should therefore state explicitly that Ruflo/RuVector behaviors are deferred *for this project*, in case a global file says otherwise. This is a genuine correctness item, not housekeeping — the kind of hidden cross-contamination that is hard to debug later. **First, check whether that global file is actually visible to this environment** (inspect `~/.claude/CLAUDE.md`); if it does not exist or contains nothing relevant, this concern does not apply and can be disregarded.
+
+**`SETUP.md` specification (new-Codespace environment setup, self-contained).** A dedicated, standalone guide the owner follows each time a fresh Codespace is opened. Written from scratch for this project; does not reference, derive from, or imply any external setup document. It must cover, at minimum:
+- **Verify the dev environment** — confirm `node`, `npm`, and `git` return version numbers in the terminal.
+- **Git identity** — set `user.name` and `user.email` so commits succeed (Codespaces do not always pre-populate these).
+- **Claude Code** — confirm it is installed and authenticated to the correct account; the Claude Code editor extension is assumed already present.
+- **Python + dependencies** — confirm Python is available, then install pinned build dependencies with `pip install -r model/requirements.txt` (e.g., openpyxl). Pinned versions — not a committed binary — are the reproducibility guarantee for the build.
+- **VS Code extensions** — install **Python (Microsoft)** (bundles **Pylance**) and **Rainbow CSV** (essential); optionally **GitLens** and an **Excel viewer** (recommended). Markdown preview is built into VS Code.
+- **Auto Save** — enable it so edits persist to the Codespace disk (persistence to GitHub still requires commit + push; a deleted/rebuilt Codespace loses uncommitted work).
+- **First-run sanity check** — a simple confirmation task proving the environment is healthy.
+Explicitly excluded: any Ruflo, claude-flow, RuVector, or multi-agent installation steps.
+
+**`HISTORY.md` specification (master append-only audit log).** A single chronological, append-only record — the canonical answer to "what changed, when, and why." It consolidates what would otherwise be a separate decision log (there is intentionally no separate `decisions/` file; decisions are one entry type here). Each entry carries:
+- **Date** · **Type** (`DECISION` / `MILESTONE` / `REVISION` / `DATA` / `TOOLING`) · **Stable ID** (e.g., `H-001`) · **Description** · **Reasoning/basis**.
+Filtering to `DECISION` entries yields the decision track alone. Ledger rows may cite a `HISTORY.md` entry ID in their `source_file`/`source` field, so a number can trace to the decision that justified it. `HISTORY.md` is canonical; the per-file changelog/revision tables already embedded in the strategy documents are retained as local convenience but are **secondary** — not the source of truth — to avoid drift.
+
+---
+
+## 9. Model Architecture Specification
+
+**Two layers.**
+- **Data layer** (`model/data/`, CSV, source of truth): the atomic ledger plus assumption tables. Contains actuals and clearly-flagged estimates only.
+- **Projection layer** (the forward model, generated into the workbook): references the data layer and labeled assumptions only; contains no hardcoded numbers.
+
+**Atomic ledger — proposed schema** (one row per atomic financial event):
+
+`date | type | event | category | subcategory | customer | quantity | unit_rate | amount | status | source`
+
+- `type` ∈ {revenue, labor, overhead, materials, capital}
+- `event` — for revenue, distinguishes an **invoice** (billed) from a **payment** (collected), per D5a, so partial payments represent themselves as their own rows. Billed = sum of invoice events; collected = sum of payment events. (For non-revenue types, `event` records the relevant sub-distinction or is left blank.)
+- `status` ∈ {ACTUAL, ESTIMATE, BLOCKED}
+- `source` — the raw export, bank statement, overhead contract, or `HISTORY.md` entry ID the row traces to.
+
+*Design note:* the earlier draft used a binary `paid_flag`; it was replaced by separate invoice/payment events because a boolean cannot represent partial collection and would overstate cash (the ~$1,752 billed-collected gap is real). This change is logged in `HISTORY.md`.
+
+**Derived views** (all generated by formula from the ledger): monthly P&L; plan-vs-actual; quarterly rollups; revenue by service; revenue by customer; blended labor rate (derived, never entered). A monthly total can honestly display its composition, e.g., "X total, of which Y ACTUAL and Z ESTIMATE."
+
+**What is real vs. estimated at build time:**
+- **Revenue** — traceable to CRM revenue exports as invoice/payment events. Full population depends on the flat transaction-line export and the service mapping (Follow-Up #6), which **gates the build** (Section 10 step 5). If the build begins before that session concludes, revenue events are entered with `category`/`subcategory` tagged `BLOCKED — unmapped` rather than guessed — a named partial path, not a silent gap. Collected events are cross-checked against Relay bank statements once consolidated (Follow-Up #9).
+- **Labor** — rates are real ($25 / $20); hours are the current estimate (D2) until time-tracking exists.
+- **Fixed overhead** — real once the contract figures are added to `reference/` (Section 6 item I); the equipment-maintenance line is **BLOCKED until an allocation base and method are stated** (then an ESTIMATE carrying that basis), not a silently-modeled ACTUAL.
+- **Materials/fuel** — placeholder (`$0`, BLOCKED) per D1 until Job Costing is on.
+- **Sales-tax / surcharge** — BLOCKED, convention unverified, per Follow-Up #10; do not book as revenue or liability until resolved.
+- **Capital events** — real, subject to the corrections in Section 6 (Xavier unpaid/demand-triggered per item D; truck entry not a new outflow per item H; auto-insurance increase BLOCKED pending quote per item J).
+
+**Reconciliation tab (D8):** compares generated **revenue and collected-cash** totals against CRM exports and Relay statements and flags mismatches. It does **not** verify itemized overhead or materials/fuel until those gain in-repo source data; the tab should state this scope on its face so its coverage is not overread.
+
+**The model-update workflow (the daily operating loop):**
+1. Edit a data file (e.g., add invoice/payment events).
+2. Run the build script (`python model/build_model.py`) from the VS Code terminal.
+3. The script regenerates `financial-model.xlsx` from the data.
+4. Inspect the workbook.
+5. Review the plain-text diff of the changed CSV in Source Control; write a short, descriptive commit message; commit.
+*The payoff:* every change to the business's numbers becomes a labeled, reversible, human-readable entry in a permanent history. Git functions as an infinite undo — committing often in small pieces means nothing committed can be permanently broken.
+
+**RAG-readiness (D10) — structural only, no build now.** Maintain the plain-text, clean-section, front-matter, atomic-file conventions. Trigger for adopting a vector database: the accumulated corpus (years of check-ins, job/client history) no longer fits comfortably in context, or recurring semantic search across many logs becomes necessary. Keep the eventual choice tool-agnostic.
+
+---
+
+## 10. Sequencing (High-Level)
+
+The granular, checkable runbook (every command and click, from repository creation through the first successful model build) is produced separately, after this document has been reviewed. High-level order:
+
+1. **Environment setup** — create the empty GitHub repository (named `Tupelo-Ops`, under the business's dedicated free GitHub account — registered under the business email, not the personal or work account); open it in a Codespace via VS Code Desktop. For the *first* bring-up, follow the inline environment checklist (verify `node`/`npm`/`git`; set git identity; confirm Claude Code auth; confirm Python and, once `model/requirements.txt` exists, install it; install extensions — **Python + Pylance and Rainbow CSV** essential, **GitLens** and an **Excel viewer** optional; the Claude Code editor extension is assumed present). `SETUP.md` (authored in step 3) captures this same procedure for *subsequent* new-Codespace sessions.
+2. **Populate the repository (baseline)** — *this begins with an **owner action**, not an executor action:* the source files live outside the Codespace (in the owner's local environment / prior workspace), so Claude Code cannot reach them until the owner **uploads** them. The owner uploads the enumerated source files (Section 8 conversion map — the two strategy `.md` docs, the `.xlsx`, the CRM CSV exports, the P&L report, and the Relay statements) into the working tree (e.g., a temporary `incoming/` folder). Then: import all files as-is (relocated + kebab-cased) — the strategy documents arrive as Markdown and need no conversion; place raw exports, the P&L report, and bank statements in `reference/`; add this `CONTEXT.md`. **Commit this unedited baseline** before applying any content changes, so the "before" state is in history.
+3. **Author repo files** — `CLAUDE.md`, `SETUP.md`, `README.md`, `HISTORY.md`, `.gitignore` (excluding `financial-model.xlsx`), and `model/requirements.txt` per Section 8 (seed `HISTORY.md` from this document's decisions/events).
+4. **Complete the Phase 1 reconciliation queue** — Section 6 items **B, C, D, F, H, I, J** (items A, G, G2, G3, G4 are already done in steps 2–3): the stale-file corrections, overhead sourcing, and truck/Xavier/insurance/revenue-anchor entries.
+5. **Clear the two pre-build gates** — both must be resolved before the build: (a) **bank-statement consolidation** (Follow-Up #9) — consolidate the Relay accounts and establish the full cash picture; and (b) **revenue export-format + service mapping** (Follow-Up #6) — obtain the flat transaction-line export and map services to the ~16-item catalog. If the mapping session is deferred, the build may proceed only via the named partial path (revenue classification tagged `BLOCKED — unmapped`, per Section 9), never by guessing classifications.
+6. **Build the model** (item E) — define the data-layer CSVs with separate invoice/payment events, write `build_model.py` (appending any new dependencies to the `requirements.txt` created in step 3, not re-creating it), generate the (gitignored) workbook, add the honestly-scoped reconciliation tab, validate against `reference/` (CRM revenue + bank cash).
+7. **Resume the check-in cadence** in the new environment.
+
+---
+
+*End of CONTEXT.md (revision 6). This document reflects decisions locked as of the sessions preceding the repository migration and is written to be intelligible without prior project context. Items explicitly deferred to post-transition sessions (tax treatment, time-tracking headcount/seat resolution, crew retention, CRM export format) are flagged as open rather than resolved, by design.*

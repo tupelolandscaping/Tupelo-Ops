@@ -1,0 +1,19 @@
+Date,Payee,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+7/30/2025,STRIPE,Receive,,"TRANSFER",SETTLED,+474.40,USD,2682.47
+7/25/2025,Copilot,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,2208.07
+7/25/2025,The Home Depot,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-21.41,USD,2347.07
+7/24/2025,Harbor Freight,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-37.08,USD,2368.48
+7/23/2025,STRIPE,Receive,,"TRANSFER",SETTLED,+994.53,USD,2405.56
+7/20/2025,Target,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-33.45,USD,1411.03
+7/15/2025,GUSTO,Spend,,"NET 198277 - Initiated By Unknown Payee",SETTLED,-534.40,USD,1444.48
+7/15/2025,GUSTO,Spend,,"TAX 198159 - Initiated By Unknown Payee",SETTLED,-106.49,USD,1978.88
+7/14/2025,Income,Receive-transfer,,"Transfer",SETTLED,+979.44,USD,2085.37
+7/14/2025,STRIPE,Receive,,"TRANSFER",SETTLED,+335.86,USD,1105.93
+7/7/2025,The Home Depot,Receive,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,+591.48,USD,770.07
+7/7/2025,The Home Depot,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-295.74,USD,178.59
+7/7/2025,The Home Depot,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-591.48,USD,474.33
+7/6/2025,Simply Business,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-26.25,USD,1065.81
+7/3/2025,GUSTO,Spend,,"FEE 815411 - Initiated By Unknown Payee",SETTLED,-94.00,USD,1092.06
+7/2/2025,GUSTO,Spend,,"TAX 696820 - Initiated By Unknown Payee",SETTLED,-255.41,USD,1186.06
+7/2/2025,GUSTO,Spend,,"NET 697004 - Initiated By Unknown Payee",SETTLED,-1238.88,USD,1441.47
+7/2/2025,SQSP* INV188401558,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-172.80,USD,2680.35

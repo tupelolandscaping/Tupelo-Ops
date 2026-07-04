@@ -1,0 +1,19 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+5/31/2026,USAA CLASSIC CHECKING,3551,Spend,,"ACH Push - Sent By Cyrus Beauvais",SETTLED,-244.97,USD,1415.94
+5/30/2026,USAA CLASSIC CHECKING,3551,Spend,,"ACH Push - Sent By Cyrus Beauvais",SETTLED,-478.85,USD,1660.91
+5/28/2026,GUSTO,,Spend,,"NET 092796 - Initiated By Unknown Payee",SETTLED,-84.27,USD,2139.76
+5/28/2026,GUSTO,,Spend,,"TAX 093207 - Initiated By Unknown Payee",SETTLED,-14.60,USD,2224.03
+5/27/2026,GUSTO,,Spend,,"TAX 032222 - Initiated By Unknown Payee",SETTLED,-174.75,USD,2238.63
+5/27/2026,GUSTO,,Spend,,"NET 031446 - Initiated By Unknown Payee",SETTLED,-1008.53,USD,2413.38
+5/26/2026,Income,8735,Receive-transfer,,"Transfer",SETTLED,+3000.00,USD,3421.91
+5/25/2026,Copilot,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,421.91
+5/20/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+124.89,USD,560.91
+5/18/2026,Katie Wheelbarger,,Receive,,"Lawn Care",SETTLED,+50.00,USD,436.02
+5/18/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+183.06,USD,386.02
+5/14/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+162.68,USD,202.96
+5/13/2026,GUSTO,,Spend,,"TAX 450075 - Initiated By Unknown Payee",SETTLED,-314.53,USD,40.28
+5/13/2026,GUSTO,,Spend,,"NET 455062 - Initiated By Unknown Payee",SETTLED,-1744.41,USD,354.81
+5/12/2026,Income,8735,Receive-transfer,,"Transfer",SETTLED,+1371.22,USD,2099.22
+5/6/2026,Simply Business,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-33.75,USD,728.00
+5/5/2026,GUSTO,,Spend,,"FEE 118729 - Initiated By Unknown Payee",SETTLED,-115.00,USD,761.75
+5/5/2026,USAA CLASSIC CHECKING,3551,Spend,,"ACH Push - Sent By Cyrus Beauvais",SETTLED,-304.11,USD,876.75

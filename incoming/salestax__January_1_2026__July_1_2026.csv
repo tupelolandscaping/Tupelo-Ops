@@ -1,0 +1,21 @@
+﻿"Tax Rate","Total Sales","Taxable Amount","Discount","Tax Amount"
+"0.00%","$334.00","$0.00","$0.00","$0.00"
+"6.00%","$12,392.02","$11,690.58","$0.00","$701.44"
+
+
+Sales Tax Summary
+"","Total Sales","Taxable Amount","Discount","Tax Amount"
+"","$12,726.02","$11,690.58","$0.00","$701.44"
+
+
+Sales Tax Summary
+"Taxable"
+"Total Sales"
+"$12,726.02","Taxable Amount"
+"$11,690.58","Discount"
+"$0.00","Tax Amount"
+"$701.44","Not Taxable"
+"Processing Fees"
+"$0.00","Late Fees"
+"$0.00","TOTAL"
+"$12,726.02",

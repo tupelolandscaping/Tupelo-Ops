@@ -1,0 +1,6 @@
+Date,Payee,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+5/31/2025,USAA CLASSIC CHECKING,Spend,,"ACH Push - Sent By Cyrus Beauvais",SETTLED,-140.00,USD,239.67
+5/25/2025,USAA CLASSIC CHECKING,Spend,,"ACH Push - Sent By Cyrus Beauvais",SETTLED,-60.00,USD,379.67
+5/14/2025,Operating Expenses,Spend-transfer,,"Transfer",SETTLED,-500.00,USD,439.67
+5/14/2025,WOMEN LIFE FRE,Receive,,"BILL_PAY",SETTLED,+922.00,USD,939.67
+5/4/2025,Operating Expenses,Spend-transfer,,"Transfer",SETTLED,-15.00,USD,17.67

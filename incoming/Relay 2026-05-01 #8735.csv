@@ -1,0 +1,6 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+5/26/2026,Operating Expenses,3549,Spend-transfer,,"Transfer",SETTLED,-3000.00,USD,3.33
+5/26/2026,ANACOSTIA COMMUN,,Receive,,"Invoice 48 - ACBA",SETTLED,+2332.00,USD,3003.33
+5/26/2026,WOMEN LIFE FRE,,Receive,,"BILL_PAY",SETTLED,+671.33,USD,671.33
+5/12/2026,Operating Expenses,3549,Spend-transfer,,"Transfer",SETTLED,-1371.22,USD,0.00
+5/11/2026,WOMEN LIFE FRE,,Receive,,"BILL_PAY",SETTLED,+1371.22,USD,1371.22

@@ -1,0 +1,17 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+8/29/2025,GUSTO PAYROLL,,Receive,,"TAX 975662",SETTLED,+129.55,USD,1094.57
+8/28/2025,GUSTO,,Spend,,"TAX 781236 - Initiated By Unknown Payee",SETTLED,-129.54,USD,965.02
+8/28/2025,GUSTO,,Spend,,"NET 781457 - Initiated By Unknown Payee",SETTLED,-650.10,USD,1094.56
+8/27/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+1307.36,USD,1744.66
+8/26/2025,GUSTO,,Spend,,"TAX 725766 - Initiated By Unknown Payee",SETTLED,-129.55,USD,437.30
+8/26/2025,GUSTO,,Receive,,"Returned received ACH transaction #325604202 due to: Account has insufficient funds - Initiated By Unknown Payee",RETURNED,+650.23,USD,566.85
+8/26/2025,GUSTO,,Spend,,"NET 726010 - Initiated By Unknown Payee",SETTLED,-650.23,USD,-83.38
+8/26/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+81.19,USD,566.85
+8/25/2025,Copilot,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,485.66
+8/21/2025,JaLane Daschke,,Receive,,"Vacation Mowing",SETTLED,+42.40,USD,624.66
+8/21/2025,United States Treasury,,Receive,,"F-941 REF Employer's Quarterly Federal Tax Return",SETTLED,+22.39,USD,582.26
+8/17/2025,USAA CLASSIC CHECKING,3551,Spend,,"Chainsaw Equipment From Amazon - Sent By Cyrus Beauvais",SETTLED,-408.00,USD,559.87
+8/14/2025,GUSTO,,Spend,,"TAX 271384 - Initiated By Unknown Payee",SETTLED,-264.53,USD,967.87
+8/14/2025,GUSTO,,Spend,,"NET 271341 - Initiated By Unknown Payee",SETTLED,-1323.82,USD,1232.40
+8/6/2025,Simply Business,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-26.25,USD,2556.22
+8/5/2025,GUSTO,,Spend,,"FEE 980824 - Initiated By Unknown Payee",SETTLED,-100.00,USD,2582.47

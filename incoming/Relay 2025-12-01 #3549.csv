@@ -1,0 +1,9 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+12/25/2025,Copilot,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,1548.78
+12/17/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+386.79,USD,1687.78
+12/15/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+156.58,USD,1300.99
+12/9/2025,Employers Insura,,Spend,,"Employers Insura  |  debitpmt |  #541743968 - Initiated By Unknown Payee",SETTLED,-544.00,USD,1144.41
+12/6/2025,Simply Business,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-33.75,USD,1688.41
+12/4/2025,GUSTO,,Spend,,"TAX 597175 - Initiated By Unknown Payee",SETTLED,-132.65,USD,1722.16
+12/4/2025,GUSTO,,Spend,,"NET 597799 - Initiated By Unknown Payee",SETTLED,-665.84,USD,1854.81
+12/3/2025,GUSTO,,Spend,,"FEE 528183 - Initiated By Unknown Payee",SETTLED,-109.00,USD,2520.65

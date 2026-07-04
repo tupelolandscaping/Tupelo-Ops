@@ -1,0 +1,25 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+6/27/2026,Giant Food,,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-17.96,USD,230.85
+6/26/2026,The Home Depot,,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-106.90,USD,248.81
+6/26/2026,The Home Depot,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-315.36,USD,355.71
+6/25/2026,HOMEWORKS SOFTWARE,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-299.00,USD,671.07
+6/23/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+311.41,USD,970.07
+6/22/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+121.94,USD,658.66
+6/20/2026,HOMEWORKS SOFTWARE,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-25.47,USD,536.72
+6/18/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+168.70,USD,562.19
+6/17/2026,GUSTO,,Spend,,"NET 108429 - Initiated By Unknown Payee",SETTLED,-2018.88,USD,393.49
+6/17/2026,GUSTO,,Spend,,"TAX 107912 - Initiated By Unknown Payee",SETTLED,-442.37,USD,2412.37
+6/16/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+268.62,USD,2854.74
+6/15/2026,Income,8735,Receive-transfer,,"Transfer",SETTLED,+735.15,USD,2586.12
+6/10/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+481.23,USD,1850.97
+6/8/2026,Barbara Jyachosky,,Receive,,"Spring Cleanup 6/3-6/6",SETTLED,+667.80,USD,1369.74
+6/8/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+121.23,USD,701.94
+6/6/2026,Simply Business,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-33.75,USD,580.71
+6/5/2026,ARLINGTON COUNTY,,Spend,,"ARLCO PMT - Initiated By Unknown Payee",SETTLED,-58.95,USD,614.46
+6/5/2026,ARLINGTON COUNTY,,Spend,,"ARLCO PMT - Initiated By Unknown Payee",SETTLED,-33.00,USD,673.41
+6/5/2026,GUSTO,,Spend,,"TAX 660870 - Initiated By Unknown Payee",SETTLED,-120.64,USD,706.41
+6/5/2026,GUSTO,,Spend,,"NET 660260 - Initiated By Unknown Payee",SETTLED,-696.32,USD,827.05
+6/5/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+451.87,USD,1523.37
+6/4/2026,The Home Depot,,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-107.59,USD,1071.50
+6/4/2026,USAA CLASSIC CHECKING,3551,Spend,,"ACH Push - Sent By Cyrus Beauvais",SETTLED,-121.85,USD,1179.09
+6/2/2026,GUSTO,,Spend,,"FEE 459007 - Initiated By Unknown Payee",SETTLED,-115.00,USD,1300.94

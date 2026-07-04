@@ -1,0 +1,13 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+11/25/2025,Copilot,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,2629.65
+11/21/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+81.19,USD,2768.65
+11/19/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+1779.47,USD,2687.46
+11/18/2025,GUSTO,,Spend,,"NET 996831 - Initiated By Unknown Payee",SETTLED,-205.47,USD,907.99
+11/18/2025,GUSTO,,Spend,,"TAX 985266 - Initiated By Unknown Payee",SETTLED,-40.97,USD,1113.46
+11/13/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+235.01,USD,1154.43
+11/10/2025,STRIPE,,Receive,,"TRANSFER",SETTLED,+244.18,USD,919.42
+11/6/2025,Simply Business,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-33.75,USD,675.24
+11/4/2025,GUSTO,,Spend,,"TAX 431237 - Initiated By Unknown Payee",SETTLED,-92.27,USD,708.99
+11/4/2025,GUSTO,,Spend,,"NET 431244 - Initiated By Unknown Payee",SETTLED,-462.97,USD,801.26
+11/4/2025,GUSTO,,Spend,,"FEE 438866 - Initiated By Unknown Payee",SETTLED,-115.00,USD,1264.23
+11/4/2025,Income,8735,Receive-transfer,,"Transfer",SETTLED,+456.65,USD,1379.23

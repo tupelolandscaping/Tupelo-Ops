@@ -1,0 +1,13 @@
+Date,Payee,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+5/27/2025,GUSTO,Receive,,"INV 264893",SETTLED,+100.00,USD,326.17
+5/23/2025,GUSTO,Spend,,"NET 224927 - Initiated By Unknown Payee",SETTLED,-169.42,USD,226.17
+5/23/2025,GUSTO,Spend,,"TAX 224928 - Initiated By Unknown Payee",SETTLED,-33.77,USD,395.59
+5/21/2025,Business File,Receive,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,+84.00,USD,429.36
+5/15/2025,GUSTO,Spend,,"FEE 923930 - Initiated By Unknown Payee",SETTLED,-158.00,USD,345.36
+5/14/2025,Income,Receive-transfer,,"Transfer",SETTLED,+500.00,USD,503.36
+5/7/2025,GUSTO,Receive,,"Returned received ACH transaction #289539419 due to: Account has insufficient funds - Initiated By Unknown Payee",RETURNED,+158.00,USD,3.36
+5/7/2025,GUSTO,Spend,,"FEE 598582 - Initiated By Unknown Payee",SETTLED,-158.00,USD,-154.64
+5/6/2025,Simply Business,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-26.25,USD,3.36
+5/5/2025,GUSTO,Receive,,"Returned received ACH transaction #288884623 due to: Account has insufficient funds - Initiated By Unknown Payee",RETURNED,+158.00,USD,29.61
+5/5/2025,GUSTO,Spend,,"FEE 563163 - Initiated By Unknown Payee",SETTLED,-158.00,USD,-128.39
+5/4/2025,Income,Receive-transfer,,"Transfer",SETTLED,+15.00,USD,29.61

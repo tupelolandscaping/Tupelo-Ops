@@ -1,0 +1,210 @@
+# Execution Timeline — Arlington Landscaping (Tupelo Landscaping LLC)
+
+**Horizon:** Late June 2026 → June 2027
+**Companion to:** One-Year Strategic Plan, Operational Toolkit, Financial Model
+**Cadence:** Biweekly through December 2026 (high-activity, hard December gates); monthly January–June 2027 (owner-remote, slower)
+
+> This is a **living instrument**, not a fixed schedule. It is recalibrated against real Homeworks data at the revision points below. Calendar-anchored items carry dates because they expire, gate something downstream, or depend on the owner's physical presence. Demand-triggered items deliberately carry **no dates** — they float against conditions and live on the watch list, not the calendar.
+
+---
+
+## Legend
+
+| Tag | Meaning |
+|---|---|
+| **[ANCHOR]** | Calendar-anchored task — date matters (expires, gates, or owner-presence-dependent) |
+| **[GATE]** | Hard precondition — downstream work cannot proceed until this is true |
+| **[TRIP]** | Tripwire — a pre-committed "if X, then Y" decided in advance |
+| **[DT]** | Demand-triggered — no date; fires on a condition (see watch list) |
+| **[REV]** | Revision point — scheduled recalibration of this timeline and/or the model |
+| ✅ | Already resolved as of June 17, 2026 |
+
+---
+
+## Cash Buffer Policy
+
+- **Measure:** raw business **bank balance**, as of the check-in date. Patient, interest-free debt (Xavier, owner) is **not** netted out — it imposes no due date or interest, so it functions as equity for hedging purposes.
+- **Target buffer: $6,000**, held as two functional components within one balance:
+  - **$4,000 — business operating reserve.** Hard floor; hedges revenue stalls. Below this, scaling commitments *and* debt repayment freeze until restored.
+  - **$2,000 — truck hedge.** Shock absorber for the truck (repair / rental bridge / replacement). Has **priority claim** on accumulating cash once the $4k floor is secured — build it ahead of discretionary spend, because the truck risk is live now.
+- **Sequencing:** reach $4k (~Sept — scaling waypoint) → next ~$2k of accumulation funds the truck hedge → at $6k, steady state.
+- **Truck event:** draws down the $2k hedge first. A balance falling from ~$6k toward $4k on a truck event is **expected absorption, not a breach.** Only a drop below $4k trips the wire.
+- **Debt repayment (Xavier, owner):** only from cash *above* $6k, so the full buffer stays intact.
+- **Caveat:** this assumes the debt stays patient and non-callable. If any obligation becomes time-sensitive, revert to a netted view for that amount.
+
+---
+
+## Biweekly breakdown — July–December 2026
+
+### Late June 2026 (now → Jun 30)
+- **[ANCHOR]** Konji crew-lead conversation underway (started mid-June); decision targeted early July.
+- **[ANCHOR]** Start lead capture **today** — every door-knock outcome recorded and tagged in Homeworks (address, name, source, outcome tag, follow-up date). Every unrecorded knock is a permanently lost spring prospect.
+- **[ANCHOR]** Begin Homeworks activation: audit Growth-plan features; turn on **Job Costing**; begin building Rate Matrix, saved routes, custom visit forms.
+- **[ANCHOR]** Apply **+30% time buffer** to every new project quote, starting now.
+- **[ANCHOR]** Complete Google Business Profile; turn on automated review requests (reviews compound slowly — start now). Ask current/recent clients to seed reviews.
+- Confirm and document: only 18+ employees drive the truck; Homeworks time tracking on for any minors.
+- ✅ Transmission diagnostic — truck assessed; "fine for now, not worth repairing, replace when it fails." Resolved; replacement earmark + cushion remain.
+- ✅ Registered agent — resolved.
+
+### Jul 1–15
+- **[TRIP]** **Konji firm yes/no by ~July 7.** If yes → designate weekday crew lead, begin supervised apprenticeship. If no/unresolved by the deadline → backup-lead search escalates to active immediately, no further deliberation.
+- **[ANCHOR]** **Backup-lead search begins on the Konji decision** (front-loaded) — source and begin courting a redundant candidate in parallel.
+- Stand up referral program (give-get, ~$25–50/side) via Homeworks Customer Credits.
+- Continue lead capture and review seeding.
+
+### Jul 16–31
+- Backup-lead sourcing active; begin cross-training conversations.
+- **[GATE-build]** Homeworks **Rate Matrix** built — so the lead/Anais can quote without owner judgment.
+- Begin tracking the cash buffer against the planned cash curve — **raw bank balance, as of each check-in date** (see Cash Buffer Policy; patient debt is not netted).
+- **[REV] Revision Point 1 (late July):** first Homeworks P&L reconciliation once the P&L is current (~one month out). Test: does the model's collected-revenue assumption match what actually landed? Recalibrate timeline pace based on how fast June–July items closed.
+
+### Aug 1–15
+- **[ANCHOR]** Acquire electric blower + extra tarps (leaf-season revenue; regulation-compliant). Budget spare batteries + charging rotation.
+- Backup lead identified; begin cross-training reps.
+- Saved routes configured in Homeworks for all recurring clients.
+
+### Aug 16–31
+- Custom visit forms / quality SOPs encoded in Homeworks (quality enforceable remotely).
+- Supervised apprenticeship reps continue (lead + backup).
+- Reserve approaching $4,000 target.
+
+### Sep 1–15
+- **[GATE]** **Business reserve crosses $4,000 (~September)** — the precondition for any scaling or aggressive commitment. Until reached, no scaling commitments.
+- Once $4k is secured, the next ~$2k of accumulation funds the **truck hedge** (priority over discretionary spend) toward the $6k target buffer.
+- Lead-capture pool growing; reviews accumulating.
+
+### Sep 16–30
+- Apprenticeship deepening; lead running routes under supervision.
+- Begin drafting fall pre-sell materials (spring 2027 agreements, locked rates, no prepay).
+- Landing page / work-request form live (target Oct).
+
+### Oct 1–15
+- **[ANCHOR]** **Fall pre-sell push begins (Oct–Nov)** — sign spring 2027 mowing agreements while competition is low and owner can canvass. This compensates for the owner's spring absence.
+- **[ANCHOR]** Order yard signs + truck branding (lead time); deploy signs on serviced lawns as they arrive.
+- Electric blower in service — leaf-removal revenue.
+
+### Oct 16–31
+- **[GATE]** Backup lead **fully cross-trained** (redundancy established — not reliance on one person).
+- Pre-sell push continues.
+
+### Nov 1–15
+- **[TRIP]** **Owner→Lead transfer checklist ≥70% by Nov 1.** If below threshold → compress December items and pause all non-essential scaling to protect the handoff.
+- Yard signs deployed; truck branding live.
+- **[ANCHOR]** Build spring SMS/email campaign in Homeworks now; date-trigger it to fire in February (owner will be remote).
+
+### Nov 16–30
+- Build the truck-risk cash cushion (~$1,750).
+- Pre-sell push wrapping while owner still present.
+- Spring campaign loaded and scheduled; door-hanger for Anais designed.
+
+### Dec 1–15
+- Complete remaining Owner→Lead transfer items (pricing, scheduling, quality, comms, money-handling all converted to rules/routes/forms).
+- **[GATE]** Operating reserve + truck cushion fully funded (~$5.5–6K).
+- Final supervised apprenticeship reps with lead + backup.
+
+### Dec 16–31
+- **[GATE]** **Full transition checklist complete before January relocation** — hard deadline.
+- Final systems verification: Rate Matrix, saved routes, visit forms, automated invoicing/payments/review requests, spring automations scheduled, single intake channel + escalation path defined, weekly remote ops cadence set.
+- **[REV] Revision Point 2 (late December):** pre-departure full review. Confirm every "must be true before owner leaves" item; resolve gaps now, not in January.
+
+---
+
+## Monthly breakdown — January–June 2027 (owner remote until ~mid-May)
+
+### January 2027
+- **[ANCHOR]** Owner relocates.
+- Winter trough runs near break-even, absorbed by the reserve — **expected, not alarming.**
+- Weekly remote ops cadence begins: routes, cash, complaints.
+
+### February 2027
+- **[ANCHOR]** Spring campaign **fires** (automated re-outreach to captured leads: *interested-spring* + *has-service-declined* buckets) — runs remotely.
+- **[ANCHOR]** Anais weekend canvassing begins (branded door-hanger).
+- **[DT]** Activate paid ads (Local Services / Nextdoor) — *only once the free funnel is converting and reserve is intact.*
+
+### March 2027
+- **[DT]** Onboard new mowing cohort in controlled waves — *only as proven throughput allows.* Service the committed floor first.
+- **[DT]** Xavier equity payout (~March) — *only once reserve + cushion are intact and external obligations clear.*
+- Hold to signed agreements and locked rates; convert waitlist only as capacity permits.
+
+### April 2027
+- Spring cohort matures; weekday routes scale toward the ~$9K/month peak.
+- **[DT]** Evaluate second-crew equipment + transport — *only if route density saturates single-crew capacity.*
+
+### May 2027
+- **[ANCHOR]** Owner returns to Arlington (~mid-May) to lead peak season — first school-year handoff cycle completes.
+
+### June 2027
+- Review retention, margins, and CAC against plan.
+- **[REV] Revision Point 3 (June):** full-season recalibration. Re-run the financial model with a full season of Homeworks data; update the Assumptions Log (peak anchor, cohort size, margins, retention) with original-vs-revised values preserved.
+
+---
+
+## Demand-Triggered Watch List (no dates — fire on condition)
+
+| Item | Trigger condition |
+|---|---|
+| Second equipment set + transport | Single-crew capacity demonstrably saturates |
+| Paid ads (Local Services / Nextdoor) | Free funnel converting **and** reserve intact |
+| New cohort onboarding waves | Capacity confirmed (not optimism) |
+| Xavier payout | Reserve + cushion intact; external obligations cleared first |
+| Waitlist conversion | Proven throughput |
+
+---
+
+## Tripwire Register (pre-committed decisions)
+
+| Tripwire | Condition | Pre-committed action |
+|---|---|---|
+| Crew-lead decision | Konji has not given firm yes/no by ~July 7 | Backup-lead search escalates to active immediately |
+| Business-reserve floor | Bank balance drops below $4,000 | Freeze all scaling commitments *and* debt repayment until restored |
+| Handoff readiness | Owner→Lead checklist below 70% by Nov 1 | Compress December items; pause non-essential scaling |
+| Truck failure | Truck fails | Activate daily-rental contingency; fund from cushion (not re-planning — the plan anticipates this) |
+
+Keep this set small. Tripwires lose force if there are too many.
+
+---
+
+## Revision-Point Schedule
+
+| Point | When | Purpose |
+|---|---|---|
+| RP1 | Late July 2026 | First Homeworks P&L reconciliation (model vs. actuals); recalibrate timeline pace |
+| RP2 | Late December 2026 | Pre-departure full transition review |
+| RP3 | June 2027 | Full-season model recalibration; update Assumptions Log |
+
+(Interim adjustments happen at any check-in via the variance matrix; these are the scheduled, deliberate recalibrations.)
+
+---
+
+## Monthly Financial Targets — Reference (from the plan; *planning estimates, replace with actuals*)
+
+| Month | Revenue | Net profit | Cash (month-end) |
+|---|---|---|---|
+| Jul '26 | $4,140 | $876 | $2,376 |
+| Aug '26 | $4,595 | $1,049 | $3,424 |
+| Sep '26 | $5,455 | $1,375 | $4,399 |
+| Oct '26 | $5,430 | $1,366 | $5,765 |
+| Nov '26 | $4,085 | $855 | $6,620 |
+| Dec '26 | $2,560 | $276 | $6,897 |
+| Jan '27 | $1,235 | ($226) | $6,671 |
+| Feb '27 | $1,780 | ($3) | $6,668 |
+| Mar '27 | $4,175 | $991 | $6,159 |
+| Apr '27 | $6,825 | $2,148 | $8,307 |
+| May '27 | $8,880 | $3,080 | $11,387 |
+| Jun '27 | $9,180 | $3,194 | $14,580 |
+
+> Values reconciled to the financial model on 2026-06-17 (revenue unchanged; profit and cash recalculated after zeroing the completed diagnostic). These are the curves the reserve and revenue indicators are checked against. The figures most worth revisiting first: the weekday-growth ramp, the spring cohort size, and the starting-cash anchor (the $4,500 peak anchor is now validated against May '26 = $4,908).
+
+---
+
+## Changelog (version history — append, never overwrite)
+
+| Date | Change | From → To | Basis |
+|---|---|---|---|
+| 2026-06-17 | Initial timeline created | — | Phase 1 design |
+| 2026-06-17 | Crew-lead track front-loaded | Konji decision Aug → ~Jul 7; backup search Oct → early Jul | Owner input: Konji conversation started mid-June |
+| 2026-06-17 | Truck diagnostic + registered agent marked resolved | Open → ✅ | Owner input |
+| 2026-06-17 | Cash buffer policy finalized | Netted reserve → raw bank balance; $4k reserve + $2k truck hedge = $6k target | Owner input: patient/interest-free debt treated as equity; truck hedge prioritized |
+| 2026-06-17 | Monthly targets reconciled to model | Profit & cash rows updated to recalculated values; diagnostic zeroed (done) | Model recalculation |
+
+*Add a row each time a target, date, or assumption changes. Preserve the original value so a moving baseline is always visible.*

@@ -1,0 +1,23 @@
+Date,Payee,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+7/1/2025,Income,Receive-transfer,,"Transfer",SETTLED,+2677.56,USD,2853.15
+6/26/2025,SQSP* INV187658722,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-14.00,USD,175.59
+6/25/2025,Copilot,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,189.59
+6/20/2025,ZMT LTD.,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-15.85,USD,328.59
+6/17/2025,USAA CLASSIC CHECKING,Receive,,"ACH Pull",SETTLED,+211.00,USD,344.44
+6/17/2025,GUSTO,Spend,,"TAX 114670 - Initiated By Unknown Payee",SETTLED,-136.34,USD,133.44
+6/17/2025,GUSTO,Spend,,"NET 113820 - Initiated By Unknown Payee",SETTLED,-684.32,USD,269.78
+6/13/2025,GotPrint,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-100.13,USD,954.10
+6/13/2025,ARLINGTON COUNTY,Spend,,"ARLCO PMT - Initiated By Unknown Payee",SETTLED,-58.95,USD,1054.23
+6/13/2025,WEBHOSTMOST LLC,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-16.89,USD,1113.18
+6/12/2025,Income,Receive-transfer,,"Transfer",SETTLED,+265.33,USD,1130.07
+6/11/2025,GUSTO PAYROLL,Receive,,"TAX 864163",SETTLED,+111.16,USD,864.74
+6/10/2025,GUSTO,Spend,,"TAX 829301 - Initiated By Unknown Payee",SETTLED,-111.16,USD,753.58
+6/10/2025,GUSTO,Spend,,"NET 829300 - Initiated By Unknown Payee",SETTLED,-557.69,USD,864.74
+6/7/2025,Income,Receive-transfer,,"Transfer",SETTLED,+735.00,USD,1422.43
+6/6/2025,Simply Business,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-26.25,USD,687.43
+6/6/2025,Income,Receive-transfer,,"Transfer",SETTLED,+317.00,USD,713.68
+6/6/2025,GUSTO,Spend,,"TAX 769179 - Initiated By Unknown Payee",SETTLED,-111.16,USD,396.68
+6/6/2025,GUSTO,Receive,,"Returned received ACH transaction #299010590 due to: Account has insufficient funds - Initiated By Unknown Payee",RETURNED,+557.69,USD,507.84
+6/6/2025,GUSTO,Spend,,"NET 769178 - Initiated By Unknown Payee",SETTLED,-557.69,USD,-49.85
+6/4/2025,GUSTO,Spend,,"FEE 627371 - Initiated By Unknown Payee",SETTLED,-58.00,USD,507.84
+6/3/2025,Income,Receive-transfer,,"Transfer",SETTLED,+239.67,USD,565.84

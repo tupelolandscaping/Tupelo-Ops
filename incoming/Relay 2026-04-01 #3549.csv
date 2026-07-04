@@ -1,0 +1,19 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+4/25/2026,Copilot,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-139.00,USD,1180.86
+4/22/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+162.68,USD,1319.86
+4/21/2026,Income,8735,Receive-transfer,,"Transfer",SETTLED,+1107.70,USD,1157.18
+4/12/2026,EXXON AAR ENTERPRISES,,Spend,Unknown,"Corporate Card - 6007 (Business Card)",SETTLED,-4.06,USD,49.48
+4/9/2026,USAA CLASSIC CHECKING,3551,Spend,,"ACH Push - Sent By Cyrus Beauvais",SETTLED,-2200.00,USD,53.54
+4/8/2026,Income,8735,Receive-transfer,,"Transfer",SETTLED,+408.24,USD,2253.54
+4/8/2026,TUPELO LANDSCAPI,,Spend,,"ACCTVERIFY - Initiated By Unknown Payee",SETTLED,-0.56,USD,1845.30
+4/8/2026,STRIPE,,Spend,,"TRANSFER - Initiated By Unknown Payee",SETTLED,-38.16,USD,1845.86
+4/8/2026,TUPELO LANDSCAPI,,Receive,,"ACCTVERIFY",SETTLED,+0.30,USD,1884.02
+4/8/2026,TUPELO LANDSCAPI,,Receive,,"ACCTVERIFY",SETTLED,+0.26,USD,1883.72
+4/7/2026,GUSTO,,Spend,,"TAX 684576 - Initiated By Unknown Payee",SETTLED,-42.96,USD,1883.46
+4/7/2026,GUSTO,,Spend,,"NET 760444 - Initiated By Unknown Payee",SETTLED,-247.73,USD,1926.42
+4/7/2026,GUSTO PAYROLL,,Receive,,"TAX 793807",SETTLED,+5.37,USD,2174.15
+4/6/2026,Income,8735,Receive-transfer,,"Transfer",SETTLED,+2000.00,USD,2168.78
+4/6/2026,Simply Business,,Spend,Unknown,"Corporate Card - 6598 (Business Virtual Card)",SETTLED,-33.75,USD,168.78
+4/2/2026,GUSTO,,Spend,,"FEE 493383 - Initiated By Unknown Payee",SETTLED,-115.00,USD,202.53
+4/2/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+40.45,USD,317.53
+4/1/2026,STRIPE,,Receive,,"TRANSFER",SETTLED,+244.18,USD,277.08

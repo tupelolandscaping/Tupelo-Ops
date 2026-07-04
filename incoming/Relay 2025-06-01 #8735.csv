@@ -1,0 +1,14 @@
+Date,Payee,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+7/1/2025,Operating Expenses,Spend-transfer,,"Transfer",SETTLED,-2677.56,USD,0.00
+6/27/2025,WOMEN LIFE FRE,Receive,,"BILL_PAY",SETTLED,+2677.56,USD,2677.56
+6/12/2025,Operating Expenses,Spend-transfer,,"Transfer",SETTLED,-265.33,USD,0.00
+6/11/2025,WOMEN LIFE FRE,Receive,,"BILL_PAY",SETTLED,+265.33,USD,265.33
+6/7/2025,Operating Expenses,Spend-transfer,,"Transfer",SETTLED,-735.00,USD,0.00
+6/6/2025,Martha Picarello,Receive,,"Spring Clean-up - 21.78 Hrs",SETTLED,+675.00,USD,735.00
+6/6/2025,USAA CLASSIC CHECKING,Receive,,"ACH Pull",SETTLED,+60.00,USD,60.00
+6/6/2025,Operating Expenses,Spend-transfer,,"Transfer",SETTLED,-317.00,USD,0.00
+6/5/2025,Joel Beauvais,Receive,,"1513 23rd St S - Spring Clean-up - 10.03 Hrs",SETTLED,+317.00,USD,317.00
+6/3/2025,USAA FSB,Spend,,"USAA FSB  |  ACCTVERIFY |  13708809599 - Initiated By Unknown Payee",SETTLED,-0.48,USD,0.00
+6/3/2025,USAA FSB,Receive,,"ACCTVERIFY",SETTLED,+0.19,USD,0.48
+6/3/2025,USAA FSB,Receive,,"ACCTVERIFY",SETTLED,+0.29,USD,0.29
+6/3/2025,Operating Expenses,Spend-transfer,,"Transfer",SETTLED,-239.67,USD,0.00
