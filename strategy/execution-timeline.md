@@ -37,23 +37,24 @@
 ## Biweekly breakdown — July–December 2026
 
 ### Late June 2026 (now → Jun 30)
-- **[ANCHOR]** Konji crew-lead conversation underway (started mid-June); decision targeted early July.
+- ✅ **Konji crew-lead decision resolved (late June 2026)** — accepted; terms finalized ahead of the ~July 7 deadline (see D3/D4, `CONTEXT.md`).
 - **[ANCHOR]** Start lead capture **today** — every door-knock outcome recorded and tagged in Homeworks (address, name, source, outcome tag, follow-up date). Every unrecorded knock is a permanently lost spring prospect.
-- **[ANCHOR]** Begin Homeworks activation: audit Growth-plan features; turn on **Job Costing**; begin building Rate Matrix, saved routes, custom visit forms.
+- **[ANCHOR]** Begin Homeworks activation: audit Growth-plan features; begin building Rate Matrix, saved routes, custom visit forms.
 - **[ANCHOR]** Apply **+30% time buffer** to every new project quote, starting now.
-- **[ANCHOR]** Complete Google Business Profile; turn on automated review requests (reviews compound slowly — start now). Ask current/recent clients to seed reviews.
+- **[ANCHOR]** Google Business Profile active — currently generating no reviews and no leads; turn on automated review requests (reviews compound slowly — start now). Ask current/recent clients to seed reviews.
 - Confirm and document: only 18+ employees drive the truck; Homeworks time tracking on for any minors.
 - ✅ Transmission diagnostic — truck assessed; "fine for now, not worth repairing, replace when it fails." Resolved; replacement earmark + cushion remain.
 - ✅ Registered agent — resolved.
 
 ### Jul 1–15
-- **[TRIP]** **Konji firm yes/no by ~July 7.** If yes → designate weekday crew lead, begin supervised apprenticeship. If no/unresolved by the deadline → backup-lead search escalates to active immediately, no further deliberation.
-- **[ANCHOR]** **Backup-lead search begins on the Konji decision** (front-loaded) — source and begin courting a redundant candidate in parallel.
+- ✅ **Konji decision resolved ahead of the ~July 7 deadline** (late June 2026): accepted; designated weekday crew lead; supervised apprenticeship underway.
+- **[ANCHOR]** **Backup-lead search is active** (front-loaded; its gating Konji decision is resolved) — source and begin courting a redundant candidate in parallel.
 - Stand up referral program (give-get, ~$25–50/side) via Homeworks Customer Credits.
 - Continue lead capture and review seeding.
 
 ### Jul 16–31
 - Backup-lead sourcing active; begin cross-training conversations.
+- **[ANCHOR]** **Job Costing activated (target: end of July 2026)** — turn on per-job cost tracking in Homeworks so materials/fuel and labor can be attributed at the job level (clears the precondition for the D1 materials/fuel placeholder to be replaced with real data).
 - **[GATE-build]** Homeworks **Rate Matrix** built — so the lead/Anais can quote without owner judgment.
 - Begin tracking the cash buffer against the planned cash curve — **raw bank balance, as of each check-in date** (see Cash Buffer Policy; patient debt is not netted).
 - **[REV] Revision Point 1 (late July):** first Homeworks P&L reconciliation once the P&L is current (~one month out). Test: does the model's collected-revenue assumption match what actually landed? Recalibrate timeline pace based on how fast June–July items closed.
@@ -155,7 +156,7 @@
 
 | Tripwire | Condition | Pre-committed action |
 |---|---|---|
-| Crew-lead decision | Konji has not given firm yes/no by ~July 7 | Backup-lead search escalates to active immediately |
+| Crew-lead decision | **RESOLVED** (late June 2026) — Konji accepted, terms finalized, ahead of the ~July 7 deadline | Tripwire did not fire; backup-lead search proceeds on its own now-active track (see Jul 1–15) |
 | Business-reserve floor | Bank balance drops below $4,000 | Freeze all scaling commitments *and* debt repayment until restored |
 | Handoff readiness | Owner→Lead checklist below 70% by Nov 1 | Compress December items; pause non-essential scaling |
 | Truck failure | Truck fails | Activate daily-rental contingency; fund from cushion (not re-planning — the plan anticipates this) |
@@ -206,5 +207,6 @@ Keep this set small. Tripwires lose force if there are too many.
 | 2026-06-17 | Truck diagnostic + registered agent marked resolved | Open → ✅ | Owner input |
 | 2026-06-17 | Cash buffer policy finalized | Netted reserve → raw bank balance; $4k reserve + $2k truck hedge = $6k target | Owner input: patient/interest-free debt treated as equity; truck hedge prioritized |
 | 2026-06-17 | Monthly targets reconciled to model | Profit & cash rows updated to recalculated values; diagnostic zeroed (done) | Model recalculation |
+| 2026-07-05 | Staleness audit corrections: Konji crew-lead decision marked resolved (3 locations); backup-lead search marked active; GBP status corrected to active/no-reviews-no-leads; added Job Costing activation anchor (end of July 2026) | Pending/underway → Resolved/Active; to-do → active-with-caveat; anchor added | `CONTEXT.md` Section 6 item B |
 
 *Add a row each time a target, date, or assumption changes. Preserve the original value so a moving baseline is always visible.*
