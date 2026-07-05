@@ -14,7 +14,7 @@ Planning Horizon: July 2026 – June 2027
 
 **Current position.** The business is an Arlington, VA landscaping LLC operating at roughly a $40,000 annualized revenue run-rate in 2026 (up from ~$17,000 the prior year), with approximately six recurring clients plus project work. Calibrated against Jan–Jun 2026 Homeworks actuals, revenue is currently **~58% project work and ~42% maintenance** (largely two commercial accounts; residential recurring mowing is ~5% — the growth engine starts near zero). The business runs on one truck, a crew of ~4 reliable workers (high-school and gap-year), flat-rate pricing set from internal hourly estimates, and owner-led door-to-door acquisition. Cash on hand is **~$800 currently (a post-payroll reading)** against ~$5,300 in deferred, interest-free obligations, and financial tracking has been informal (Homeworks adoption began ~March 2026). The owner relocates out of state for college in January 2027 and returns each summer.
 
-**Objective.** The long-range ambition is ~$20,000/month, which the analysis establishes as a 2028-or-later horizon rather than a within-year target. Within this plan window (July 2026 – June 2027), the realistic and load-bearing objectives are twofold: roughly double peak monthly revenue to ~$9,000, and — more importantly — rebuild the business so it operates and grows without the owner physically present.
+**Objective.** The long-range ambition is ~$20,000/month, which the analysis establishes as a 2028-or-later horizon rather than a within-year target. Within this plan window (July 2026 – June 2027), the realistic and load-bearing objectives are twofold: roughly double peak monthly revenue toward ~$10,000 (anchored on the actual May 2026 peak of $4,908), and — more importantly — rebuild the business so it operates and grows without the owner physically present.
 
 **Core strategic logic.** The binding constraint is labor density and owner-dependence, not demand alone. The plan rests on three convergent moves. First, make **mowing the systematized, delegable, higher-margin growth engine** (it quotes, schedules, and trains more cleanly than project work), while holding project work as a reactive baseline served on demand. Second, build **owner-independent operations** before December — a remote-owner / local-crew-lead structure, Homeworks systematization, and a recruited weekday crew lead with redundancy. Third, capture the **spring 2027 recurring-mowing window** through fall pre-sells and acquisition channels that run without the owner on the ground.
 
@@ -22,7 +22,7 @@ Planning Horizon: July 2026 – June 2027
 
 # 2. Quarterly Goals & Milestones
 
-Targets below are derived from the accompanying financial model (reconciled 2026-06-17). They are **planning estimates to be replaced with Homeworks actuals** as data accumulates; the figures most worth revisiting first are now the weekday-growth ramp, the spring cohort size, and the starting-cash anchor (the peak anchor is validated; see Assumptions Log).
+Targets below are derived from the accompanying financial model (reconciled 2026-06-17). They are **planning estimates to be replaced with Homeworks actuals** as data accumulates; the figures most worth revisiting first are now the weekday-growth ramp, the spring cohort size, and the starting-cash anchor (the peak anchor is validated; see Assumptions Log). **Note (2026-07-05): the peak anchor is now the actual $4,908 and the objective ~$10,000; the quarterly target tables and any "~$9K peak" references below still derive from the 2026-06-17 model built on the $4,500 anchor, and will be regenerated against the updated anchor during the Phase 7 model rebuild — treat their values as superseded pending that rebuild.**
 
 ## Q3 2026 (Jul–Sep)
 
@@ -80,7 +80,7 @@ Targets below are derived from the accompanying financial model (reconciled 2026
 
 - New mowing cohort begins onboarding in controlled waves; service the conservative committed floor first.
 
-- Xavier equity payout (~March) once reserve and cushion are intact.
+- Xavier equity payout (~$1,800, unpaid, demand-triggered in late winter) once reserve and cushion are intact.
 
 - Hold to signed agreements and locked rates (no prepay); convert the waitlist only as proven throughput allows.
 
@@ -129,7 +129,7 @@ The target structure separates the owner’s remotely-performable functions (str
 | Role | Who | Location | Function | Comp |
 | --- | --- | --- | --- | --- |
 | Owner / GM | Owner | Remote | Strategy, pricing, remote quoting, scheduling, finances, escalations, digital acquisition | Retained profit |
-| Weekday crew lead | Konji or hire | Local | Drives, leads crew, quality control, on-site client, equipment | $25/hr + bonus |
+| Weekday crew lead | **Konji (secured)** | Local | Drives, leads crew, quality control, on-site client, equipment | $25/hr base + 6% rev share (Sep ’26–May ’27) + canvassing/winter terms (see below) |
 | Acquisition + backup driver | Anais | Local (wknd) | Weekend canvassing; emergency driving redundancy | $/hr + per-sale |
 | Backup lead | Recruited | Local | Redundancy; cross-trained | $25/hr leading |
 | Crew members | Pool | Local | Execute under lead | $20/hr |
@@ -138,7 +138,7 @@ The target structure separates the owner’s remotely-performable functions (str
 
 - **Crew member:** $20/hr. Crew lead: $25/hr base.
 
-- **Crew-lead retention incentive (proposed, adjustable):** a season-completion bonus of ~$1,200, paid if the lead reliably runs routes through the season and holds quality standards — or, alternatively, a ~5% profit share on routes run autonomously. The structure ties the marginal cost to the outcome you actually need (continuity), so it only materializes on delivery.
+- **Crew-lead compensation (Konji, finalized):** $25/hr base from day one; **6% revenue share on jobs he leads, September 2026 through end of May 2027**; canvassing at $15/hr plus $15 per fall client signed and $20 per spring client signed; winter business-side project work at $25/hr. Committed through end of May 2027, transitioning to fuller hours in March 2027 (no later than end of March). **After May 2027** the crew-lead position reverts to a generic cost line — $25/hr, no revenue share, no bonuses — built as a phase switch in the model.
 
 - **Member retention:** a referral bounty (~$25–50) when a member brings a friend who works a minimum number of shifts — turning the crew into the recruiting pipeline, which is essential once the owner cannot source labor in person.
 
@@ -203,7 +203,7 @@ Equipment is not the current constraint, and a riding mower is the wrong tool fo
 | 0 | Transmission diagnostic on the F150 — **done** | Cheapest insight on the biggest risk | Completed Jun ’26 | — |
 | 1 | Electric blower + extra tarps | Leaf-season revenue; regulation-compliant | Aug–Sep ’26 | $300–450 |
 | 2 | $6,000 cash buffer ($4k reserve + $2k truck hedge) | Precondition for scaling & departure | By Nov–Dec ’26 | $6,000 |
-| 3 | Xavier payout, then truck debt | Reserve intact; external before internal | 2027 | $1.5K / $3.8K |
+| 3 | Xavier payout, then truck debt | Reserve intact; external before internal | 2027 | ~$1.8K / $3.8K |
 | 4 | 2nd equipment set + transport | Single-crew capacity saturates | Spring–Sum ’27 | $1.5–3K+ |
 
 - **Truck contingency:** the 2008 F150 (~214k mi) was assessed and is fine for now, but not worth repairing — it is near end of reliable commercial life and should be replaced when the transmission fails. Primary contingency is a daily truck rental funded by the $2,000 truck hedge; schedule preventive maintenance in Homeworks; earmark replacement for 2027.
@@ -216,7 +216,7 @@ Everything below must be complete before the owner relocates in **January 2027**
 
 ## People
 
-- ☐ Weekday crew lead secured, with a written commitment and a defined decision deadline met.
+- ☑ Weekday crew lead secured — Konji accepted with finalized terms (late June 2026), ahead of the ~July 7 deadline.
 
 - ☐ Backup lead recruited and cross-trained (redundancy, not reliance on one person).
 
@@ -276,7 +276,7 @@ Every assumption underlying the plan and model, stated explicitly so it can be s
 
 | Assumption | Value | Basis | Status |
 | --- | --- | --- | --- |
-| Peak-month revenue anchor | $4,500 | Normalized peak; actual May ’26 = $4,908 | **Validated** |
+| Peak-month revenue anchor | $4,908 | Actual May ’26 peak (anchored on the real figure, not a normalized $4,500) | **Validated** |
 | Project / maintenance revenue split | 58 / 42 | Jan–Jun ’26 Homeworks actuals (was 80/20; maintenance is mostly 2 commercial accts) | Calibrated |
 | Residential recurring mowing share | ~5% | Growth engine starts near zero | Track |
 | Average client retention | ~3 years | Industry-typical estimate | **Revisit first** |
@@ -288,9 +288,9 @@ Every assumption underlying the plan and model, stated explicitly so it can be s
 | Existing / new mowing contribution margin | 42% / 52% | Domain 2 unit economics | Track |
 | Project contribution margin | 35% | Domain 2; 30% time underestimate | Track |
 | Project quote buffer | +30% | Observed underestimation | Apply now |
-| Fixed monthly costs | ~$695 | Itemized (insurance, workers’ comp, auto, payroll, CRM, maint.) | Stable |
+| Fixed monthly costs | ~$696.58 | Itemized from actual contracts (see reference/fixed-overhead.md); excludes equipment-maintenance, BLOCKED pending an allocation basis | Sourced |
 | Labor rates | $20 / $25 per hr | Member / lead | Stable |
-| Starting cash (Jul 2026 anchor) | $1,500 | Planning anchor; mid-June actual ~$800 post-payroll — confirm at first July check-in | **Revisit first** |
+| Starting cash (Jul 2026 anchor) | $1,400 | Interim ESTIMATE — 2026-07-01 operating-account reading (post-payroll); superseded by the full bank picture once Relay consolidation completes | **Revisit first** |
 | Cash buffer target | $6,000 (= $4,000 reserve + $2,000 truck hedge) | Raw bank balance; patient/interest-free debt treated as equity (not netted); truck hedge prioritized once $4k floor secured | Policy |
 | Top-3 client concentration | 79% (single client 42%) | Jan–Jun ’26 actuals | **Risk — monitor** |
 

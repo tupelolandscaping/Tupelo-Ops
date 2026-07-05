@@ -2,7 +2,7 @@
 
 Single chronological record of what changed, when, and why, for Tupelo-Ops. Consolidates decisions, milestones, revisions, data changes, and tooling changes into one log — there is no separate `decisions/` file. Filtering to `Type: DECISION` yields the decision track alone. Per-file changelog tables embedded in individual documents are secondary convenience only; this log is canonical. Entries are append-only — never edit or delete a past entry; if a decision is later reversed, add a new entry that supersedes it and cite the superseded ID.
 
-Entries are ordered chronologically where a date is known. Decisions carried over from the pre-migration synthesis without an individually recorded date are grouped by type at the end of the dated sequence, per `CLAUDE.md`'s history-logging convention.
+Dated entries are kept contiguous and chronological at the top. Undated entries follow, grouped by type; the foundational architecture/business decisions carried over from the pre-migration synthesis without an individually recorded date (D1–D10 and the cross-reference-check decision) are grouped in their own section at the end of the file, per `CLAUDE.md`'s history-logging convention.
 
 ---
 
@@ -32,9 +32,29 @@ Fixed-overhead contract figures (insurance, workers' comp, commercial auto, payr
 Baseline import committed (`2fc197b`, "baseline import — unedited source files in repo homes"): 100 files renamed/relocated into their repo homes with zero content changes — 85 Relay bank-statement CSVs plus 15 other files (6 CRM CSV exports, the P&L PDF, the source `.xlsx` workbook, `fixed-overhead.md`, and the 4 strategy/check-in Markdown docs, plus `CONTEXT.md` and `RUNBOOK.md` at root). The `incoming/` staging folder was removed once empty.
 *Basis:* `CONTEXT.md` Section 10 step 2; commit `2fc197b`.
 
+**H-021 · 2026-07-05 · REVISION**
+Reconciled `strategy/strategic-plan.md` to current ground truth: Konji's crew-lead compensation replaced the season-completion-bonus placeholder with his finalized terms ($25/hr base, 6% revenue share Sep '26–May '27, canvassing and winter project rates, phase-switch to a generic $25/hr line after May 2027), and the "weekday crew lead secured" checkbox was checked; the Xavier equipment-plan figure and Q1 milestone were corrected to ~$1,800, unpaid, demand-triggered in late winter (from the underspecified "~March" phrasing and the $1.5K equipment-plan placeholder); starting cash was corrected from the $1,500 planning guess to $1,400, tagged interim ESTIMATE pending Relay consolidation; the peak-revenue anchor was corrected from the normalized $4,500 to the actual May 2026 figure of $4,908, with the plan objective restated as ~$10,000 (from ~$9,000) and the quarterly target tables flagged as still derived from the superseded $4,500-anchor model, pending regeneration in the Phase 7 rebuild; and fixed monthly costs were updated from the ~$695 rough estimate to the sourced $696.58 itemized total (excluding equipment-maintenance, still BLOCKED).
+*Basis:* `CONTEXT.md` Section 6 items C (crew-lead comp + checklist), D (Xavier terms + starting-cash anchor), and I (sourced overhead); the peak-anchor/objective correction follows the same actual-May-2026-figure logic as the Section 3 objective statement. *Closes:* Section 6 item C in full; the strategic-plan-facing portions of items D and I (the Assumptions Log rows); the plan-side half of the peak-anchor correction (the model-side regeneration remains open, pending Phase 7).
+
 ---
 
-### Undated decisions (recorded as of the pre-migration synthesis; exact session dates not specified in `CONTEXT.md`)
+### Undated revision
+
+**H-019 · REVISION — Ledger schema: boolean `paid_flag` replaced by separate invoice/payment events.**
+An earlier draft of the atomic ledger schema used a binary `paid_flag`. It was replaced by distinct invoice (billed) and payment (collected) event rows, because a boolean cannot represent partial payment and would overstate cash — the ~$1,752 billed/collected gap in current data is real. This redesign is folded into D5a (H-012).
+*Basis:* `CONTEXT.md` Section 9, "Design note."
+
+---
+
+### Undated tooling
+
+**H-020 · TOOLING — Repository hosted under a dedicated business GitHub account.**
+`Tupelo-Ops` lives under a free GitHub account registered to the business email, not the owner's personal or work account, so the repository is a clean, portable business asset. In progress as of the GitHub transition.
+*Basis:* `CONTEXT.md` Section 7 item 12(a); Section 10 step 1.
+
+---
+
+### Undated foundational decisions (recorded as of the pre-migration synthesis; exact session dates not specified in `CONTEXT.md`)
 
 **H-007 · DECISION — D1: Materials/fuel explicit-zero placeholder.**
 Model materials and fuel as explicit `$0` lines tagged BLOCKED rather than back-solving an estimate, because no per-job categorized data exists yet.
@@ -83,19 +103,3 @@ Keep the repository retrieval-ready through free structural conventions (plain t
 **H-018 · DECISION — Cross-reference-legibility review check adopted.**
 `CLAUDE.md` and future structured-document edits are governed by a triggered check: verify that a reader arriving at a changed section can reach any justification, dependency, or definition it relies on without already knowing where it lives.
 *Basis:* three external review rounds of `CONTEXT.md` in which every surviving defect was cross-reference/join drift, not content error (`CONTEXT.md` Section 6 item G3).
-
----
-
-### Undated revision
-
-**H-019 · REVISION — Ledger schema: boolean `paid_flag` replaced by separate invoice/payment events.**
-An earlier draft of the atomic ledger schema used a binary `paid_flag`. It was replaced by distinct invoice (billed) and payment (collected) event rows, because a boolean cannot represent partial payment and would overstate cash — the ~$1,752 billed/collected gap in current data is real. This redesign is folded into D5a (H-012).
-*Basis:* `CONTEXT.md` Section 9, "Design note."
-
----
-
-### Undated tooling
-
-**H-020 · TOOLING — Repository hosted under a dedicated business GitHub account.**
-`Tupelo-Ops` lives under a free GitHub account registered to the business email, not the owner's personal or work account, so the repository is a clean, portable business asset. In progress as of the GitHub transition.
-*Basis:* `CONTEXT.md` Section 7 item 12(a); Section 10 step 1.
