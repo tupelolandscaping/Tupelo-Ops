@@ -83,6 +83,7 @@
 - **[ANCHOR]** **Fall pre-sell push begins (Oct–Nov)** — sign spring 2027 mowing agreements while competition is low and owner can canvass. This compensates for the owner's spring absence.
 - **[ANCHOR]** Order yard signs + truck branding (lead time); deploy signs on serviced lawns as they arrive.
 - Electric blower in service — leaf-removal revenue.
+- **[ANCHOR] Auto-insurance decision point (current 6-month term ends Oct 9, 2026):** decide whether to add Konji as an insured driver **before** the term ends — enabling insured owner-absent crew leadership and more supervised reps before the January 2027 relocation — or **wait** until renewal to optimize the current premium. Adding him is a coverage/liability prerequisite for owner-absent operation, not a convenience; the premium increase is **BLOCKED pending an insurer quote** (do not model a figure). Anais is already an insured driver and remains so — the same coverage logic covers any driver operating owner-absent. (See CONTEXT.md item J.)
 
 ### Oct 16–31
 - **[GATE]** Backup lead **fully cross-trained** (redundancy established — not reliance on one person).
