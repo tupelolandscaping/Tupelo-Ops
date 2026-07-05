@@ -40,6 +40,10 @@ Reconciled `strategy/strategic-plan.md` to current ground truth: Konji's crew-le
 Added an auto-insurance / Konji-insured-driver decision point to `strategy/execution-timeline.md`'s Oct 1–15 section, framing the before-vs-wait timing decision against the current 6-month term end (Oct 9, 2026).
 *Basis:* `CONTEXT.md` Section 6 item J. *Closes:* the timeline-facing portion of item J (adding the dated decision point); the premium-increase figure itself remains BLOCKED pending an insurer quote.
 
+**H-023 · 2026-07-05 · REVISION**
+Reconciled the "Initiate now" checklist in `strategy/operational-toolkit.md`: the single stale item ("open the crew-lead conversation with Konji... begin sourcing a backup") was split into two, each carrying its true current status — the Konji conversation marked resolved (finalized terms, late June 2026), and backup weekday-lead sourcing marked active — consistent with the corrections already made to the execution timeline and strategic plan.
+*Basis:* `CONTEXT.md` Section 6 item B (the same Konji-status reconciliation applied there).
+
 ---
 
 ### Undated revision

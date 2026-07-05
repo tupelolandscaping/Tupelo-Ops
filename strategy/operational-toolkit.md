@@ -70,7 +70,8 @@ Most setup items live in Homeworks — each section notes where.
 
 ## Initiate now (process, not one-and-done)
 
-☐ Open the crew-lead conversation with Konji and set a **decision deadline**; begin sourcing a backup weekday-lead candidate.
+☑ Crew-lead conversation with Konji — resolved (accepted with finalized terms, late June 2026).
+☐ Backup weekday-lead candidate — sourcing active (redundancy, not reliance on one person).
 
 # 2. Seasonal Service Agreement (Template)
 
