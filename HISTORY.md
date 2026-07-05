@@ -44,6 +44,14 @@ Added an auto-insurance / Konji-insured-driver decision point to `strategy/execu
 Reconciled the "Initiate now" checklist in `strategy/operational-toolkit.md`: the single stale item ("open the crew-lead conversation with Konji... begin sourcing a backup") was split into two, each carrying its true current status — the Konji conversation marked resolved (finalized terms, late June 2026), and backup weekday-lead sourcing marked active — consistent with the corrections already made to the execution timeline and strategic plan.
 *Basis:* `CONTEXT.md` Section 6 item B (the same Konji-status reconciliation applied there).
 
+**H-024 · 2026-07-05 · DATA**
+The Jan–Jun 2026 revenue anchor was superseded: the stale model figure `Assumptions!B43` is replaced by the current exports, to be used when the model is rebuilt. The billed anchor and Konji's 6% base are carried gross-of-surcharge pending the tax session (#10).
+*Basis:* `CONTEXT.md` Section 6 item F (the full instruction, figures, and surcharge caveat live there — this entry records the decision, not a duplicate of the numbers). *Status:* build-time instruction, open until the Phase 7 rebuild applies it and #10 resolves the surcharge composition.
+
+**H-025 · 2026-07-05 · DATA**
+The $5,000 "New Equipment" CRM entry (April 13) is recorded as a retroactive log of an already-owned asset (the existing F-150), not a new capital outflow — it must not be modeled as a future cash event in the rebuild.
+*Basis:* `CONTEXT.md` Section 6 item H. *Status:* build-time instruction for Phase 7.
+
 ---
 
 ### Undated revision
