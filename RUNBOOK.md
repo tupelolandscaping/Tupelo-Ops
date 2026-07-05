@@ -54,7 +54,7 @@
 - [ ] `Landscaping_Financial_Model_3.xlsx`
 - [ ] the CRM CSV exports — six files: services, expenses, revenue-by-customer, source, sales-tax, and the payment-type breakdown (the second "services" file, `services__..._1.csv`, which is actually a payment-method report)
 - [ ] the P&L report `report_profit_and_loss_2.pdf`
-- [ ] the Relay bank statements (all the `Relay_*.csv` files)
+- [ ] the Relay bank statements (all the `Relay YYYY-MM-DD #NNNN.csv` files — note spaces and a `#`, not underscores; some are marked `Relay (Partial) YYYY-MM-DD #NNNN.csv`)
 - [ ] `CONTEXT.md` (revision 6) and `RUNBOOK.md` (this file) — the two documents you're working from
 - [ ] 🧑 **Fixed-overhead contract figures** — the actual amounts behind insurance, workers' comp, commercial auto, payroll provider, and CRM subscription (a short file or note). These are **owner-supplied**: they are not in any CRM export (the CRM's expense buckets are too coarse — that is *why* Phase 5 item I needs them), and Claude Code must not invent them. If you don't have them yet, that's fine — but Phase 5 item I and the overhead portion of Phase 7 are blocked until you do.
 
@@ -109,7 +109,7 @@
 - [ ] **F — Revenue anchor:** supersede `B43 = $9,562.71` with the current $12,726.01 billed / $10,973.57 collected; carry the anchor and Konji's 6% base as **gross-of-surcharge** pending the tax session (#10).
 - [ ] **H — Truck entry:** record the $5,000 April entry as a retroactive log of an owned asset, **not** a new outflow.
 - [ ] **I — Overhead** (🧑 owner supplies figures + 🤖 writes them in): the fixed-overhead **contract figures are owner-supplied** (from Phase 2's upload) — Claude Code writes them into a sourced `reference/` file but must **not** invent or back-fill them from the coarse CRM P&L. The equipment-maintenance line is **BLOCKED until an allocation base + method are stated** (then ESTIMATE); current commercial-auto = ACTUAL, Konji-driven increment = BLOCKED. *If the contract figures were not uploaded, this item is blocked — do not proceed to the overhead portion of Phase 7 without them.*
-- [ ] **J — Auto insurance:** capture the premium increase as **BLOCKED pending an insurer quote** and a dated timeline decision point (before vs. after the Oct 10 term end); frame as coverage/liability, owner-to-verify; Anais already insured and in scope.
+- [ ] **J — Auto insurance:** capture the premium increase as **BLOCKED pending an insurer quote** and a dated timeline decision point (before vs. after the Oct 9 term end); frame as coverage/liability, owner-to-verify; Anais already insured and in scope.
 - [ ] Append a `HISTORY.md` entry for each material change as you go. *(Each item is its own small commit; Claude Code pauses for your review before committing each — it does not auto-commit.)*
 
 **Done when:** items B, C, D, F, H, I, J are applied and committed, and `HISTORY.md` reflects them. *(Checkpoint: repo files and `CONTEXT.md` are now back in sync.)*
