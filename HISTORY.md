@@ -52,6 +52,22 @@ The Jan–Jun 2026 revenue anchor was superseded: the stale model figure `Assump
 The $5,000 "New Equipment" CRM entry (April 13) is recorded as a retroactive log of an already-owned asset (the existing F-150), not a new capital outflow — it must not be modeled as a future cash event in the rebuild.
 *Basis:* `CONTEXT.md` Section 6 item H. *Status:* build-time instruction for Phase 7.
 
+**H-026 · 2026-07-05 · DATA**
+Relay account map confirmed (owner ground truth): 8735 Income, 3549 OpEx, 3550 Reserve, 8737 Taxes, 8736 Owner's Comp. The three non-operating accounts (3550, 8737, and 8736) verified $0 across all 17 months of statements; only 3549 (200 txns) and 8735 (49 txns) are active. Historical cash = Income + OpEx.
+*Basis:* Owner confirmation + direct file check of `reference/` Relay CSVs.
+
+**H-027 · 2026-07-05 · TOOLING**
+Relay restructuring executed: Income→OpEx instant sweep active (Income max-balance $0 → 100% to OpEx); Owner's Comp (8736) deleted; Profit account renamed → Reserve (3550).
+*Basis:* Owner actions in the Relay app, this session.
+
+**H-028 · 2026-07-05 · DECISION**
+Automated OpEx→Reserve ceiling deferred. Relay forbids an account being both source and destination in instant rules; near-zero value now (cash far below any ceiling); correct percentage-allocation design blocked on the model + Follow-Up #10. Ceiling value set at ~$8,000 for eventual use (basis: peak-season OpEx outflow $4,656.77 (May 2026 actual peak, from the header-correct 3549 parse) + $4,000 operating floor; revisit as revenue grows). Reserve funded manually in the interim. Post-model endpoint: a Profit First rule on Income (verified %s to OpEx/Reserve/Taxes), which preserves Income as a clean gross-revenue measurement point.
+*Basis:* Design discussion, this session. *Status:* open, pending model + #10.
+
+**H-029 · 2026-07-05 · DECISION**
+Collapsing Income+OpEx into one account considered and deferred until the model exists; both accounts retained (Income's separation preserves a clean gross-revenue signal). Taxes (8737) allocation % remains BLOCKED pending #10.
+*Basis:* Design discussion, this session.
+
 ---
 
 ### Undated revision
