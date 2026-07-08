@@ -5,12 +5,12 @@ invoice,invoice_date,service_date,customer_id,customer,service,is_bundle,line_ne
 1,2025-06-06,2025-06-01,2,Joel Beauvais,Trimming/Weed-whacking,FALSE,21.0,6.0,1.26,22.26,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 2,2025-06-08,2025-06-01,3,Martha Picarello,Weeding,FALSE,540.0,6.0,32.4,572.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 2,2025-06-08,2025-06-01,3,Martha Picarello,Mulching,FALSE,97.5,6.0,5.85,103.35,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-3,2025-06-16,2025-06-07,1,Women Life Freedom LLC,Weeding,FALSE,910.0,6.0,54.6,964.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-3,2025-06-16,2025-06-08,1,Women Life Freedom LLC,Weeding,FALSE,736.0,6.0,44.16,780.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-3,2025-06-16,2025-06-15,1,Women Life Freedom LLC,Weeding,FALSE,880.0,6.0,52.8,932.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-4,2025-07-06,2025-06-21,1,Women Life Freedom LLC,Mowing,FALSE,410.0,6.0,24.6,434.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+3,2025-06-16,2025-06-07,1,Women Life Freedom LLC,General Maintenance,TRUE,910.0,6.0,54.6,964.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+3,2025-06-16,2025-06-08,1,Women Life Freedom LLC,General Maintenance,TRUE,736.0,6.0,44.16,780.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+3,2025-06-16,2025-06-15,1,Women Life Freedom LLC,General Maintenance,TRUE,880.0,6.0,52.8,932.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+4,2025-07-06,2025-06-21,1,Women Life Freedom LLC,General Maintenance,TRUE,410.0,6.0,24.6,434.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 4,2025-07-06,2025-06-29,1,Women Life Freedom LLC,General Maintenance,TRUE,366.8,6.0,22.01,388.81,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-4,2025-07-06,2025-07-06,1,Women Life Freedom LLC,Mowing,FALSE,147.2,6.0,8.83,156.03,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+4,2025-07-06,2025-07-06,1,Women Life Freedom LLC,General Maintenance,TRUE,147.2,6.0,8.83,156.03,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 5,2025-07-06,2025-07-06,6,Alissa Moore,Weeding,FALSE,200.0,6.0,12.0,212.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 5,2025-07-06,2025-07-06,6,Alissa Moore,Vine Removal,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 5,2025-07-06,2025-07-06,6,Alissa Moore,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
@@ -48,9 +48,9 @@ invoice,invoice_date,service_date,customer_id,customer,service,is_bundle,line_ne
 17,2025-09-06,2025-09-06,7,Alison Rosa,Mulching,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 18,2025-09-06,2025-09-06,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 19,2025-09-08,2025-09-30,1,Women Life Freedom LLC,General Maintenance,TRUE,160.0,6.0,9.6,169.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-20,2025-09-17,2025-09-17,3,Martha Picarello,Weeding,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+20,2025-09-17,2025-09-17,3,Martha Picarello,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 21,2025-09-22,2025-09-22,7,Alison Rosa,Mulching,FALSE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-22,2025-09-29,2025-09-29,3,Martha Picarello,Weeding,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+22,2025-09-29,2025-09-29,3,Martha Picarello,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 23,2025-10-07,2025-09-14,1,Women Life Freedom LLC,General Maintenance,TRUE,180.0,6.0,10.8,190.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 23,2025-10-07,2025-09-20,1,Women Life Freedom LLC,General Maintenance,TRUE,130.8,6.0,7.85,138.65,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 23,2025-10-07,2025-09-28,1,Women Life Freedom LLC,General Maintenance,TRUE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
@@ -94,7 +94,7 @@ invoice,invoice_date,service_date,customer_id,customer,service,is_bundle,line_ne
 45,2026-05-12,2026-05-03,3,Martha Picarello,Lawn Maintenance,TRUE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 45,2026-05-12,2026-05-03,3,Martha Picarello,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 46,2026-05-16,2026-05-16,13,Shirley Locke,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-46,2026-05-16,2026-05-16,13,Shirley Locke,Edging,FALSE,16.0,6.0,0.96,16.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+46,2026-05-16,2026-05-16,13,Shirley Locke,Edging/Weed-whacking,FALSE,16.0,6.0,0.96,16.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 47,2026-05-16,2026-05-16,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 48,2026-05-17,2026-05-17,11,Association,Vine Removal,FALSE,1200.0,6.0,72.0,1272.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 48,2026-05-17,2026-05-17,11,Association,Edging/Weed-whacking,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
@@ -140,7 +140,7 @@ invoice,invoice_date,service_date,customer_id,customer,service,is_bundle,line_ne
 68,2026-06-18,2026-06-18,17,Richard Rogers,Vine Removal,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 68,2026-06-18,2026-06-18,17,Richard Rogers,Weeding,FALSE,100.0,6.0,6.0,106.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 67,2026-06-28,2026-06-13,1,Women Life Freedom LLC,General Maintenance,TRUE,62.25,6.0,3.73,65.98,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-67,2026-06-28,2026-06-27,1,Women Life Freedom LLC,Weeding,FALSE,981.0,6.0,58.86,1039.86,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+67,2026-06-28,2026-06-27,1,Women Life Freedom LLC,General Maintenance,TRUE,981.0,6.0,58.86,1039.86,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 70,2026-06-28,2026-06-26,11,Association,General Maintenance,TRUE,225.0,6.0,13.5,238.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 70,2026-06-28,2026-06-26,11,Association,Spraying,FALSE,60.0,6.0,3.6,63.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 70,2026-06-28,2026-06-26,11,Association,Weed Whacking/Edging,FALSE,325.0,6.0,19.5,344.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf

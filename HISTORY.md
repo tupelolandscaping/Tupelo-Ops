@@ -88,6 +88,14 @@ Gate B (revenue mapping / flat export) substantially resolved; no longer blocks 
 Cross-reference reconciliation: Sections 6 (item E), 9 (revenue bullet), and 10 (step 5) of `CONTEXT.md` updated to reflect Gate B's resolution, so the document no longer describes Follow-Up #6 as a live blocker.
 *Basis:* The CLAUDE.md cross-reference check, applied to the H-030–H-033 edits; the join drift was detected before commit. Note: this is the first autonomous catch by that rule since its adoption.
 
+**H-035 · 2026-07-06 · TOOLING**
+Revenue-ledger update standardized: `model/parse_invoices.py` with a fail-closed reconciliation gate (sum(line_gross) == sum(invoice gross); per-invoice tie-out; gross == net_subtotal + surcharge; no duplicate invoice numbers; optional `--expect-window` check against the Homeworks billed anchor); `reference/REVENUE-UPDATE.md` procedure; full-re-export-not-delta rationale (Homeworks records are mutable, so deltas would miss edits to prior invoices). The two revenue CSVs relocated from `reference/` to `model/data/` — they are script-regenerated derivatives, not immutable sources; `reference/` is now purely immutable raw sources. This supersedes the file paths cited in H-030 and H-033, which remain unedited and true as of their date.
+*Basis:* Design discussion; script validated by byte-identical reproduction of the H-030 ledger's invoice-level file (`revenue-invoices.csv`).
+
+**H-036 · 2026-07-06 · DATA**
+Service classification corrected to use the invoice's literal service header. The prior ledger let free-text description lines override the header — an implementation artifact of the original parse, not a deliberate rule — which inconsistently reclassified some bundled lines into specific services (e.g., "General Maintenance" → "Mowing" when the description happened to start with a recognizable keyword, but not when it didn't) and understated the bundled-line share. Dollar amounts, dates, customers, and all invoice-level figures are unchanged; H-030's validation stands. 9 line items across 6 invoices changed classification (8 reclassified to "General Maintenance"/`is_bundle=TRUE`; 1 restored to its full literal header "Edging/Weed-whacking"). New bundled-line share: **56.6%** ($15,795.85 of $27,891.65), up from the prior 40.7% ($11,339.40). Supersedes the 40.7% figure cited in H-033 and in `CONTEXT.md` Follow-Up #6 / Section 9.
+*Basis:* Owner review of the original parse logic; `model/parse_invoices.py` never scans description text for service names, only the invoice's literal service-header field.
+
 ---
 
 ### Undated revision
