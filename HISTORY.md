@@ -68,6 +68,26 @@ Automated OpEx→Reserve ceiling deferred. Relay forbids an account being both s
 Collapsing Income+OpEx into one account considered and deferred until the model exists; both accounts retained (Income's separation preserves a clean gross-revenue signal). Taxes (8737) allocation % remains BLOCKED pending #10.
 *Basis:* Design discussion, this session.
 
+**H-030 · 2026-07-06 · DATA**
+Revenue ledger extracted from 68 source invoices and validated: line-item gross ties to invoice gross exactly ($27,891.65); Jan–Jul 2026 window ties to the Homeworks billed anchor to the penny ($12,726.01). Two parse defects found and corrected en route: a payment-stub-only page misread as a 69th invoice, and long descriptions wrapping the amount onto the wrong line (which had hidden $5,070.93).
+*Basis:* Direct parse + three independent reconciliation checks against Homeworks exports.
+
+**H-031 · 2026-07-06 · DATA**
+Surcharge treatment resolved empirically. The ~6% is charged on top of each line's net price, but Homeworks' reported "billed revenue" is the gross figure — so the surcharge is embedded within the $12,726.01, not additional to it. Net service revenue Jan–Jul 2026 = $12,024.58; surcharge = $701.43. Note: this corrects an earlier statement in-session that the surcharge sat "on top of" the $12,726 anchor; the owner's understanding was correct and the earlier claim was wrong.
+*Basis:* Per-invoice arithmetic across 68 invoices, cross-checked against the salestax export.
+
+**H-032 · 2026-07-06 · DECISION**
+Past revenue is tracked gross. Konji's 6% revenue share is computed on net service revenue (excluding the surcharge). The surcharge's structural treatment (retained revenue vs. pass-through liability) remains an open future decision (Follow-Up #10); if it changes, revisit this.
+*Basis:* Owner decision, this session.
+
+**H-033 · 2026-07-06 · MILESTONE**
+Gate B (revenue mapping / flat export) substantially resolved; no longer blocks the model build. Residual: 40.7% bundled-line revenue is not service-resolvable historically (see #6, #13).
+*Basis:* `reference/revenue-line-items.csv` and `reference/revenue-invoices.csv`, validated per H-030.
+
+**H-034 · 2026-07-06 · REVISION**
+Cross-reference reconciliation: Sections 6 (item E), 9 (revenue bullet), and 10 (step 5) of `CONTEXT.md` updated to reflect Gate B's resolution, so the document no longer describes Follow-Up #6 as a live blocker.
+*Basis:* The CLAUDE.md cross-reference check, applied to the H-030–H-033 edits; the join drift was detected before commit. Note: this is the first autonomous catch by that rule since its adoption.
+
 ---
 
 ### Undated revision
