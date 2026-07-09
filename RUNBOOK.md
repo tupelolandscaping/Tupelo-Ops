@@ -13,29 +13,29 @@
 
 ## Phase 0 — Prerequisites (confirm before starting)
 
-- [ ] GitHub account active, signed in.
-- [ ] VS Code Desktop installed, with its built-in Git and the GitHub/Codespaces integration.
-- [ ] Claude Code installed and authenticated (your existing work setup). *This runbook assumes familiarity with Claude Code in VS Code; it does not re-teach install.*
-- [ ] You have every file in the **Phase 2 upload manifest** ready to hand (Phase 2 is the single authoritative list — don't maintain a second copy here; just confirm you can produce all of them).
+- [ ] GitHub account active, signed in. *(Unverifiable from repo contents — live account state, no file trace. Owner to confirm.)*
+- [ ] VS Code Desktop installed, with its built-in Git and the GitHub/Codespaces integration. *(Unverifiable from repo contents — owner to confirm.)*
+- [ ] Claude Code installed and authenticated (your existing work setup). *This runbook assumes familiarity with Claude Code in VS Code; it does not re-teach install.* *(Unverifiable from repo contents — owner to confirm.)*
+- [ ] You have every file in the **Phase 2 upload manifest** ready to hand (Phase 2 is the single authoritative list — don't maintain a second copy here; just confirm you can produce all of them). *(Not checked on inference: Phase 2/3 did succeed, which implies this was true, but no artifact directly confirms a discrete readiness check occurred — inference alone isn't citable evidence. Owner to confirm if this record matters.)*
 
-**Done when:** all four boxes are true.
+**Done when:** all four boxes are true. *(2026-07-09 sync: none independently verifiable from repo contents — see per-item notes.)*
 
 ---
 
 ## Phase 1 — Create the repository and open a Codespace
 
-- [ ] Create a **new, empty, private** GitHub repository named exactly **`Tupelo-Ops`** under the **business's dedicated free GitHub account** (registered under the business email — not your personal or work account). Initialize it with a README so it's clonable (you'll overwrite that README later). *If you already created it under a personal account, recreate it under the business account and delete the personal copy — the repo is nearly empty, so recreating is cleaner than transferring.*
-- [ ] Open the repo in a **Codespace** via VS Code Desktop (GitHub repo → Code → Codespaces → create; or the VS Code "Create Codespace" command). Wait for it to finish building and attach.
+- [x] Create a **new, empty, private** GitHub repository named exactly **`Tupelo-Ops`** under the **business's dedicated free GitHub account** (registered under the business email — not your personal or work account). Initialize it with a README so it's clonable (you'll overwrite that README later). *If you already created it under a personal account, recreate it under the business account and delete the personal copy — the repo is nearly empty, so recreating is cleaner than transferring.* *(`git remote -v` confirms `https://github.com/tupelolandscaping/Tupelo-Ops`; `eeff63a "Initial commit"` is the repo-init commit; H-020 documents business-account hosting. Private/visibility status is not verifiable from repo contents — a GitHub setting, not a file trace.)*
+- [x] Open the repo in a **Codespace** via VS Code Desktop (GitHub repo → Code → Codespaces → create; or the VS Code "Create Codespace" command). Wait for it to finish building and attach. *(Directly observable in the current live session: `$CODESPACES=true`, working directory `/workspaces/Tupelo-Ops` — the Codespace path convention. Not a repo-file citation, but a direct environment fact, not inference.)*
 
 **First-bring-up environment check** (this becomes `SETUP.md` in Phase 4):
 
-- [ ] In the terminal, confirm tooling: `node -v`, `npm -v`, `git --version` each return a version.
-- [ ] Set git identity so commits succeed: `git config user.name "Your Name"` and `git config user.email "you@example.com"`.
-- [ ] Confirm Claude Code is authenticated to the correct account.
-- [ ] Confirm Python: `python3 --version`.
-- [ ] Install VS Code extensions (Extensions panel): **Python** (Microsoft; bundles Pylance) and **Rainbow CSV** — essential. **GitLens** and an **Excel viewer** — optional.
+- [ ] In the terminal, confirm tooling: `node -v`, `npm -v`, `git --version` each return a version. *(Unverifiable from repo contents as a historical action — no persisted record that this check occurred. Live check today shows node v24.14.0, npm 11.9.0, git 2.53.0, all present, but that confirms current state, not that Phase 1 performed this step.)*
+- [x] Set git identity so commits succeed: `git config user.name "Your Name"` and `git config user.email "you@example.com"`. *(Confirmed: all repo commits are authored under `Cyrus <tupelolandscapingllc@gmail.com>` or `tupelolandscaping <tupelolandscapingllc@gmail.com>` — the business email, not a personal one — proving identity was set correctly, not just set.)*
+- [ ] Confirm Claude Code is authenticated to the correct account. *(Unverifiable from repo contents — no file trace. Owner to confirm.)*
+- [ ] Confirm Python: `python3 --version`. *(Unverifiable from repo contents as a historical action — same caveat as node/npm above. Live check today: Python 3.12.1.)*
+- [ ] Install VS Code extensions (Extensions panel): **Python** (Microsoft; bundles Pylance) and **Rainbow CSV** — essential. **GitLens** and an **Excel viewer** — optional. *(Unverifiable from repo contents — local VS Code state, not repo-tracked.)*
 
-**Done when:** the Codespace is open in VS Code, the four tools report versions, git identity is set, and the two essential extensions are installed.
+**Done when:** the Codespace is open in VS Code, the four tools report versions, git identity is set, and the two essential extensions are installed. *(2026-07-09 sync: repo creation, Codespace, and git identity verified from repo evidence; tool versions and extensions are live/local state with no persisted trace.)*
 
 ---
 
@@ -43,22 +43,22 @@
 
 *This phase is yours alone — Claude Code cannot reach files that live on your computer until you put them in the working tree.*
 
-- [ ] Create a temporary folder at the repo root named `incoming/`.
+- [x] Create a temporary folder at the repo root named `incoming/`. *(Confirmed via commit `c1cfd9c "checkpoint: upload Phase 2 source files"` and `2fc197b`'s rename diffs, which show every baseline file moving `incoming/... → ...`. `incoming/` no longer exists now, consistent with its Phase 3 deletion.)*
 
 **Upload into `incoming/`** (drag into the VS Code Explorer, or use the upload command). **This is the single authoritative upload manifest — every file any later phase consumes must appear here:**
 
-- [ ] `Strategic_Plan_2026-2027.md`
-- [ ] `Operational_Toolkit.md`
-- [ ] `CheckIn_Template.md`
-- [ ] `Execution_Timeline_2026-2027.md`
-- [ ] `Landscaping_Financial_Model_3.xlsx`
-- [ ] the CRM CSV exports — six files: services, expenses, revenue-by-customer, source, sales-tax, and the payment-type breakdown (the second "services" file, `services__..._1.csv`, which is actually a payment-method report)
-- [ ] the P&L report `report_profit_and_loss_2.pdf`
-- [ ] the Relay bank statements (all the `Relay YYYY-MM-DD #NNNN.csv` files — note spaces and a `#`, not underscores; some are marked `Relay (Partial) YYYY-MM-DD #NNNN.csv`)
-- [ ] `CONTEXT.md` (revision 6) and `RUNBOOK.md` (this file) — the two documents you're working from
-- [ ] 🧑 **Fixed-overhead contract figures** — the actual amounts behind insurance, workers' comp, commercial auto, payroll provider, and CRM subscription (a short file or note). These are **owner-supplied**: they are not in any CRM export (the CRM's expense buckets are too coarse — that is *why* Phase 5 item I needs them), and Claude Code must not invent them. If you don't have them yet, that's fine — but Phase 5 item I and the overhead portion of Phase 7 are blocked until you do.
+- [x] `Strategic_Plan_2026-2027.md` *(→ `strategy/strategic-plan.md`, exists)*
+- [x] `Operational_Toolkit.md` *(→ `strategy/operational-toolkit.md`, exists)*
+- [x] `CheckIn_Template.md` *(→ `check-ins/check-in-template.md`, exists)*
+- [x] `Execution_Timeline_2026-2027.md` *(→ `strategy/execution-timeline.md`, exists)*
+- [x] `Landscaping_Financial_Model_3.xlsx` *(→ `reference/landscaping-financial-model-3.xlsx`, exists)*
+- [x] the CRM CSV exports — six files: services, expenses, revenue-by-customer, source, sales-tax, and the payment-type breakdown (the second "services" file, `services__..._1.csv`, which is actually a payment-method report) *(all six present in `reference/`: `services__...csv`, `services__..._1.csv`, `expenses__...csv`, `revenuebycustomer__...csv`, `salestax__...csv`, `source__...csv`)*
+- [x] the P&L report `report_profit_and_loss_2.pdf` *(exists in `reference/`)*
+- [x] the Relay bank statements (all the `Relay YYYY-MM-DD #NNNN.csv` files — note spaces and a `#`, not underscores; some are marked `Relay (Partial) YYYY-MM-DD #NNNN.csv`) *(85 Relay CSVs confirmed by H-006; `reference/` currently holds those plus the later Part-4 additions)*
+- [x] `CONTEXT.md` (revision 6) and `RUNBOOK.md` (this file) — the two documents you're working from *(both at repo root)*
+- [x] 🧑 **Fixed-overhead contract figures** — the actual amounts behind insurance, workers' comp, commercial auto, payroll provider, and CRM subscription (a short file or note). These are **owner-supplied**: they are not in any CRM export (the CRM's expense buckets are too coarse — that is *why* Phase 5 item I needs them), and Claude Code must not invent them. If you don't have them yet, that's fine — but Phase 5 item I and the overhead portion of Phase 7 are blocked until you do. *(`reference/fixed-overhead.md` exists; H-005 confirms owner-supplied 2026-07-04.)*
 
-**Done when:** every listed file is visible in `incoming/`.
+**Done when:** every listed file is visible in `incoming/`. *(2026-07-09 sync: `incoming/` itself is gone — correctly, per Phase 3's cleanup step — but every listed file is confirmed present at its Phase-3 destination, which is the same fact one step later.)*
 
 ---
 
@@ -66,19 +66,21 @@
 
 *Goal: get the files into their repo homes **unedited**, and commit that untouched state, so the "before" is preserved in history before any correction.*
 
-- [ ] Instruct Claude Code to create the folder structure: `strategy/`, `check-ins/`, `model/data/`, `reference/`.
-- [ ] Move and **kebab-case rename** the already-Markdown files:
+- [x] Instruct Claude Code to create the folder structure: `strategy/`, `check-ins/`, `model/data/`, `reference/`. *(All four exist; confirmed by directory listing and commit `2fc197b`.)*
+- [x] Move and **kebab-case rename** the already-Markdown files:
   - `CheckIn_Template.md` → `check-ins/check-in-template.md`
   - `Execution_Timeline_2026-2027.md` → `strategy/execution-timeline.md`
-- [ ] Move and **kebab-case rename** the two strategy documents (they arrive as Markdown — no conversion needed):
+  *(Both exist at destination; `2fc197b`'s diff shows the exact renames.)*
+- [x] Move and **kebab-case rename** the two strategy documents (they arrive as Markdown — no conversion needed):
   - `Strategic_Plan_2026-2027.md` → `strategy/strategic-plan.md`
   - `Operational_Toolkit.md` → `strategy/operational-toolkit.md`
-- [ ] Place raw source data in `reference/` unedited: the CRM CSV exports, the P&L report `report_profit_and_loss_2.pdf`, all Relay statements, **the source workbook `Landscaping_Financial_Model_3.xlsx`** (→ `reference/landscaping-financial-model-3.xlsx` — it is ground truth that Phase 7 decomposes and Phase 5 item F reads for `B43`), and **the fixed-overhead contract figures** if uploaded.
-- [ ] Move `CONTEXT.md` and `RUNBOOK.md` to the repo root.
-- [ ] Confirm `incoming/` is now genuinely empty (every file has been moved to its home), then delete it. *If anything remains, it means a file has no destination — resolve that before deleting, don't delete files with the folder.*
-- [ ] **Commit the unedited baseline:** stage all, commit with a message like `baseline import — unedited source files in repo homes`. Do **not** apply any content corrections yet. *(As with every 🤖 commit step below: Claude Code stages and prepares the commit, then pauses for your review before committing — it does not auto-commit.)*
+  *(Both exist at destination.)*
+- [x] Place raw source data in `reference/` unedited: the CRM CSV exports, the P&L report `report_profit_and_loss_2.pdf`, all Relay statements, **the source workbook `Landscaping_Financial_Model_3.xlsx`** (→ `reference/landscaping-financial-model-3.xlsx` — it is ground truth that Phase 7 decomposes and Phase 5 item F reads for `B43`), and **the fixed-overhead contract figures** if uploaded. *(All present per the Phase 2 file-by-file check above; `2fc197b` + H-006.)*
+- [x] Move `CONTEXT.md` and `RUNBOOK.md` to the repo root. *(Both present at root; `2fc197b`'s diff shows `incoming/CONTEXT.md => CONTEXT.md` and `incoming/RUNBOOK.md => RUNBOOK.md`.)*
+- [x] Confirm `incoming/` is now genuinely empty (every file has been moved to its home), then delete it. *If anything remains, it means a file has no destination — resolve that before deleting, don't delete files with the folder.* *(`incoming/` does not exist in the current tree — confirmed by direct check.)*
+- [x] **Commit the unedited baseline:** stage all, commit with a message like `baseline import — unedited source files in repo homes`. Do **not** apply any content corrections yet. *(As with every 🤖 commit step below: Claude Code stages and prepares the commit, then pauses for your review before committing — it does not auto-commit.)* *(Commit `2fc197b`, exact matching message; see H-006: 100 files, zero content changes.)*
 
-**Done when:** `git log` shows the baseline commit, and no Phase-5 corrections have been made yet. *(Checkpoint: the repo now mirrors the old project workspace, just relocated — stale content and all. That staleness is intentional and gets fixed in Phase 5.)*
+**Done when:** `git log` shows the baseline commit, and no Phase-5 corrections have been made yet. *(Checkpoint: the repo now mirrors the old project workspace, just relocated — stale content and all. That staleness is intentional and gets fixed in Phase 5.)* *(2026-07-09 sync: confirmed via `2fc197b` and H-006 — all items citable to concrete repo evidence.)*
 
 ---
 
@@ -86,16 +88,16 @@
 
 *Build the files that make the repo self-governing. Specs are in `CONTEXT.md` Section 8.*
 
-- [ ] **`CLAUDE.md`** (queue item G) — per the Section 8 spec: project identity; standing rules + engagement preferences; architecture summary; the model-update operating procedure; the ground-truth rule; file conventions; the cross-reference check on structured edits; the history-logging rule; RAG-readiness conventions; deferred-tooling statement (Ruflo/RuVector not in use). Include the machine-global `~/.claude/CLAUDE.md` correctness note — and actually **check whether that global file exists** in this environment; if it does and carries Ruflo directives, the affirmative "deferred for this project" statement matters; if not, note it as not applicable.
-- [ ] **`SETUP.md`** (G2) — the standalone new-Codespace guide (verify tooling, git identity, Claude Code auth, Python + `pip install -r model/requirements.txt`, extensions, Auto Save, sanity check). No Ruflo/RuVector steps.
-- [ ] **`README.md`** (G3) — repository map / entry point.
-- [ ] **`HISTORY.md`** (G3) — master append-only audit log; **seed** it from `CONTEXT.md`'s locked decisions and events so it starts populated. Include the `DECISION` entry for the cross-reference-legibility review check (basis: three review rounds where every surviving defect was join drift).
-- [ ] **`.gitignore`** (G4) — exclude `model/financial-model.xlsx` and transient build artifacts.
-- [ ] **`model/requirements.txt`** (G4) — pinned dependencies (start with `openpyxl`, pinned to a specific version). **Created here, once.**
-- [ ] **Install the dependencies now:** `pip install -r model/requirements.txt`. (Creating the file does not install it — the build in Phase 7 will fail with `ModuleNotFoundError` if this is skipped. The architecture deliberately relies on the *installed, pinned* file, not on whatever the Codespace image happens to ship.)
-- [ ] Commit, e.g. `add repo scaffold: CLAUDE.md, SETUP.md, README, HISTORY, gitignore, requirements`. *(Claude Code prepares the commit, then pauses for your review — it does not auto-commit.)*
+- [x] **`CLAUDE.md`** (queue item G) — per the Section 8 spec: project identity; standing rules + engagement preferences; architecture summary; the model-update operating procedure; the ground-truth rule; file conventions; the cross-reference check on structured edits; the history-logging rule; RAG-readiness conventions; deferred-tooling statement (Ruflo/RuVector not in use). Include the machine-global `~/.claude/CLAUDE.md` correctness note — and actually **check whether that global file exists** in this environment; if it does and carries Ruflo directives, the affirmative "deferred for this project" statement matters; if not, note it as not applicable. *(Exists at repo root; content matches this spec.)*
+- [x] **`SETUP.md`** (G2) — the standalone new-Codespace guide (verify tooling, git identity, Claude Code auth, Python + `pip install -r model/requirements.txt`, extensions, Auto Save, sanity check). No Ruflo/RuVector steps. *(Exists at repo root.)*
+- [x] **`README.md`** (G3) — repository map / entry point. *(Exists at repo root.)*
+- [x] **`HISTORY.md`** (G3) — master append-only audit log; **seed** it from `CONTEXT.md`'s locked decisions and events so it starts populated. Include the `DECISION` entry for the cross-reference-legibility review check (basis: three review rounds where every surviving defect was join drift). *(Exists, currently H-001 through H-039 plus the undated D1–D10/H-018 foundational section; H-018 is the cross-reference-legibility DECISION entry.)*
+- [x] **`.gitignore`** (G4) — exclude `model/financial-model.xlsx` and transient build artifacts. *(Exists; contents: `model/financial-model.xlsx`, `__pycache__/`, `*.pyc`, `.DS_Store`.)*
+- [x] **`model/requirements.txt`** (G4) — pinned dependencies (start with `openpyxl`, pinned to a specific version). **Created here, once.** *(Exists: `openpyxl==3.1.5`; `pdfplumber==0.11.10` was appended later for `parse_invoices.py`, not a recreation — consistent with the "append, don't recreate" rule.)*
+- [ ] **Install the dependencies now:** `pip install -r model/requirements.txt`. (Creating the file does not install it — the build in Phase 7 will fail with `ModuleNotFoundError` if this is skipped. The architecture deliberately relies on the *installed, pinned* file, not on whatever the Codespace image happens to ship.) *(Unverifiable from repo contents — a `pip install` leaves no repo trace. `pdfplumber` is confirmed installed and working by `parse_invoices.py`'s successful runs (H-030 onward); `openpyxl` has never actually been exercised — `model/build_model.py` doesn't exist yet (Phase 7 not started) — so its installation is unconfirmed either way.)*
+- [x] Commit, e.g. `add repo scaffold: CLAUDE.md, SETUP.md, README, HISTORY, gitignore, requirements`. *(Claude Code prepares the commit, then pauses for your review — it does not auto-commit.)* *(Commit `def8d9b "add repo scaffold: gitignore, requirements, CLAUDE, SETUP, README, HISTORY"`.)*
 
-**Done when:** all six files exist and are committed, `.gitignore` excludes the workbook, and `HISTORY.md` is non-empty.
+**Done when:** all six files exist and are committed, `.gitignore` excludes the workbook, and `HISTORY.md` is non-empty. *(2026-07-09 sync: true, per `def8d9b` and current file listing. Only the `pip install` sub-step has no persisted evidence either way.)*
 
 ---
 
@@ -103,16 +105,16 @@
 
 *Now apply the "decided, not yet applied" corrections to the imported files — each as its own small, reviewable commit. Full detail per `CONTEXT.md` Section 6, items B–D, F, H, I, J. (A, G, G2, G3, G4 are already done.)*
 
-- [ ] **B — Execution timeline:** mark the Konji tripwire resolved; backup-lead search active; add the end-of-July Job Costing anchor; correct GBP status (active, no reviews/leads); note no residual Konji family gate; add the auto-insurance / Konji-insured-driver decision point.
-- [ ] **C — Strategic plan:** replace the placeholder crew-lead comp with Konji's finalized structure; check off "weekday crew lead secured."
-- [ ] **D — Assumptions log:** Xavier ~$1,800, unpaid, demand-triggered late winter, status Track (with the equity-vs-contingent-outflow reconciliation); starting cash → $1,400 tagged **interim ESTIMATE**, superseded by Phase 6 consolidation. Do not lock it as ACTUAL.
-- [ ] **F — Revenue anchor:** supersede `B43 = $9,562.71` with the current $12,726.01 billed / $10,973.57 collected; carry the anchor and Konji's 6% base as **gross-of-surcharge** pending the tax session (#10).
-- [ ] **H — Truck entry:** record the $5,000 April entry as a retroactive log of an owned asset, **not** a new outflow.
-- [ ] **I — Overhead** (🧑 owner supplies figures + 🤖 writes them in): the fixed-overhead **contract figures are owner-supplied** (from Phase 2's upload) — Claude Code writes them into a sourced `reference/` file but must **not** invent or back-fill them from the coarse CRM P&L. The equipment-maintenance line is **BLOCKED until an allocation base + method are stated** (then ESTIMATE); current commercial-auto = ACTUAL, Konji-driven increment = BLOCKED. *If the contract figures were not uploaded, this item is blocked — do not proceed to the overhead portion of Phase 7 without them.*
-- [ ] **J — Auto insurance:** capture the premium increase as **BLOCKED pending an insurer quote** and a dated timeline decision point (before vs. after the Oct 9 term end); frame as coverage/liability, owner-to-verify; Anais already insured and in scope.
-- [ ] Append a `HISTORY.md` entry for each material change as you go. *(Each item is its own small commit; Claude Code pauses for your review before committing each — it does not auto-commit.)*
+- [x] **B — Execution timeline:** mark the Konji tripwire resolved; backup-lead search active; add the end-of-July Job Costing anchor; correct GBP status (active, no reviews/leads); note no residual Konji family gate; add the auto-insurance / Konji-insured-driver decision point. *(Commit `174ef6d "correct execution timeline to current reality: Konji resolved, backup-lead active, GBP active, Job Costing anchored end-July"`; the operational-toolkit's parallel Konji item was also reconciled — commit `c665d99`, H-023.)*
+- [x] **C — Strategic plan:** replace the placeholder crew-lead comp with Konji's finalized structure; check off "weekday crew lead secured." *(Commit `2ee485a`; H-021 confirms both the comp replacement and the checklist item.)*
+- [x] **D — Assumptions log:** Xavier ~$1,800, unpaid, demand-triggered late winter, status Track (with the equity-vs-contingent-outflow reconciliation); starting cash → $1,400 tagged **interim ESTIMATE**, superseded by Phase 6 consolidation. Do not lock it as ACTUAL. *(Commit `2ee485a`, H-021 confirms the original Xavier/starting-cash entries as written here. **Further superseded since:** the starting-cash figure this item describes ($1,400 interim ESTIMATE) was itself replaced by the verified $1,225.33 ACTUAL when Gate A closed — see H-039 and `strategy/strategic-plan.md` Section 9's Revision Note. This box describes a since-superseded intermediate state, not the current one.)*
+- [x] **F — Revenue anchor:** supersede `B43 = $9,562.71` with the current $12,726.01 billed / $10,973.57 collected; carry the anchor and Konji's 6% base as **gross-of-surcharge** pending the tax session (#10). *(Commit `de7e633 "record F and H as Phase 7 build-time instructions"`, H-024. Recorded as a build-time instruction — actual application to the model happens at the Phase 7 rebuild, not yet started. Surcharge treatment was further resolved at H-031/H-032.)*
+- [x] **H — Truck entry:** record the $5,000 April entry as a retroactive log of an owned asset, **not** a new outflow. *(Commit `de7e633`, H-025.)*
+- [x] **I — Overhead** (🧑 owner supplies figures + 🤖 writes them in): the fixed-overhead **contract figures are owner-supplied** (from Phase 2's upload) — Claude Code writes them into a sourced `reference/` file but must **not** invent or back-fill them from the coarse CRM P&L. The equipment-maintenance line is **BLOCKED until an allocation base + method are stated** (then ESTIMATE); current commercial-auto = ACTUAL, Konji-driven increment = BLOCKED. *If the contract figures were not uploaded, this item is blocked — do not proceed to the overhead portion of Phase 7 without them.* *(`reference/fixed-overhead.md` exists, H-005 confirms sourcing 2026-07-04; the strategic-plan-facing figure update is in commit `2ee485a`, H-021.)*
+- [x] **J — Auto insurance:** capture the premium increase as **BLOCKED pending an insurer quote** and a dated timeline decision point (before vs. after the Oct 9 term end); frame as coverage/liability, owner-to-verify; Anais already insured and in scope. *(Commit `9e6a944`, H-022. The premium figure remains BLOCKED by design — that's the correct state, not an incomplete item.)*
+- [x] Append a `HISTORY.md` entry for each material change as you go. *(Each item is its own small commit; Claude Code pauses for your review before committing each — it does not auto-commit.)* *(H-021 through H-025 each cite the `CONTEXT.md` section and commit they close.)*
 
-**Done when:** items B, C, D, F, H, I, J are applied and committed, and `HISTORY.md` reflects them. *(Checkpoint: repo files and `CONTEXT.md` are now back in sync.)*
+**Done when:** items B, C, D, F, H, I, J are applied and committed, and `HISTORY.md` reflects them. *(Checkpoint: repo files and `CONTEXT.md` are now back in sync.)* *(2026-07-09 sync: confirmed via H-021–H-025 and the cited commits. Note the D item's dollar figure is itself now historical — see its parenthetical above.)*
 
 ---
 
@@ -121,10 +123,10 @@
 *Both must resolve before the model build. These are working sessions, not one-click tasks.*
 
 - [x] **Gate A — Bank consolidation (#9)** 🧑 OWNER + 🤖: consolidate the Relay accounts, identify each account's purpose (operating / reserve / dormant), and establish the full cash picture from the actual statements. This is a **hard gate** — the build's cash side is bank-sourced (per D5a), so it does not proceed on CRM cash data alone. **Save the consolidated output into `reference/`** as new ground truth (and commit it). *Closed 2026-07-06: `reference/cash-consolidated-2026-07-06.csv`, verified $1,225.33 across all four active accounts — see `HISTORY.md` H-039.*
-- [ ] **Gate B — Revenue export format + service mapping (#6)** 🧑 OWNER + 🤖: obtain the flat transaction-line export (one row per date/customer/service/amount) and map the raw services to the ~16-item catalog. Resolve the exact raw-entry count here. **Save the flat export into `reference/`** as new ground truth (and commit it).
-  - [ ] *If Gate B is deferred:* explicitly choose the **named partial path** — build revenue events with `category`/`subcategory` tagged `BLOCKED — unmapped`, never guessed. (Amounts/totals are still correct; only classification is deferred.)
+- [x] **Gate B — Revenue export format + service mapping (#6)** 🧑 OWNER + 🤖: obtain the flat transaction-line export (one row per date/customer/service/amount) and map the raw services to the ~16-item catalog. Resolve the exact raw-entry count here. **Save the flat export into `reference/`** as new ground truth (and commit it). *(Closed 2026-07-06, commit `46de380 "close Gate B"`, H-033. Refined further by H-036/H-037 (service classification, legacy-name mapping) and H-038 (22-item catalog formally sourced, replacing the "~16-item" estimate this item describes). The flat export itself now lives in `model/data/revenue-line-items.csv` — relocated from `reference/` per H-035, since it's a script-regenerated derivative, not a raw source.)*
+  - [ ] *If Gate B is deferred:* explicitly choose the **named partial path** — build revenue events with `category`/`subcategory` tagged `BLOCKED — unmapped`, never guessed. (Amounts/totals are still correct; only classification is deferred.) *(N/A — Gate B was resolved via full mapping, not deferred; the partial path was never invoked. Left unchecked because it did not happen, not because it's unverified.)*
 
-**Done when:** Gate A is done, and Gate B is either done or the partial path is explicitly chosen and recorded in `HISTORY.md`.
+**Done when:** Gate A is done, and Gate B is either done or the partial path is explicitly chosen and recorded in `HISTORY.md`. *(2026-07-09 sync: both true. Gate A per H-039, Gate B per H-033. No pre-build gate remains open.)*
 
 ---
 
@@ -132,25 +134,25 @@
 
 *Item E. Full architecture in `CONTEXT.md` Section 9.*
 
-- [ ] Define the **data-layer CSVs** in `model/data/`: the atomic ledger (schema `date | type | event | category | subcategory | customer | quantity | unit_rate | amount | status | source`, with **separate invoice and payment events** per D5a) and the assumption tables.
-- [ ] Populate what's real; tag every estimate/placeholder (`ESTIMATE` / `BLOCKED`): itemized labor (rates real, hours ESTIMATE); materials/fuel `$0` BLOCKED; overhead from `reference/`; sales-tax BLOCKED; capital events per Phase 5.
-- [ ] Write `model/build_model.py` — reads `data/`, generates the workbook. Append any new dependency it needs to `requirements.txt` (do not recreate the file).
-- [ ] **Re-install dependencies** if the script added any: `pip install -r model/requirements.txt` (safe to run even if nothing changed).
-- [ ] Add the **reconciliation tab** with its honest scope: verifies revenue (vs. CRM exports) and collected cash (CRM payment events vs. Relay statements); states on its face that it does **not** yet verify itemized overhead or materials/fuel.
-- [ ] Run the build: `python3 model/build_model.py`. Inspect the generated (gitignored) `model/financial-model.xlsx`.
-- [ ] Validate the reconciliation tab against `reference/` (CRM revenue + bank cash). Resolve or flag any mismatch.
-- [ ] Commit the **data and script only** (the `.xlsx` is gitignored). Message e.g. `first model build: atomic ledger + build script + reconciliation`. *(Claude Code pauses for your review before committing.)*
+- [ ] Define the **data-layer CSVs** in `model/data/`: the atomic ledger (schema `date | type | event | category | subcategory | customer | quantity | unit_rate | amount | status | source`, with **separate invoice and payment events** per D5a) and the assumption tables. *(Not started — `model/data/` currently holds only the revenue-ledger CSVs and the two catalog-mapping files built for Gates A/B; no unified atomic ledger with this schema exists yet.)*
+- [ ] Populate what's real; tag every estimate/placeholder (`ESTIMATE` / `BLOCKED`): itemized labor (rates real, hours ESTIMATE); materials/fuel `$0` BLOCKED; overhead from `reference/`; sales-tax BLOCKED; capital events per Phase 5. *(Not started.)*
+- [ ] Write `model/build_model.py` — reads `data/`, generates the workbook. Append any new dependency it needs to `requirements.txt` (do not recreate the file). *(Not started — `model/build_model.py` does not exist.)*
+- [ ] **Re-install dependencies** if the script added any: `pip install -r model/requirements.txt` (safe to run even if nothing changed). *(Not applicable yet — no such script exists.)*
+- [ ] Add the **reconciliation tab** with its honest scope: verifies revenue (vs. CRM exports) and collected cash (CRM payment events vs. Relay statements); states on its face that it does **not** yet verify itemized overhead or materials/fuel. *(Not started.)*
+- [ ] Run the build: `python3 model/build_model.py`. Inspect the generated (gitignored) `model/financial-model.xlsx`. *(Not started — neither the script nor the workbook exists.)*
+- [ ] Validate the reconciliation tab against `reference/` (CRM revenue + bank cash). Resolve or flag any mismatch. *(Not started.)*
+- [ ] Commit the **data and script only** (the `.xlsx` is gitignored). Message e.g. `first model build: atomic ledger + build script + reconciliation`. *(Claude Code pauses for your review before committing.)* *(Not started.)*
 
-**Done when:** the build runs cleanly, the workbook generates, the reconciliation tab passes or flags known-open items, and data + script are committed (workbook is not).
+**Done when:** the build runs cleanly, the workbook generates, the reconciliation tab passes or flags known-open items, and data + script are committed (workbook is not). *(2026-07-09 sync: Phase 7 has not begun. Both pre-build gates are now clear (Phases 6), so this phase is unblocked and ready to start.)*
 
 ---
 
 ## Phase 8 — Resume operations
 
-- [ ] Resume the biweekly check-in cadence (`check-ins/check-in-template.md`) in the repo.
-- [ ] Confirm the follow-up list in `CONTEXT.md` Section 7 is your queue for the remaining dedicated sessions (crew reduction, seat question, forecast page, door-to-door package, expense convention, P&L cross-reference, tax treatment, Anais comp).
+- [ ] Resume the biweekly check-in cadence (`check-ins/check-in-template.md`) in the repo. *(Not started — `check-ins/` contains only the template; no dated check-in entries exist yet.)*
+- [x] Confirm the follow-up list in `CONTEXT.md` Section 7 is your queue for the remaining dedicated sessions (crew reduction, seat question, forecast page, door-to-door package, expense convention, P&L cross-reference, tax treatment, Anais comp). *(Section 7 exists and is demonstrably live — several items have been actively tracked and status-updated across multiple `HISTORY.md` entries: #6 substantially resolved (H-033, H-036–H-038), #9 closed (H-039), #16 added (H-037). It is functioning as the queue, not a static list.)*
 
-**Done when:** the first in-repo check-in is scheduled and the follow-up queue is live.
+**Done when:** the first in-repo check-in is scheduled and the follow-up queue is live. *(2026-07-09 sync: the queue half is true and evidenced; the check-in cadence has not yet resumed.)*
 
 ---
 
