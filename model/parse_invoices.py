@@ -21,6 +21,17 @@ from datetime import datetime
 import pdfplumber
 
 BUNDLE_SERVICES = {"General Maintenance", "Lawn Care", "Lawn Maintenance"}
+
+# Catalog service names that were never renamed (not in service-name-map.csv
+# and not a bundle label) -- confirmed by cross-checking every distinct raw
+# header in invoices_2025-06_2026-06.pdf against the current Homeworks
+# catalog (see HISTORY.md H-037). Anything outside this known set, the map,
+# or the bundle labels fails the recognized-header gate below.
+ALREADY_CANONICAL_SERVICES = {
+    "Felling (Chainsaw)", "Mowing", "Planting/Transplanting", "Spraying",
+    "Stump Removal", "Vine Removal", "Weeding", "Weeding Maintenance",
+}
+SERVICE_MAP_PATH = "model/data/service-name-map.csv"
 MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"
 DATE_PREFIX_RE = re.compile(rf"^({MONTHS}) \d{{1,2}}, \d{{4}}\b")
 AMOUNT_TAIL_RE = re.compile(r"(\d+\.\d{2})\s+([\d,]+\.\d{2})\s*$")
@@ -43,8 +54,8 @@ INVOICE_COLUMNS = [
 ]
 LINE_ITEM_COLUMNS = [
     "invoice", "invoice_date", "service_date", "customer_id", "customer",
-    "service", "is_bundle", "line_net", "surcharge_pct", "line_surcharge",
-    "line_gross", "status", "source",
+    "service_raw", "service", "is_bundle", "line_net", "surcharge_pct",
+    "line_surcharge", "line_gross", "status", "source",
 ]
 
 # Empirically measured from the PDF's word positions: lines that wrap within a
@@ -74,7 +85,18 @@ def cluster_rows(words, tol=2.0):
     return [(top, " ".join(w["text"] for w in sorted(ws, key=lambda w: w["x0"]))) for top, ws in rows]
 
 
-def parse_page(page, page_index, source):
+def load_service_map(path=SERVICE_MAP_PATH):
+    try:
+        with open(path, newline="") as f:
+            rows = list(csv.DictReader(f))
+    except FileNotFoundError:
+        raise RuntimeError(
+            f"{path} not found -- cannot map service names. Refusing to silently skip mapping."
+        )
+    return {r["legacy_name"]: r["canonical_name"] for r in rows}
+
+
+def parse_page(page, page_index, source, service_map):
     text = page.extract_text() or ""
     if "Subtotal" not in text:
         return None  # payment-stub-only page, not an invoice
@@ -147,16 +169,16 @@ def parse_page(page, page_index, source):
             rest_lines = list(blob)
 
         found = None
-        service = None
+        service_raw = None
         for i, line in enumerate(rest_lines):
             am = AMOUNT_TAIL_RE.search(line)
             if am:
                 found = am
-                # Service is always the literal header text -- Homeworks'
+                # service_raw is always the literal header text -- Homeworks'
                 # actual classification field -- never inferred from
                 # free-text description content, even when the amount is
                 # glued onto the header line itself.
-                service = line[: am.start()].strip() if i == 0 else rest_lines[0].strip()
+                service_raw = line[: am.start()].strip() if i == 0 else rest_lines[0].strip()
                 break
         if found is None:
             raise RuntimeError(
@@ -167,13 +189,17 @@ def parse_page(page, page_index, source):
         line_gross = float(found.group(2).replace(",", ""))
         line_net = round(line_gross / (1 + pct / 100), 2)
         line_surcharge = round(line_gross - line_net, 2)
-        is_bundle = "TRUE" if service in BUNDLE_SERVICES else "FALSE"
+        is_bundle = "TRUE" if service_raw in BUNDLE_SERVICES else "FALSE"
+        # service_raw is never destroyed -- same principle as reference/
+        # immutability. service is the canonical name if a rename applies,
+        # else identical to service_raw.
+        service = service_map.get(service_raw, service_raw)
 
         line_items.append({
             "invoice": invoice_num, "invoice_date": invoice_date, "service_date": service_date,
-            "customer_id": customer_id, "customer": customer, "service": service,
-            "is_bundle": is_bundle, "line_net": line_net, "surcharge_pct": pct,
-            "line_surcharge": line_surcharge, "line_gross": line_gross,
+            "customer_id": customer_id, "customer": customer, "service_raw": service_raw,
+            "service": service, "is_bundle": is_bundle, "line_net": line_net,
+            "surcharge_pct": pct, "line_surcharge": line_surcharge, "line_gross": line_gross,
             "status": "ACTUAL", "source": source,
         })
 
@@ -186,12 +212,12 @@ def parse_page(page, page_index, source):
     return invoice_row, line_items
 
 
-def parse_pdf(path):
+def parse_pdf(path, service_map):
     source = f"reference/{path.split('/')[-1]}"
     invoices, all_items = [], []
     with pdfplumber.open(path) as pdf:
         for i, page in enumerate(pdf.pages):
-            result = parse_page(page, i, source)
+            result = parse_page(page, i, source, service_map)
             if result is None:
                 continue
             inv, items = result
@@ -200,6 +226,17 @@ def parse_pdf(path):
     invoices.sort(key=lambda r: (r["invoice_date"], r["invoice"]))
     all_items.sort(key=lambda r: (r["invoice_date"], r["invoice"]))
     return invoices, all_items
+
+
+def check_recognized_headers(items, service_map):
+    recognized = (
+        set(service_map.keys())
+        | set(service_map.values())
+        | BUNDLE_SERVICES
+        | ALREADY_CANONICAL_SERVICES
+    )
+    unrecognized = sorted({r["service_raw"] for r in items} - recognized)
+    return unrecognized
 
 
 def reconcile(invoices, items, expect_window=None):
@@ -294,8 +331,9 @@ def main():
     args = parser.parse_args()
 
     pdf_path = args.pdf_path or find_default_pdf()
+    service_map = load_service_map()
     print(f"Parsing {pdf_path} ...")
-    invoices, items = parse_pdf(pdf_path)
+    invoices, items = parse_pdf(pdf_path, service_map)
 
     expect_window = None
     if args.expect_window:
@@ -303,6 +341,13 @@ def main():
         expect_window = (start, end, float(total))
 
     failures = reconcile(invoices, items, expect_window)
+
+    unrecognized = check_recognized_headers(items, service_map)
+    if unrecognized:
+        failures.append(
+            f"{len(unrecognized)} unrecognized service header(s) (not in {SERVICE_MAP_PATH}, "
+            f"the bundle set, or the known catalog): {unrecognized}"
+        )
 
     write_csv("model/data/revenue-invoices.csv", invoices, INVOICE_COLUMNS)
     write_csv("model/data/revenue-line-items.csv", items, LINE_ITEM_COLUMNS)

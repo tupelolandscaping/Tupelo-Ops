@@ -1,153 +1,153 @@
-invoice,invoice_date,service_date,customer_id,customer,service,is_bundle,line_net,surcharge_pct,line_surcharge,line_gross,status,source
-1,2025-06-06,2025-06-01,2,Joel Beauvais,Weeding,FALSE,243.6,6.0,14.62,258.22,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-1,2025-06-06,2025-06-01,2,Joel Beauvais,Debris Pickup/Hauling,FALSE,12.0,6.0,0.72,12.72,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-1,2025-06-06,2025-06-01,2,Joel Beauvais,Mowing,FALSE,22.5,6.0,1.35,23.85,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-1,2025-06-06,2025-06-01,2,Joel Beauvais,Trimming/Weed-whacking,FALSE,21.0,6.0,1.26,22.26,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-2,2025-06-08,2025-06-01,3,Martha Picarello,Weeding,FALSE,540.0,6.0,32.4,572.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-2,2025-06-08,2025-06-01,3,Martha Picarello,Mulching,FALSE,97.5,6.0,5.85,103.35,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-3,2025-06-16,2025-06-07,1,Women Life Freedom LLC,General Maintenance,TRUE,910.0,6.0,54.6,964.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-3,2025-06-16,2025-06-08,1,Women Life Freedom LLC,General Maintenance,TRUE,736.0,6.0,44.16,780.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-3,2025-06-16,2025-06-15,1,Women Life Freedom LLC,General Maintenance,TRUE,880.0,6.0,52.8,932.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-4,2025-07-06,2025-06-21,1,Women Life Freedom LLC,General Maintenance,TRUE,410.0,6.0,24.6,434.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-4,2025-07-06,2025-06-29,1,Women Life Freedom LLC,General Maintenance,TRUE,366.8,6.0,22.01,388.81,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-4,2025-07-06,2025-07-06,1,Women Life Freedom LLC,General Maintenance,TRUE,147.2,6.0,8.83,156.03,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-5,2025-07-06,2025-07-06,6,Alissa Moore,Weeding,FALSE,200.0,6.0,12.0,212.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-5,2025-07-06,2025-07-06,6,Alissa Moore,Vine Removal,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-5,2025-07-06,2025-07-06,6,Alissa Moore,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-5,2025-07-06,2025-07-06,6,Alissa Moore,Edging,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-6,2025-07-13,2025-07-05,5,JaLane Daschke,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-6,2025-07-13,2025-07-12,5,JaLane Daschke,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-7,2025-07-19,2025-07-19,6,Alissa Moore,Weeding,FALSE,320.0,6.0,19.2,339.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-7,2025-07-19,2025-07-19,6,Alissa Moore,Weeding,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-7,2025-07-19,2025-07-19,6,Alissa Moore,Weeding,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-8,2025-07-20,2025-07-20,6,Alissa Moore,Weeding,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-8,2025-07-20,2025-07-20,6,Alissa Moore,Grass removal,FALSE,280.0,6.0,16.8,296.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-8,2025-07-20,2025-07-20,6,Alissa Moore,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-8,2025-07-20,2025-07-20,6,Alissa Moore,Edging,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-8,2025-07-20,2025-07-20,6,Alissa Moore,Weeding,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-8,2025-07-20,2025-07-20,6,Alissa Moore,Bagging,FALSE,60.0,0.0,0.0,60.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-9,2025-07-25,2025-07-25,6,Alissa Moore,Mulching,FALSE,360.0,6.0,21.6,381.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-9,2025-07-25,2025-07-25,6,Alissa Moore,Weeding,FALSE,66.0,6.0,3.96,69.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-9,2025-07-25,2025-07-25,6,Alissa Moore,Leaf Raking,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-10,2025-08-21,2025-08-21,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-11,2025-08-21,2025-07-12,1,Women Life Freedom LLC,General Maintenance,TRUE,141.2,6.0,8.47,149.67,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-11,2025-08-21,2025-07-22,1,Women Life Freedom LLC,General Maintenance,TRUE,155.2,6.0,9.31,164.51,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-11,2025-08-21,2025-07-27,1,Women Life Freedom LLC,General Maintenance,TRUE,126.8,6.0,7.61,134.41,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-11,2025-08-21,2025-08-02,1,Women Life Freedom LLC,General Maintenance,TRUE,150.0,6.0,9.0,159.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-11,2025-08-21,2025-08-09,1,Women Life Freedom LLC,General Maintenance,TRUE,326.0,6.0,19.56,345.56,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-11,2025-08-21,2025-08-17,1,Women Life Freedom LLC,General Maintenance,TRUE,108.0,6.0,6.48,114.48,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-12,2025-08-23,2025-08-23,6,Alissa Moore,Felling (Chainsaw),FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-12,2025-08-23,2025-08-23,6,Alissa Moore,Weeding,FALSE,140.0,6.0,8.4,148.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-12,2025-08-23,2025-08-23,6,Alissa Moore,Mulching,FALSE,60.0,6.0,3.6,63.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-13,2025-08-23,2025-08-23,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-14,2025-08-23,2025-08-23,3,Martha Picarello,Weeding,FALSE,480.0,6.0,28.8,508.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-14,2025-08-23,2025-08-23,3,Martha Picarello,Vine Removal,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-14,2025-08-23,2025-08-23,3,Martha Picarello,Hedge Trimming,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-14,2025-08-23,2025-08-23,3,Martha Picarello,Mulching,FALSE,240.0,6.0,14.4,254.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-16,2025-08-25,2025-08-24,1,Women Life Freedom LLC,General Maintenance,TRUE,152.0,6.0,9.12,161.12,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-17,2025-09-06,2025-09-06,7,Alison Rosa,Mulching,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-18,2025-09-06,2025-09-06,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-19,2025-09-08,2025-09-30,1,Women Life Freedom LLC,General Maintenance,TRUE,160.0,6.0,9.6,169.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-20,2025-09-17,2025-09-17,3,Martha Picarello,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-21,2025-09-22,2025-09-22,7,Alison Rosa,Mulching,FALSE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-22,2025-09-29,2025-09-29,3,Martha Picarello,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-23,2025-10-07,2025-09-14,1,Women Life Freedom LLC,General Maintenance,TRUE,180.0,6.0,10.8,190.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-23,2025-10-07,2025-09-20,1,Women Life Freedom LLC,General Maintenance,TRUE,130.8,6.0,7.85,138.65,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-23,2025-10-07,2025-09-28,1,Women Life Freedom LLC,General Maintenance,TRUE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-24,2025-10-07,2025-10-05,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-25,2025-11-04,2025-10-12,1,Women Life Freedom LLC,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-25,2025-11-04,2025-10-19,1,Women Life Freedom LLC,General Maintenance,TRUE,90.0,6.0,5.4,95.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-25,2025-11-04,2025-10-19,1,Women Life Freedom LLC,General Maintenance,TRUE,33.2,6.0,1.99,35.19,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-28,2025-11-05,2025-11-05,6,Alissa Moore,General Maintenance,TRUE,240.0,6.0,14.4,254.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-29,2025-11-05,2025-11-05,3,Martha Picarello,General Maintenance,TRUE,140.0,6.0,8.4,148.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-30,2025-11-09,2025-11-08,3,Martha Picarello,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-31,2025-11-11,2025-11-11,7,Alison Rosa,General Maintenance,TRUE,1700.0,6.0,102.0,1802.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-32,2025-11-16,2025-11-16,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-33,2025-11-17,2025-11-09,1,Women Life Freedom LLC,General Maintenance,TRUE,266.8,6.0,16.01,282.81,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-33,2025-11-17,2025-11-16,1,Women Life Freedom LLC,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-34,2025-11-22,2025-11-22,3,Martha Picarello,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-35,2025-12-06,2025-11-23,1,Women Life Freedom LLC,General Maintenance,TRUE,369.2,6.0,22.15,391.35,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-35,2025-12-06,2025-11-29,1,Women Life Freedom LLC,General Maintenance,TRUE,938.8,6.0,56.33,995.13,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-36,2025-12-10,2025-12-06,3,Martha Picarello,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-37,2025-12-10,2025-12-10,6,Alissa Moore,Debris Removal,FALSE,380.0,6.0,22.8,402.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-38,2026-03-14,2026-01-09,1,Women Life Freedom LLC,Bagging,FALSE,136.0,0.0,0.0,136.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-38,2026-03-14,2026-01-11,1,Women Life Freedom LLC,Bagging,FALSE,148.0,0.0,0.0,148.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-38,2026-03-14,2026-02-01,1,Women Life Freedom LLC,Subcontractor Planning,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-38,2026-03-14,2026-02-22,1,Women Life Freedom LLC,Mulching,FALSE,78.8,6.0,4.73,83.53,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-38,2026-03-14,2026-03-07,1,Women Life Freedom LLC,Subcontractor Planning,FALSE,37.2,6.0,2.23,39.43,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-39,2026-03-27,2026-03-27,6,Alissa Moore,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-39,2026-03-27,2026-03-27,6,Alissa Moore,Edging,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-40,2026-03-27,2026-03-27,9,Amie Ylda,Leaf Raking,FALSE,160.0,6.0,9.6,169.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-40,2026-03-27,2026-03-27,9,Amie Ylda,Trimming/Weed-whacking,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-40,2026-03-27,2026-03-27,9,Amie Ylda,Weeding,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-41,2026-04-07,2026-04-04,1,Women Life Freedom LLC,Hauling (WLF Subcontractor 4/4),FALSE,1045.0,6.0,62.7,1107.7,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-42,2026-04-15,2026-04-15,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-42,2026-04-15,2026-04-15,6,Alissa Moore,Hedge Trimming,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-42,2026-04-15,2026-04-15,6,Alissa Moore,Debris Removal,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-43,2026-05-05,2026-04-11,1,Women Life Freedom LLC,General Maintenance,TRUE,280.8,6.0,16.85,297.65,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-43,2026-05-05,2026-04-19,1,Women Life Freedom LLC,General Maintenance,TRUE,826.8,6.0,49.61,876.41,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-43,2026-05-05,2026-05-02,1,Women Life Freedom LLC,General Maintenance,TRUE,186.0,6.0,11.16,197.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-44,2026-05-12,2026-05-12,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-44,2026-05-12,2026-05-12,6,Alissa Moore,Hedge Trimming,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-44,2026-05-12,2026-05-12,6,Alissa Moore,Stump Removal,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-45,2026-05-12,2026-04-11,3,Martha Picarello,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-45,2026-05-12,2026-05-03,3,Martha Picarello,Lawn Maintenance,TRUE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-45,2026-05-12,2026-05-03,3,Martha Picarello,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-46,2026-05-16,2026-05-16,13,Shirley Locke,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-46,2026-05-16,2026-05-16,13,Shirley Locke,Edging/Weed-whacking,FALSE,16.0,6.0,0.96,16.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-47,2026-05-16,2026-05-16,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-48,2026-05-17,2026-05-17,11,Association,Vine Removal,FALSE,1200.0,6.0,72.0,1272.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-48,2026-05-17,2026-05-17,11,Association,Edging/Weed-whacking,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-48,2026-05-17,2026-05-17,11,Association,Debris Removal,FALSE,600.0,6.0,36.0,636.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-48,2026-05-17,2026-05-17,11,Association,Felling (Chainsaw),FALSE,200.0,6.0,12.0,212.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-48,2026-05-17,2026-05-17,11,Association,Mowing,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-75,2026-05-17,2026-07-06,14,Katie Wheelbarger,Lawn Maintenance,TRUE,50.0,0.0,0.0,50.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-50,2026-05-18,2026-05-16,1,Women Life Freedom LLC,General Maintenance,TRUE,633.33,6.0,38.0,671.33,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-51,2026-06-02,2026-05-16,3,Martha Picarello,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-51,2026-06-02,2026-05-16,3,Martha Picarello,Lawn Maintenance,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-51,2026-06-02,2026-05-31,3,Martha Picarello,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-51,2026-06-02,2026-05-31,3,Martha Picarello,Lawn Maintenance,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-52,2026-06-02,2026-05-30,11,Association,General Maintenance,TRUE,202.5,6.0,12.15,214.65,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-52,2026-06-02,2026-05-30,11,Association,Spraying,FALSE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-53,2026-06-02,2026-05-31,1,Women Life Freedom LLC,General Maintenance,TRUE,437.9,6.0,26.27,464.17,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-54,2026-06-02,2026-05-31,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-55,2026-06-02,2026-06-02,13,Shirley Locke,Weeding,FALSE,220.0,6.0,13.2,233.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-55,2026-06-02,2026-06-02,13,Shirley Locke,Mulching,FALSE,96.0,6.0,5.76,101.76,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-55,2026-06-02,2026-06-02,13,Shirley Locke,Hedge Trimming,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-55,2026-06-02,2026-06-02,13,Shirley Locke,Bagging,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-56,2026-06-03,2026-06-03,13,Shirley Locke,Lawn Maintenance,TRUE,36.0,6.0,2.16,38.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-57,2026-06-03,2026-06-03,14,Katie Wheelbarger,Lawn Maintenance,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Mulching,FALSE,180.0,6.0,10.8,190.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Hedge Trimming,FALSE,75.0,6.0,4.5,79.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Edging/Weed-whacking,FALSE,25.0,6.0,1.5,26.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Soil Placement,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Planting/Transplanting,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Weeding,FALSE,180.0,6.0,10.8,190.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Stump Removal,FALSE,10.0,6.0,0.6,10.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Bagging,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-59,2026-06-07,2026-06-07,13,Shirley Locke,Weeding,FALSE,220.0,6.0,13.2,233.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-59,2026-06-07,2026-06-07,13,Shirley Locke,Mulching,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-59,2026-06-07,2026-06-07,13,Shirley Locke,Bagging,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-61,2026-06-15,2026-06-12,13,Shirley Locke,Lawn Care,TRUE,35.0,6.0,2.1,37.1,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-62,2026-06-15,2026-06-12,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-63,2026-06-15,2026-06-12,14,Katie Wheelbarger,Lawn Care,TRUE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-64,2026-06-15,2026-06-14,11,Association,General Maintenance,TRUE,225.0,6.0,13.5,238.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-64,2026-06-15,2026-06-14,11,Association,Debris Removal/Bagging,FALSE,160.0,6.0,9.6,169.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-66,2026-06-17,2026-06-13,3,Martha Picarello,Lawn Care,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-66,2026-06-17,2026-06-13,3,Martha Picarello,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-68,2026-06-18,2026-06-18,17,Richard Rogers,Hedge/Branch Trimming,FALSE,125.0,6.0,7.5,132.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-68,2026-06-18,2026-06-18,17,Richard Rogers,Vine Removal,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-68,2026-06-18,2026-06-18,17,Richard Rogers,Weeding,FALSE,100.0,6.0,6.0,106.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-67,2026-06-28,2026-06-13,1,Women Life Freedom LLC,General Maintenance,TRUE,62.25,6.0,3.73,65.98,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-67,2026-06-28,2026-06-27,1,Women Life Freedom LLC,General Maintenance,TRUE,981.0,6.0,58.86,1039.86,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-70,2026-06-28,2026-06-26,11,Association,General Maintenance,TRUE,225.0,6.0,13.5,238.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-70,2026-06-28,2026-06-26,11,Association,Spraying,FALSE,60.0,6.0,3.6,63.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-70,2026-06-28,2026-06-26,11,Association,Weed Whacking/Edging,FALSE,325.0,6.0,19.5,344.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-71,2026-06-28,2026-06-26,14,Katie Wheelbarger,Lawn Care,TRUE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-72,2026-06-29,2026-06-29,3,Martha Picarello,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-72,2026-06-29,2026-06-29,3,Martha Picarello,Hedge/Branch Trimming,FALSE,125.0,6.0,7.5,132.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-72,2026-06-29,2026-06-29,3,Martha Picarello,Vine Removal,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-72,2026-06-29,2026-06-29,3,Martha Picarello,Debris Removal/Bagging,FALSE,36.0,6.0,2.16,38.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-73,2026-06-29,2026-06-29,13,Shirley Locke,Lawn Care,TRUE,35.0,6.0,2.1,37.1,ACTUAL,reference/invoices_2025-06_2026-06.pdf
-74,2026-06-29,2026-06-29,6,Alissa Moore,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+invoice,invoice_date,service_date,customer_id,customer,service_raw,service,is_bundle,line_net,surcharge_pct,line_surcharge,line_gross,status,source
+1,2025-06-06,2025-06-01,2,Joel Beauvais,Weeding,Weeding,FALSE,243.6,6.0,14.62,258.22,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+1,2025-06-06,2025-06-01,2,Joel Beauvais,Debris Pickup/Hauling,Debris Removal/Bagging,FALSE,12.0,6.0,0.72,12.72,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+1,2025-06-06,2025-06-01,2,Joel Beauvais,Mowing,Mowing,FALSE,22.5,6.0,1.35,23.85,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+1,2025-06-06,2025-06-01,2,Joel Beauvais,Trimming/Weed-whacking,Weed Whacking/Edging,FALSE,21.0,6.0,1.26,22.26,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2,2025-06-08,2025-06-01,3,Martha Picarello,Weeding,Weeding,FALSE,540.0,6.0,32.4,572.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2,2025-06-08,2025-06-01,3,Martha Picarello,Mulching,Mulching/Soil Placement,FALSE,97.5,6.0,5.85,103.35,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+3,2025-06-16,2025-06-07,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,910.0,6.0,54.6,964.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+3,2025-06-16,2025-06-08,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,736.0,6.0,44.16,780.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+3,2025-06-16,2025-06-15,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,880.0,6.0,52.8,932.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+4,2025-07-06,2025-06-21,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,410.0,6.0,24.6,434.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+4,2025-07-06,2025-06-29,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,366.8,6.0,22.01,388.81,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+4,2025-07-06,2025-07-06,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,147.2,6.0,8.83,156.03,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+5,2025-07-06,2025-07-06,6,Alissa Moore,Weeding,Weeding,FALSE,200.0,6.0,12.0,212.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+5,2025-07-06,2025-07-06,6,Alissa Moore,Vine Removal,Vine Removal,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+5,2025-07-06,2025-07-06,6,Alissa Moore,Mowing,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+5,2025-07-06,2025-07-06,6,Alissa Moore,Edging,Weed Whacking/Edging,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+6,2025-07-13,2025-07-05,5,JaLane Daschke,Mowing,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+6,2025-07-13,2025-07-12,5,JaLane Daschke,Mowing,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+7,2025-07-19,2025-07-19,6,Alissa Moore,Weeding,Weeding,FALSE,320.0,6.0,19.2,339.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+7,2025-07-19,2025-07-19,6,Alissa Moore,Weeding,Weeding,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+7,2025-07-19,2025-07-19,6,Alissa Moore,Weeding,Weeding,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+8,2025-07-20,2025-07-20,6,Alissa Moore,Weeding,Weeding,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+8,2025-07-20,2025-07-20,6,Alissa Moore,Grass removal,Grass/Ground Cover Removal,FALSE,280.0,6.0,16.8,296.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+8,2025-07-20,2025-07-20,6,Alissa Moore,Mowing,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+8,2025-07-20,2025-07-20,6,Alissa Moore,Edging,Weed Whacking/Edging,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+8,2025-07-20,2025-07-20,6,Alissa Moore,Weeding,Weeding,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+8,2025-07-20,2025-07-20,6,Alissa Moore,Bagging,Debris Removal/Bagging,FALSE,60.0,0.0,0.0,60.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+9,2025-07-25,2025-07-25,6,Alissa Moore,Mulching,Mulching/Soil Placement,FALSE,360.0,6.0,21.6,381.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+9,2025-07-25,2025-07-25,6,Alissa Moore,Weeding,Weeding,FALSE,66.0,6.0,3.96,69.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+9,2025-07-25,2025-07-25,6,Alissa Moore,Leaf Raking,Leaf Removal,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+10,2025-08-21,2025-08-21,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+11,2025-08-21,2025-07-12,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,141.2,6.0,8.47,149.67,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+11,2025-08-21,2025-07-22,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,155.2,6.0,9.31,164.51,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+11,2025-08-21,2025-07-27,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,126.8,6.0,7.61,134.41,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+11,2025-08-21,2025-08-02,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,150.0,6.0,9.0,159.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+11,2025-08-21,2025-08-09,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,326.0,6.0,19.56,345.56,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+11,2025-08-21,2025-08-17,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,108.0,6.0,6.48,114.48,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+12,2025-08-23,2025-08-23,6,Alissa Moore,Felling (Chainsaw),Felling (Chainsaw),FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+12,2025-08-23,2025-08-23,6,Alissa Moore,Weeding,Weeding,FALSE,140.0,6.0,8.4,148.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+12,2025-08-23,2025-08-23,6,Alissa Moore,Mulching,Mulching/Soil Placement,FALSE,60.0,6.0,3.6,63.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+13,2025-08-23,2025-08-23,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+14,2025-08-23,2025-08-23,3,Martha Picarello,Weeding,Weeding,FALSE,480.0,6.0,28.8,508.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+14,2025-08-23,2025-08-23,3,Martha Picarello,Vine Removal,Vine Removal,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+14,2025-08-23,2025-08-23,3,Martha Picarello,Hedge Trimming,Hedge/Branch Trimming,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+14,2025-08-23,2025-08-23,3,Martha Picarello,Mulching,Mulching/Soil Placement,FALSE,240.0,6.0,14.4,254.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+16,2025-08-25,2025-08-24,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,152.0,6.0,9.12,161.12,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+17,2025-09-06,2025-09-06,7,Alison Rosa,Mulching,Mulching/Soil Placement,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+18,2025-09-06,2025-09-06,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+19,2025-09-08,2025-09-30,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,160.0,6.0,9.6,169.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+20,2025-09-17,2025-09-17,3,Martha Picarello,General Maintenance,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+21,2025-09-22,2025-09-22,7,Alison Rosa,Mulching,Mulching/Soil Placement,FALSE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+22,2025-09-29,2025-09-29,3,Martha Picarello,General Maintenance,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+23,2025-10-07,2025-09-14,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,180.0,6.0,10.8,190.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+23,2025-10-07,2025-09-20,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,130.8,6.0,7.85,138.65,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+23,2025-10-07,2025-09-28,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+24,2025-10-07,2025-10-05,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+25,2025-11-04,2025-10-12,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+25,2025-11-04,2025-10-19,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,90.0,6.0,5.4,95.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+25,2025-11-04,2025-10-19,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,33.2,6.0,1.99,35.19,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+28,2025-11-05,2025-11-05,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,240.0,6.0,14.4,254.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+29,2025-11-05,2025-11-05,3,Martha Picarello,General Maintenance,General Maintenance,TRUE,140.0,6.0,8.4,148.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+30,2025-11-09,2025-11-08,3,Martha Picarello,General Maintenance,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+31,2025-11-11,2025-11-11,7,Alison Rosa,General Maintenance,General Maintenance,TRUE,1700.0,6.0,102.0,1802.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+32,2025-11-16,2025-11-16,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+33,2025-11-17,2025-11-09,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,266.8,6.0,16.01,282.81,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+33,2025-11-17,2025-11-16,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+34,2025-11-22,2025-11-22,3,Martha Picarello,General Maintenance,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+35,2025-12-06,2025-11-23,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,369.2,6.0,22.15,391.35,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+35,2025-12-06,2025-11-29,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,938.8,6.0,56.33,995.13,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+36,2025-12-10,2025-12-06,3,Martha Picarello,General Maintenance,General Maintenance,TRUE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+37,2025-12-10,2025-12-10,6,Alissa Moore,Debris Removal,Debris Removal/Bagging,FALSE,380.0,6.0,22.8,402.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+38,2026-03-14,2026-01-09,1,Women Life Freedom LLC,Bagging,Debris Removal/Bagging,FALSE,136.0,0.0,0.0,136.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+38,2026-03-14,2026-01-11,1,Women Life Freedom LLC,Bagging,Debris Removal/Bagging,FALSE,148.0,0.0,0.0,148.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+38,2026-03-14,2026-02-01,1,Women Life Freedom LLC,Subcontractor Planning,Subcontractor Work,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+38,2026-03-14,2026-02-22,1,Women Life Freedom LLC,Mulching,Mulching/Soil Placement,FALSE,78.8,6.0,4.73,83.53,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+38,2026-03-14,2026-03-07,1,Women Life Freedom LLC,Subcontractor Planning,Subcontractor Work,FALSE,37.2,6.0,2.23,39.43,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+39,2026-03-27,2026-03-27,6,Alissa Moore,Mowing,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+39,2026-03-27,2026-03-27,6,Alissa Moore,Edging,Weed Whacking/Edging,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+40,2026-03-27,2026-03-27,9,Amie Ylda,Leaf Raking,Leaf Removal,FALSE,160.0,6.0,9.6,169.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+40,2026-03-27,2026-03-27,9,Amie Ylda,Trimming/Weed-whacking,Weed Whacking/Edging,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+40,2026-03-27,2026-03-27,9,Amie Ylda,Weeding,Weeding,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+41,2026-04-07,2026-04-04,1,Women Life Freedom LLC,Hauling (WLF Subcontractor 4/4),Subcontractor Work,FALSE,1045.0,6.0,62.7,1107.7,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+42,2026-04-15,2026-04-15,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+42,2026-04-15,2026-04-15,6,Alissa Moore,Hedge Trimming,Hedge/Branch Trimming,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+42,2026-04-15,2026-04-15,6,Alissa Moore,Debris Removal,Debris Removal/Bagging,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+43,2026-05-05,2026-04-11,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,280.8,6.0,16.85,297.65,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+43,2026-05-05,2026-04-19,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,826.8,6.0,49.61,876.41,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+43,2026-05-05,2026-05-02,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,186.0,6.0,11.16,197.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+44,2026-05-12,2026-05-12,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+44,2026-05-12,2026-05-12,6,Alissa Moore,Hedge Trimming,Hedge/Branch Trimming,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+44,2026-05-12,2026-05-12,6,Alissa Moore,Stump Removal,Stump Removal,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+45,2026-05-12,2026-04-11,3,Martha Picarello,Weeding Maintenance,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+45,2026-05-12,2026-05-03,3,Martha Picarello,Lawn Maintenance,Lawn Maintenance,TRUE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+45,2026-05-12,2026-05-03,3,Martha Picarello,Weeding Maintenance,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+46,2026-05-16,2026-05-16,13,Shirley Locke,Mowing,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+46,2026-05-16,2026-05-16,13,Shirley Locke,Edging/Weed-whacking,Weed Whacking/Edging,FALSE,16.0,6.0,0.96,16.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+47,2026-05-16,2026-05-16,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+48,2026-05-17,2026-05-17,11,Association,Vine Removal,Vine Removal,FALSE,1200.0,6.0,72.0,1272.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+48,2026-05-17,2026-05-17,11,Association,Edging/Weed-whacking,Weed Whacking/Edging,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+48,2026-05-17,2026-05-17,11,Association,Debris Removal,Debris Removal/Bagging,FALSE,600.0,6.0,36.0,636.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+48,2026-05-17,2026-05-17,11,Association,Felling (Chainsaw),Felling (Chainsaw),FALSE,200.0,6.0,12.0,212.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+48,2026-05-17,2026-05-17,11,Association,Mowing,Mowing,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+75,2026-05-17,2026-07-06,14,Katie Wheelbarger,Lawn Maintenance,Lawn Maintenance,TRUE,50.0,0.0,0.0,50.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+50,2026-05-18,2026-05-16,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,633.33,6.0,38.0,671.33,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+51,2026-06-02,2026-05-16,3,Martha Picarello,Weeding Maintenance,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+51,2026-06-02,2026-05-16,3,Martha Picarello,Lawn Maintenance,Lawn Maintenance,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+51,2026-06-02,2026-05-31,3,Martha Picarello,Weeding Maintenance,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+51,2026-06-02,2026-05-31,3,Martha Picarello,Lawn Maintenance,Lawn Maintenance,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+52,2026-06-02,2026-05-30,11,Association,General Maintenance,General Maintenance,TRUE,202.5,6.0,12.15,214.65,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+52,2026-06-02,2026-05-30,11,Association,Spraying,Spraying,FALSE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+53,2026-06-02,2026-05-31,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,437.9,6.0,26.27,464.17,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+54,2026-06-02,2026-05-31,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+55,2026-06-02,2026-06-02,13,Shirley Locke,Weeding,Weeding,FALSE,220.0,6.0,13.2,233.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+55,2026-06-02,2026-06-02,13,Shirley Locke,Mulching,Mulching/Soil Placement,FALSE,96.0,6.0,5.76,101.76,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+55,2026-06-02,2026-06-02,13,Shirley Locke,Hedge Trimming,Hedge/Branch Trimming,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+55,2026-06-02,2026-06-02,13,Shirley Locke,Bagging,Debris Removal/Bagging,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+56,2026-06-03,2026-06-03,13,Shirley Locke,Lawn Maintenance,Lawn Maintenance,TRUE,36.0,6.0,2.16,38.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+57,2026-06-03,2026-06-03,14,Katie Wheelbarger,Lawn Maintenance,Lawn Maintenance,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Mulching,Mulching/Soil Placement,FALSE,180.0,6.0,10.8,190.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Hedge Trimming,Hedge/Branch Trimming,FALSE,75.0,6.0,4.5,79.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Edging/Weed-whacking,Weed Whacking/Edging,FALSE,25.0,6.0,1.5,26.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Soil Placement,Mulching/Soil Placement,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Planting/Transplanting,Planting/Transplanting,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Weeding,Weeding,FALSE,180.0,6.0,10.8,190.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Stump Removal,Stump Removal,FALSE,10.0,6.0,0.6,10.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Bagging,Debris Removal/Bagging,FALSE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+58,2026-06-06,2026-06-06,15,Barbara Jyachosky,Mowing,Mowing,FALSE,20.0,6.0,1.2,21.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+59,2026-06-07,2026-06-07,13,Shirley Locke,Weeding,Weeding,FALSE,220.0,6.0,13.2,233.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+59,2026-06-07,2026-06-07,13,Shirley Locke,Mulching,Mulching/Soil Placement,FALSE,120.0,6.0,7.2,127.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+59,2026-06-07,2026-06-07,13,Shirley Locke,Bagging,Debris Removal/Bagging,FALSE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+61,2026-06-15,2026-06-12,13,Shirley Locke,Lawn Care,Lawn Care,TRUE,35.0,6.0,2.1,37.1,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+62,2026-06-15,2026-06-12,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+63,2026-06-15,2026-06-12,14,Katie Wheelbarger,Lawn Care,Lawn Care,TRUE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+64,2026-06-15,2026-06-14,11,Association,General Maintenance,General Maintenance,TRUE,225.0,6.0,13.5,238.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+64,2026-06-15,2026-06-14,11,Association,Debris Removal/Bagging,Debris Removal/Bagging,FALSE,160.0,6.0,9.6,169.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+66,2026-06-17,2026-06-13,3,Martha Picarello,Lawn Care,Lawn Care,TRUE,50.0,6.0,3.0,53.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+66,2026-06-17,2026-06-13,3,Martha Picarello,Weeding Maintenance,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+68,2026-06-18,2026-06-18,17,Richard Rogers,Hedge/Branch Trimming,Hedge/Branch Trimming,FALSE,125.0,6.0,7.5,132.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+68,2026-06-18,2026-06-18,17,Richard Rogers,Vine Removal,Vine Removal,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+68,2026-06-18,2026-06-18,17,Richard Rogers,Weeding,Weeding,FALSE,100.0,6.0,6.0,106.0,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+67,2026-06-28,2026-06-13,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,62.25,6.0,3.73,65.98,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+67,2026-06-28,2026-06-27,1,Women Life Freedom LLC,General Maintenance,General Maintenance,TRUE,981.0,6.0,58.86,1039.86,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+70,2026-06-28,2026-06-26,11,Association,General Maintenance,General Maintenance,TRUE,225.0,6.0,13.5,238.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+70,2026-06-28,2026-06-26,11,Association,Spraying,Spraying,FALSE,60.0,6.0,3.6,63.6,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+70,2026-06-28,2026-06-26,11,Association,Weed Whacking/Edging,Weed Whacking/Edging,FALSE,325.0,6.0,19.5,344.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+71,2026-06-28,2026-06-26,14,Katie Wheelbarger,Lawn Care,Lawn Care,TRUE,40.0,6.0,2.4,42.4,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+72,2026-06-29,2026-06-29,3,Martha Picarello,Weeding Maintenance,Weeding Maintenance,FALSE,70.0,6.0,4.2,74.2,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+72,2026-06-29,2026-06-29,3,Martha Picarello,Hedge/Branch Trimming,Hedge/Branch Trimming,FALSE,125.0,6.0,7.5,132.5,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+72,2026-06-29,2026-06-29,3,Martha Picarello,Vine Removal,Vine Removal,FALSE,30.0,6.0,1.8,31.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+72,2026-06-29,2026-06-29,3,Martha Picarello,Debris Removal/Bagging,Debris Removal/Bagging,FALSE,36.0,6.0,2.16,38.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+73,2026-06-29,2026-06-29,13,Shirley Locke,Lawn Care,Lawn Care,TRUE,35.0,6.0,2.1,37.1,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+74,2026-06-29,2026-06-29,6,Alissa Moore,General Maintenance,General Maintenance,TRUE,80.0,6.0,4.8,84.8,ACTUAL,reference/invoices_2025-06_2026-06.pdf

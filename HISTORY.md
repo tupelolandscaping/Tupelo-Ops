@@ -96,6 +96,10 @@ Revenue-ledger update standardized: `model/parse_invoices.py` with a fail-closed
 Service classification corrected to use the invoice's literal service header. The prior ledger let free-text description lines override the header — an implementation artifact of the original parse, not a deliberate rule — which inconsistently reclassified some bundled lines into specific services (e.g., "General Maintenance" → "Mowing" when the description happened to start with a recognizable keyword, but not when it didn't) and understated the bundled-line share. Dollar amounts, dates, customers, and all invoice-level figures are unchanged; H-030's validation stands. 9 line items across 6 invoices changed classification (8 reclassified to "General Maintenance"/`is_bundle=TRUE`; 1 restored to its full literal header "Edging/Weed-whacking"). New bundled-line share: **56.6%** ($15,795.85 of $27,891.65), up from the prior 40.7% ($11,339.40). Supersedes the 40.7% figure cited in H-033 and in `CONTEXT.md` Follow-Up #6 / Section 9.
 *Basis:* Owner review of the original parse logic; `model/parse_invoices.py` never scans description text for service names, only the invoice's literal service-header field.
 
+**H-037 · 2026-07-06 · DATA**
+Legacy service names mapped to the current catalog via `model/data/service-name-map.csv` (13 renames, owner-confirmed). Extraction verified the 27 distinct invoice headers are complete — the 48 headerless lines are description fragments, not service names. `service_raw` preserved alongside canonical `service`; a fail-closed gate now rejects unrecognized headers. No dollar amounts, dates, or customers changed. The three bundle labels (General Maintenance, Lawn Care, Lawn Maintenance) are not renames and remain unmapped; bundled share stays 56.6%.
+*Basis:* Header extraction cross-checked against the 22-item Homeworks catalog; owner confirmed each mapping.
+
 ---
 
 ### Undated revision
