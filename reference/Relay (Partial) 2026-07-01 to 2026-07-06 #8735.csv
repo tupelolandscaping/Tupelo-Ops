@@ -1,0 +1,5 @@
+Date,Payee,Account #,Transaction Type,Description,Reference,Status,Amount,Currency,Balance
+7/6/2026,Operating Expenses,3549,Spend-transfer,,"Instant auto transfer",SETTLED,-1105.84,USD,0.00
+7/6/2026,WOMEN LIFE FRE,,Receive,,"BILL_PAY",SETTLED,+1105.84,USD,1105.84
+7/3/2026,Operating Expenses,3549,Spend-transfer,,"Transfer",SETTLED,-1054.70,USD,0.00
+7/2/2026,ANACOSTIA COMMUN,,Receive,,"Regular service & bioswale",SETTLED,+646.60,USD,1054.70

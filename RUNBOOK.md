@@ -120,7 +120,7 @@
 
 *Both must resolve before the model build. These are working sessions, not one-click tasks.*
 
-- [ ] **Gate A — Bank consolidation (#9)** 🧑 OWNER + 🤖: consolidate the Relay accounts, identify each account's purpose (operating / reserve / dormant), and establish the full cash picture from the actual statements. This is a **hard gate** — the build's cash side is bank-sourced (per D5a), so it does not proceed on CRM cash data alone. **Save the consolidated output into `reference/`** as new ground truth (and commit it).
+- [x] **Gate A — Bank consolidation (#9)** 🧑 OWNER + 🤖: consolidate the Relay accounts, identify each account's purpose (operating / reserve / dormant), and establish the full cash picture from the actual statements. This is a **hard gate** — the build's cash side is bank-sourced (per D5a), so it does not proceed on CRM cash data alone. **Save the consolidated output into `reference/`** as new ground truth (and commit it). *Closed 2026-07-06: `reference/cash-consolidated-2026-07-06.csv`, verified $1,225.33 across all four active accounts — see `HISTORY.md` H-039.*
 - [ ] **Gate B — Revenue export format + service mapping (#6)** 🧑 OWNER + 🤖: obtain the flat transaction-line export (one row per date/customer/service/amount) and map the raw services to the ~16-item catalog. Resolve the exact raw-entry count here. **Save the flat export into `reference/`** as new ground truth (and commit it).
   - [ ] *If Gate B is deferred:* explicitly choose the **named partial path** — build revenue events with `category`/`subcategory` tagged `BLOCKED — unmapped`, never guessed. (Amounts/totals are still correct; only classification is deferred.)
 

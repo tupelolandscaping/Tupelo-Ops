@@ -22,7 +22,7 @@ Planning Horizon: July 2026 – June 2027
 
 # 2. Quarterly Goals & Milestones
 
-Targets below are derived from the accompanying financial model (reconciled 2026-06-17). They are **planning estimates to be replaced with Homeworks actuals** as data accumulates; the figures most worth revisiting first are now the weekday-growth ramp, the spring cohort size, and the starting-cash anchor (the peak anchor is validated; see Assumptions Log). **Note (2026-07-05): the peak anchor is now the actual $4,908 and the objective ~$10,000; the quarterly target tables and any "~$9K peak" references below still derive from the 2026-06-17 model built on the $4,500 anchor, and will be regenerated against the updated anchor during the Phase 7 model rebuild — treat their values as superseded pending that rebuild.**
+Targets below are derived from the accompanying financial model (reconciled 2026-06-17). They are **planning estimates to be replaced with Homeworks actuals** as data accumulates; the figures most worth revisiting first are now the weekday-growth ramp and the spring cohort size (the peak anchor is validated; the starting-cash anchor is verified as of 2026-07-06; see Assumptions Log). **Note (2026-07-05): the peak anchor is now the actual $4,908 and the objective ~$10,000; the quarterly target tables and any "~$9K peak" references below still derive from the 2026-06-17 model built on the $4,500 anchor, and will be regenerated against the updated anchor during the Phase 7 model rebuild — treat their values as superseded pending that rebuild.**
 
 ## Q3 2026 (Jul–Sep)
 
@@ -290,7 +290,7 @@ Every assumption underlying the plan and model, stated explicitly so it can be s
 | Project quote buffer | +30% | Observed underestimation | Apply now |
 | Fixed monthly costs | ~$696.58 | Itemized from actual contracts (see reference/fixed-overhead.md); excludes equipment-maintenance, BLOCKED pending an allocation basis | Sourced |
 | Labor rates | $20 / $25 per hr | Member / lead | Stable |
-| Starting cash (Jul 2026 anchor) | $1,400 | Interim ESTIMATE — 2026-07-01 operating-account reading (post-payroll); superseded by the full bank picture once Relay consolidation completes | **Revisit first** |
+| Starting cash (Jul 2026 anchor) | $1,225.33 | Verified ACTUAL — 2026-07-06, all four active Relay accounts reconciled (`reference/cash-consolidated-2026-07-06.csv`; `HISTORY.md` H-039). See Revision Note below for prior values. | **Verified** |
 | Cash buffer target | $6,000 (= $4,000 reserve + $2,000 truck hedge) | Raw bank balance; patient/interest-free debt treated as equity (not netted); truck hedge prioritized once $4k floor secured | Policy |
 | Top-3 client concentration | 79% (single client 42%) | Jan–Jun ’26 actuals | **Risk — monitor** |
 
@@ -301,5 +301,6 @@ Every assumption underlying the plan and model, stated explicitly so it can be s
 | Date | Change | Basis |
 | --- | --- | --- |
 | 2026-06-17 | Reconciled plan to the financial model: project/maintenance split 80/20 → 58/42; peak anchor marked Validated; quarterly net-profit and cash tables updated to recalculated model values (revenue unchanged); cash buffer consolidated to $6,000 ($4k reserve + $2k truck hedge, raw bank balance); added client-concentration and patient-debt risks; marked transmission diagnostic and registered-agent change as done; front-loaded the crew-lead track. | Owner input + Jan–Jun ’26 Homeworks actuals |
+| 2026-07-06 | Starting-cash anchor updated: $1,500 (original planning guess) → $1,400 (2026-07-01, single-account interim ESTIMATE, since superseded) → **$1,225.33** (2026-07-06, verified ACTUAL across all four active Relay accounts). Status Revisit first → Verified. Gate A (bank consolidation, Follow-Up #9) closed — the last pre-build gate. | Four active-account Relay statements, independently reconciled (`reference/cash-consolidated-2026-07-06.csv`; `HISTORY.md` H-039) |
 
 *Preserve original values when revising targets so a moving baseline stays visible.*

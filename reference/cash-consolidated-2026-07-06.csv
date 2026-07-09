@@ -1,0 +1,6 @@
+account_number,account_role,ending_balance,as_of_date,source
+3549,OpEx,1225.33,2026-07-06,"reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv"
+8735,Income,0.00,2026-07-06,"reference/Relay (Partial) 2026-07-01 to 2026-07-06 #8735.csv"
+3550,Reserve,0.00,2026-07-06,"reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3550.csv (no activity; continuity with H-026)"
+8737,Taxes,0.00,2026-07-06,"reference/Relay (Partial) 2026-07-01 to 2026-07-06 #8737.csv (no activity; continuity with H-026)"
+TOTAL,,1225.33,2026-07-06,
