@@ -1,1 +1,320 @@
 date,type,event,category,subcategory,customer,quantity,unit_rate,amount,status,source
+2025-06-06,revenue,invoice,service,Weeding,Joel Beauvais,1,243.60,243.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-06,revenue,invoice,surcharge,Weeding,Joel Beauvais,1,14.62,14.62,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-06,revenue,invoice,service,Debris Removal/Bagging,Joel Beauvais,1,12.00,12.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-06,revenue,invoice,surcharge,Debris Removal/Bagging,Joel Beauvais,1,0.72,0.72,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-06,revenue,invoice,service,Mowing,Joel Beauvais,1,22.50,22.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-06,revenue,invoice,surcharge,Mowing,Joel Beauvais,1,1.35,1.35,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-06,revenue,invoice,service,Weed Whacking/Edging,Joel Beauvais,1,21.00,21.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-06,revenue,invoice,surcharge,Weed Whacking/Edging,Joel Beauvais,1,1.26,1.26,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-08,revenue,invoice,service,Weeding,Martha Picarello,1,540.00,540.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-08,revenue,invoice,surcharge,Weeding,Martha Picarello,1,32.40,32.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-08,revenue,invoice,service,Mulching/Soil Placement,Martha Picarello,1,97.50,97.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-08,revenue,invoice,surcharge,Mulching/Soil Placement,Martha Picarello,1,5.85,5.85,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-16,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,910.00,910.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-16,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,54.60,54.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-16,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,736.00,736.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-16,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,44.16,44.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-16,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,880.00,880.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-06-16,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,52.80,52.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,410.00,410.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,24.60,24.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,366.80,366.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,22.01,22.01,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,147.20,147.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,8.83,8.83,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,service,Weeding,Alissa Moore,1,200.00,200.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,surcharge,Weeding,Alissa Moore,1,12.00,12.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,service,Vine Removal,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,surcharge,Vine Removal,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,service,Mowing,Alissa Moore,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,surcharge,Mowing,Alissa Moore,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,service,Weed Whacking/Edging,Alissa Moore,1,30.00,30.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-06,revenue,invoice,surcharge,Weed Whacking/Edging,Alissa Moore,1,1.80,1.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-13,revenue,invoice,service,Mowing,JaLane Daschke,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-13,revenue,invoice,surcharge,Mowing,JaLane Daschke,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-13,revenue,invoice,service,Mowing,JaLane Daschke,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-13,revenue,invoice,surcharge,Mowing,JaLane Daschke,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-19,revenue,invoice,service,Weeding,Alissa Moore,1,320.00,320.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-19,revenue,invoice,surcharge,Weeding,Alissa Moore,1,19.20,19.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-19,revenue,invoice,service,Weeding,Alissa Moore,1,120.00,120.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-19,revenue,invoice,surcharge,Weeding,Alissa Moore,1,7.20,7.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-19,revenue,invoice,service,Weeding,Alissa Moore,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-19,revenue,invoice,surcharge,Weeding,Alissa Moore,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,service,Weeding,Alissa Moore,1,120.00,120.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,surcharge,Weeding,Alissa Moore,1,7.20,7.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,service,Grass/Ground Cover Removal,Alissa Moore,1,280.00,280.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,surcharge,Grass/Ground Cover Removal,Alissa Moore,1,16.80,16.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,service,Mowing,Alissa Moore,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,surcharge,Mowing,Alissa Moore,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,service,Weed Whacking/Edging,Alissa Moore,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,surcharge,Weed Whacking/Edging,Alissa Moore,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,service,Weeding,Alissa Moore,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,surcharge,Weeding,Alissa Moore,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-20,revenue,invoice,service,Debris Removal/Bagging,Alissa Moore,1,60.00,60.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-25,revenue,invoice,service,Mulching/Soil Placement,Alissa Moore,1,360.00,360.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-25,revenue,invoice,surcharge,Mulching/Soil Placement,Alissa Moore,1,21.60,21.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-25,revenue,invoice,service,Weeding,Alissa Moore,1,66.00,66.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-25,revenue,invoice,surcharge,Weeding,Alissa Moore,1,3.96,3.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-25,revenue,invoice,service,Leaf Removal,Alissa Moore,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-07-25,revenue,invoice,surcharge,Leaf Removal,Alissa Moore,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,141.20,141.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,8.47,8.47,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,155.20,155.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,9.31,9.31,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,126.80,126.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,7.61,7.61,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,150.00,150.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,9.00,9.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,326.00,326.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,19.56,19.56,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,108.00,108.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-21,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,6.48,6.48,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,service,Felling (Chainsaw),Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,Felling (Chainsaw),Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,service,Weeding,Alissa Moore,1,140.00,140.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,Weeding,Alissa Moore,1,8.40,8.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,service,Mulching/Soil Placement,Alissa Moore,1,60.00,60.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,Mulching/Soil Placement,Alissa Moore,1,3.60,3.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,service,Weeding,Martha Picarello,1,480.00,480.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,Weeding,Martha Picarello,1,28.80,28.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,service,Vine Removal,Martha Picarello,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,Vine Removal,Martha Picarello,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,service,Hedge/Branch Trimming,Martha Picarello,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,Hedge/Branch Trimming,Martha Picarello,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,service,Mulching/Soil Placement,Martha Picarello,1,240.00,240.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,surcharge,Mulching/Soil Placement,Martha Picarello,1,14.40,14.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-25,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,152.00,152.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-25,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,9.12,9.12,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-06,revenue,invoice,service,Mulching/Soil Placement,Alison Rosa,1,120.00,120.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-06,revenue,invoice,surcharge,Mulching/Soil Placement,Alison Rosa,1,7.20,7.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-06,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-06,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-08,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,160.00,160.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-08,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,9.60,9.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-17,revenue,invoice,BLOCKED — unmapped,General Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-17,revenue,invoice,surcharge,General Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-22,revenue,invoice,service,Mulching/Soil Placement,Alison Rosa,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-22,revenue,invoice,surcharge,Mulching/Soil Placement,Alison Rosa,1,3.00,3.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-29,revenue,invoice,BLOCKED — unmapped,General Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-29,revenue,invoice,surcharge,General Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,180.00,180.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,10.80,10.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,130.80,130.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,7.85,7.85,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,120.00,120.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,7.20,7.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-10-07,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-04,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-04,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-04,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,90.00,90.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-04,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,5.40,5.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-04,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,33.20,33.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-04,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,1.99,1.99,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-05,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,240.00,240.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-05,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,14.40,14.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-05,revenue,invoice,BLOCKED — unmapped,General Maintenance,Martha Picarello,1,140.00,140.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-05,revenue,invoice,surcharge,General Maintenance,Martha Picarello,1,8.40,8.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-09,revenue,invoice,BLOCKED — unmapped,General Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-09,revenue,invoice,surcharge,General Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-11,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alison Rosa,1,1700.00,1700.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-11,revenue,invoice,surcharge,General Maintenance,Alison Rosa,1,102.00,102.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-16,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-16,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-17,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,266.80,266.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-17,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,16.01,16.01,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-17,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-17,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-22,revenue,invoice,BLOCKED — unmapped,General Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-22,revenue,invoice,surcharge,General Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-06,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,369.20,369.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-06,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,22.15,22.15,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-06,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,938.80,938.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-06,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,56.33,56.33,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-10,revenue,invoice,BLOCKED — unmapped,General Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-10,revenue,invoice,surcharge,General Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-10,revenue,invoice,service,Debris Removal/Bagging,Alissa Moore,1,380.00,380.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-10,revenue,invoice,surcharge,Debris Removal/Bagging,Alissa Moore,1,22.80,22.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,service,Debris Removal/Bagging,Women Life Freedom LLC,1,136.00,136.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,service,Debris Removal/Bagging,Women Life Freedom LLC,1,148.00,148.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,service,Subcontractor Work,Women Life Freedom LLC,1,30.00,30.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,surcharge,Subcontractor Work,Women Life Freedom LLC,1,1.80,1.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,service,Mulching/Soil Placement,Women Life Freedom LLC,1,78.80,78.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,surcharge,Mulching/Soil Placement,Women Life Freedom LLC,1,4.73,4.73,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,service,Subcontractor Work,Women Life Freedom LLC,1,37.20,37.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-14,revenue,invoice,surcharge,Subcontractor Work,Women Life Freedom LLC,1,2.23,2.23,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,service,Mowing,Alissa Moore,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,surcharge,Mowing,Alissa Moore,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,service,Weed Whacking/Edging,Alissa Moore,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,surcharge,Weed Whacking/Edging,Alissa Moore,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,service,Leaf Removal,Amie Ylda,1,160.00,160.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,surcharge,Leaf Removal,Amie Ylda,1,9.60,9.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,service,Weed Whacking/Edging,Amie Ylda,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,surcharge,Weed Whacking/Edging,Amie Ylda,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,service,Weeding,Amie Ylda,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-03-27,revenue,invoice,surcharge,Weeding,Amie Ylda,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-07,revenue,invoice,service,Subcontractor Work,Women Life Freedom LLC,1,1045.00,1045.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-07,revenue,invoice,surcharge,Subcontractor Work,Women Life Freedom LLC,1,62.70,62.70,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-15,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-15,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-15,revenue,invoice,service,Hedge/Branch Trimming,Alissa Moore,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-15,revenue,invoice,surcharge,Hedge/Branch Trimming,Alissa Moore,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-15,revenue,invoice,service,Debris Removal/Bagging,Alissa Moore,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-04-15,revenue,invoice,surcharge,Debris Removal/Bagging,Alissa Moore,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-05,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,280.80,280.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-05,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,16.85,16.85,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-05,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,826.80,826.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-05,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,49.61,49.61,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-05,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,186.00,186.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-05,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,11.16,11.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,service,Hedge/Branch Trimming,Alissa Moore,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,surcharge,Hedge/Branch Trimming,Alissa Moore,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,service,Stump Removal,Alissa Moore,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,surcharge,Stump Removal,Alissa Moore,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,service,Weeding Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,surcharge,Weeding Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,BLOCKED — unmapped,Lawn Maintenance,Martha Picarello,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,surcharge,Lawn Maintenance,Martha Picarello,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,service,Weeding Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-12,revenue,invoice,surcharge,Weeding Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-16,revenue,invoice,service,Mowing,Shirley Locke,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-16,revenue,invoice,surcharge,Mowing,Shirley Locke,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-16,revenue,invoice,service,Weed Whacking/Edging,Shirley Locke,1,16.00,16.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-16,revenue,invoice,surcharge,Weed Whacking/Edging,Shirley Locke,1,0.96,0.96,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-16,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-16,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,service,Vine Removal,Association,1,1200.00,1200.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,surcharge,Vine Removal,Association,1,72.00,72.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,service,Weed Whacking/Edging,Association,1,120.00,120.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,surcharge,Weed Whacking/Edging,Association,1,7.20,7.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,service,Debris Removal/Bagging,Association,1,600.00,600.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,surcharge,Debris Removal/Bagging,Association,1,36.00,36.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,service,Felling (Chainsaw),Association,1,200.00,200.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,surcharge,Felling (Chainsaw),Association,1,12.00,12.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,service,Mowing,Association,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,surcharge,Mowing,Association,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-17,revenue,invoice,BLOCKED — unmapped,Lawn Maintenance,Katie Wheelbarger,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-18,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,633.33,633.33,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-18,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,38.00,38.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,service,Weeding Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Weeding Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,BLOCKED — unmapped,Lawn Maintenance,Martha Picarello,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Lawn Maintenance,Martha Picarello,1,3.00,3.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,service,Weeding Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Weeding Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,BLOCKED — unmapped,Lawn Maintenance,Martha Picarello,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Lawn Maintenance,Martha Picarello,1,3.00,3.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,BLOCKED — unmapped,General Maintenance,Association,1,202.50,202.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,General Maintenance,Association,1,12.15,12.15,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,service,Spraying,Association,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Spraying,Association,1,3.00,3.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,437.90,437.90,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,26.27,26.27,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,service,Weeding,Shirley Locke,1,220.00,220.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Weeding,Shirley Locke,1,13.20,13.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,service,Mulching/Soil Placement,Shirley Locke,1,96.00,96.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Mulching/Soil Placement,Shirley Locke,1,5.76,5.76,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,service,Hedge/Branch Trimming,Shirley Locke,1,30.00,30.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Hedge/Branch Trimming,Shirley Locke,1,1.80,1.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,service,Debris Removal/Bagging,Shirley Locke,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,surcharge,Debris Removal/Bagging,Shirley Locke,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-03,revenue,invoice,BLOCKED — unmapped,Lawn Maintenance,Shirley Locke,1,36.00,36.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-03,revenue,invoice,surcharge,Lawn Maintenance,Shirley Locke,1,2.16,2.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-03,revenue,invoice,BLOCKED — unmapped,Lawn Maintenance,Katie Wheelbarger,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-03,revenue,invoice,surcharge,Lawn Maintenance,Katie Wheelbarger,1,3.00,3.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Mulching/Soil Placement,Barbara Jyachosky,1,180.00,180.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Mulching/Soil Placement,Barbara Jyachosky,1,10.80,10.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Hedge/Branch Trimming,Barbara Jyachosky,1,75.00,75.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Hedge/Branch Trimming,Barbara Jyachosky,1,4.50,4.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Weed Whacking/Edging,Barbara Jyachosky,1,25.00,25.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Weed Whacking/Edging,Barbara Jyachosky,1,1.50,1.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Mulching/Soil Placement,Barbara Jyachosky,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Mulching/Soil Placement,Barbara Jyachosky,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Planting/Transplanting,Barbara Jyachosky,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Planting/Transplanting,Barbara Jyachosky,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Weeding,Barbara Jyachosky,1,180.00,180.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Weeding,Barbara Jyachosky,1,10.80,10.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Stump Removal,Barbara Jyachosky,1,10.00,10.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Stump Removal,Barbara Jyachosky,1,0.60,0.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Debris Removal/Bagging,Barbara Jyachosky,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Debris Removal/Bagging,Barbara Jyachosky,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,service,Mowing,Barbara Jyachosky,1,20.00,20.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-06,revenue,invoice,surcharge,Mowing,Barbara Jyachosky,1,1.20,1.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-07,revenue,invoice,service,Weeding,Shirley Locke,1,220.00,220.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-07,revenue,invoice,surcharge,Weeding,Shirley Locke,1,13.20,13.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-07,revenue,invoice,service,Mulching/Soil Placement,Shirley Locke,1,120.00,120.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-07,revenue,invoice,surcharge,Mulching/Soil Placement,Shirley Locke,1,7.20,7.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-07,revenue,invoice,service,Debris Removal/Bagging,Shirley Locke,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-07,revenue,invoice,surcharge,Debris Removal/Bagging,Shirley Locke,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,BLOCKED — unmapped,Lawn Care,Shirley Locke,1,35.00,35.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,surcharge,Lawn Care,Shirley Locke,1,2.10,2.10,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,BLOCKED — unmapped,Lawn Care,Katie Wheelbarger,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,surcharge,Lawn Care,Katie Wheelbarger,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,BLOCKED — unmapped,General Maintenance,Association,1,225.00,225.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,surcharge,General Maintenance,Association,1,13.50,13.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,service,Debris Removal/Bagging,Association,1,160.00,160.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,surcharge,Debris Removal/Bagging,Association,1,9.60,9.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-17,revenue,invoice,BLOCKED — unmapped,Lawn Care,Martha Picarello,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-17,revenue,invoice,surcharge,Lawn Care,Martha Picarello,1,3.00,3.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-17,revenue,invoice,service,Weeding Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-17,revenue,invoice,surcharge,Weeding Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-18,revenue,invoice,service,Hedge/Branch Trimming,Richard Rogers,1,125.00,125.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-18,revenue,invoice,surcharge,Hedge/Branch Trimming,Richard Rogers,1,7.50,7.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-18,revenue,invoice,service,Vine Removal,Richard Rogers,1,30.00,30.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-18,revenue,invoice,surcharge,Vine Removal,Richard Rogers,1,1.80,1.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-18,revenue,invoice,service,Weeding,Richard Rogers,1,100.00,100.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-18,revenue,invoice,surcharge,Weeding,Richard Rogers,1,6.00,6.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,62.25,62.25,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,3.73,3.73,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,BLOCKED — unmapped,General Maintenance,Women Life Freedom LLC,1,981.00,981.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,surcharge,General Maintenance,Women Life Freedom LLC,1,58.86,58.86,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,BLOCKED — unmapped,General Maintenance,Association,1,225.00,225.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,surcharge,General Maintenance,Association,1,13.50,13.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,service,Spraying,Association,1,60.00,60.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,surcharge,Spraying,Association,1,3.60,3.60,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,service,Weed Whacking/Edging,Association,1,325.00,325.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,surcharge,Weed Whacking/Edging,Association,1,19.50,19.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,BLOCKED — unmapped,Lawn Care,Katie Wheelbarger,1,40.00,40.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,surcharge,Lawn Care,Katie Wheelbarger,1,2.40,2.40,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,service,Weeding Maintenance,Martha Picarello,1,70.00,70.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,surcharge,Weeding Maintenance,Martha Picarello,1,4.20,4.20,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,service,Hedge/Branch Trimming,Martha Picarello,1,125.00,125.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,surcharge,Hedge/Branch Trimming,Martha Picarello,1,7.50,7.50,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,service,Vine Removal,Martha Picarello,1,30.00,30.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,surcharge,Vine Removal,Martha Picarello,1,1.80,1.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,service,Debris Removal/Bagging,Martha Picarello,1,36.00,36.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,surcharge,Debris Removal/Bagging,Martha Picarello,1,2.16,2.16,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,BLOCKED — unmapped,Lawn Care,Shirley Locke,1,35.00,35.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,surcharge,Lawn Care,Shirley Locke,1,2.10,2.10,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,BLOCKED — unmapped,General Maintenance,Alissa Moore,1,80.00,80.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,surcharge,General Maintenance,Alissa Moore,1,4.80,4.80,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-08-23,revenue,invoice,tip,,Martha Picarello,1,89.04,89.04,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-06,revenue,invoice,tip,,Alison Rosa,1,19.08,19.08,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-09-29,revenue,invoice,tip,,Martha Picarello,1,7.42,7.42,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-05,revenue,invoice,tip,,Martha Picarello,1,14.84,14.84,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-09,revenue,invoice,tip,,Martha Picarello,1,7.42,7.42,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-11,revenue,invoice,tip,,Alison Rosa,1,50.00,50.00,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-11-22,revenue,invoice,tip,,Martha Picarello,1,7.42,7.42,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-12-10,revenue,invoice,tip,,Martha Picarello,1,7.42,7.42,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-05-16,revenue,invoice,tip,,Shirley Locke,1,7.63,7.63,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,tip,,Martha Picarello,1,25.44,25.44,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-02,revenue,invoice,tip,,Shirley Locke,1,61.37,61.37,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-03,revenue,invoice,tip,,Shirley Locke,1,3.82,3.82,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-03,revenue,invoice,tip,,Katie Wheelbarger,1,5.30,5.30,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-07,revenue,invoice,tip,,Shirley Locke,1,40.28,40.28,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,tip,,Shirley Locke,1,3.71,3.71,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-15,revenue,invoice,tip,,Katie Wheelbarger,1,8.48,8.48,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-18,revenue,invoice,tip,,Richard Rogers,1,54.06,54.06,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-28,revenue,invoice,tip,,Katie Wheelbarger,1,8.48,8.48,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2026-06-29,revenue,invoice,tip,,Shirley Locke,1,3.71,3.71,ACTUAL,reference/invoices_2025-06_2026-06.pdf

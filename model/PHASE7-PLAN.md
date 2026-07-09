@@ -98,6 +98,8 @@ Every deposit ties to exactly one invoice at an exact dollar match, with a consi
 
 No fee schedule has been supplied for card payments processed **directly through Homeworks** (as distinct from the Stripe-routed deposits visible in Relay) — this is **not assumed or estimated here**; see the new Follow-Up item added to `CONTEXT.md` this pass (Follow-Up #17) and Section 4 decision 6 below.
 
+**Scope clarification (owner-confirmed, 2026-07-09): the Stripe fee is a payment-side (collected) fact, not a billing-side (billed) fact, and has no bearing on `model/data/ledger-revenue.csv` (Sequencing Step 2, billed/invoice events only).** The 3.9% + $0.30 fee is deducted between the client's card charge and the deposit landing in Relay — it only exists once a payment is settled, so it applies exclusively to Sequencing Step 3's payment-event matching, and within that, only to Approach A's tier 3 (the Stripe/credit-card aggregated-receipt tier). ACH transfers (confirmed via Finding 1/2's Anacostia and Women Life Freedom LLC examples) and check payments carry no processing fee at all — they should reconcile dollar-for-dollar against their invoice's full billed amount, with no fee adjustment applied. Sequencing Step 3 must not apply fee-netting uniformly across all payment channels; it is a tier-3-only adjustment.
+
 ### Candidate approaches (not adopted — flagged for owner decision, Section 4 decision 3)
 
 **Approach A — tiered/hybrid matching (recommended as the target state).**
