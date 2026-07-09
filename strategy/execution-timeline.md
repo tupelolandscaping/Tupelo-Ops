@@ -149,6 +149,7 @@
 | Paid ads (Local Services / Nextdoor) | Free funnel converting **and** reserve intact |
 | New cohort onboarding waves | Capacity confirmed (not optimism) |
 | Xavier payout | Reserve + cushion intact; external obligations cleared first |
+| Owner (Cyrus) truck-debt repayment ($3,800) | Reserve + cushion intact; sequenced after Xavier's payout above (`HISTORY.md` H-041) |
 | Waitlist conversion | Proven throughput |
 
 ---
