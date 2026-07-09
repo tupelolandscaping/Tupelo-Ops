@@ -2,7 +2,7 @@
 
 This directory holds only **immutable raw sources**: CRM exports, the P&L report, Relay bank statements, invoice PDFs, and sourced overhead contract figures. Everything here is appended, never altered, and never regenerated — nothing in `reference/` is script output. If a figure here looks wrong, that's a finding to raise with the owner, not something to correct in place — corrections flow from here into derived docs (`CONTEXT.md`, the strategy files, `model/data/`), never the other way.
 
-Script-regenerated derivatives (data extracted and reconciled from these raw sources) live in `model/data/` instead — see that directory's contents and `reference/REVENUE-UPDATE.md` for the revenue ledger's update procedure.
+Script-regenerated derivatives (data extracted and reconciled from these raw sources) live in `model/data/` instead — see that directory's contents, `reference/REVENUE-UPDATE.md` for the revenue ledger's update procedure, and `reference/CATALOG-UPDATE.md` for the service catalog's.
 
 ## Relay account map
 
@@ -23,6 +23,16 @@ The `Relay YYYY-MM-DD #NNNN.csv` (or `Relay (Partial) YYYY-MM-DD #NNNN.csv`) fil
 - `invoices_2025-06_2026-06.pdf` — source. 68 invoices, Jun 2025–Jun 2026, as issued. Immutable; never edited or regenerated.
 
 The extracted, reconciled revenue ledgers (`revenue-invoices.csv`, `revenue-line-items.csv`) are **script-regenerated derivatives**, not raw sources, so they live in `model/data/` — not here — and are overwritten only by `model/parse_invoices.py`, never by hand (see `HISTORY.md` H-035 and `reference/REVENUE-UPDATE.md`).
+
+## Service catalog
+
+**Active snapshot: `service-catalog-2026-07-09.csv`** (22 rows: `Name, Rate Charged to Client, Tax1 %, Tax2 %, Category, Description`; saved verbatim from the Homeworks "Items and Services" export, including its trailing `null` row — not cleaned). This pointer line is the one piece of catalog-tracking data that is allowed to change in place; see `reference/CATALOG-UPDATE.md` for the refresh procedure and the reasoning for using an explicit pointer rather than glob-latest.
+
+`model/parse_invoices.py`'s fail-closed gate reads valid catalog names from the active snapshot named above — never a hardcoded list.
+
+**Packages (unbilled):** `service-packages-2026-07-09.csv` transcribes the two Package definitions (`General Maintenance`, `Lawn Care`) from Homeworks' "Packages" tab, owner-confirmed 2026-07-09 by screenshot. As of this snapshot, the Packages feature has **never been used to bill an invoice** — it is a distinct mechanism from the informal `General Maintenance` / `Lawn Care` / `Lawn Maintenance` bundle labels already present as literal invoice text in `model/data/revenue-line-items.csv`. Same names, different mechanism — see `reference/CATALOG-UPDATE.md`'s "Packages feature vs. bundle labels" section before conflating the two in any file.
+
+Item-vs-service classification (which of the 22 catalog rows are billable materials vs. labor) lives in `model/data/catalog-type-map.csv` — a script-input derivative, not a raw source, so it's in `model/data/` rather than here.
 
 ## Canonical record & change protocol
 

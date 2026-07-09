@@ -9,7 +9,10 @@ Overwrites model/data/revenue-invoices.csv and model/data/revenue-line-items.csv
 Exits nonzero if any reconciliation check fails; the CSVs are still written in
 that case so the failure can be inspected, but should not be committed.
 
-See reference/REVENUE-UPDATE.md for the standing update procedure.
+Valid catalog service names are read from the active service-catalog snapshot,
+whose filename is looked up from the pointer in reference/README.md -- not
+hardcoded here. See reference/REVENUE-UPDATE.md and reference/CATALOG-UPDATE.md
+for the standing update procedures.
 """
 import argparse
 import csv
@@ -22,16 +25,15 @@ import pdfplumber
 
 BUNDLE_SERVICES = {"General Maintenance", "Lawn Care", "Lawn Maintenance"}
 
-# Catalog service names that were never renamed (not in service-name-map.csv
-# and not a bundle label) -- confirmed by cross-checking every distinct raw
-# header in invoices_2025-06_2026-06.pdf against the current Homeworks
-# catalog (see HISTORY.md H-037). Anything outside this known set, the map,
-# or the bundle labels fails the recognized-header gate below.
-ALREADY_CANONICAL_SERVICES = {
-    "Felling (Chainsaw)", "Mowing", "Planting/Transplanting", "Spraying",
-    "Stump Removal", "Vine Removal", "Weeding", "Weeding Maintenance",
-}
 SERVICE_MAP_PATH = "model/data/service-name-map.csv"
+CATALOG_TYPE_MAP_PATH = "model/data/catalog-type-map.csv"
+
+# The active catalog snapshot's filename is not hardcoded -- it's looked up
+# from the pointer line in reference/README.md, so a routine catalog refresh
+# (see reference/CATALOG-UPDATE.md) never requires a code edit, only a new
+# dated snapshot file and an update to the pointer line.
+CATALOG_POINTER_PATH = "reference/README.md"
+CATALOG_POINTER_RE = re.compile(r"\*\*Active snapshot:\s*`([^`]+)`\*\*")
 MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"
 DATE_PREFIX_RE = re.compile(rf"^({MONTHS}) \d{{1,2}}, \d{{4}}\b")
 AMOUNT_TAIL_RE = re.compile(r"(\d+\.\d{2})\s+([\d,]+\.\d{2})\s*$")
@@ -54,7 +56,7 @@ INVOICE_COLUMNS = [
 ]
 LINE_ITEM_COLUMNS = [
     "invoice", "invoice_date", "service_date", "customer_id", "customer",
-    "service_raw", "service", "is_bundle", "line_net", "surcharge_pct",
+    "service_raw", "service", "kind", "is_bundle", "line_net", "surcharge_pct",
     "line_surcharge", "line_gross", "status", "source",
 ]
 
@@ -96,7 +98,48 @@ def load_service_map(path=SERVICE_MAP_PATH):
     return {r["legacy_name"]: r["canonical_name"] for r in rows}
 
 
-def parse_page(page, page_index, source, service_map):
+def load_catalog_type_map(path=CATALOG_TYPE_MAP_PATH):
+    try:
+        with open(path, newline="") as f:
+            rows = list(csv.DictReader(f))
+    except FileNotFoundError:
+        raise RuntimeError(
+            f"{path} not found -- cannot classify item vs. service. Refusing to silently skip."
+        )
+    return {r["name"]: r["kind"] for r in rows}
+
+
+def load_active_catalog_filename(pointer_path=CATALOG_POINTER_PATH):
+    try:
+        with open(pointer_path) as f:
+            text = f.read()
+    except FileNotFoundError:
+        raise RuntimeError(f"{pointer_path} not found -- cannot resolve active catalog snapshot.")
+    m = CATALOG_POINTER_RE.search(text)
+    if not m:
+        raise RuntimeError(
+            f"no 'Active snapshot' pointer found in {pointer_path} -- cannot resolve catalog."
+        )
+    return m.group(1)
+
+
+def load_catalog_names():
+    filename = load_active_catalog_filename()
+    path = f"reference/{filename}"
+    try:
+        with open(path, newline="") as f:
+            rows = list(csv.DictReader(f))
+    except FileNotFoundError:
+        raise RuntimeError(
+            f"active catalog snapshot {path} not found (per pointer in {CATALOG_POINTER_PATH})."
+        )
+    # The Homeworks export's trailing row is a literal "null" line with no
+    # other fields populated -- not a real catalog row. Every genuine row has
+    # a rate, so that column's presence is what distinguishes the two.
+    return {r["Name"].strip() for r in rows if r.get("Rate Charged to Client") is not None}
+
+
+def parse_page(page, page_index, source, service_map, catalog_type_map):
     text = page.extract_text() or ""
     if "Subtotal" not in text:
         return None  # payment-stub-only page, not an invoice
@@ -194,11 +237,21 @@ def parse_page(page, page_index, source, service_map):
         # immutability. service is the canonical name if a rename applies,
         # else identical to service_raw.
         service = service_map.get(service_raw, service_raw)
+        # Bundle rows mix labor and (potentially) materials at the visit
+        # level and can't be classified as one or the other until Follow-Up
+        # #13's line-item billing fix decomposes them -- kind stays blank.
+        # A non-bundle service missing from catalog_type_map is left blank
+        # too and caught by the classified-kind gate in main(), not raised
+        # here, so the CSV is still written for inspection (H-037 pattern).
+        if is_bundle == "TRUE":
+            kind = ""
+        else:
+            kind = catalog_type_map.get(service, "")
 
         line_items.append({
             "invoice": invoice_num, "invoice_date": invoice_date, "service_date": service_date,
             "customer_id": customer_id, "customer": customer, "service_raw": service_raw,
-            "service": service, "is_bundle": is_bundle, "line_net": line_net,
+            "service": service, "kind": kind, "is_bundle": is_bundle, "line_net": line_net,
             "surcharge_pct": pct, "line_surcharge": line_surcharge, "line_gross": line_gross,
             "status": "ACTUAL", "source": source,
         })
@@ -212,12 +265,12 @@ def parse_page(page, page_index, source, service_map):
     return invoice_row, line_items
 
 
-def parse_pdf(path, service_map):
+def parse_pdf(path, service_map, catalog_type_map):
     source = f"reference/{path.split('/')[-1]}"
     invoices, all_items = [], []
     with pdfplumber.open(path) as pdf:
         for i, page in enumerate(pdf.pages):
-            result = parse_page(page, i, source, service_map)
+            result = parse_page(page, i, source, service_map, catalog_type_map)
             if result is None:
                 continue
             inv, items = result
@@ -228,15 +281,23 @@ def parse_pdf(path, service_map):
     return invoices, all_items
 
 
-def check_recognized_headers(items, service_map):
+def check_recognized_headers(items, service_map, catalog_names):
     recognized = (
         set(service_map.keys())
         | set(service_map.values())
         | BUNDLE_SERVICES
-        | ALREADY_CANONICAL_SERVICES
+        | catalog_names
     )
     unrecognized = sorted({r["service_raw"] for r in items} - recognized)
     return unrecognized
+
+
+def check_classified_kinds(items, catalog_type_map):
+    unclassified = sorted({
+        r["service"] for r in items
+        if r["is_bundle"] == "FALSE" and r["service"] not in catalog_type_map
+    })
+    return unclassified
 
 
 def reconcile(invoices, items, expect_window=None):
@@ -332,8 +393,10 @@ def main():
 
     pdf_path = args.pdf_path or find_default_pdf()
     service_map = load_service_map()
+    catalog_type_map = load_catalog_type_map()
+    catalog_names = load_catalog_names()
     print(f"Parsing {pdf_path} ...")
-    invoices, items = parse_pdf(pdf_path, service_map)
+    invoices, items = parse_pdf(pdf_path, service_map, catalog_type_map)
 
     expect_window = None
     if args.expect_window:
@@ -342,11 +405,18 @@ def main():
 
     failures = reconcile(invoices, items, expect_window)
 
-    unrecognized = check_recognized_headers(items, service_map)
+    unrecognized = check_recognized_headers(items, service_map, catalog_names)
     if unrecognized:
         failures.append(
             f"{len(unrecognized)} unrecognized service header(s) (not in {SERVICE_MAP_PATH}, "
-            f"the bundle set, or the known catalog): {unrecognized}"
+            f"the bundle set, or the active catalog snapshot): {unrecognized}"
+        )
+
+    unclassified = check_classified_kinds(items, catalog_type_map)
+    if unclassified:
+        failures.append(
+            f"{len(unclassified)} service(s) with no item/service classification in "
+            f"{CATALOG_TYPE_MAP_PATH}: {unclassified}"
         )
 
     write_csv("model/data/revenue-invoices.csv", invoices, INVOICE_COLUMNS)

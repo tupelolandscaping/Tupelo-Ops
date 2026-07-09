@@ -1,0 +1,10 @@
+package_name,item_name,item_order
+General Maintenance,Mowing,1
+General Maintenance,Weed Whacking/Edging,2
+General Maintenance,Blowing,3
+General Maintenance,Weeding,4
+General Maintenance,Hedge/Branch Trimming,5
+General Maintenance,Spraying,6
+Lawn Care,Mowing,1
+Lawn Care,Weed Whacking/Edging,2
+Lawn Care,Blowing,3
