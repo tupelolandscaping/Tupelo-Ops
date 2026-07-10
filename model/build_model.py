@@ -5,20 +5,32 @@ Usage:
     python model/build_model.py
 
 Reads model/data/ledger-{revenue,labor,overhead,materials,capital}.csv
-(identical 11-column schema) and generates model/financial-model.xlsx
-(gitignored, disposable build output, per D7) with one sheet per derived
-view, per CONTEXT.md Section 9:
+(identical 11-column schema) and model/data/assumptions.csv, and generates
+model/financial-model.xlsx (gitignored, disposable build output, per D7)
+with one sheet per derived view, per CONTEXT.md Section 9:
 
   - Monthly P&L      -- Billed and Collected shown side by side, never
                         merged (D5a); every category decomposed into its
                         ACTUAL and ESTIMATE amounts, with BLOCKED categories
                         noted explicitly rather than shown as a bare $0.
-  - Plan vs Actual    -- BLOCKED: no plan/assumptions CSV exists yet in
-                        model/data/. Per D6, the projection layer may only
-                        reference a data-layer or clearly-labeled assumptions
-                        file -- strategy/strategic-plan.md's prose tables are
-                        not that, so this sheet states the gap rather than
-                        hardcoding those figures into the script.
+  - Plan vs Actual    -- built (H-052) per model/PROJECTION-PLAN.md and
+                        model/data/assumptions.csv (a dated, sourced,
+                        labeled-assumption-cell file -- D6-compliant, never a
+                        hardcoded number in this script). Shows actual months
+                        computed identically to the Monthly P&L sheet, then
+                        projects forward in three scenarios (low: flat-
+                        continue the last full month's net; mid: full
+                        seasonal-cycle average net; high: seasonal-naive
+                        revenue growth with Konji's phase-switch and the
+                        Xavier/owner-truck-debt triggers applied as discrete
+                        events against the running projected balance) rather
+                        than a single point estimate -- the underlying
+                        history (13 months of billed data, one full seasonal
+                        cycle) can't responsibly support more precision than
+                        that. The peak-revenue figure is derived fresh from
+                        the ledger every build, never stored, specifically so
+                        it cannot go stale the way the $4,908 citation in
+                        CONTEXT.md did (corrected same pass, H-052).
   - Quarterly Rollups -- calendar quarters (Jan-Mar/Apr-Jun/Jul-Sep/Oct-Dec),
                         summed directly from the monthly P&L figures.
   - Revenue by Service / Revenue by Customer -- built only from
@@ -207,24 +219,255 @@ def build_monthly_pnl(ws, ledgers, months):
 
 
 # ---------------------------------------------------------------------------
-# Plan vs Actual (BLOCKED -- no assumptions file exists)
+# Plan vs Actual & Cash Trajectory (per model/PROJECTION-PLAN.md, H-052)
 # ---------------------------------------------------------------------------
 
-def build_plan_vs_actual(ws):
-    ws.append(["Plan vs Actual"])
+ASSUMPTIONS_PATH = "model/data/assumptions.csv"
+
+
+def load_assumptions():
+    with open(ASSUMPTIONS_PATH, newline="") as f:
+        lines = [line for line in f if not line.startswith("#")]
+    rows = list(csv.DictReader(lines))
+    for r in rows:
+        r["value"] = float(r["value"]) if r["value"] else 0.0
+    return rows
+
+
+def get_assumption(assumptions, assumption_id, for_month=None):
+    """Return the assumption row for `assumption_id` active in `for_month`
+    (YYYY-MM), selecting among time-varying rows by effective_date/end_date --
+    same pattern as model/populate_labor_from_payroll.py's role_for(). Blank
+    effective_date means "from the start"; blank end_date means "open-ended".
+    With for_month=None, expects exactly one row (a non-time-varying
+    assumption) and returns it directly."""
+    candidates = [r for r in assumptions if r["assumption_id"] == assumption_id]
+    if for_month is None:
+        if len(candidates) != 1:
+            raise ValueError(f"{assumption_id}: expected exactly one row for a "
+                              f"non-time-varying lookup, got {len(candidates)}")
+        return candidates[0]
+    matches = [r for r in candidates
+               if (not r["effective_date"] or for_month >= r["effective_date"][:7])
+               and (not r["end_date"] or for_month <= r["end_date"][:7])]
+    if not matches:
+        return None
+    matches.sort(key=lambda r: r["effective_date"] or "0000-00")
+    return matches[-1]
+
+
+def month_add(ym, n):
+    y, m = map(int, ym.split("-"))
+    m += n
+    y += (m - 1) // 12
+    m = (m - 1) % 12 + 1
+    return f"{y:04d}-{m:02d}"
+
+
+def build_plan_vs_actual(ws, ledgers, months, assumptions):
+    ws.append(["Plan vs Actual & Cash Trajectory"])
     ws["A1"].font = Font(bold=True)
     ws.append([])
-    ws.append(["BLOCKED -- no plan/assumptions CSV exists yet in model/data/."])
-    ws.append(["Per D6 (CONTEXT.md), the projection layer may only reference a data-layer"])
-    ws.append(["file or a clearly-labeled assumptions file -- it can never contain a"])
-    ws.append(["hardcoded number. strategy/strategic-plan.md's quarterly target tables are"])
-    ws.append(["prose/Markdown, not a data-layer assumptions file, so they are not a valid"])
-    ws.append(["source for this sheet as things stand."])
+
+    def collected_amount(m):
+        rows = [r for r in ledgers["revenue"] if year_month(r["date"]) == m and r["event"] == "payment"]
+        a, e, _ = split_actual_estimate(rows)
+        return a + e
+
+    def billed_amount(m):
+        rows = [r for r in ledgers["revenue"] if year_month(r["date"]) == m and r["event"] == "invoice"]
+        a, e, _ = split_actual_estimate(rows)
+        return a + e
+
+    def total_labor_amount(m):
+        rows = [r for r in ledgers["labor"] if year_month(r["date"]) == m]
+        a, e, _ = split_actual_estimate(rows)
+        return a + e
+
+    def crew_labor_amount(m):
+        rows = [r for r in ledgers["labor"] if year_month(r["date"]) == m and r["subcategory"] in CREW_ROLES]
+        a, e, _ = split_actual_estimate(rows)
+        return a + e
+
+    def overhead_amount(m):
+        rows = [r for r in ledgers["overhead"] if year_month(r["date"]) == m]
+        a, e, _ = split_actual_estimate(rows)
+        return a + e
+
+    # --- Peak revenue: derived fresh from the ledger every build, never
+    # stored -- this is the exact mechanism that would have caught June 2026's
+    # $6,019.89 automatically instead of the $4,908 citation going stale
+    # (CONTEXT.md Section 3, corrected H-052).
+    billed_by_month = {m: billed_amount(m) for m in months if billed_amount(m) > 0}
+    peak_month = max(billed_by_month, key=billed_by_month.get)
+    peak_amount = billed_by_month[peak_month]
+    peak_target = get_assumption(assumptions, "peak_revenue_target")
+    ws.append(["Peak monthly revenue (derived fresh from ledger-revenue.csv, never stored)"])
+    ws.append(["  Peak month to date:", peak_month, "  Amount:", round(peak_amount, 2)])
+    ws.append(["  Target (assumptions.csv):", peak_target["value"],
+                "  Progress:", f"{100 * peak_amount / peak_target['value']:.1f}%"])
     ws.append([])
-    ws.append(["To unblock: add a dated, sourced assumptions CSV to model/data/ (e.g."])
-    ws.append(["model/data/plan-targets.csv) carrying the quarterly revenue/profit/cash"])
-    ws.append(["targets as explicit, labeled rows -- then this sheet can compare them"])
-    ws.append(["against the Monthly P&L / Quarterly Rollups sheets by formula."])
+
+    # --- Actual months: identical computation to Monthly P&L (Step 5 cross-check) ---
+    ws.append(["Actual months -- same computation as the Monthly P&L sheet (collected minus labor minus overhead)"])
+    ws.append(["Month", "Collected", "Labor", "Overhead", "Net"])
+    for cell in ws[ws.max_row]:
+        cell.font = Font(bold=True)
+    for m in months:
+        collected = collected_amount(m)
+        labor_total = total_labor_amount(m)
+        oh_total = overhead_amount(m)
+        net = collected - labor_total - oh_total
+        ws.append([m, round(collected, 2), round(labor_total, 2), round(oh_total, 2), round(net, 2)])
+    last_real_month = months[-1]
+    ws.append([])
+
+    # --- Assumptions driving the projection ---
+    growth_rate_row = get_assumption(assumptions, "revenue_growth_rate_assumption")
+    growth_rate = growth_rate_row["value"] / 100.0
+    low_base_month = month_add(last_real_month, -1)  # last full calendar month
+    trailing_3 = [month_add(low_base_month, -2), month_add(low_base_month, -1), low_base_month]
+    overhead_trend = sum(overhead_amount(m) for m in trailing_3) / 3
+
+    # Crew labor: seasonal-naive (prior-year same-month x growth rate), NOT a
+    # flat trailing-3-month trend. Investigated and confirmed, not assumed:
+    # crew labor correlates with revenue seasonally (r=0.77 vs billed revenue,
+    # r=0.69 vs collected, over the cleanest 13-month window with full data
+    # coverage on both sides) -- the starkest evidence is that crew labor and
+    # revenue both go to exactly $0 in Jan/Feb 2026, confirmed NOT a hiring-gap
+    # artifact (Konji's first labor row is 2025-05-19, well before this gap).
+    # A flat trend would wrongly carry ~$1,870/mo of crew cost into a
+    # projected January or February, when the real historical pattern shows
+    # it collapsing to zero. Overhead stays flat-continued (fixed monthly
+    # contracts, not seasonal -- Jan/Feb 2026 overhead was $281.75, nonzero,
+    # confirming it does NOT follow the same pattern).
+    crew_growth_rate_row = get_assumption(assumptions, "crew_labor_growth_rate_assumption")
+    crew_growth_rate = crew_growth_rate_row["value"] / 100.0
+
+    reserve = get_assumption(assumptions, "cash_buffer_reserve")["value"]
+    truck_hedge = get_assumption(assumptions, "cash_buffer_truck_hedge")["value"]
+    buffer_target = reserve + truck_hedge
+    cash_start = get_assumption(assumptions, "cash_starting_balance")
+    xavier = get_assumption(assumptions, "xavier_payout")
+    owner_debt = get_assumption(assumptions, "owner_truck_debt_repayment")
+
+    ws.append(["Projection assumptions (model/data/assumptions.csv; recomputed fresh from the ledger each build, per D6 -- never a stored constant)"])
+    ws.append(["  Revenue growth-rate assumption:", f"{growth_rate_row['value']}%",
+                "  source:", growth_rate_row["source"]])
+    ws.append(["  Crew labor: seasonal-naive (prior-year same-month x growth rate), NOT a flat trend --"])
+    ws.append(["    see caveats below. Crew-labor growth-rate assumption:", f"{crew_growth_rate_row['value']}%",
+                "  OPEN DECISION, see crew_growth_rate_row's own label"])
+    ws.append(["  Overhead trend (flat, trailing 3 real months, " + ", ".join(trailing_3) + "):",
+                round(overhead_trend, 2)])
+    ws.append(["  Cash-buffer target:", buffer_target, "  Starting cash:", cash_start["value"],
+                f"(as of {cash_start['effective_date']}, {cash_start['source']})"])
+    ws.append([])
+    ws.append(["Caveats -- read before trusting any number below:"])
+    ws.append(["  - Crew labor is projected seasonal-naive (prior-year same month x a growth-rate"])
+    ws.append(["    assumption), confirmed correlated with revenue (r=0.77 vs billed, cleanest 13-month"])
+    ws.append(["    window) -- NOT a flat trend. Which growth rate to use is an OPEN DECISION: crew"])
+    ws.append(["    labor's own observed YoY growth (92.8%) differs materially from revenue's (75.9%,"])
+    ws.append(["    reflecting Konji's staffing ramp-up as a driver beyond volume growth); this build"])
+    ws.append(["    uses crew labor's own rate as the default, not yet owner-confirmed."])
+    ws.append(["  - Anais's canvassing/backup-lead cost (BLOCKED, Follow-Up #11) is excluded entirely,"])
+    ws.append(["    not summed as $0 -- her ordinary Crew Member wages ARE already in the crew labor line."])
+    ws.append(["  - Konji's canvassing bonuses and winter-project rate (assumptions.csv) are NOT included"])
+    ws.append(["    below -- no client-volume/hours assumption exists yet to multiply them against."])
+    ws.append(["  - Konji's 6% revenue share is applied to PROJECTED COLLECTED cash as a simplification;"])
+    ws.append(["    the real terms (D3/H-031/H-032) compute it on NET BILLED revenue for jobs he leads"])
+    ws.append(["    specifically, which this projection does not separately track."])
+    ws.append(["  - cash_starting_balance is a dated snapshot, not re-derivable from the ledger (~85% of"])
+    ws.append(["    real Spend-side Relay cash has no ledger row) -- needs periodic re-verification,"])
+    ws.append(["    per CONTEXT.md Follow-Up #21."])
+    ws.append([])
+
+    # --- Projection horizon: month after the last real month, through the
+    # plan's stated horizon (June 2027, matching D4's phase-switch boundary).
+    horizon_end = "2027-06"
+    projected_months = []
+    cur = month_add(last_real_month, 1)
+    while cur <= horizon_end:
+        projected_months.append(cur)
+        cur = month_add(cur, 1)
+
+    gap = buffer_target - cash_start["value"]
+
+    # --- Low scenario: flat-continue the last full calendar month's actual net. ---
+    low_net = collected_amount(low_base_month) - total_labor_amount(low_base_month) - overhead_amount(low_base_month)
+    low_months_to_buffer = "Never at this rate (negative)" if low_net <= 0 else round(gap / low_net, 1)
+
+    # --- Mid scenario: full seasonal-cycle average net (trailing 12 real months). ---
+    cycle_months = [month_add(low_base_month, -i) for i in range(11, -1, -1)]
+    cycle_net = sum(collected_amount(m) - total_labor_amount(m) - overhead_amount(m) for m in cycle_months)
+    mid_net = cycle_net / 12
+    mid_months_to_buffer = "Never at this rate (negative)" if mid_net <= 0 else round(gap / mid_net, 1)
+
+    # --- High scenario: seasonal-naive growth-adjusted, month-by-month, with
+    # Konji's phase-switch and Xavier/owner triggers applied as discrete
+    # events -- computed once here so both the summary line and the detailed
+    # table below are derived from the same run, not duplicated logic. ---
+    high_rows = []
+    balance = cash_start["value"]
+    xavier_paid = False
+    owner_paid = False
+    buffer_reached_month = None
+    for m in projected_months:
+        prior_year_month = month_add(m, -12)
+        proj_revenue = collected_amount(prior_year_month) * (1 + growth_rate)
+        proj_crew_labor = crew_labor_amount(prior_year_month) * (1 + crew_growth_rate)
+
+        share_row = get_assumption(assumptions, "konji_revenue_share_pct", for_month=m)
+        konji_share = proj_revenue * (share_row["value"] / 100.0) if share_row else 0.0
+
+        proj_outflow = proj_crew_labor + overhead_trend + konji_share
+        net = proj_revenue - proj_outflow
+        balance_start = balance
+        balance_before_payout = balance_start + net
+
+        payout_label = ""
+        payout_amount = 0.0
+        if not xavier_paid and balance_before_payout >= buffer_target:
+            payout_label = "Xavier payout"
+            payout_amount = xavier["value"]
+            xavier_paid = True
+            buffer_reached_month = m
+        elif xavier_paid and not owner_paid and balance_before_payout >= buffer_target:
+            payout_label = "Owner truck-debt repayment"
+            payout_amount = owner_debt["value"]
+            owner_paid = True
+
+        balance = balance_before_payout - payout_amount
+        high_rows.append((m, proj_revenue, proj_crew_labor, konji_share, proj_outflow, net,
+                           balance_start, payout_label, payout_amount, balance))
+
+    if buffer_reached_month:
+        months_elapsed = projected_months.index(buffer_reached_month) + 1
+        high_summary = f"Reaches $6,000 in {buffer_reached_month} (~{months_elapsed} months)"
+    else:
+        high_summary = f"Not reached within the horizon (ends {projected_months[-1]} at ${balance:,.2f})"
+
+    ws.append(["Scenario summary -- a range, not a single point projection (thin history: "
+               "13 months of billed data, one full seasonal cycle)"])
+    ws.append(["Scenario", "Basis", "Monthly net rate", "Months to $6,000 buffer"])
+    ws.append(["Low", f"Flat-continue {low_base_month}'s actual net", round(low_net, 2), low_months_to_buffer])
+    ws.append(["Mid", f"Full seasonal-cycle average ({cycle_months[0]}..{cycle_months[-1]})",
+               round(mid_net, 2), mid_months_to_buffer])
+    ws.append(["High", "Growth-adjusted, month-by-month, seasonal-naive crew labor (see table below)",
+               "", high_summary])
+    ws.append([])
+
+    ws.append(["High scenario -- month-by-month (seasonal-naive revenue, seasonal-naive crew labor, "
+               "flat overhead trend, Konji's phase-switch and Xavier/owner triggers applied as discrete events)"])
+    ws.append(["Month", "Projected revenue", "Projected crew labor (seasonal-naive)", "Konji share",
+                "Projected outflow", "Net", "Balance (start)", "Payout this month", "Balance (end)"])
+    for cell in ws[ws.max_row]:
+        cell.font = Font(bold=True)
+    for (m, proj_revenue, proj_crew_labor, konji_share, proj_outflow, net,
+         balance_start, payout_label, payout_amount, balance_end) in high_rows:
+        ws.append([m, round(proj_revenue, 2), round(proj_crew_labor, 2), round(konji_share, 2),
+                   round(proj_outflow, 2), round(net, 2), round(balance_start, 2),
+                   f"{payout_label} (${payout_amount:,.2f})" if payout_label else "",
+                   round(balance_end, 2)])
 
 
 # ---------------------------------------------------------------------------
@@ -470,13 +713,14 @@ def normalize_xlsx_for_determinism(path):
 def main():
     ledgers = load_ledgers()
     months = all_months(ledgers)
+    assumptions = load_assumptions()
 
     wb = Workbook()
     wb.remove(wb.active)
     wb.properties.creator = "model/build_model.py"
 
     build_monthly_pnl(wb.create_sheet("Monthly P&L"), ledgers, months)
-    build_plan_vs_actual(wb.create_sheet("Plan vs Actual"))
+    build_plan_vs_actual(wb.create_sheet("Plan vs Actual"), ledgers, months, assumptions)
     build_quarterly_rollups(wb.create_sheet("Quarterly Rollups"), ledgers, months)
     build_revenue_by_service(wb.create_sheet("Revenue by Service"), ledgers)
     build_revenue_by_customer(wb.create_sheet("Revenue by Customer"), ledgers)

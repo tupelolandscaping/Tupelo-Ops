@@ -1,0 +1,21 @@
+# TARGET/POLICY rows sourced from strategy/strategic-plan.md must be kept in sync if that document's own figures are ever revised.
+assumption_id,category,label,value,unit,effective_date,end_date,trigger_condition,status,source
+peak_revenue_target,revenue_target,Peak monthly revenue target,10000.00,$,,,,TARGET,CONTEXT.md Section 3
+cash_buffer_reserve,cash_buffer,Operating reserve floor,4000.00,$,,,,POLICY,strategy/execution-timeline.md Cash Buffer Policy
+cash_buffer_truck_hedge,cash_buffer,Truck hedge,2000.00,$,,,,POLICY,strategy/execution-timeline.md Cash Buffer Policy
+cash_starting_balance,cash_buffer,Verified starting cash,1225.33,$,2026-07-06,,,ACTUAL,HISTORY.md H-039
+konji_hourly_rate,labor_cost,Konji base hourly rate (current),20.00,$/hr,,,,CONTRACTED,"HISTORY.md H-048 -- current, real, per payroll. Reference only, not consumed by the trajectory calc (see build_model.py comment); the calc's crew-labor line uses the recent-trend average instead (Decision 3)."
+konji_hourly_rate,labor_cost,Konji base hourly rate (negotiated),25.00,$/hr,,2027-05-31,,CONTRACTED,"HISTORY.md H-048 / CONTEXT.md D4 -- rate not yet run in any payroll period as of the exports; effective_date deliberately left blank rather than guessed (Decision 8, CONTEXT.md Follow-Up #21). Reference only, dormant until a real date is filled in at the next payroll refresh."
+konji_hourly_rate,labor_cost,Konji base hourly rate (post-phase-switch),25.00,$/hr,2027-06-01,,,CONTRACTED,CONTEXT.md D4
+konji_revenue_share_pct,labor_cost,Konji revenue share on jobs he leads,6.00,%,2026-09-01,2027-05-31,,CONTRACTED,CONTEXT.md D3/D4
+konji_canvassing_rate,labor_cost,Konji canvassing hourly rate,15.00,$/hr,,2027-05-31,,CONTRACTED,strategy/strategic-plan.md Section 4
+konji_canvassing_bonus_fall,labor_cost,Konji per-fall-client-signed bonus,15.00,$/client,,2027-05-31,,CONTRACTED,strategy/strategic-plan.md Section 4
+konji_canvassing_bonus_spring,labor_cost,Konji per-spring-client-signed bonus,20.00,$/client,,2027-05-31,,CONTRACTED,strategy/strategic-plan.md Section 4
+konji_winter_project_rate,labor_cost,Konji winter business-side project rate,25.00,$/hr,,2027-05-31,,CONTRACTED,strategy/strategic-plan.md Section 4
+xavier_payout,capital_obligation,Xavier equity payout,1800.00,$,,,cash_buffer_target reached (projected balance >= $6000),TARGET,CONTEXT.md Section 6 item D / strategy/strategic-plan.md Section 6 Phase 3
+owner_truck_debt_repayment,capital_obligation,Owner truck-debt repayment,3800.00,$,,,xavier_payout completed,TARGET,CONTEXT.md Section 6 item D / strategy/strategic-plan.md Section 6 Phase 3
+anais_canvassing_rate,labor_cost,Anais canvassing rate,0.00,$/hr,,,,BLOCKED,CONTEXT.md Follow-Up #11
+anais_backup_lead_rate,labor_cost,Anais backup crew-lead rate,0.00,$/hr,,,,BLOCKED,CONTEXT.md Follow-Up #11
+crew_labor_model,labor_cost,"D2 planning model: 2-person 50/50 split (reference only, not used in the trajectory calc, see Decision 3)",22.50,$/hr blended,,,,TARGET,CONTEXT.md D2 (reframed H-049)
+revenue_growth_rate_assumption,revenue_target,Assumed YoY revenue growth rate for seasonal-naive projection,75.9,%,,,,DERIVED,model/PROJECTION-PLAN.md Section 2.3 (observed collected-cash YoY growth, Apr-Jun 2025 vs Apr-Jun 2026)
+crew_labor_growth_rate_assumption,labor_cost,"Assumed YoY crew-labor growth rate for seasonal-naive crew-cost projection (OPEN DECISION -- see HISTORY.md H-052 amendment: crew labor's own observed growth (92.8%) differs materially from revenue's (75.9%), reflecting Konji's staffing ramp-up as a driver beyond volume growth; using revenue's own rate instead, or a blend, is a real alternative not yet confirmed)",92.8,%,,,,DERIVED,"Confirmed fresh from ledger-labor.csv, Apr-Jun 2025 ($2,910.71) vs Apr-Jun 2026 ($5,611.83) crew-only labor"
