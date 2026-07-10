@@ -13,12 +13,12 @@
 
 ## Phase 0 — Prerequisites (confirm before starting)
 
-- [ ] GitHub account active, signed in. *(Unverifiable from repo contents — live account state, no file trace. Owner to confirm.)*
-- [ ] VS Code Desktop installed, with its built-in Git and the GitHub/Codespaces integration. *(Unverifiable from repo contents — owner to confirm.)*
-- [ ] Claude Code installed and authenticated (your existing work setup). *This runbook assumes familiarity with Claude Code in VS Code; it does not re-teach install.* *(Unverifiable from repo contents — owner to confirm.)*
-- [ ] You have every file in the **Phase 2 upload manifest** ready to hand (Phase 2 is the single authoritative list — don't maintain a second copy here; just confirm you can produce all of them). *(Not checked on inference: Phase 2/3 did succeed, which implies this was true, but no artifact directly confirms a discrete readiness check occurred — inference alone isn't citable evidence. Owner to confirm if this record matters.)*
+- [x] GitHub account active, signed in. *(Owner-confirmed 2026-07-10. Also inferable: the repo has had commits pushed to `origin/main` under the business GitHub account throughout this session.)*
+- [x] VS Code Desktop installed, with its built-in Git and the GitHub/Codespaces integration. *(Owner-confirmed 2026-07-10. Also inferable: the live Codespace this session runs in could only have been opened via this integration.)*
+- [x] Claude Code installed and authenticated (your existing work setup). *This runbook assumes familiarity with Claude Code in VS Code; it does not re-teach install.* *(Directly confirmed: this session is itself an authenticated Claude Code session running in this Codespace — `code --list-extensions` also shows `anthropic.claude-code` installed.)*
+- [x] You have every file in the **Phase 2 upload manifest** ready to hand (Phase 2 is the single authoritative list — don't maintain a second copy here; just confirm you can produce all of them). *(Owner-confirmed 2026-07-10; also inferable from Phase 2/3 having succeeded.)*
 
-**Done when:** all four boxes are true. *(2026-07-09 sync: none independently verifiable from repo contents — see per-item notes.)*
+**Done when:** all four boxes are true. *(2026-07-10 sync: owner-confirmed; three of four also independently inferable from repo/session state — see per-item notes.)*
 
 ---
 
@@ -29,13 +29,13 @@
 
 **First-bring-up environment check** (this becomes `SETUP.md` in Phase 4):
 
-- [ ] In the terminal, confirm tooling: `node -v`, `npm -v`, `git --version` each return a version. *(Unverifiable from repo contents as a historical action — no persisted record that this check occurred. Live check today shows node v24.14.0, npm 11.9.0, git 2.53.0, all present, but that confirms current state, not that Phase 1 performed this step.)*
+- [x] In the terminal, confirm tooling: `node -v`, `npm -v`, `git --version` each return a version. *(Owner-confirmed as done 2026-07-10; re-verified fresh this same day: node v24.14.0, npm 11.9.0, git 2.53.0 — all present, unchanged from the 2026-07-09 reading.)*
 - [x] Set git identity so commits succeed: `git config user.name "Your Name"` and `git config user.email "you@example.com"`. *(Confirmed: all repo commits are authored under `Cyrus <tupelolandscapingllc@gmail.com>` or `tupelolandscaping <tupelolandscapingllc@gmail.com>` — the business email, not a personal one — proving identity was set correctly, not just set.)*
-- [ ] Confirm Claude Code is authenticated to the correct account. *(Unverifiable from repo contents — no file trace. Owner to confirm.)*
-- [ ] Confirm Python: `python3 --version`. *(Unverifiable from repo contents as a historical action — same caveat as node/npm above. Live check today: Python 3.12.1.)*
-- [ ] Install VS Code extensions (Extensions panel): **Python** (Microsoft; bundles Pylance) and **Rainbow CSV** — essential. **GitLens** and an **Excel viewer** — optional. *(Unverifiable from repo contents — local VS Code state, not repo-tracked.)*
+- [x] Confirm Claude Code is authenticated to the correct account. *(Owner-confirmed 2026-07-10; also directly evident — this session is itself running as an authenticated Claude Code session.)*
+- [x] Confirm Python: `python3 --version`. *(Owner-confirmed as done 2026-07-10; re-verified fresh this same day: Python 3.12.1.)*
+- [x] Install VS Code extensions (Extensions panel): **Python** (Microsoft; bundles Pylance) and **Rainbow CSV** — essential. **GitLens** and an **Excel viewer** — optional. *(Directly confirmed via `code --list-extensions`, 2026-07-10: `ms-python.python` + `ms-python.vscode-pylance` (Python + Pylance) and `mechatroner.rainbow-csv` (Rainbow CSV) present — both essentials installed; `eamodio.gitlens` (GitLens) and `development42.csv-excel-viewer` (Excel/CSV viewer) also present — both optionals installed too. This checkbox was previously marked unverifiable; the CLI listing makes it directly checkable after all.)*
 
-**Done when:** the Codespace is open in VS Code, the four tools report versions, git identity is set, and the two essential extensions are installed. *(2026-07-09 sync: repo creation, Codespace, and git identity verified from repo evidence; tool versions and extensions are live/local state with no persisted trace.)*
+**Done when:** the Codespace is open in VS Code, the four tools report versions, git identity is set, and the two essential extensions are installed. *(2026-07-10 sync: all now confirmed — repo creation, Codespace, and git identity from repo evidence; tool versions, Claude Code auth, and extensions from a fresh live check plus owner confirmation.)*
 
 ---
 
@@ -94,10 +94,10 @@
 - [x] **`HISTORY.md`** (G3) — master append-only audit log; **seed** it from `CONTEXT.md`'s locked decisions and events so it starts populated. Include the `DECISION` entry for the cross-reference-legibility review check (basis: three review rounds where every surviving defect was join drift). *(Exists, currently H-001 through H-039 plus the undated D1–D10/H-018 foundational section; H-018 is the cross-reference-legibility DECISION entry.)*
 - [x] **`.gitignore`** (G4) — exclude `model/financial-model.xlsx` and transient build artifacts. *(Exists; contents: `model/financial-model.xlsx`, `__pycache__/`, `*.pyc`, `.DS_Store`.)*
 - [x] **`model/requirements.txt`** (G4) — pinned dependencies (start with `openpyxl`, pinned to a specific version). **Created here, once.** *(Exists: `openpyxl==3.1.5`; `pdfplumber==0.11.10` was appended later for `parse_invoices.py`, not a recreation — consistent with the "append, don't recreate" rule.)*
-- [ ] **Install the dependencies now:** `pip install -r model/requirements.txt`. (Creating the file does not install it — the build in Phase 7 will fail with `ModuleNotFoundError` if this is skipped. The architecture deliberately relies on the *installed, pinned* file, not on whatever the Codespace image happens to ship.) *(Unverifiable from repo contents — a `pip install` leaves no repo trace. `pdfplumber` is confirmed installed and working by `parse_invoices.py`'s successful runs (H-030 onward); `openpyxl` has never actually been exercised — `model/build_model.py` doesn't exist yet (Phase 7 not started) — so its installation is unconfirmed either way.)*
+- [x] **Install the dependencies now:** `pip install -r model/requirements.txt`. (Creating the file does not install it — the build in Phase 7 will fail with `ModuleNotFoundError` if this is skipped. The architecture deliberately relies on the *installed, pinned* file, not on whatever the Codespace image happens to ship.) *(Directly confirmed 2026-07-10: `pip show openpyxl` → 3.1.5 and `pip show pdfplumber` → 0.11.10, both matching `requirements.txt`'s pinned versions exactly and both importable. `pdfplumber` was already confirmed working via `parse_invoices.py`'s runs (H-030 onward); `openpyxl`'s installation is now directly confirmed too, even though `model/build_model.py` hasn't been written yet to actually exercise it.)*
 - [x] Commit, e.g. `add repo scaffold: CLAUDE.md, SETUP.md, README, HISTORY, gitignore, requirements`. *(Claude Code prepares the commit, then pauses for your review — it does not auto-commit.)* *(Commit `def8d9b "add repo scaffold: gitignore, requirements, CLAUDE, SETUP, README, HISTORY"`.)*
 
-**Done when:** all six files exist and are committed, `.gitignore` excludes the workbook, and `HISTORY.md` is non-empty. *(2026-07-09 sync: true, per `def8d9b` and current file listing. Only the `pip install` sub-step has no persisted evidence either way.)*
+**Done when:** all six files exist and are committed, `.gitignore` excludes the workbook, and `HISTORY.md` is non-empty. *(2026-07-10 sync: true, per `def8d9b` and current file listing. The `pip install` sub-step is now also directly confirmed, not just inferred.)*
 
 ---
 
