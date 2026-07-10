@@ -190,6 +190,12 @@ Fixed the five findings `model/CROSSREF-AUDIT-PLAN.md`'s Section 3 catalogued (F
 
 ---
 
+**H-056 · 2026-07-10 · DECISION**
+Logged, not fixed — new **Follow-Up #23**: reduce reliance on externally-authored prompts for routine repo maintenance. `HISTORY.md` logging (and other standing procedures) should trigger from `CLAUDE.md`'s own rules on Claude Code's own initiative, not require an explicit per-instance instruction; nearly every prompt this session had to separately ask for the `HISTORY.md` entry despite the History-logging rule already mandating one for every significant change. Scoped for a future session as a distinct question from Follow-Up #22 (which catalogs file/value dependencies, not behavioral self-triggering): audit whether each of `CLAUDE.md`'s other standing procedures (model-update loop, arithmetic self-check, cross-reference check, pipeline-refresh rule) is actually self-triggering or currently depends on explicit invocation. Carries an explicit implementation note, written in now regardless of timing: the likely fix is a proactive self-check Claude Code runs at session start and after every meaningful change, asking whether a standing rule now applies — a behavior-design change requiring its own dedicated session, not an afterthought bolted onto a smaller fix.
+*Basis:* `CONTEXT.md` Follow-Up #23 (new), owner instruction, 2026-07-10.
+
+---
+
 ### Undated revision
 
 **H-019 · REVISION — Ledger schema: boolean `paid_flag` replaced by separate invoice/payment events.**
