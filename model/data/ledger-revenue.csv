@@ -318,3 +318,61 @@ date,type,event,category,subcategory,customer,quantity,unit_rate,amount,status,s
 2026-06-18,revenue,invoice,tip,,Richard Rogers,1,54.06,54.06,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 2026-06-28,revenue,invoice,tip,,Katie Wheelbarger,1,8.48,8.48,ACTUAL,reference/invoices_2025-06_2026-06.pdf
 2026-06-29,revenue,invoice,tip,,Shirley Locke,1,3.71,3.71,ACTUAL,reference/invoices_2025-06_2026-06.pdf
+2025-04-08,revenue,payment,payment,unmatched — predates invoice PDF coverage window [unmatched],Women Life Freedom LLC,1,932.67,932.67,ACTUAL,reference/Relay 2025-04-01 #8735.csv
+2025-05-14,revenue,payment,payment,unmatched — predates invoice PDF coverage window [unmatched],Women Life Freedom LLC,1,922.00,922.00,ACTUAL,reference/Relay 2025-05-01 #8735.csv
+2025-06-05,revenue,payment,payment,"unmatched — $0.05 short of invoice #1, gap unexplained [unmatched]",Joel Beauvais,1,317.00,317.00,ACTUAL,reference/Relay 2025-06-01 #8735.csv
+2025-06-06,revenue,payment,payment,"unmatched — $0.75 short of invoice #2, gap unexplained [unmatched]",Martha Picarello,1,675.00,675.00,ACTUAL,reference/Relay 2025-06-01 #8735.csv
+2025-06-11,revenue,payment,payment,unmatched — needs investigation [unmatched],Women Life Freedom LLC,1,265.33,265.33,ACTUAL,reference/Relay 2025-06-01 #8735.csv
+2025-06-27,revenue,payment,payment,Invoice 3 [amount-lag],Women Life Freedom LLC,1,2677.56,2677.56,ACTUAL,reference/Relay 2025-06-01 #8735.csv
+2025-07-14,revenue,payment,payment,unattributed [aggregated],,1,335.86,335.86,ACTUAL,reference/Relay 2025-07-01 #3549.csv
+2025-07-14,revenue,payment,payment,Invoice 4 [amount-lag],Women Life Freedom LLC,1,979.44,979.44,ACTUAL,reference/Relay 2025-07-01 #8735.csv
+2025-07-23,revenue,payment,payment,unattributed [aggregated],,1,994.53,994.53,ACTUAL,reference/Relay 2025-07-01 #3549.csv
+2025-07-30,revenue,payment,payment,unattributed [aggregated],,1,474.40,474.40,ACTUAL,reference/Relay 2025-07-01 #3549.csv
+2025-08-21,revenue,payment,payment,Invoice 6 [amount-lag],JaLane Daschke,1,42.40,42.40,ACTUAL,reference/Relay 2025-08-01 #3549.csv
+2025-08-26,revenue,payment,payment,unattributed [aggregated],,1,81.19,81.19,ACTUAL,reference/Relay 2025-08-01 #3549.csv
+2025-08-27,revenue,payment,payment,unattributed [aggregated],,1,1307.36,1307.36,ACTUAL,reference/Relay 2025-08-01 #3549.csv
+2025-08-27,revenue,payment,payment,"Invoices 11, 16 [batch]",Women Life Freedom LLC,1,1228.75,1228.75,ACTUAL,reference/Relay 2025-08-01 #8735.csv
+2025-09-12,revenue,payment,payment,unattributed [aggregated],,1,221.47,221.47,ACTUAL,reference/Relay 2025-09-01 #3549.csv
+2025-09-16,revenue,payment,payment,Invoice 19 [amount-lag],Women Life Freedom LLC,1,169.60,169.60,ACTUAL,reference/Relay 2025-09-01 #8735.csv
+2025-09-22,revenue,payment,payment,unattributed [aggregated],,1,71.01,71.01,ACTUAL,reference/Relay 2025-09-01 #3549.csv
+2025-09-25,revenue,payment,payment,unattributed [aggregated],,1,50.63,50.63,ACTUAL,reference/Relay 2025-09-01 #3549.csv
+2025-10-02,revenue,payment,payment,unattributed [aggregated],,1,78.13,78.13,ACTUAL,reference/Relay 2025-10-01 #3549.csv
+2025-10-10,revenue,payment,payment,unattributed [aggregated],,1,81.19,81.19,ACTUAL,reference/Relay 2025-10-01 #3549.csv
+2025-10-16,revenue,payment,payment,Invoice 23 [amount-lag],Women Life Freedom LLC,1,456.65,456.65,ACTUAL,reference/Relay 2025-10-01 #8735.csv
+2025-11-10,revenue,payment,payment,unattributed [aggregated],,1,244.18,244.18,ACTUAL,reference/Relay 2025-11-01 #3549.csv
+2025-11-10,revenue,payment,payment,Invoice 25 [amount-lag],Women Life Freedom LLC,1,215.39,215.39,ACTUAL,reference/Relay 2025-11-01 #8735.csv
+2025-11-13,revenue,payment,payment,unattributed [aggregated],,1,235.01,235.01,ACTUAL,reference/Relay 2025-11-01 #3549.csv
+2025-11-19,revenue,payment,payment,unattributed [aggregated],,1,1779.47,1779.47,ACTUAL,reference/Relay 2025-11-01 #3549.csv
+2025-11-21,revenue,payment,payment,unattributed [aggregated],,1,81.19,81.19,ACTUAL,reference/Relay 2025-11-01 #3549.csv
+2025-11-21,revenue,payment,payment,Invoice 33 [amount-lag],Women Life Freedom LLC,1,367.61,367.61,ACTUAL,reference/Relay 2025-11-01 #8735.csv
+2025-12-11,revenue,payment,payment,Invoice 35 [amount-lag],Women Life Freedom LLC,1,1386.48,1386.48,ACTUAL,reference/Relay 2025-12-01 #8735.csv
+2025-12-15,revenue,payment,payment,unattributed [aggregated],,1,156.58,156.58,ACTUAL,reference/Relay 2025-12-01 #3549.csv
+2025-12-17,revenue,payment,payment,unattributed [aggregated],,1,386.79,386.79,ACTUAL,reference/Relay 2025-12-01 #3549.csv
+2026-03-23,revenue,payment,payment,Invoice 38 [amount-lag],Women Life Freedom LLC,1,438.76,438.76,ACTUAL,reference/Relay 2026-03-01 #8735.csv
+2026-04-01,revenue,payment,payment,unattributed [aggregated],,1,244.18,244.18,ACTUAL,reference/Relay 2026-04-01 #3549.csv
+2026-04-02,revenue,payment,payment,unattributed [aggregated],,1,40.45,40.45,ACTUAL,reference/Relay 2026-04-01 #3549.csv
+2026-04-14,revenue,payment,payment,Invoice 41 [amount-lag],Women Life Freedom LLC,1,1107.70,1107.70,ACTUAL,reference/Relay 2026-04-01 #8735.csv
+2026-04-22,revenue,payment,payment,unattributed [aggregated],,1,162.68,162.68,ACTUAL,reference/Relay 2026-04-01 #3549.csv
+2026-05-11,revenue,payment,payment,Invoice 43 [amount-lag],Women Life Freedom LLC,1,1371.22,1371.22,ACTUAL,reference/Relay 2026-05-01 #8735.csv
+2026-05-14,revenue,payment,payment,unattributed [aggregated],,1,162.68,162.68,ACTUAL,reference/Relay 2026-05-01 #3549.csv
+2026-05-18,revenue,payment,payment,Invoice 75 [amount-lag],Katie Wheelbarger,1,50.00,50.00,ACTUAL,reference/Relay 2026-05-01 #3549.csv
+2026-05-18,revenue,payment,payment,unattributed [aggregated],,1,183.06,183.06,ACTUAL,reference/Relay 2026-05-01 #3549.csv
+2026-05-20,revenue,payment,payment,unattributed [aggregated],,1,124.89,124.89,ACTUAL,reference/Relay 2026-05-01 #3549.csv
+2026-05-26,revenue,payment,payment,Invoice 48 [exact],Association,1,2332.00,2332.00,ACTUAL,reference/Relay 2026-05-01 #8735.csv
+2026-05-26,revenue,payment,payment,Invoice 50 [amount-lag],Women Life Freedom LLC,1,671.33,671.33,ACTUAL,reference/Relay 2026-05-01 #8735.csv
+2026-06-05,revenue,payment,payment,unattributed [aggregated],,1,451.87,451.87,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-06-08,revenue,payment,payment,Invoice 58 [amount-lag],Barbara Jyachosky,1,667.80,667.80,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-06-08,revenue,payment,payment,unattributed [aggregated],,1,121.23,121.23,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-06-10,revenue,payment,payment,unattributed [aggregated],,1,481.23,481.23,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-06-10,revenue,payment,payment,Invoice 53 [amount-lag],Women Life Freedom LLC,1,464.17,464.17,ACTUAL,reference/Relay 2026-06-01 #8735.csv
+2026-06-15,revenue,payment,payment,Invoice 52 [exact],Association,1,267.65,267.65,ACTUAL,reference/Relay 2026-06-01 #8735.csv
+2026-06-16,revenue,payment,payment,unattributed [aggregated],,1,268.62,268.62,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-06-17,revenue,payment,payment,Invoice 64 [exact],Association,1,408.10,408.10,ACTUAL,reference/Relay 2026-06-01 #8735.csv
+2026-06-18,revenue,payment,payment,unattributed [aggregated],,1,168.70,168.70,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-06-22,revenue,payment,payment,unattributed [aggregated],,1,121.94,121.94,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-06-23,revenue,payment,payment,unattributed [aggregated],,1,311.41,311.41,ACTUAL,reference/Relay 2026-06-01 #3549.csv
+2026-07-01,revenue,payment,payment,unattributed [aggregated],,1,48.59,48.59,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv
+2026-07-02,revenue,payment,payment,unattributed [aggregated],,1,304.49,304.49,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv
+2026-07-02,revenue,payment,payment,Invoice 70 [amount-lag],Association,1,646.60,646.60,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #8735.csv
+2026-07-03,revenue,payment,payment,unattributed [aggregated],,1,81.19,81.19,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv
+2026-07-06,revenue,payment,payment,Invoice 67 [amount-lag],Women Life Freedom LLC,1,1105.84,1105.84,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #8735.csv
