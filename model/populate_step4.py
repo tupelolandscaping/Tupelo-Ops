@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Populate labor, overhead, materials, and capital ledger events (Sequencing Step 4).
+"""Populate overhead, materials, and capital ledger events (Sequencing Step 4).
 
 Usage:
     python model/populate_step4.py
 
-Labor: writes model/data/ledger-labor.csv from scratch -- one 2-week period per
-row-pair (crew-lead hours, crew-member hours, never pre-blended), covering the
-same real-data range as model/data/ledger-revenue.csv (2025-04-08 to
-2026-07-06), per D2 (CONTEXT.md). All rows are ESTIMATE.
+Labor is no longer owned by this script -- see model/populate_labor_from_payroll.py,
+which rebuilds model/data/ledger-labor.csv from real Gusto payroll data
+(Sequencing Step 5, Part 2). The synthetic ESTIMATE labor generator that used
+to live here (2-person, 50/50 split, $25/$20 rates, per D2) has been removed;
+D2's original framing is preserved in CONTEXT.md as a forward-looking
+projection-layer assumption only, not a source of historical actuals.
 
 Overhead: appends real, dated ACTUAL rows to model/data/ledger-overhead.csv on
 top of the 32 Stripe fee rows already there (untouched) -- Gusto's FEE line and
@@ -29,14 +31,15 @@ owner's remaining truck-debt, and the H-025 truck bookkeeping entry are
 deliberately absent -- they stay projection-layer-only / excluded entirely,
 per existing decisions (model/PHASE7-PLAN.md Section 3(c)).
 
-Re-running this script is safe: it regenerates ledger-labor.csv,
-ledger-materials.csv, and ledger-capital.csv from scratch (nothing else writes
-to them yet), and replaces only the categories it's responsible for in
-ledger-overhead.csv, leaving the Stripe fee rows from match_payments.py alone.
+Re-running this script is safe: it regenerates ledger-materials.csv and
+ledger-capital.csv from scratch (nothing else writes to them yet), and
+replaces only the categories it's responsible for in ledger-overhead.csv,
+leaving the Stripe fee rows (from match_payments.py) and the employer-
+payroll-tax-burden rows (from populate_labor_from_payroll.py) alone.
 """
 import csv
 import sys
-from datetime import date, timedelta
+from datetime import date
 
 sys.path.insert(0, "model")
 import match_payments as mp  # noqa: E402
@@ -45,22 +48,23 @@ LEDGER_FIELDS = [
     "date", "type", "event", "category", "subcategory", "customer",
     "quantity", "unit_rate", "amount", "status", "source",
 ]
-LEDGER_LABOR_PATH = "model/data/ledger-labor.csv"
 LEDGER_OVERHEAD_PATH = "model/data/ledger-overhead.csv"
 LEDGER_MATERIALS_PATH = "model/data/ledger-materials.csv"
 LEDGER_CAPITAL_PATH = "model/data/ledger-capital.csv"
 
-LABOR_START = date(2025, 4, 8)
-LABOR_END = date(2026, 7, 6)
-PERSON_HOURS_PER_PERIOD = 20
-CREW_LEAD_RATE = 25.00
-CREW_MEMBER_RATE = 20.00
+MATERIALS_START = date(2025, 4, 8)
 
-# Overhead categories this script owns in ledger-overhead.csv -- anything else
-# already present (the Stripe fee rows) is preserved untouched.
-OWNED_OVERHEAD_CATEGORIES = {
-    "Gusto", "General Liability Insurance", "Workers Comp Insurance",
-    "Homeworks (CRM)", "Squarespace",
+# Overhead (category, subcategory) pairs this script owns in ledger-overhead.csv
+# -- anything else already present (the Stripe fee rows, and the
+# employer-payroll-tax-burden rows from populate_labor_from_payroll.py, which
+# also use category="Gusto" but a different subcategory) is preserved
+# untouched. Matching on category alone would wrongly delete those rows.
+OWNED_OVERHEAD_PAIRS = {
+    ("Gusto", "payroll-provider-fee"),
+    ("General Liability Insurance", "monthly-premium"),
+    ("Workers Comp Insurance", "annual-premium"),
+    ("Homeworks (CRM)", "crm-subscription"),
+    ("Squarespace", "website-hosting"),
 }
 
 
@@ -75,31 +79,6 @@ def write_ledger(path, rows):
 def read_ledger(path):
     with open(path, newline="") as f:
         return list(csv.DictReader(f))
-
-
-def build_labor_rows():
-    rows = []
-    cur = LABOR_START
-    while cur <= LABOR_END:
-        d = cur.isoformat()
-        lead_hours = PERSON_HOURS_PER_PERIOD / 2
-        member_hours = PERSON_HOURS_PER_PERIOD / 2
-        rows.append({
-            "date": d, "type": "labor", "event": "", "category": "recurring",
-            "subcategory": "crew-lead", "customer": "",
-            "quantity": f"{lead_hours:.0f}", "unit_rate": f"{CREW_LEAD_RATE:.2f}",
-            "amount": f"{lead_hours * CREW_LEAD_RATE:.2f}", "status": "ESTIMATE",
-            "source": "CONTEXT.md D2 (~20 person-hours/2wk, 50/50 split, recurring work only)",
-        })
-        rows.append({
-            "date": d, "type": "labor", "event": "", "category": "recurring",
-            "subcategory": "crew-member", "customer": "",
-            "quantity": f"{member_hours:.0f}", "unit_rate": f"{CREW_MEMBER_RATE:.2f}",
-            "amount": f"{member_hours * CREW_MEMBER_RATE:.2f}", "status": "ESTIMATE",
-            "source": "CONTEXT.md D2 (~20 person-hours/2wk, 50/50 split, recurring work only)",
-        })
-        cur += timedelta(days=14)
-    return rows
 
 
 def build_overhead_rows(spend):
@@ -190,7 +169,7 @@ def build_overhead_rows(spend):
 
 def build_materials_rows():
     return [{
-        "date": LABOR_START.isoformat(), "type": "materials", "event": "",
+        "date": MATERIALS_START.isoformat(), "type": "materials", "event": "",
         "category": "materials", "subcategory": "unattributed", "customer": "",
         "quantity": "1", "unit_rate": "0.00", "amount": "0.00", "status": "BLOCKED",
         "source": ("CONTEXT.md D1 -- no per-job attributable materials/fuel data until Job "
@@ -239,17 +218,13 @@ def main():
     for r in excluded_reversed:
         print(f"    excluded: {r['date']}  {r['payee']}  ${r['amount']:.2f}  ref={r['reference'][:60]}")
 
-    labor_rows = build_labor_rows()
-    write_ledger(LEDGER_LABOR_PATH, labor_rows)
-    print(f"[labor] {len(labor_rows)} rows written ({len(labor_rows)//2} two-week periods, "
-          f"{LABOR_START} to {LABOR_END})")
-
     new_overhead_rows = build_overhead_rows(spend)
     existing_overhead = read_ledger(LEDGER_OVERHEAD_PATH)
-    kept_overhead = [r for r in existing_overhead if r["category"] not in OWNED_OVERHEAD_CATEGORIES]
+    kept_overhead = [r for r in existing_overhead
+                     if (r["category"], r["subcategory"]) not in OWNED_OVERHEAD_PAIRS]
     write_ledger(LEDGER_OVERHEAD_PATH, kept_overhead + new_overhead_rows)
-    print(f"[overhead] {len(kept_overhead)} pre-existing rows kept (Stripe fees) + "
-          f"{len(new_overhead_rows)} new rows written")
+    print(f"[overhead] {len(kept_overhead)} pre-existing rows kept (Stripe fees + "
+          f"employer-payroll-tax-burden) + {len(new_overhead_rows)} new rows written")
 
     materials_rows = build_materials_rows()
     write_ledger(LEDGER_MATERIALS_PATH, materials_rows)
@@ -263,10 +238,6 @@ def main():
 
     # Reconciliation gates
     print()
-    labor_total = sum(float(r["amount"]) for r in labor_rows)
-    print(f"[gate] labor total (ESTIMATE, sanity-check only, not gated): ${labor_total:,.2f} "
-          f"across {len(labor_rows)//2} periods")
-
     latest_month_rows = [r for r in new_overhead_rows if r["date"] >= "2026-06-01"]
     print(f"[gate] overhead rows dated 2026-06 or later ({len(latest_month_rows)} rows):")
     for r in latest_month_rows:

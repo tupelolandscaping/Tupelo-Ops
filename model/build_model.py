@@ -156,11 +156,14 @@ def build_monthly_pnl(ws, ledgers, months):
         blended_rate = (labor_a + labor_e) / labor_hours if labor_hours else None
 
         note = ""
-        if m == "2026-07":
-            note = ("Partial month by data boundary, not a real gap: ledger data ends "
-                    "2026-07-06, before the next 2-week labor period (would start "
-                    "2026-07-14) -- labor is correctly $0 here, see Step 1 of the "
-                    "scoping pass.")
+        if m == "2026-07" and labor_a == 0 and labor_e == 0:
+            note = ("Re-verified 2026-07-10 (H-049), not a stale artifact: labor is now sourced "
+                    "from real Gusto payroll data, dated by period-start (accrual convention). "
+                    "The last completed real pay period is 06/15-06/28/2026 (paid 07/07/2026); "
+                    "the next period (06/29-07/12/2026) hadn't been processed/paid yet when the "
+                    "payroll export was pulled (export window ends 07/09/2026), so it has no row "
+                    "at all -- labor is correctly $0 in July here, because no July-dated pay "
+                    "period has completed yet, not because data is missing.")
 
         ws.append([
             m,
