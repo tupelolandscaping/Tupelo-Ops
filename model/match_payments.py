@@ -139,6 +139,47 @@ def load_relay_rows():
     return raw_rows, deduped, dup_groups
 
 
+def exclude_reversed_spend(spend_rows, deduped_rows, window_days=3):
+    """Drop any settled Spend-side row that was later reversed by a matching
+    RETURNED Receive (same payee, the exact same amount, within `window_days`).
+
+    A bounced-then-returned debit is still marked SETTLED by Relay on the
+    Spend side -- only a separate, later Receive row (status=RETURNED)
+    reveals that it never actually cleared. Any script booking ACTUAL rows
+    from Spend-side data must exclude these, or it will book real cost for
+    cash that was never actually paid out. Confirmed by H-048: two Gusto FEE
+    charges (2025-05-05, 2025-05-07) were booked as ACTUAL in
+    ledger-overhead.csv despite bouncing, because nothing cross-checked
+    SETTLED Spend rows against RETURNED Receive rows before this fix.
+
+    "Reversed the same transaction" is a binary fact, not an approximate
+    one, so amounts are compared as exact integer cents (round(amount*100)),
+    never a floating-point epsilon window -- an earlier version of this
+    function used `abs(a - b) < 0.01`, which is not the same thing: it
+    falsely matched a $0.08 charge against an unrelated $0.09 return (their
+    difference, 0.009999999999999995 in floating point, happens to be
+    just under 0.01). A real reversal always cancels the original amount
+    exactly, so exact equality is both correct and sufficient.
+
+    Returns (kept_rows, excluded_rows) -- both lists of the original dicts,
+    so callers can report exactly what was dropped and why.
+    """
+    def cents(amount):
+        return round(amount * 100)
+
+    returned = [r for r in deduped_rows if r["status"] == "RETURNED"]
+    kept, excluded = [], []
+    for r in spend_rows:
+        reversed_match = any(
+            ret["payee"] == r["payee"]
+            and cents(abs(ret["amount"])) == cents(abs(r["amount"]))
+            and abs(days_between(ret["date"], r["date"])) <= window_days
+            for ret in returned
+        )
+        (excluded if reversed_match else kept).append(r)
+    return kept, excluded
+
+
 def exclusion_reason(r):
     """Named, justified reasons a settled Receive row is not revenue.
 

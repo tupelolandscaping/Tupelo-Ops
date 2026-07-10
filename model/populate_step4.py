@@ -15,6 +15,10 @@ General Liability ("Simply Business") at their real, varying historical Relay
 amounts; Workers' Comp as one lump-sum row; the merged Copilot->Homeworks CRM
 line; Squarespace's one confirmed month. Commercial Auto and equipment
 maintenance stay BLOCKED with no row, per Section 6 item I / fixed-overhead.md.
+Settled Spend-side rows that were later reversed by a RETURNED Receive (a
+bounced transaction that still shows SETTLED on the Spend side) are excluded
+before any of the above is built -- see match_payments.exclude_reversed_spend
+and H-048, which found two Gusto FEE charges wrongly booked as ACTUAL this way.
 
 Materials: writes model/data/ledger-materials.csv with a single BLOCKED $0
 placeholder row, per D1.
@@ -228,7 +232,12 @@ def build_capital_rows(spend):
 
 def main():
     raw_rows, deduped_rows, dup_groups = mp.load_relay_rows()
-    spend = [r for r in deduped_rows if r["txn_type"] in ("Spend", "Spend-transfer") and r["status"] == "SETTLED"]
+    spend_all = [r for r in deduped_rows if r["txn_type"] in ("Spend", "Spend-transfer") and r["status"] == "SETTLED"]
+    spend, excluded_reversed = mp.exclude_reversed_spend(spend_all, deduped_rows)
+    print(f"[filter] {len(spend_all)} settled Spend rows -> {len(excluded_reversed)} excluded as "
+          f"bounced-then-returned (never actually cleared) -> {len(spend)} kept")
+    for r in excluded_reversed:
+        print(f"    excluded: {r['date']}  {r['payee']}  ${r['amount']:.2f}  ref={r['reference'][:60]}")
 
     labor_rows = build_labor_rows()
     write_ledger(LEDGER_LABOR_PATH, labor_rows)
