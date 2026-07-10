@@ -30,16 +30,26 @@ view, per CONTEXT.md Section 9:
                         anchor; revenue payment classification completeness
                         (per H-044); overhead ACTUAL rows vs. their sourced
                         Relay matches; capital rows vs. their sourced
-                        transactions. States on its face what it does NOT
-                        verify (labor's ESTIMATE hours, materials' BLOCKED
-                        placeholder, and the ~85% of real Spend-side Relay
-                        cash that has no ledger row at all) rather than
+                        transactions; labor ACTUAL rows vs. Relay payroll
+                        NET/TAX cash-outs, by reference to
+                        model/reconcile_payroll_relay.py's own full-history
+                        gate (per H-049), not re-run inline here. States on
+                        its face what it does NOT verify (materials' BLOCKED
+                        placeholder, the ~85% of real Spend-side Relay cash
+                        that has no ledger row at all, and labor's own known
+                        residual gaps -- Follow-Ups #19-20) rather than
                         implying full coverage.
   - Raw Ledger        -- all five files unioned as one passthrough table,
                         sorted by date, `type` column distinguishing rows.
 
 Blended labor rate is computed at build time (sum(amount)/sum(quantity))
-wherever shown -- never a stored constant.
+wherever shown -- never a stored constant. Scoped to crew roles (Crew Lead,
+Crew Member) only, per CREW_ROLES -- since H-049 sourced labor from real
+payroll data, ledger-labor.csv also carries CEO wage draws and a Landscape
+Consultant role, neither a crew staffing cost; blending them in would
+distort the figure this KPI exists to inform (future crew-job cost
+estimates). Non-crew labor dollars are still shown, in their own column,
+not silently dropped.
 
 Re-running this script is idempotent: identical input CSVs produce a
 byte-identical workbook (no timestamps or non-deterministic ordering).
@@ -73,6 +83,11 @@ LEDGER_FILES = {
 OUTPUT_PATH = "model/financial-model.xlsx"
 
 REVENUE_INVOICE_ANCHOR = 28316.57  # $27,891.65 gross + $424.92 tips, H-043
+
+# Crew roles for the blended-labor-rate KPI, per model/data/employee-role-map.csv
+# (H-049). Deliberately excludes CEO and Landscape Consultant -- see
+# build_monthly_pnl's blended_rate comment for why.
+CREW_ROLES = {"Crew Lead", "Crew Member"}
 
 
 def load_ledgers():
@@ -119,7 +134,8 @@ def build_monthly_pnl(ws, ledgers, months):
         "Overhead (ACTUAL)", "Overhead (ESTIMATE)",
         "Materials", "Materials note",
         "Capital (ACTUAL)", "Capital (ESTIMATE)",
-        "Blended labor rate ($/hr)",
+        "Blended crew labor rate ($/hr)",
+        "Non-crew labor $ (CEO/Consultant, excluded from blended rate)",
         "Note",
     ]
     ws.append(header)
@@ -152,8 +168,19 @@ def build_monthly_pnl(ws, ledgers, months):
             mat_display = "BLOCKED"
             mat_note = "no data this month -- materials/fuel not yet tracked (D1)"
 
-        labor_hours = sum(r["quantity"] for r in labor)
-        blended_rate = (labor_a + labor_e) / labor_hours if labor_hours else None
+        # Blended rate is scoped to crew roles (Crew Lead, Crew Member) only, per
+        # D2's original intent (a crew staffing-cost KPI) -- since H-049 sourced
+        # labor from real payroll data, ledger-labor.csv now also carries CEO wage
+        # draws and a Landscape Consultant role, neither a crew staffing cost;
+        # blending them in would distort the figure this KPI exists to inform
+        # (future crew-job cost estimates), not just add noise to it.
+        crew_labor = [r for r in labor if r["subcategory"] in CREW_ROLES]
+        noncrew_labor = [r for r in labor if r["subcategory"] not in CREW_ROLES]
+        crew_hours = sum(r["quantity"] for r in crew_labor)
+        crew_a, crew_e, _ = split_actual_estimate(crew_labor)
+        blended_rate = (crew_a + crew_e) / crew_hours if crew_hours else None
+        noncrew_a, noncrew_e, _ = split_actual_estimate(noncrew_labor)
+        noncrew_amount = noncrew_a + noncrew_e
 
         note = ""
         if m == "2026-07" and labor_a == 0 and labor_e == 0:
@@ -174,6 +201,7 @@ def build_monthly_pnl(ws, ledgers, months):
             mat_display, mat_note,
             round(cap_a, 2), round(cap_e, 2),
             round(blended_rate, 2) if blended_rate is not None else "",
+            round(noncrew_amount, 2),
             note,
         ])
 
@@ -353,8 +381,25 @@ def build_reconciliation(ws, ledgers):
     ws.append(["  Result:", "PASS (both rows trace to a specific, named transaction)"])
     ws.append([])
 
+    labor = ledgers["labor"]
+    labor_actual = [r for r in labor if r["status"] == "ACTUAL"]
+    ws.append(["Check 5: labor ACTUAL rows reconciled against Relay payroll cash-outs (per H-049)"])
+    ws.append(["  ACTUAL labor rows:", len(labor_actual), "  sum:", round(sum(r["amount"] for r in labor_actual), 2)])
+    ws.append(["  model/reconcile_payroll_relay.py's own full-history gate already proved: of"])
+    ws.append(["  25 non-reversed, non-empty pay periods, the 24 with nonzero Net Pay matched a"])
+    ws.append(["  specific Relay GUSTO NET transaction exactly (24/24), and 24 of the 25 with"])
+    ws.append(["  nonzero combined tax matched a specific Relay GUSTO TAX transaction exactly"])
+    ws.append(["  (24/25 -- the one exception is a $5.37 employer-tax-only correction with no"])
+    ws.append(["  discrete Relay transaction, Follow-Up #20). Re-verifying that gate is not"])
+    ws.append(["  repeated here -- see model/reconcile_payroll_relay.py's own gate output."])
+    ws.append(["  Result:", "PASS (by reference to reconcile_payroll_relay.py's gate; 1 known exception, Follow-Up #20)"])
+    ws.append([])
+
     ws.append(["What this tab does NOT verify:"])
-    ws.append(["  - Labor: 100% ESTIMATE. No time-tracking data exists to check hours against."])
+    ws.append(["  - Labor's own known residual gaps (see Check 5 above for what IS verified):"])
+    ws.append(["    payroll actuals carry no per-job/per-customer attribution and cover all"])
+    ws.append(["    work combined, not recurring-only (Follow-Up #19); the $5.37 correction"])
+    ws.append(["    with no discrete Relay match (Follow-Up #20)."])
     ws.append(["  - Materials: BLOCKED placeholder only ($0.00). No per-job cost data exists."])
     ws.append(["  - Commercial Auto and equipment-maintenance overhead lines: BLOCKED, no row"])
     ws.append(["    at all (no confirmed cash date / no allocation basis)."])

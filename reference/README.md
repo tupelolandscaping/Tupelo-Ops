@@ -31,7 +31,7 @@ The extracted, reconciled revenue ledgers (`revenue-invoices.csv`, `revenue-line
 
 Both are owner-supplied, immutable raw sources — filed here verbatim, byte-identical to the originals. **Gusto only exports a rolling window (roughly one year) at a time**, so future pulls will periodically be needed to keep coverage current, the same structural situation the Relay statements and the service catalog are already in.
 
-**Not given the dated-snapshot + refresh-procedure treatment (`CATALOG-UPDATE.md`/`REVENUE-UPDATE.md`-style) in this pass, and that's a deliberate choice, not an oversight.** Those procedures exist because their data actively feeds a script-regenerated derivative in `model/data/` on a standing cadence (`parse_invoices.py`, the catalog snapshot pointer). Payroll data doesn't yet feed anything — whether and how it becomes a ledger source is an explicit, separate, deferred decision (see `CONTEXT.md`). Writing a refresh procedure now would be designing an update cadence for a pipeline that doesn't exist yet. Revisit this the same session that decision is made, not before.
+**The payroll-integration decision has been made (Sequencing Step 5, H-049):** these exports now feed `model/data/ledger-labor.csv` (real, ACTUAL, per-employee/per-pay-period rows, replacing the prior synthetic ESTIMATE) and the `employer-payroll-tax-burden` rows in `model/data/ledger-overhead.csv`, via `model/populate_labor_from_payroll.py`, gated by `model/reconcile_payroll_relay.py`'s full-history reconciliation against Relay. See `reference/PAYROLL-UPDATE.md` for the refresh procedure (how to pull a fresh export, re-run the loader and gate, and what to check).
 
 ## Service catalog
 
