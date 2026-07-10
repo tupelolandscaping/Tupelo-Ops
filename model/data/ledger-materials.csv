@@ -1,1 +1,2 @@
 date,type,event,category,subcategory,customer,quantity,unit_rate,amount,status,source
+2025-04-08,materials,,materials,unattributed,,1,0.00,0.00,BLOCKED,"CONTEXT.md D1 -- no per-job attributable materials/fuel data until Job Costing activates; excludes the $422.26 Home Depot order and other Home Depot spend, held out pending Follow-Up #7 (whole-order vs. line-item expense convention)"

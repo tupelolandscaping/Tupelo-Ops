@@ -1,1 +1,3 @@
 date,type,event,category,subcategory,customer,quantity,unit_rate,amount,status,source
+2025-08-17,capital,,equipment,chainsaw,,1,408.00,408.00,ACTUAL,reference/Relay 2025-08-01 #3549.csv; Chainsaw Equipment From Amazon - Sent By Cyrus Beauvais
+2026-04-09,capital,,owner-reimbursement,truck-and-insurance-advance,,1,2200.00,2200.00,ACTUAL,"reference/Relay 2026-04-01 #3549.csv; ACH Push - Sent By Cyrus Beauvais -- ONE combined transaction matching the full $2,200 ($1,000 insurance + $1,200 truck) repayment total exactly; no separate ~$1,000/~$1,200 transactions were found in Relay despite searching the full history"

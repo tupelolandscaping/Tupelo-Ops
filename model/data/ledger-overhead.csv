@@ -31,3 +31,50 @@ date,type,event,category,subcategory,customer,quantity,unit_rate,amount,status,s
 2026-07-01,overhead,,Stripe,payment-processing-fee,,1,2.28,2.28,ACTUAL,"reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv; fee computed via 3.9% + $0.30 formula, back-solved from net deposit -- never used as the payment event's own amount"
 2026-07-02,overhead,,Stripe,payment-processing-fee,,1,12.67,12.67,ACTUAL,"reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv; fee computed via 3.9% + $0.30 formula, back-solved from net deposit -- never used as the payment event's own amount"
 2026-07-03,overhead,,Stripe,payment-processing-fee,,1,3.61,3.61,ACTUAL,"reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv; fee computed via 3.9% + $0.30 formula, back-solved from net deposit -- never used as the payment event's own amount"
+2025-04-06,overhead,,General Liability Insurance,monthly-premium,,1,26.25,26.25,ACTUAL,reference/Relay 2025-04-01 #3549.csv; payee 'Simply Business'
+2025-05-05,overhead,,Gusto,payroll-provider-fee,,1,158.00,158.00,ACTUAL,reference/Relay 2025-05-01 #3549.csv; FEE 563163 - Initiated By Unknown Payee
+2025-05-06,overhead,,General Liability Insurance,monthly-premium,,1,26.25,26.25,ACTUAL,reference/Relay 2025-05-01 #3549.csv; payee 'Simply Business'
+2025-05-07,overhead,,Gusto,payroll-provider-fee,,1,158.00,158.00,ACTUAL,reference/Relay 2025-05-01 #3549.csv; FEE 598582 - Initiated By Unknown Payee
+2025-05-15,overhead,,Gusto,payroll-provider-fee,,1,158.00,158.00,ACTUAL,reference/Relay 2025-05-01 #3549.csv; FEE 923930 - Initiated By Unknown Payee
+2025-06-04,overhead,,Gusto,payroll-provider-fee,,1,58.00,58.00,ACTUAL,reference/Relay 2025-06-01 #3549.csv; FEE 627371 - Initiated By Unknown Payee
+2025-06-06,overhead,,General Liability Insurance,monthly-premium,,1,26.25,26.25,ACTUAL,reference/Relay 2025-06-01 #3549.csv; payee 'Simply Business'
+2025-06-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2025-06-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2025-07-03,overhead,,Gusto,payroll-provider-fee,,1,94.00,94.00,ACTUAL,reference/Relay 2025-07-01 #3549.csv; FEE 815411 - Initiated By Unknown Payee
+2025-07-06,overhead,,General Liability Insurance,monthly-premium,,1,26.25,26.25,ACTUAL,reference/Relay 2025-07-01 #3549.csv; payee 'Simply Business'
+2025-07-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2025-07-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2025-08-05,overhead,,Gusto,payroll-provider-fee,,1,100.00,100.00,ACTUAL,reference/Relay 2025-08-01 #3549.csv; FEE 980824 - Initiated By Unknown Payee
+2025-08-06,overhead,,General Liability Insurance,monthly-premium,,1,26.25,26.25,ACTUAL,reference/Relay 2025-08-01 #3549.csv; payee 'Simply Business'
+2025-08-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2025-08-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2025-09-04,overhead,,Gusto,payroll-provider-fee,,1,100.00,100.00,ACTUAL,reference/Relay 2025-09-01 #3549.csv; FEE 091647 - Initiated By Unknown Payee
+2025-09-06,overhead,,General Liability Insurance,monthly-premium,,1,37.50,37.50,ACTUAL,reference/Relay 2025-09-01 #3549.csv; payee 'Simply Business'
+2025-09-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2025-09-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2025-10-02,overhead,,Gusto,payroll-provider-fee,,1,109.00,109.00,ACTUAL,reference/Relay 2025-10-01 #3549.csv; FEE 134822 - Initiated By Unknown Payee
+2025-10-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2025-10-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2025-11-04,overhead,,Gusto,payroll-provider-fee,,1,115.00,115.00,ACTUAL,reference/Relay 2025-11-01 #3549.csv; FEE 438866 - Initiated By Unknown Payee
+2025-11-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2025-11-01 #3549.csv; payee 'Simply Business'
+2025-11-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2025-11-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2025-12-03,overhead,,Gusto,payroll-provider-fee,,1,109.00,109.00,ACTUAL,reference/Relay 2025-12-01 #3549.csv; FEE 528183 - Initiated By Unknown Payee
+2025-12-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2025-12-01 #3549.csv; payee 'Simply Business'
+2025-12-09,overhead,,Workers Comp Insurance,annual-premium,,1,544.00,544.00,ACTUAL,reference/Relay 2025-12-01 #3549.csv; Employers Insura  |  debitpmt |  #541743968 - Initiated By Unknown Payee
+2025-12-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2025-12-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2026-01-05,overhead,,Gusto,payroll-provider-fee,,1,109.00,109.00,ACTUAL,reference/Relay 2026-01-01 #3549.csv; FEE 808741 - Initiated By Unknown Payee
+2026-01-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2026-01-01 #3549.csv; payee 'Simply Business'
+2026-01-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2026-01-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2026-02-03,overhead,,Gusto,payroll-provider-fee,,1,109.00,109.00,ACTUAL,reference/Relay 2026-02-01 #3549.csv; FEE 986650 - Initiated By Unknown Payee
+2026-02-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2026-02-01 #3549.csv; payee 'Simply Business'
+2026-02-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2026-02-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2026-03-03,overhead,,Gusto,payroll-provider-fee,,1,109.00,109.00,ACTUAL,reference/Relay 2026-03-01 #3549.csv; FEE 204433 - Initiated By Unknown Payee
+2026-03-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2026-03-01 #3549.csv; payee 'Simply Business'
+2026-03-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2026-03-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2026-04-02,overhead,,Gusto,payroll-provider-fee,,1,115.00,115.00,ACTUAL,reference/Relay 2026-04-01 #3549.csv; FEE 493383 - Initiated By Unknown Payee
+2026-04-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2026-04-01 #3549.csv; payee 'Simply Business'
+2026-04-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2026-04-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2026-05-05,overhead,,Gusto,payroll-provider-fee,,1,115.00,115.00,ACTUAL,reference/Relay 2026-05-01 #3549.csv; FEE 118729 - Initiated By Unknown Payee
+2026-05-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2026-05-01 #3549.csv; payee 'Simply Business'
+2026-05-25,overhead,,Homeworks (CRM),crm-subscription,,1,139.00,139.00,ACTUAL,"reference/Relay 2026-05-01 #3549.csv; payee 'Copilot' -- prior name for Homeworks, per owner"
+2026-06-02,overhead,,Gusto,payroll-provider-fee,,1,115.00,115.00,ACTUAL,reference/Relay 2026-06-01 #3549.csv; FEE 459007 - Initiated By Unknown Payee
+2026-06-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay 2026-06-01 #3549.csv; payee 'Simply Business'
+2026-06-25,overhead,,Homeworks (CRM),crm-subscription,,1,299.00,299.00,ACTUAL,"reference/Relay 2026-06-01 #3549.csv; payee 'HOMEWORKS SOFTWARE' -- first debit at the new Growth-plan rate, still on the pre-existing ~25th-of-month billing anchor, not shifted to the 1st"
+2026-07-02,overhead,,Gusto,payroll-provider-fee,,1,127.00,127.00,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv; FEE 505876 - Initiated By Unknown Payee
+2026-07-02,overhead,,Squarespace,website-hosting,,1,25.00,25.00,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv; payee 'Squarespace'
+2026-07-06,overhead,,General Liability Insurance,monthly-premium,,1,33.75,33.75,ACTUAL,reference/Relay (Partial) 2026-07-01 to 2026-07-06 #3549.csv; payee 'Simply Business'
