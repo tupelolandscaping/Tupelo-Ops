@@ -15,6 +15,11 @@ Known limitation, not yet a problem: if a catalog item is ever discontinued in a
 5. Update the pointer in `reference/README.md`'s "Active catalog snapshot" line to the new filename and date. This is the one piece of catalog-tracking data that is allowed to change in place — same pattern as the Relay account-map table.
 6. If any catalog item was added, confirm it has an entry in `model/data/service-name-map.csv` (if renamed from a legacy name) and `model/data/catalog-type-map.csv` (item vs. service classification). `parse_invoices.py`'s fail-closed gates will reject an unrecognized or unclassified name — that's the intended catch, not a bug to work around.
 7. Re-run `python model/parse_invoices.py` and confirm all gates still pass.
+8. Run:
+   ```
+   python model/build_ledger_revenue.py
+   ```
+   **This step is required and easy to forget** (found stale by the Follow-Up #22 cross-reference audit, H-055 — the same gap H-051 already fixed in `reference/REVENUE-UPDATE.md`'s own step 6): `parse_invoices.py` only regenerates `model/data/revenue-invoices.csv` and `model/data/revenue-line-items.csv` — it does not touch `model/data/ledger-revenue.csv`. A catalog change can alter how *existing* invoice lines classify (service vs. `BLOCKED — unmapped`, or `item`/`service` kind) once re-parsed against the new catalog, even with no new invoices — so skipping this step can leave the actual ledger stale on a catalog-only refresh, not just a revenue refresh. This script rebuilds `ledger-revenue.csv`'s invoice/surcharge/tip rows and fails closed if the built total doesn't match the known revenue anchor to the penny.
 
 ## Refresh trigger
 

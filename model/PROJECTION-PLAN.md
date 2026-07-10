@@ -184,23 +184,23 @@ But Section 2.4's fresh computation shows real recent crew spending (~$1,870.61/
 
 ## 5. Worked example — projecting August 2026 (Step 5)
 
-**Superseded by implementation and a follow-on investigation (H-052 + H-052 amendment) — this section originally hand-computed a single flat-trend month and naively straight-lined it across the whole buffer gap. Both the crew-labor method and the "months to buffer" framing below were corrected once the real code was built and the crew-labor-seasonality question was investigated. The corrected figures (from the actual generated workbook, not a hand estimate) are shown here in place of the original illustration.**
+**Superseded twice, now current as of H-053 (transcribed from that entry, not recomputed here) — found stale again by the Follow-Up #22 cross-reference audit (H-055) before this fix.** This section originally hand-computed a single flat-trend month and naively straight-lined it across the whole buffer gap; that was corrected once the real code was built and the crew-labor-seasonality question was investigated (H-052). Decision 11 (Section 6) was then resolved — the owner confirmed crew labor should use revenue's own growth rate (75.9%), not crew labor's separately-observed rate (92.8%) — but this section's own worked numbers were never updated to match, leaving a stale "not yet owner-confirmed" claim next to an already-resolved decision. The figures below are the final, resolved ones.
 
 August 2026 is the next full calendar month after the ledger's last real data point (July 2026's own ledger data is partial — labor's last completed period starts 2026-06-15, per H-050 — so July itself cannot yet be projected cleanly; this worked example shows one link in the chain, not a fully resolved multi-month projection, since July's own actuals aren't complete at the time of this document).
 
 **Revenue (seasonal-naive, growth-adjusted):**
 - August 2025 actual collected: $2,659.70
 - Revenue growth-rate assumption (`assumptions.csv`, rounded from the raw observed +75.884%): **75.9%**
-- Projected August 2026 revenue: $2,659.70 × 1.759 = **$4,678.41** (differs by $0.42 from a hand-calc using the raw unrounded rate — immaterial, and expected, since the assumption is deliberately stored rounded, not as a silently-carried float)
+- Projected August 2026 revenue: $2,659.70 × 1.759 = **$4,678.41**
 
-**Outflow (seasonal-naive crew labor, per Section 4's revised method — NOT the flat recent-trend average originally proposed here — plus flat-continued overhead):**
+**Outflow (seasonal-naive crew labor, per Section 4's revised method, using the SAME growth-rate assumption as revenue per Decision 11's resolution — plus flat-continued overhead):**
 - August 2025 actual crew labor: $743.45
-- Crew-labor growth-rate assumption (`assumptions.csv`, Decision 11, not yet owner-confirmed): **92.8%**
-- Projected August 2026 crew labor: $743.45 × 1.928 = **$1,433.37**
+- Growth-rate assumption (`assumptions.csv`, single shared rate per Decision 11, owner-confirmed 2026-07-10): **75.9%**
+- Projected August 2026 crew labor: $743.45 × 1.759 = **$1,307.73**
 - Recent 3-month overhead average: ($621.36 + $617.77 + $1,169.92) ÷ 3 = **$803.02**
-- Projected outflow: $1,433.37 + $803.02 = **$2,236.39**
+- Projected outflow: $1,307.73 + $803.02 = **$2,110.75**
 
-**Projected net for August 2026:** $4,678.41 − $2,236.39 = **$2,442.02**
+**Projected net for August 2026:** **$2,567.67**, as shown on the generated sheet. (Naively subtracting the two *rounded, displayed* figures above, $4,678.41 − $2,110.75, gives $2,567.66 — a $0.01 difference from the sheet's own $2,567.67. This is expected, not an error: `build_model.py` rounds revenue, outflow, and net each independently from full internal float precision for display — per Step 4 of the H-052 build, `balance` and its components are never rounded before being carried forward — so the displayed net is not derived by subtracting the two displayed, already-rounded figures.)
 
 **What this implies for the buffer timeline** (gap from the $1,225.33 verified starting cash to the $6,000 target = $4,774.67), shown across all three Section 4 scenarios rather than picking one — the High scenario now run as a genuine month-by-month trajectory (not a single strong month straight-lined across the whole gap):
 
@@ -208,9 +208,9 @@ August 2026 is the next full calendar month after the ledger's last real data po
 |---|---|---|
 | Low (flat-continue June 2026's actual net) | **−$943.12/mo** (negative) | Never reaches the buffer at that rate |
 | Mid (full seasonal-cycle average) | $174.43/mo | **~27.4 months** (~late 2028) |
-| High (seasonal-naive month-by-month, revised crew labor) | varies by month, seasonal | **Reaches $6,000 in June 2027 (~11 months)**, triggering Xavier's payout — balance stays positive throughout, dipping to a low of $865.47 in April 2027 |
+| High (seasonal-naive month-by-month, single shared growth rate per Decision 11) | varies by month, seasonal | **Reaches $6,000 in May 2027 (~10 months)**, triggering Xavier's $1,800 payout — and, for the first time, the owner's $3,800 truck-debt repayment also triggers the very next month (June 2027). Balance stays positive throughout, low point **$1,338.17** in October 2026; horizon-ending balance **$2,356.64** (June 2027, after both payouts) |
 
-**This is a materially different and more honest picture than the original single-month extrapolation implied.** A naive straight-line of August's own strong net rate ($2,442.02/mo, or the pre-correction $2,004.36/mo) across the $4,774.67 gap suggested ~2 months — but the real month-by-month trajectory shows negative-net months every winter (crew labor and revenue both collapse toward $0 in January/February, mirroring the real historical pattern) alternating with strongly positive months, and the buffer is genuinely reached only after riding out one full additional seasonal cycle, in June 2027. Before the crew-labor-seasonality correction, running the same month-by-month mechanic with a flat crew-labor trend produced an even worse-looking, and wrong, result — the balance went negative for six straight months (Oct 2026–Apr 2027) and never reached $6,000 within the horizon, because a flat ~$1,870/mo crew-labor cost was being wrongly charged even in months where real crew labor historically drops to zero. This is exactly why the three-scenario range (Decision 6) and the seasonal-naive method (Decision 11) both matter: a single point estimate, or an unexamined flat-trend cost assumption, would have produced a materially wrong answer to "when does the plan's buffer target get reached."
+**This is a materially different and more honest picture than the original single-month extrapolation implied.** A naive straight-line of August's own strong net rate ($2,567.67/mo) across the $4,774.67 gap suggested ~2 months — but the real month-by-month trajectory shows negative-net months every winter (crew labor and revenue both collapse toward $0 in January/February, mirroring the real historical pattern) alternating with strongly positive months, and the buffer is genuinely reached only after riding out most of one full additional seasonal cycle, in May 2027. Two earlier, now-superseded versions of this same calculation both understated how well the business does under this design: a flat crew-labor trend (pre-H-052-amendment) produced a materially worse and wrong result — balance negative for six straight months (Oct 2026–Apr 2027), never reaching $6,000 — because a flat ~$1,870/mo crew-labor cost was wrongly charged even in months where real crew labor historically drops to zero; and the seasonal-naive method at crew labor's own 92.8% growth rate (H-052 amendment, superseded by Decision 11's resolution in H-053) reached the buffer a month later, in June 2027, with only Xavier's payout firing. At the resolved 75.9% rate (Decision 11, owner-confirmed), the buffer is reached in **May 2027**, and for the first time the owner's truck-debt repayment **also** triggers, the following month. This is exactly why the three-scenario range (Decision 6) and the seasonal-naive method (Decision 11) both matter: a single point estimate, or an unexamined flat-trend cost assumption, would have produced a materially wrong answer to "when does the plan's buffer target get reached" — and even the choice of *which* growth rate to use moved the answer by a full month.
 
 ---
 
