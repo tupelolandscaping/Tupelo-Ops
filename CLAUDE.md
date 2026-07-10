@@ -39,6 +39,12 @@ This is the standing default for any change to the financial model:
 
 The owner may override this per-instance (e.g., "batch several edits before regenerating"), but absent that instruction, follow the loop above every time.
 
+## Pipeline and data-source rules
+
+- **Refresh a `reference/` source → run the pipeline, not just that one step.** Whenever a Relay pull, invoice PDF, payroll export, or catalog snapshot is refreshed, run `model/refresh_all.py` (see `README.md`'s "Model data-refresh pipeline") before treating `build_model.py`'s output as current — or explicitly state which specific downstream scripts are affected and why a full run isn't needed. Never assume refreshing one source alone keeps every derived file in sync.
+- **New external data source → the established pattern, not ad hoc handling.** A dated immutable snapshot + an explicit "active" pointer + a standing `*-UPDATE.md` refresh procedure (per `CATALOG-UPDATE.md`/`REVENUE-UPDATE.md`/`PAYROLL-UPDATE.md`) is now a proven, repeated convention — follow it for any new source rather than inventing a new mechanism each time.
+- **New `assumptions.csv` row category or ledger schema field → check `build_model.py`'s sheets for it.** New data that isn't surfaced anywhere in the generated workbook is a silent gap, not a neutral addition.
+
 ## Ground-truth rule
 
 `reference/` holds raw source data — CRM exports, the P&L report, Relay bank statements, sourced overhead contract figures — and is **never edited**. It is the fixed point everything else (the model, the reconciliation tab, any derived claim) reconciles against. If a figure in `reference/` looks wrong, that's a finding to raise with the owner, not something to silently correct in place.
@@ -52,6 +58,10 @@ The owner may override this per-instance (e.g., "batch several edits before rege
 ## Cross-reference check on structured edits
 
 When editing or revising any multi-section document, verify the *joins*, not only the parts: after a change, confirm that a reader arriving at the changed section can reach any justification, dependency, or definition it relies on without already knowing where that lives — a reason stated in one section must be pointed to from the section where a reader would ask about it. Unlinked or contradictory cross-references, not wrong content, are the dominant failure mode of structured documents like this one. This check is triggered by edits to structured docs (the strategy files, `CONTEXT.md`, this file) — it is not an always-on rule for every file touch.
+
+### Assumption-cell sync (a specific instance of the above)
+
+`model/data/assumptions.csv`'s TARGET/POLICY rows (peak revenue target, cash-buffer composition, Xavier/owner-truck-debt amounts, Konji's phase-switch terms) are sourced from `strategy/strategic-plan.md` and `CONTEXT.md`, not independently authored. Treat each such row and its source figure as a **linked pair, not two facts that happen to currently agree** — the Xavier Assumptions Log row's drift from the Equipment Investment Plan table (H-041) is exactly the failure mode to avoid recurring here. Any edit to a TARGET/POLICY figure in `strategy/` or `CONTEXT.md` must trigger a check of whether `assumptions.csv`'s corresponding row needs the same update, and vice versa.
 
 ## History-logging rule
 
