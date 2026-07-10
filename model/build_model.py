@@ -341,8 +341,16 @@ def build_plan_vs_actual(ws, ledgers, months, assumptions):
     # it collapsing to zero. Overhead stays flat-continued (fixed monthly
     # contracts, not seasonal -- Jan/Feb 2026 overhead was $281.75, nonzero,
     # confirming it does NOT follow the same pattern).
-    crew_growth_rate_row = get_assumption(assumptions, "crew_labor_growth_rate_assumption")
-    crew_growth_rate = crew_growth_rate_row["value"] / 100.0
+    #
+    # Growth rate: uses `growth_rate` (revenue_growth_rate_assumption) directly,
+    # not a separate crew-labor-specific rate. Decision 11 (model/PROJECTION-PLAN.md
+    # Section 6) considered crew labor's own separately-observed YoY growth
+    # (92.8%, vs. revenue's 75.9%) and the owner explicitly rejected it in favor
+    # of pinning to revenue's rate (2026-07-10). A separate
+    # crew_labor_growth_rate_assumption row existed briefly and was removed --
+    # two rows holding the same number is a silent drift risk (editing one
+    # without the other), so this is now a single shared assumption referenced
+    # by both calculations, not two rows kept manually in sync.
 
     reserve = get_assumption(assumptions, "cash_buffer_reserve")["value"]
     truck_hedge = get_assumption(assumptions, "cash_buffer_truck_hedge")["value"]
@@ -352,23 +360,21 @@ def build_plan_vs_actual(ws, ledgers, months, assumptions):
     owner_debt = get_assumption(assumptions, "owner_truck_debt_repayment")
 
     ws.append(["Projection assumptions (model/data/assumptions.csv; recomputed fresh from the ledger each build, per D6 -- never a stored constant)"])
-    ws.append(["  Revenue growth-rate assumption:", f"{growth_rate_row['value']}%",
-                "  source:", growth_rate_row["source"]])
-    ws.append(["  Crew labor: seasonal-naive (prior-year same-month x growth rate), NOT a flat trend --"])
-    ws.append(["    see caveats below. Crew-labor growth-rate assumption:", f"{crew_growth_rate_row['value']}%",
-                "  OPEN DECISION, see crew_growth_rate_row's own label"])
+    ws.append(["  Growth-rate assumption (shared by revenue and crew labor, per Decision 11, owner-confirmed 2026-07-10):",
+                f"{growth_rate_row['value']}%", "  source:", growth_rate_row["source"]])
+    ws.append(["  Crew labor: seasonal-naive (prior-year same-month x the same growth-rate assumption"])
+    ws.append(["    above), NOT a flat trend -- see caveats below."])
     ws.append(["  Overhead trend (flat, trailing 3 real months, " + ", ".join(trailing_3) + "):",
                 round(overhead_trend, 2)])
     ws.append(["  Cash-buffer target:", buffer_target, "  Starting cash:", cash_start["value"],
                 f"(as of {cash_start['effective_date']}, {cash_start['source']})"])
     ws.append([])
     ws.append(["Caveats -- read before trusting any number below:"])
-    ws.append(["  - Crew labor is projected seasonal-naive (prior-year same month x a growth-rate"])
-    ws.append(["    assumption), confirmed correlated with revenue (r=0.77 vs billed, cleanest 13-month"])
-    ws.append(["    window) -- NOT a flat trend. Which growth rate to use is an OPEN DECISION: crew"])
-    ws.append(["    labor's own observed YoY growth (92.8%) differs materially from revenue's (75.9%,"])
-    ws.append(["    reflecting Konji's staffing ramp-up as a driver beyond volume growth); this build"])
-    ws.append(["    uses crew labor's own rate as the default, not yet owner-confirmed."])
+    ws.append(["  - Crew labor is projected seasonal-naive (prior-year same month x the SAME growth-rate"])
+    ws.append(["    assumption revenue uses), confirmed correlated with revenue (r=0.77 vs billed,"])
+    ws.append(["    cleanest 13-month window) -- NOT a flat trend. Decision 11 (owner-confirmed"])
+    ws.append(["    2026-07-10): crew labor's own separately-observed YoY growth (92.8%) was considered"])
+    ws.append(["    and explicitly rejected in favor of pinning to revenue's rate (75.9%)."])
     ws.append(["  - Anais's canvassing/backup-lead cost (BLOCKED, Follow-Up #11) is excluded entirely,"])
     ws.append(["    not summed as $0 -- her ordinary Crew Member wages ARE already in the crew labor line."])
     ws.append(["  - Konji's canvassing bonuses and winter-project rate (assumptions.csv) are NOT included"])
@@ -414,7 +420,7 @@ def build_plan_vs_actual(ws, ledgers, months, assumptions):
     for m in projected_months:
         prior_year_month = month_add(m, -12)
         proj_revenue = collected_amount(prior_year_month) * (1 + growth_rate)
-        proj_crew_labor = crew_labor_amount(prior_year_month) * (1 + crew_growth_rate)
+        proj_crew_labor = crew_labor_amount(prior_year_month) * (1 + growth_rate)
 
         share_row = get_assumption(assumptions, "konji_revenue_share_pct", for_month=m)
         konji_share = proj_revenue * (share_row["value"] / 100.0) if share_row else 0.0
