@@ -284,7 +284,10 @@ def main():
             })
 
     if unlisted:
-        print(f"[WARNING] {len(unlisted)} employee(s) not found in role map: {sorted(unlisted)}")
+        print(f"GATE FAILED: {len(unlisted)} employee(s) not found in role map: {sorted(unlisted)} -- "
+              f"add them to ROLE_MAP_ROWS (owner-confirmed job title) before re-running. "
+              f"Not writing the ledger with a placeholder role.")
+        raise SystemExit(1)
 
     labor_rows.sort(key=lambda r: (r["date"], r["category"]))
     overhead_rows.sort(key=lambda r: r["date"])

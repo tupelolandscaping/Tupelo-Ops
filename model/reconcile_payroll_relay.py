@@ -21,6 +21,19 @@ import glob
 
 PAYROLL_GLOB = "reference/tupelo-landscaping-llc-payroll-summary-*.csv"
 
+# Already-known, documented, immaterial exceptions (Follow-Up #20: a $5.37
+# VA Unemployment true-up with no discrete Relay transaction). Matched by
+# stable substring, not full string, so wording tweaks elsewhere don't break
+# this. Any exception NOT matching one of these is a genuine, new failure --
+# see main()'s gate below.
+KNOWN_EXCEPTIONS = [
+    "tax-reconciliation, payday 03/31/2026",
+]
+
+
+def is_known_exception(msg):
+    return any(k in msg for k in KNOWN_EXCEPTIONS)
+
 
 def cents(x):
     return round(float(x) * 100)
@@ -91,7 +104,17 @@ def main():
     print(f"Relay TAX-labeled Gusto txns available: {len(tax_pool)} (used {len(used_tax)})")
     print(f"Exceptions: {len(exceptions)}")
     for e in exceptions:
-        print("  -", e)
+        tag = "(known, Follow-Up #20)" if is_known_exception(e) else "(NEW, unexpected)"
+        print(f"  - {e}  {tag}")
+
+    unexpected = [e for e in exceptions if not is_known_exception(e)]
+    if unexpected:
+        print(f"\nGATE FAILED: {len(unexpected)} exception(s) beyond the known, documented "
+              f"$5.37 gap (Follow-Up #20). A new unreconciled period means either a data "
+              f"problem or a genuine new gap that needs investigation -- see H-049's "
+              f"reconciliation-gate design for how the known gap was investigated before "
+              f"being accepted as immaterial. Do not force a match or silently accept this.")
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

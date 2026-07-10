@@ -231,10 +231,13 @@ def main():
     print(f"[materials] {len(materials_rows)} row written (BLOCKED placeholder)")
 
     capital_rows = build_capital_rows(spend)
+    if len(capital_rows) < 2:
+        print(f"GATE FAILED: expected 2 capital rows (chainsaw $408.00 + owner reimbursement "
+              f"$2,200.00), got {len(capital_rows)} -- the known Relay transactions weren't "
+              f"found by their hardcoded amount match. Not writing the ledger.")
+        raise SystemExit(1)
     write_ledger(LEDGER_CAPITAL_PATH, capital_rows)
     print(f"[capital] {len(capital_rows)} row(s) written")
-    if len(capital_rows) < 2:
-        print("  WARNING: expected chainsaw + reimbursement rows; got fewer -- check matches above")
 
     # Reconciliation gates
     print()

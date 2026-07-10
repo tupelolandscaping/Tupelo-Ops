@@ -83,13 +83,13 @@ python -c "import openpyxl; print(openpyxl.__version__)"
 
 This should print a version number with no error. If it fails, something in Steps 1 or 4 is misconfigured — resolve it before starting any real work.
 
-**(b) Fuller end-to-end check (once `model/build_model.py` exists).** Early in this project's life, that script has not been written yet (it is produced during the model build — see `CONTEXT.md` Section 10 step 6), so this check does not apply until then. Once it exists, run:
+**(b) Fuller end-to-end check.** `model/build_model.py` exists and generates the workbook from the current data layer. Run:
 
 ```
 python model/build_model.py
 ```
 
-This should run without error and (re)generate `model/financial-model.xlsx` from the current contents of `model/data/`. Then open the generated workbook (via the Excel viewer extension, or by downloading it) to confirm it opened correctly. Treat this as the real sanity check going forward; (a) remains useful as a quick first-pass test even after (b) is available.
+This should run without error and (re)generate `model/financial-model.xlsx` from the current contents of `model/data/`. Then open the generated workbook (via the Excel viewer extension, or by downloading it) to confirm it opened correctly. Treat this as the real sanity check going forward; (a) remains useful as a quick first-pass test even without running a build. For refreshing the underlying data (not just regenerating the workbook from what's already there), see `README.md`'s "Model data-refresh pipeline" section and `python model/refresh_all.py`.
 
 ---
 

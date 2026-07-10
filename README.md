@@ -9,14 +9,26 @@ strategy/     One-year strategic plan, operational toolkit, execution timeline.
 check-ins/    Biweekly check-in template + dated check-in logs.
 model/
   data/         Atomic ledger + assumption tables (CSV) — source of truth.
-  build_model.py  Generates the workbook from data/ (created during the model build — Phase 7).
+  build_model.py  Generates the workbook from data/.
   requirements.txt  Pinned Python dependencies (e.g. openpyxl).
-  financial-model.xlsx  Generated output — gitignored, regenerated on demand, never hand-edited (exists only after a build).
-reference/    Raw source data (CRM exports, P&L, bank statements, overhead contracts) — ground truth, never edited.
+  financial-model.xlsx  Generated output — gitignored, regenerated on demand, never hand-edited.
+reference/    Raw source data (CRM exports, P&L, bank statements, overhead contracts, Gusto payroll exports) — ground truth, never edited.
 .gitignore    Excludes the generated workbook and transient build artifacts.
 ```
 
-The `model/` build files reflect the target structure — `build_model.py` and `financial-model.xlsx` are created later, in the model build (Phase 7), not present yet.
+## Model data-refresh pipeline
+
+The five ledgers in `model/data/` are built and kept current by a fixed sequence of scripts, each owning a disjoint set of ledger rows and safe to re-run on its own. `python model/refresh_all.py` runs all seven stages in the correct order and halts immediately if any stage's reconciliation check fails:
+
+1. **`model/parse_invoices.py`** — Homeworks invoice PDF → `revenue-invoices.csv` / `revenue-line-items.csv`.
+2. **`model/build_ledger_revenue.py`** — those CSVs → `ledger-revenue.csv`'s invoice/surcharge/tip rows.
+3. **`model/match_payments.py`** — Relay bank statements → `ledger-revenue.csv`'s payment rows + `ledger-overhead.csv`'s Stripe fee rows.
+4. **`model/populate_step4.py`** — Relay bank statements → `ledger-overhead.csv`'s remaining categories, `ledger-materials.csv`, `ledger-capital.csv`.
+5. **`model/populate_labor_from_payroll.py`** — Gusto payroll exports → `ledger-labor.csv` + `ledger-overhead.csv`'s employer-payroll-tax-burden rows.
+6. **`model/reconcile_payroll_relay.py`** — full-history gate: payroll totals vs. Relay bank transactions.
+7. **`model/build_model.py`** — all five ledgers → `financial-model.xlsx`.
+
+See `reference/CATALOG-UPDATE.md`, `reference/REVENUE-UPDATE.md`, and `reference/PAYROLL-UPDATE.md` for when and how to refresh the underlying raw sources (`reference/`) before re-running this pipeline.
 
 ## Start here
 

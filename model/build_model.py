@@ -351,6 +351,11 @@ def build_reconciliation(ws, ledgers):
     ws.append(["  Anchor ($27,891.65 gross + $424.92 tips, H-043):", REVENUE_INVOICE_ANCHOR])
     ws.append(["  Result:", "PASS" if check1_pass else "FAIL"])
     ws.append([])
+    if not check1_pass:
+        print(f"GATE FAILED: Check 1 -- revenue invoice total ${inv_total:,.2f} does not match "
+              f"the ${REVENUE_INVOICE_ANCHOR:,.2f} anchor (H-043), off by "
+              f"${inv_total - REVENUE_INVOICE_ANCHOR:,.2f}. Not writing the workbook.")
+        raise SystemExit(1)
 
     pay = [r for r in ledgers["revenue"] if r["event"] == "payment"]
     pay_total = sum(r["amount"] for r in pay)
