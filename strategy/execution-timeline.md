@@ -148,7 +148,7 @@
 | Second equipment set + transport | Single-crew capacity demonstrably saturates |
 | Paid ads (Local Services / Nextdoor) | Free funnel converting **and** reserve intact |
 | New cohort onboarding waves | Capacity confirmed (not optimism) |
-| Xavier payout | Reserve + cushion intact; external obligations cleared first |
+| Xavier payout (equity-buyout component, $1,014.09 final; revenue-share component BLOCKED — see `CONTEXT.md` item D / Follow-Up #24, `HISTORY.md` H-059) | Reserve + cushion intact; external obligations cleared first |
 | Owner (Cyrus) truck-debt repayment ($3,800) | Reserve + cushion intact; sequenced after Xavier's payout above (`HISTORY.md` H-041) |
 | Waitlist conversion | Proven throughput |
 
