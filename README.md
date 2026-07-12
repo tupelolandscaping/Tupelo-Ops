@@ -22,13 +22,13 @@ The five ledgers in `model/data/` are built and kept current by a fixed sequence
 
 1. **`model/parse_invoices.py`** — Homeworks invoice PDF → `revenue-invoices.csv` / `revenue-line-items.csv`.
 2. **`model/build_ledger_revenue.py`** — those CSVs → `ledger-revenue.csv`'s invoice/surcharge/tip rows.
-3. **`model/match_payments.py`** — Relay bank statements → `ledger-revenue.csv`'s payment rows + `ledger-overhead.csv`'s Stripe fee rows.
+3. **`model/match_payments.py`** — Relay bank statements → `ledger-revenue.csv`'s payment rows + `ledger-overhead.csv`'s Stripe fee rows. Also reads `reference/stripe-balance-history-*.csv` when present, using it as the ground-truth source for those Stripe fee amounts (true per-charge sums) rather than the back-solved 3.9%+$0.30 fallback formula (H-062).
 4. **`model/populate_step4.py`** — Relay bank statements → `ledger-overhead.csv`'s remaining categories, `ledger-materials.csv`, `ledger-capital.csv`.
 5. **`model/populate_labor_from_payroll.py`** — Gusto payroll exports → `ledger-labor.csv` + `ledger-overhead.csv`'s employer-payroll-tax-burden rows.
 6. **`model/reconcile_payroll_relay.py`** — full-history gate: payroll totals vs. Relay bank transactions.
 7. **`model/build_model.py`** — all five ledgers → `financial-model.xlsx`.
 
-See `reference/CATALOG-UPDATE.md`, `reference/REVENUE-UPDATE.md`, and `reference/PAYROLL-UPDATE.md` for when and how to refresh the underlying raw sources (`reference/`) before re-running this pipeline.
+See `reference/CATALOG-UPDATE.md`, `reference/REVENUE-UPDATE.md`, `reference/PAYROLL-UPDATE.md`, and `reference/STRIPE-UPDATE.md` for when and how to refresh the underlying raw sources (`reference/`) before re-running this pipeline.
 
 ## Start here
 

@@ -301,6 +301,23 @@ Comprehensive retrospective + cross-reference audit for the Stripe balance-histo
 
 ---
 
+**H-065 · 2026-07-12 · REVISION**
+Five-point follow-up verification pass on the Stripe integration, closing gaps H-064's retrospective didn't explicitly cover.
+
+**(1) Projection-layer sensitivity to the $2.56 fix — checked directly, not assumed from the small dollar size. A real, small, fully-reconciled shift found.** Re-ran `model/build_model.py` and compared the High-scenario trajectory against the last explicitly confirmed facts (`HISTORY.md` H-053, predating H-062's fix): buffer-reached/Xavier-payout month **May 2027 — unchanged**; owner-truck-debt month **June 2027 — unchanged**; low-point month **October 2026 — unchanged**. **The low-point balance did move: $1,338.17 (H-053) → $1,336.55 (this check), a $1.62 decrease.** Root cause isolated, not just observed: 8 of H-062's 14 corrected Stripe-fee rows fall within the trailing-3-month window (2026-04/05/06) the High scenario's flat overhead trend is computed from — 2026-04 +$0.01, 2026-05 +$0.33, 2026-06 +$1.28 (arithmetic self-check: 0.01+0.33+1.28 = 1.62, confirmed), raising the trend from ~$803.02/mo to the now-generated **$803.56/mo**, a **+$0.54/mo** increase (1.62÷3 = 0.54, confirmed). Applied across the 3 months from the projection's 2026-07 start to the October 2026 low point: 3 × $0.54 = $1.62 — exactly matching the observed balance shift, closing the loop. This is the first time this ripple was explicitly verified; H-062/H-063/H-064 regenerated the workbook each time but none checked the trajectory's key facts against a stated prior baseline the way this pass did. No other month's key fact changed.
+
+**(2) `reference/fixed-overhead.md`** — confirmed its Homeworks line describes only the $299/mo CRM subscription (current contract; no stale $139/mo Copilot-era figure present). Added a clarifying bullet distinguishing this fixed monthly cost from the separate, transactional 1% Homeworks platform markup on card payments (`HISTORY.md` H-063) — the two share a name but are structurally unrelated (contract-term software cost vs. a per-charge cost scaling with card-paid revenue volume), and the markup is not part of this file's $696.58/mo total.
+
+**(3) `README.md`'s "Model data-refresh pipeline" section — confirmed stale, same gap H-064's `CROSSREF-AUDIT-PLAN.md` addendum already caught once.** Step 3 of that section described `match_payments.py` as reading only Relay bank statements, omitting the `reference/stripe-balance-history-*.csv` dependency built in H-062. Updated to match what the addendum already documented, so the gap isn't left uncorrected in the one place a reader is actually likely to look first; also added `reference/STRIPE-UPDATE.md` to the refresh-procedure pointer list alongside the other three `*-UPDATE.md` files.
+
+**(4) `model/build_model.py` grepped for any hardcoded `$409.96`/`$412.52` Stripe-total figure** — none found; the Reconciliation tab and every print statement compute from the live ledger, never a stored constant. Confirmed clean, no fix needed. (A repo-wide check found `$409.96` referenced only in `HISTORY.md`'s own H-062 before/after narrative — correct, expected, not a stale live figure.)
+
+**(5) `strategy/strategic-plan.md`'s Financial Assumptions Log "Fixed monthly costs ~$696.58" row — confirmed correctly scoped, no change needed.** Sourced to `reference/fixed-overhead.md`, whose own component sum (127.00+33.75+45.33+166.50+299.00+25.00 = 696.58) never included Stripe. Grepped the full document for every "Stripe"/"Homeworks" mention — zero conflation found; every Homeworks reference is CRM-systematization language (rate matrix, lead tracking, time tracking, automations), never the card-processing fee.
+
+*Basis:* Fresh `model/build_model.py` run and `model/financial-model.xlsx` inspection via `openpyxl`, this session (2026-07-12); `HISTORY.md` H-053 (original trajectory baseline, predating the fix) and H-062 (the 14 corrected rows and their dates/deltas); `reference/fixed-overhead.md` (edited) and its own component-sum check; `README.md` (edited); `model/build_model.py` and repo-wide grep for `409.96`/`412.52`; `strategy/strategic-plan.md` (grepped, unedited).
+
+---
+
 ### Undated revision
 
 **H-019 · REVISION — Ledger schema: boolean `paid_flag` replaced by separate invoice/payment events.**
