@@ -13,7 +13,14 @@ settled Receive/Receive-transfer row into one of:
             "batch"       -- amount matches the sum of 2-3 open invoices
             "unmatched-*" -- no invoice or invoice-combination match found
   - tier 3  "aggregated"  -- Stripe settlements, no per-customer attribution
-                             possible from bank data alone (Finding 3)
+                             possible from bank data alone (Finding 3). Per-
+                             charge attribution IS possible via a separate
+                             source (reference/stripe-balance-history-*.csv's
+                             Description/Transfer fields, H-061) but is not
+                             implemented here -- deliberately deferred, see
+                             CONTEXT.md Follow-Up #25 for the quantified scope
+                             (32/32 rows re-attributable, 25 single-invoice +
+                             7 multi-invoice batches).
   - excluded              -- internal transfers, owner cash injections,
                               payroll-tax refunds, bank verification
                               micro-deposits, vendor/corporate-card refunds
@@ -286,16 +293,27 @@ def load_stripe_fee_lookup():
     """Sum true per-charge Stripe fees by payout, keyed on (date, net) so it
     can be matched against a Relay-side 'aggregated' row's own (date, amount).
     Returns {} if no reference/stripe-balance-history-*.csv file is present
-    (the H-061/H-062 export is optional; callers must fall back cleanly)."""
+    (the H-061/H-062 export is optional; callers must fall back cleanly).
+
+    Deduplicates by Stripe's own `id` column (a true unique transaction ID,
+    unlike Relay's rows) before summing -- required once more than one
+    stripe-balance-history-*.csv file exists (H-064): a future refresh will
+    routinely produce overlapping date windows against the current export,
+    exactly like reference/Relay*.csv already does, and without this a
+    charge or payout appearing in two files would be double-counted."""
     files = glob.glob(STRIPE_BALANCE_HISTORY_GLOB)
     if not files:
         return {}
 
+    seen_ids = set()
     charges_by_transfer = {}
     payouts = []
     for fn in files:
         with open(fn, newline="") as f:
             for row in csv.DictReader(f):
+                if row["id"] in seen_ids:
+                    continue
+                seen_ids.add(row["id"])
                 if row["Type"] == "charge":
                     charges_by_transfer.setdefault(row["Transfer"], []).append(row)
                 elif row["Type"] == "payout" and float(row["Amount"]) < 0:
