@@ -21,11 +21,21 @@ settled Receive/Receive-transfer row into one of:
 Writes `type=revenue, event=payment` rows into model/data/ledger-revenue.csv
 (existing `event=invoice` rows are left untouched) and, for every Stripe
 "aggregated" row, a paired `type=overhead, subcategory=payment-processing-fee`
-row into model/data/ledger-overhead.csv, computed via the owner-confirmed
-3.9% + $0.30/charge formula (Finding 7) applied to a gross card charge that is
-back-solved from the net deposit for that calculation only -- the payment
-event's own `amount` is always the actual net deposit, never this
-back-computed gross (see model/PHASE7-PLAN.md Section 3(b)).
+row into model/data/ledger-overhead.csv. The payment event's own `amount` is
+always the actual net deposit, never a back-computed gross (see
+model/PHASE7-PLAN.md Section 3(b)).
+
+The fee is computed two ways depending on data availability (HISTORY.md
+H-062): if the payout's date+net-amount matches a payout in
+reference/stripe-balance-history-*.csv, the fee is the TRUE sum of that
+payout's underlying per-charge Stripe fees (each charge carries its own
+$0.30 flat component, so a payout batching 2-3 charges owes more than one
+flat fee) -- this is ground truth, not an estimate. Otherwise (a payout not
+covered by that export) it falls back to the owner-confirmed 3.9% + $0.30
+formula (Finding 7), back-solved from the net deposit assuming a single
+charge -- this fallback is known to UNDERcount whenever the uncovered
+payout batches more than one charge; see H-061/H-062 for the $2.56
+historical undercount this caused before the balance-history export existed.
 
 Re-running this script is safe: it replaces only `event=payment` rows in
 ledger-revenue.csv and only Stripe-fee rows in ledger-overhead.csv, leaving
@@ -45,6 +55,7 @@ from datetime import datetime
 from itertools import combinations
 
 RELAY_GLOB = "reference/Relay*.csv"
+STRIPE_BALANCE_HISTORY_GLOB = "reference/stripe-balance-history-*.csv"
 INVOICES_PATH = "model/data/revenue-invoices.csv"
 LEDGER_REVENUE_PATH = "model/data/ledger-revenue.csv"
 LEDGER_OVERHEAD_PATH = "model/data/ledger-overhead.csv"
@@ -271,6 +282,35 @@ def classify(receive_rows, invoices):
     return classified, excluded
 
 
+def load_stripe_fee_lookup():
+    """Sum true per-charge Stripe fees by payout, keyed on (date, net) so it
+    can be matched against a Relay-side 'aggregated' row's own (date, amount).
+    Returns {} if no reference/stripe-balance-history-*.csv file is present
+    (the H-061/H-062 export is optional; callers must fall back cleanly)."""
+    files = glob.glob(STRIPE_BALANCE_HISTORY_GLOB)
+    if not files:
+        return {}
+
+    charges_by_transfer = {}
+    payouts = []
+    for fn in files:
+        with open(fn, newline="") as f:
+            for row in csv.DictReader(f):
+                if row["Type"] == "charge":
+                    charges_by_transfer.setdefault(row["Transfer"], []).append(row)
+                elif row["Type"] == "payout" and float(row["Amount"]) < 0:
+                    payouts.append((row, fn))
+
+    lookup = {}
+    for p, source_fn in payouts:
+        date = p["Available On (UTC)"][:10]
+        net = round(abs(float(p["Net"])), 2)
+        batch = charges_by_transfer.get(p["Source"], [])
+        true_fee = round(sum(float(c["Fee"]) for c in batch), 2)
+        lookup[(date, net)] = (true_fee, len(batch), source_fn)
+    return lookup
+
+
 def subcategory_for(m):
     tier = m["tier"]
     if tier == "exact":
@@ -291,8 +331,9 @@ def subcategory_for(m):
     raise ValueError(f"Unresolved tier requiring a decision before this can run: {m}")
 
 
-def build_ledger_rows(classified):
+def build_ledger_rows(classified, stripe_fee_lookup):
     payment_rows, fee_rows = [], []
+    true_count = 0
     for m in classified:
         customer = m["customer"] if m["tier"] != "aggregated" else ""
         payment_rows.append({
@@ -304,19 +345,33 @@ def build_ledger_rows(classified):
         })
         if m["tier"] == "aggregated":
             net = m["amount"]
-            gross = (net + STRIPE_FEE_FLAT) / (1 - STRIPE_FEE_PCT)
-            fee = gross - net
+            key = (m["date"], round(net, 2))
+            true = stripe_fee_lookup.get(key)
+            if true is not None:
+                fee, n_charges, source_fn = true
+                true_count += 1
+                source = (f"{source_fn}; true sum of {n_charges} underlying charge fee(s) "
+                           "for this payout (H-062) -- supersedes the 3.9%+$0.30 "
+                           "back-solved-per-day estimate this row previously carried")
+            else:
+                gross = (net + STRIPE_FEE_FLAT) / (1 - STRIPE_FEE_PCT)
+                fee = gross - net
+                source = (f"{m['source_file']}; fee computed via 3.9% + $0.30 formula, "
+                           "back-solved from net deposit (no matching payout found in "
+                           "reference/stripe-balance-history-*.csv) -- never used as the "
+                           "payment event's own amount")
             fee_rows.append({
                 "date": m["date"], "type": "overhead", "event": "",
                 "category": "Stripe", "subcategory": "payment-processing-fee",
                 "customer": "", "quantity": "1",
                 "unit_rate": f"{fee:.2f}", "amount": f"{fee:.2f}", "status": "ACTUAL",
-                "source": (f"{m['source_file']}; fee computed via 3.9% + $0.30 formula, "
-                           "back-solved from net deposit -- never used as the payment "
-                           "event's own amount"),
+                "source": source,
             })
     payment_rows.sort(key=lambda r: r["date"])
     fee_rows.sort(key=lambda r: r["date"])
+    print(f"[stripe-fee] {true_count}/{len(fee_rows)} fee rows use true per-charge sums "
+          f"from reference/stripe-balance-history-*.csv; "
+          f"{len(fee_rows)-true_count} fall back to the back-solved formula")
     return payment_rows, fee_rows
 
 
@@ -365,7 +420,8 @@ def main():
               f"{len(receive) - accounted} unaccounted row(s).")
         sys.exit(1)
 
-    payment_rows, fee_rows = build_ledger_rows(classified)
+    stripe_fee_lookup = load_stripe_fee_lookup()
+    payment_rows, fee_rows = build_ledger_rows(classified, stripe_fee_lookup)
 
     existing_revenue = read_ledger(LEDGER_REVENUE_PATH)
     kept_revenue = [r for r in existing_revenue if r["event"] != "payment"]
