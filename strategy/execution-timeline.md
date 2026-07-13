@@ -107,6 +107,7 @@
 ### Dec 16–31
 - **[GATE]** **Full transition checklist complete before January relocation** — hard deadline.
 - Final systems verification: Rate Matrix, saved routes, visit forms, automated invoicing/payments/review requests, spring automations scheduled, single intake channel + escalation path defined, weekly remote ops cadence set.
+- **[ANCHOR] Confirm Virginia sales-tax registration/permit status for the 3 now-taxable catalog items (Bagged Mulch, Landscaping Blocks, New Plants) — register if not already done — by end of calendar year 2026 (2026-12-31).** Owner-deprioritized, explicitly not urgent day-to-day, but must be resolved before the next tax filing — the business began correctly charging real 6% Virginia sales tax on these 3 items with the 2026-07-13 catalog refresh (`CONTEXT.md` Follow-Up #10, resolved), and legally remitting it requires Virginia Tax registration. See `CONTEXT.md` Follow-Up #26.
 - **[REV] Revision Point 2 (late December):** pre-departure full review. Confirm every "must be true before owner leaves" item; resolve gaps now, not in January.
 
 ---

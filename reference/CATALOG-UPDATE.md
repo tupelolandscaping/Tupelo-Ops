@@ -6,6 +6,8 @@
 
 Known limitation, not yet a problem: if a catalog item is ever discontinued in a future snapshot, `parse_invoices.py`'s recognized-header gate (which reads only the *active* snapshot) would reject that name when re-parsing older invoices that used it. With a single snapshot in play this doesn't arise. If/when it does, resolve it explicitly (e.g., union of all snapshots for gate purposes) rather than guessing now.
 
+**First real occurrence, 2026-07-13 (H-066):** "Weeding Maintenance" was discontinued in that day's export, merged into the existing "Weeding" item. Resolved via the *simpler* of the two mechanisms already available, not the "union of all snapshots" approach floated above: since the discontinued name maps cleanly onto one surviving catalog name, it was added to `model/data/service-name-map.csv` as an ordinary legacy-name alias (`Weeding Maintenance,Weeding`) — the exact mechanism already used for every other historical rename (`Mulching`→`Mulching/Soil Placement`, etc.). `check_recognized_headers()` treats `service_map.keys()` as recognized regardless of whether the name still appears in the active snapshot, so this needed no code change. The "union of all snapshots" approach remains the fallback for a future case that *isn't* a clean one-to-one merge (e.g. a discontinued item with no successor).
+
 ## Steps
 
 1. Export **Items and Services** from Homeworks as a CSV.

@@ -45,13 +45,15 @@ The `(metadata)`-suffixed columns (`stripeProcessingFee`, `customerProcessingFee
 
 ## Service catalog
 
-**Active snapshot: `service-catalog-2026-07-09.csv`** (22 rows: `Name, Rate Charged to Client, Tax1 %, Tax2 %, Category, Description`; saved verbatim from the Homeworks "Items and Services" export, including its trailing `null` row — not cleaned). This pointer line is the one piece of catalog-tracking data that is allowed to change in place; see `reference/CATALOG-UPDATE.md` for the refresh procedure and the reasoning for using an explicit pointer rather than glob-latest.
+**Active snapshot: `service-catalog-2026-07-13.csv`** (21 rows: `Name, Rate Charged to Client, Tax1 %, Tax2 %, Category, Description`; saved verbatim from the Homeworks "Items and Services" export, including its trailing `null` row — not cleaned). This pointer line is the one piece of catalog-tracking data that is allowed to change in place; see `reference/CATALOG-UPDATE.md` for the refresh procedure and the reasoning for using an explicit pointer rather than glob-latest.
+
+**Tax-rate change, 2026-07-13 (H-066):** the owner corrected the catalog's tax settings to match Virginia's actual sales-tax basis — only the 3 `item`-kind rows (`Bagged Mulch`, `Landscaping Blocks (stone)`, `New Plants`) now carry 6% tax; all 18 `service`-kind rows (labor is not taxable in Virginia) carry 0%, down from a prior blanket-6%-on-nearly-everything practice. See `CONTEXT.md` Follow-Up #10 (resolved) for the full history and forward-looking treatment. This snapshot also drops **"Weeding Maintenance"**, discontinued in Homeworks and merged into the existing **"Weeding"** item (owner-confirmed: it was an unused separate name for the same recurring-weeding concept) — mapped as a new legacy alias in `model/data/service-name-map.csv` rather than a rename or reclassification, so no historical invoice re-parse changes any dollar figure.
 
 `model/parse_invoices.py`'s fail-closed gate reads valid catalog names from the active snapshot named above — never a hardcoded list.
 
 **Packages (unbilled):** `service-packages-2026-07-09.csv` transcribes the two Package definitions (`General Maintenance`, `Lawn Care`) from Homeworks' "Packages" tab, owner-confirmed 2026-07-09 by screenshot. As of this snapshot, the Packages feature has **never been used to bill an invoice** — it is a distinct mechanism from the informal `General Maintenance` / `Lawn Care` / `Lawn Maintenance` bundle labels already present as literal invoice text in `model/data/revenue-line-items.csv`. Same names, different mechanism — see `reference/CATALOG-UPDATE.md`'s "Packages feature vs. bundle labels" section before conflating the two in any file.
 
-Item-vs-service classification (which of the 22 catalog rows are billable materials vs. labor) lives in `model/data/catalog-type-map.csv` — a script-input derivative, not a raw source, so it's in `model/data/` rather than here.
+Item-vs-service classification (which of the 21 catalog rows are billable materials vs. labor) lives in `model/data/catalog-type-map.csv` — a script-input derivative, not a raw source, so it's in `model/data/` rather than here.
 
 ## Canonical record & change protocol
 
