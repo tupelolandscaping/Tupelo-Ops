@@ -72,6 +72,18 @@ Targets below are derived from the accompanying financial model (reconciled 2026
 | **Net profit** | ($226) | ($3) | $991 | **$762** |
 | **Cash (month-end)** | $6,671 | $6,668 | $6,159 | **$6,159** |
 
+*Original table preserved above, per changelog-preservation convention — do not delete.*
+
+**Superseded 2026-07-13 (Follow-Up #22 audit)** — the projection layer built 2026-07-10/11 (H-052/H-053) shows materially different real figures for this quarter. This table was last reconciled 2026-06-17, predating that build, and was never updated afterward. Corrected table below, pulled fresh from the live `model/financial-model.xlsx`'s "Plan vs Actual" sheet (High scenario) on 2026-07-13, not carried over from any prior estimate:
+
+| ($) | Jan | Feb | Mar | Quarter |
+| --- | --- | --- | --- | --- |
+| **Revenue** | $0.00 | $0.00 | $771.78 | **$771.78** |
+| **Net profit** | ($803.56) | ($803.56) | ($1,161.96) | **($2,769.08)** |
+| **Cash (month-end)** | $4,967.11 | $4,163.56 | $3,001.59 | **$3,001.59** |
+
+Cash is materially lower than the original table implied (~$3,000–$5,000, not ~$6,150–$6,670), because real seasonal-naive revenue and crew labor both collapse toward $0 in January/February (mirroring the observed historical pattern — see `model/PROJECTION-PLAN.md`). **The $6,000 buffer is not reached within Q1 2027 at all — it is reached in May 2027**, per the real, computed model (`HISTORY.md` H-053, re-verified H-065), two months after this original table's own Xavier-payout milestone bullet below implied.
+
 **Operational milestones:**
 
 - Owner relocates (January); winter trough runs near break-even, absorbed by the reserve — expected, not alarming.
@@ -80,7 +92,7 @@ Targets below are derived from the accompanying financial model (reconciled 2026
 
 - New mowing cohort begins onboarding in controlled waves; service the conservative committed floor first.
 
-- Xavier equity payout (~$1,800, unpaid, demand-triggered in late winter) once reserve and cushion are intact.
+- ~~Xavier equity payout (~$1,800, unpaid, demand-triggered in late winter) once reserve and cushion are intact.~~ **Correction, 2026-07-13 (Follow-Up #22 audit, found stale):** Xavier's payout is **$1,014.09** (final equity-buyout component, `HISTORY.md` H-059) plus a revenue-share bonus component still **BLOCKED** pending real data (Follow-Up #24) — not "~$1,800." Same demand-triggered mechanism (fires once the $6,000 reserve + cushion buffer is intact), but the real, computed model (`HISTORY.md` H-053, re-verified H-065) places this trigger in **May 2027**, not "late winter"/within this Q1 2027 (Jan–Mar) window — this bullet is left here, corrected in place, rather than relocated, since Finding 3 below already supersedes this whole quarterly table's cash trajectory with the real May 2027 figures.
 
 - Hold to signed agreements and locked rates (no prepay); convert the waitlist only as proven throughput allows.
 

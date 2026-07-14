@@ -53,7 +53,7 @@ The owner may override this per-instance (e.g., "batch several edits before rege
 
 - Plain text (Markdown/CSV) preferred over binary formats wherever the content allows it.
 - Every quantitative row in the data layer carries a status tag: `ACTUAL`, `ESTIMATE`, or `BLOCKED`. Estimates are always flagged as such, never presented as measured. `BLOCKED` means the figure is deliberately not modeled pending a named prerequisite — not silently omitted.
-- All repository files use lowercase kebab-case naming (e.g., `execution-timeline.md`), except the conventional uppercase root files (`README.md`, `CLAUDE.md`, `CONTEXT.md`, `SETUP.md`, `HISTORY.md`).
+- All repository files use lowercase kebab-case naming (e.g., `execution-timeline.md`), except two intentional uppercase categories: (1) the conventional uppercase root files (`README.md`, `CLAUDE.md`, `CONTEXT.md`, `SETUP.md`, `HISTORY.md`), and (2) the standing `*-UPDATE.md` / `*-PLAN.md` procedure and planning-document pattern, wherever it lives in the tree — `reference/CATALOG-UPDATE.md`, `reference/REVENUE-UPDATE.md`, `reference/PAYROLL-UPDATE.md`, `reference/STRIPE-UPDATE.md`, `model/PHASE7-PLAN.md`, `model/PROJECTION-PLAN.md`, `model/CROSSREF-AUDIT-PLAN.md`. Found and formalized 2026-07-13 (Follow-Up #22 audit, Finding 5): this second category was already established, repeated practice, never previously written into this rule.
 
 ## Cross-reference check on structured edits
 

@@ -337,6 +337,27 @@ Also updated in this pass for cross-reference accuracy (structured-doc edits tri
 
 ---
 
+**H-067 · 2026-07-13 · MILESTONE**
+Follow-Up #22's RP1 (Revision Point 1, late July 2026) cross-reference audit — closeout. Mirrors H-055's original pass: `model/CROSSREF-AUDIT-PLAN.md` documents the methodology; this pass re-verified all 5 of H-055's own findings are still fixed (confirmed by direct grep against current file content, not assumed), then ran a fresh catalog across 4 areas — `CONTEXT.md` vs. `strategy/*.md`; `assumptions.csv` TARGET/POLICY rows vs. sources; `CLAUDE.md`'s rules vs. actual practice; `HISTORY.md`'s own entries for dangling references.
+
+**Result: 6 findings, 5 requiring a content fix (Findings 1–5, all fixed and committed separately/in this pass) + this entry itself (Finding 6, a typo-note only). 0 undocumented (c)-class gaps** — same clean result as H-055's original pass; every problem found was a documentation-accuracy issue (class d), not a missing safeguard.
+
+**Findings 1–2 (`strategy/strategic-plan.md`, Executive Summary + Q1 2027 milestones):** Xavier's payout was still cited as "~$1,800 (`HISTORY.md` H-021)" in two places — the placeholder H-059 superseded on 2026-07-11. Corrected to the real structure (**$1,014.09** final equity-buyout + a still-**BLOCKED** revenue-share component) in both locations, original text struck through per this repo's changelog-preservation convention, not deleted.
+
+**Finding 3 (`strategy/strategic-plan.md` Q1 2027 table + `strategy/execution-timeline.md` Monthly Financial Targets table) — the most significant finding.** Both tables were last reconciled 2026-06-17, predating the real projection-layer build (H-052/H-053, 2026-07-10/11), and neither was ever updated after. Checked directly against the live `model/financial-model.xlsx`'s "Plan vs Actual" sheet (High scenario), fresh, not reused from any prior session figure: `strategy/strategic-plan.md`'s Q1 2027 table showed cash comfortably above the $6,000 buffer target (Jan $6,671 / Feb $6,668 / Mar $6,159); the real model shows cash well below target and still falling (Jan $4,967.11 / Feb $4,163.56 / Mar $3,001.59) — the buffer is not reached until **May 2027**, not within Q1. `strategy/execution-timeline.md`'s parallel 12-month table was checked rather than assumed stale in the same way, per instruction — found stale across its *entire* horizon, not just Jan–Mar, so the whole table (not just three rows) was superseded with the real Aug 2026–Jun 2027 trajectory, low point **$1,336.55 in October 2026**. Both original tables preserved in place, with a dated "Superseded 2026-07-13" block and corrected table added immediately below each — no deletion.
+
+**Finding 4 (`strategy/execution-timeline.md`, "### March 2027").** A `[DT]`-tagged "Xavier equity payout (~March)" bullet both cited the same stale ~$1,800 figure and violated the Legend's own definition of `[DT]` as dateless. Resolution chosen: **removed** (struck through with a dated note), not relocated — a correct, current entry for this exact fact already existed in the Demand-Triggered Watch List table (`$1,014.09` + BLOCKED revenue-share, correctly citing H-059), so relocating would have created a duplicate rather than fixing anything.
+
+**Finding 5 (`CLAUDE.md`, File conventions).** The lowercase-kebab-case naming rule's exception clause named only the 5 conventional root files, but 7 non-root uppercase files (`reference/*-UPDATE.md` ×4, `model/*-PLAN.md` ×3) are long-standing, intentional, repeated practice never written into the rule. Updated the clause to name this second category explicitly.
+
+**Finding 6 (this entry).** `HISTORY.md` H-033's `*Basis:*` line cites `` `reference/revenue-line-items.csv` and `reference/revenue-invoices.csv` `` — these files actually live at `model/data/revenue-line-items.csv` and `model/data/revenue-invoices.csv` (confirmed by direct file check). Flagged as an authoring-time citation typo in that original entry (2026-07-06). **H-033 itself is not edited** — it is a committed, append-only entry; this note is the correction, per this repo's append-only convention for post-commit corrections.
+
+*Arithmetic self-check:* 5 content-fix findings (1–5) + 1 typo-note finding (6, this entry) = **6 findings total**, matching the count stated above and in the prior findings-report chat turn. 0 (c)-class gaps, matching H-055's original 0 — both pass counts stated as bare assertions here are corroborated by the findings list itself (every one of the 6 items above is class (d), none is class (c)), not just declared.
+
+*Basis:* `model/CROSSREF-AUDIT-PLAN.md` (methodology, re-read; not edited this pass); direct `grep`/file reads across `CONTEXT.md`, `strategy/strategic-plan.md`, `strategy/execution-timeline.md`, `strategy/operational-toolkit.md`, `model/data/assumptions.csv`, `CLAUDE.md`, `HISTORY.md`; `model/financial-model.xlsx`'s "Plan vs Actual" sheet via `openpyxl` (re-derived fresh twice this pass, both times matching); `HISTORY.md` H-021, H-033, H-041, H-053, H-055, H-059, H-065 (all re-read, not recalled).
+
+---
+
 ### Undated revision
 
 **H-019 · REVISION — Ledger schema: boolean `paid_flag` replaced by separate invoice/payment events.**

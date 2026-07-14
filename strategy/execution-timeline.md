@@ -126,7 +126,7 @@
 
 ### March 2027
 - **[DT]** Onboard new mowing cohort in controlled waves — *only as proven throughput allows.* Service the committed floor first.
-- **[DT]** Xavier equity payout (~March) — *only once reserve + cushion are intact and external obligations clear.*
+- ~~**[DT]** Xavier equity payout (~March) — *only once reserve + cushion are intact and external obligations clear.*~~ **Removed, 2026-07-13 (Follow-Up #22 audit, Finding 4):** relocated rather than corrected in place, since it duplicated (with a stale figure and a stale date guess) an entry that already exists, correctly, in the **Demand-Triggered Watch List** table below (`$1,014.09` equity-buyout + BLOCKED revenue-share, `HISTORY.md` H-059). Placing a specific date guess ("~March") on a `[DT]` item also contradicted the Legend's own definition of `[DT]` as dateless — removing it here rather than correcting the date in place resolves both problems at once. The real, computed trigger month is **May 2027** (`HISTORY.md` H-053, re-verified H-065), not March — see the Watch List entry and the corrected Monthly Financial Targets table above for the current figures.
 - Hold to signed agreements and locked rates; convert waitlist only as capacity permits.
 
 ### April 2027
@@ -198,6 +198,27 @@ Keep this set small. Tripwires lose force if there are too many.
 | Jun '27 | $9,180 | $3,194 | $14,580 |
 
 > Values reconciled to the financial model on 2026-06-17 (revenue unchanged; profit and cash recalculated after zeroing the completed diagnostic). These are the curves the reserve and revenue indicators are checked against. The figures most worth revisiting first: the weekday-growth ramp, the spring cohort size, and the starting-cash anchor (the $4,500 peak anchor is now validated against May '26 = $4,908).
+
+*Original table preserved above, per changelog-preservation convention — do not delete.*
+
+**Superseded 2026-07-13 (Follow-Up #22 audit)** — the projection layer built 2026-07-10/11 (H-052/H-053) shows materially different real figures across this entire table, not just one quarter: checked against the live model rather than assuming the same Jan–Mar-only staleness found in `strategy/strategic-plan.md`'s parallel table, and found this one is stale end-to-end. This table was last reconciled 2026-06-17, predating that build, and was never updated afterward. Corrected table below, pulled fresh from the live `model/financial-model.xlsx`'s "Plan vs Actual" sheet (High scenario) on 2026-07-13:
+
+| Month | Revenue | Net profit | Cash (month-end) |
+|---|---|---|---|
+| Jul '26 | *in progress — 2026-07-13 is mid-month; no completed actual or projected figure exists yet* | | |
+| Aug '26 | $4,678.41 | $2,567.13 | $3,792.46 |
+| Sep '26 | $901.86 | ($1,091.25) | $2,701.21 |
+| Oct '26 | $1,083.49 | ($1,364.66) | $1,336.55 |
+| Nov '26 | $5,141.29 | $2,440.02 | $3,776.57 |
+| Dec '26 | $3,394.61 | $1,994.10 | $5,770.67 |
+| Jan '27 | $0.00 | ($803.56) | $4,967.11 |
+| Feb '27 | $0.00 | ($803.56) | $4,163.56 |
+| Mar '27 | $771.78 | ($1,161.96) | $3,001.59 |
+| Apr '27 | $2,735.26 | ($1,176.98) | $1,824.62 |
+| May '27 | $8,610.62 | $4,979.84 | $5,790.37 (Xavier payout, $1,014.09, fires this month) |
+| Jun '27 | $6,565.85 | $1,146.24 | $3,136.61 (owner truck-debt repayment, $3,800.00, fires this month) |
+
+The real trajectory is materially different from the original planning table in shape, not just magnitude: cash dips to a low point of **$1,336.55 in October 2026**, climbs through the fall, then collapses again in the January/February 2027 seasonal trough (real crew labor and revenue both go to $0, mirroring the observed historical pattern), before recovering. **The $6,000 buffer is reached in May 2027**, not within Q1 2027 as the original table's shape implied — Xavier's equity-buyout payout ($1,014.09) fires that month, and the owner's $3,800 truck-debt repayment fires the following month (June 2027). See `HISTORY.md` H-053 (original computation) and H-065 (re-verification) for the full derivation.
 
 ---
 
