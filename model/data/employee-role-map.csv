@@ -1,17 +1,17 @@
-employee,role,effective_date,alias
-"Archuletta, Cyrus",Crew Member,,
-"Beauvais, Anais",Crew Member,,
-"Beauvais, Cyrus",CEO,,
-"Beauvais, Xavier",Crew Lead,,
-"Beauvais, Xavier",Crew Member,2026-06-15,
-"Bunek, Parker",Crew Member,,
-"Cook, Jason",Crew Member,,
-"Daschke, August",Crew Member,,
-"Driscoll, Katherine",Landscape Consultant,,Katie
-"Gaspar, Caleb",Crew Member,,
-"Gorman, Konjinet",Crew Lead,,Konji
-"Kiflu, Rimon",Crew Member,,
-"Knauer, Nathaniel",Crew Member,,Nate
-"Littlejohn, James",Crew Member,,
-"Lordos, Zavier",Crew Member,,
-"Moore, Max",Crew Member,,
+employee,role,effective_date,status,alias
+"Archuletta, Cyrus",Crew Member,,active,
+"Beauvais, Anais",Crew Member,,active,
+"Beauvais, Cyrus",CEO,,active,
+"Beauvais, Xavier",Crew Lead,,active,
+"Beauvais, Xavier",Crew Member,2026-06-15,active,
+"Bunek, Parker",Crew Member,,active,
+"Cook, Jason",Crew Member,,unknown,
+"Daschke, August",Crew Member,,dismissed,
+"Driscoll, Katherine",Landscape Consultant,,active,Katie
+"Gaspar, Caleb",Crew Member,,active,
+"Gorman, Konjinet",Crew Lead,,active,Konji
+"Kiflu, Rimon",Crew Member,,active,
+"Knauer, Nathaniel",Crew Member,,unknown,Nate
+"Littlejohn, James",Crew Member,,dismissed,
+"Lordos, Zavier",Crew Member,,active,
+"Moore, Max",Crew Member,,active,

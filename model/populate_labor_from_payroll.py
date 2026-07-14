@@ -60,23 +60,35 @@ LEDGER_FIELDS = [
 # Katherine's rate changed ($20 -> $30) but no prior *title* was stated by
 # the owner, so she gets a single constant role, not a time-varying one
 # (flagged explicitly in the script output, not assumed silently).
+#
+# `status` (added 2026-07-14, HISTORY.md H-072, closing the gap H-071 flagged):
+# one of "active" / "dismissed" / "resigned" / "unknown" -- an explicit,
+# owner-confirmed employment-status flag, not inferred from payroll absence.
+# "unknown" is a real, distinct value, not a placeholder to avoid filling in --
+# it means a long payroll gap exists but the owner has NOT confirmed dismissal
+# (e.g. Cook, Knauer): do NOT guess "dismissed" for a long gap alone, the same
+# mistake H-071 corrected for Xavier's "departure" wording. Only set
+# "dismissed"/"resigned" on explicit owner confirmation (e.g. Littlejohn,
+# Daschke, H-071). For Xavier's two role-period rows, status describes his
+# current employment (active), not a per-period value -- there is no
+# indication either row's period should carry a different status.
 ROLE_MAP_ROWS = [
-    {"employee": "Archuletta, Cyrus", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Beauvais, Anais", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Beauvais, Cyrus", "role": "CEO", "effective_date": ""},
-    {"employee": "Beauvais, Xavier", "role": "Crew Lead", "effective_date": ""},
-    {"employee": "Beauvais, Xavier", "role": "Crew Member", "effective_date": "2026-06-15"},
-    {"employee": "Bunek, Parker", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Cook, Jason", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Daschke, August", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Driscoll, Katherine", "role": "Landscape Consultant", "effective_date": ""},
-    {"employee": "Gaspar, Caleb", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Gorman, Konjinet", "role": "Crew Lead", "effective_date": ""},
-    {"employee": "Kiflu, Rimon", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Knauer, Nathaniel", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Littlejohn, James", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Lordos, Zavier", "role": "Crew Member", "effective_date": ""},
-    {"employee": "Moore, Max", "role": "Crew Member", "effective_date": ""},
+    {"employee": "Archuletta, Cyrus", "role": "Crew Member", "effective_date": "", "status": "active"},
+    {"employee": "Beauvais, Anais", "role": "Crew Member", "effective_date": "", "status": "active"},
+    {"employee": "Beauvais, Cyrus", "role": "CEO", "effective_date": "", "status": "active"},
+    {"employee": "Beauvais, Xavier", "role": "Crew Lead", "effective_date": "", "status": "active"},
+    {"employee": "Beauvais, Xavier", "role": "Crew Member", "effective_date": "2026-06-15", "status": "active"},
+    {"employee": "Bunek, Parker", "role": "Crew Member", "effective_date": "", "status": "active"},
+    {"employee": "Cook, Jason", "role": "Crew Member", "effective_date": "", "status": "unknown"},
+    {"employee": "Daschke, August", "role": "Crew Member", "effective_date": "", "status": "dismissed"},
+    {"employee": "Driscoll, Katherine", "role": "Landscape Consultant", "effective_date": "", "status": "active"},
+    {"employee": "Gaspar, Caleb", "role": "Crew Member", "effective_date": "", "status": "active"},
+    {"employee": "Gorman, Konjinet", "role": "Crew Lead", "effective_date": "", "status": "active"},
+    {"employee": "Kiflu, Rimon", "role": "Crew Member", "effective_date": "", "status": "active"},
+    {"employee": "Knauer, Nathaniel", "role": "Crew Member", "effective_date": "", "status": "unknown"},
+    {"employee": "Littlejohn, James", "role": "Crew Member", "effective_date": "", "status": "dismissed"},
+    {"employee": "Lordos, Zavier", "role": "Crew Member", "effective_date": "", "status": "active"},
+    {"employee": "Moore, Max", "role": "Crew Member", "effective_date": "", "status": "active"},
 ]
 ROLE_MAP_ALIASES = {
     "Gorman, Konjinet": "Konji",
@@ -177,7 +189,7 @@ def role_for(role_map, employee, date_str):
 
 def write_role_map():
     with open(ROLE_MAP_PATH, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["employee", "role", "effective_date", "alias"])
+        w = csv.DictWriter(f, fieldnames=["employee", "role", "effective_date", "status", "alias"])
         w.writeheader()
         for r in ROLE_MAP_ROWS:
             w.writerow({**r, "alias": ROLE_MAP_ALIASES.get(r["employee"], "")})
