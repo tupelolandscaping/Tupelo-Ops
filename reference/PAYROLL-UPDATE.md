@@ -15,20 +15,23 @@ Same reasoning as `REVENUE-UPDATE.md`: a fresh Gusto export is re-parsed from sc
    python model/populate_labor_from_payroll.py
    ```
    This fully rebuilds `model/data/ledger-labor.csv` from every payroll file matching the glob, and adds/replaces the `employer-payroll-tax-burden` rows in `model/data/ledger-overhead.csv`. **This script now fails closed (H-051) if a payroll employee isn't found in the role map** — the script halts with `GATE FAILED: ... employee(s) not found in role map: [...]` and a nonzero exit, not the printed `[WARNING]` this step used to describe; the ledger is not written until this is resolved. **If it fires: add the new person to `ROLE_MAP_ROWS` inside `model/populate_labor_from_payroll.py`, NOT to `model/data/employee-role-map.csv` directly** — that CSV is fully regenerated from `ROLE_MAP_ROWS` on every run (`write_role_map()`, called unconditionally), so a direct edit to the CSV would be silently discarded the next time this script runs and the same failure would recur. Add them with an owner-confirmed job title, per the existing `employee,role,effective_date` schema; use a second dated row if their title has changed, the same way Xavier's Crew Lead → Crew Member change is recorded — then re-run. The loader hard-flags unlisted names rather than silently guessing a role.
-6. Also watch for any newly discovered payday-block type. H-049 found one mid-build — an unmarked `"Tax Reconciliation Payroll"` block distinct from the marked `"Reversal Payroll"` blocks — that the parser needed explicit handling for. If a future export contains a structure the parser doesn't recognize, it will most likely surface as a `ValueError` or a name/value that looks wrong in the printed totals; don't silently work around it — extend the parser the same deliberate way, and document the new pattern in `HISTORY.md`.
-7. Run:
+6. **Check whether this export resolves Anais's pending wage-reduction flag.** `model/data/assumptions.csv`'s `anais_hourly_rate_pending` row (BLOCKED, $20.00/hr, effective_date 2026-07-12, `HISTORY.md` H-070) records an owner-stated wage reduction that no export has confirmed yet. Every time a new export is pulled in: check whether it now covers a pay period ending on or after 2026-07-12. If it does, read Anais Beauvais's `Regular (Rate)` field for that period directly from the raw export (the same way this was checked in the 2026-07-14 investigation — do not infer from a summary). Report the match/mismatch as part of this refresh's own output; don't wait to be asked.
+   - **If it confirms $20.00/hr:** promote `anais_hourly_rate_pending` to CONTRACTED/ACTUAL — merge it into `anais_hourly_rate_current`, preserving the $25.00/hr history as a dated note rather than overwriting it (same phase-switch pattern as Konji's rate structure, `CONTEXT.md` D4). Update `strategy/strategic-plan.md` Section 4's compensation table to match. Log the resolution in `HISTORY.md`, citing the confirming export and pay period.
+   - **If it contradicts** (still $25.00/hr, a different rate, or the period still doesn't exist in this export): do NOT change `assumptions.csv`, `strategy/strategic-plan.md`, or any other file. Flag the discrepancy back to the owner instead of assuming the stated date is already reflected in the data.
+7. Also watch for any newly discovered payday-block type. H-049 found one mid-build — an unmarked `"Tax Reconciliation Payroll"` block distinct from the marked `"Reversal Payroll"` blocks — that the parser needed explicit handling for. If a future export contains a structure the parser doesn't recognize, it will most likely surface as a `ValueError` or a name/value that looks wrong in the printed totals; don't silently work around it — extend the parser the same deliberate way, and document the new pattern in `HISTORY.md`.
+8. Run:
    ```
    python model/reconcile_payroll_relay.py
    ```
    This is the full-history reconciliation gate (per H-049): every non-reversed, non-empty pay period's Net Pay and combined Employee+Employer Tax should match a specific Relay `GUSTO` `NET`/`TAX` transaction exactly. **Expect zero unexplained exceptions beyond the one already-known $5.37 Tax Reconciliation correction (Follow-Up #20).** If a *new* exception appears, stop — do not commit. Investigate it the same way the $5.37 gap was investigated (check neighboring periods for an absorbed adjustment, check Relay directly around the payday in question) before deciding how to record it; do not force a match or silently drop it.
-8. Re-run `python model/populate_step4.py` only if overhead's other categories (Gusto fee, insurance, CRM, etc.) also need refreshing against newer Relay statements — it is order-independent with step 5 (H-049 fixed the category-collision bug that used to make this unsafe) and will not disturb the employer-payroll-tax-burden rows written in step 5.
-9. Regenerate the workbook:
-   ```
-   python model/build_model.py
-   ```
-10. Review `git diff` on `model/data/employee-role-map.csv` and `model/data/ledger-labor.csv` (and `ledger-overhead.csv`'s new tax-burden rows) — this diff *is* the period's labor update: new pay periods, any roster change, any rate/title change.
-11. Log the refresh in `HISTORY.md` (new export filed, any new employee or role change, the gate's exact result).
-12. Commit.
+9. Re-run `python model/populate_step4.py` only if overhead's other categories (Gusto fee, insurance, CRM, etc.) also need refreshing against newer Relay statements — it is order-independent with step 5 (H-049 fixed the category-collision bug that used to make this unsafe) and will not disturb the employer-payroll-tax-burden rows written in step 5.
+10. Regenerate the workbook:
+    ```
+    python model/build_model.py
+    ```
+11. Review `git diff` on `model/data/employee-role-map.csv` and `model/data/ledger-labor.csv` (and `ledger-overhead.csv`'s new tax-burden rows) — this diff *is* the period's labor update: new pay periods, any roster change, any rate/title change.
+12. Log the refresh in `HISTORY.md` (new export filed, any new employee or role change, the gate's exact result, and step 6's Anais wage-flag check result).
+13. Commit.
 
 ## Cadence
 
