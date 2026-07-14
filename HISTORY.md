@@ -358,6 +358,19 @@ Follow-Up #22's RP1 (Revision Point 1, late July 2026) cross-reference audit —
 
 ---
 
+**H-068 · 2026-07-14 · DECISION (tracked, not resolved)**
+New Follow-Up #28 added to `CONTEXT.md` Section 7: an open design question for achieving seamless, low-manual-effort cross-file synchronization for *routine* updates (a biweekly check-in fact, a fresh data pull) — not just the periodic Follow-Up #22 Revision-Point audit, which is a deep, deliberate quarterly pass, not a lightweight everyday mechanism. Explicitly not merged into or renumbered as part of Follow-Up #23 (self-triggering of already-documented standing procedures) — related but distinct in scope, and the relationship between the two is itself named as one of #28's own open sub-questions, not resolved here. A short cross-reference note was added to #23's own text pointing to #28, per this repo's cross-reference-legibility check (`CLAUDE.md`, "Cross-reference check on structured edits") triggered by this structured-document edit.
+No implementation was built — no changes to any script, `CLAUDE.md`, or `check-ins/check-in-template.md`. Four sub-questions logged as open, not answered: (a) whether this should be a lightweight checklist run at the start of every biweekly check-in rather than only at Revision Points; (b) whether it should be scoped narrower than a full #22-style audit — a fast per-fact check versus the full periodic pass; (c) whether full automation (script/CI) is worth it now given D9's lean-tooling stance, or whether this stays manual-but-reliably-invoked; (d) how this relates to/overlaps with #23. No date or deadline attached — tagged UNSCHEDULED in the list, consistent with how other non-urgent open items are presented.
+*Basis:* `CONTEXT.md` Section 7, new item 28; Follow-Up #22 and #23 (both re-read for scope before drafting, not recalled); `check-ins/check-in-template.md` (referenced, not edited).
+
+---
+
+**H-069 · 2026-07-14 · NOTE (tracked, not resolved)**
+Appended a short factual note to the end of Follow-Up #23's existing text in `CONTEXT.md` Section 7 (text preserved, not restructured or shortened): H-068's self-initiated cross-reference addition (linking #28 back to #23, citing `CLAUDE.md`'s "Cross-reference check on structured edits" rule without being explicitly instructed to) is recorded as a data point for #23's future design session. Framed explicitly as a small, real instance of the self-triggering behavior #23 asks about — evidence the gap is partial/inconsistent, not evidence #23 is solved or that the broader gap (`HISTORY.md` logging, the model-update loop, the arithmetic self-check, the pipeline-refresh rule) has closed. Follow-Up #28 itself was not touched by this note.
+*Basis:* `CONTEXT.md` Section 7, item 23 (edited); `HISTORY.md` H-068 (cited, re-read not recalled).
+
+---
+
 ### Undated revision
 
 **H-019 · REVISION — Ledger schema: boolean `paid_flag` replaced by separate invoice/payment events.**
