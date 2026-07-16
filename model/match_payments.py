@@ -12,15 +12,17 @@ settled Receive/Receive-transfer row into one of:
   - tier 2  "amount-lag"  -- amount + payee match exactly one open invoice
             "batch"       -- amount matches the sum of 2-3 open invoices
             "unmatched-*" -- no invoice or invoice-combination match found
-  - tier 3  "aggregated"  -- Stripe settlements, no per-customer attribution
-                             possible from bank data alone (Finding 3). Per-
-                             charge attribution IS possible via a separate
-                             source (reference/stripe-balance-history-*.csv's
-                             Description/Transfer fields, H-061) but is not
-                             implemented here -- deliberately deferred, see
-                             CONTEXT.md Follow-Up #25 for the quantified scope
-                             (32/32 rows re-attributable, 25 single-invoice +
-                             7 multi-invoice batches).
+  - tier 3  "aggregated"  -- Stripe settlements. Per-charge attribution is
+                             resolved, when possible, via a separate source
+                             (reference/stripe-balance-history-*.csv's
+                             Description/Transfer fields, H-061) into specific
+                             "Invoice N [stripe-reattributed]" payment rows --
+                             built per CONTEXT.md Follow-Up #25 (H-074). A
+                             payout not fully resolved (no matching Stripe
+                             export payout, or any of its charges missing an
+                             invoice citation) falls back to the original
+                             single "unattributed [aggregated]" row -- never a
+                             partial/guessed attribution.
   - excluded              -- internal transfers, owner cash injections,
                               payroll-tax refunds, bank verification
                               micro-deposits, vendor/corporate-card refunds
@@ -329,6 +331,98 @@ def load_stripe_fee_lookup():
     return lookup
 
 
+def split_proportional(total, weights):
+    """Split `total` dollars across `weights`' shares, rounded to the cent,
+    using largest-remainder allocation so the parts always sum exactly to
+    `total`. Naive independent rounding of each share (round(total *
+    w / sum(weights), 2)) can land a cent off the total when the shares
+    don't divide evenly -- this never does."""
+    total_cents = round(total * 100)
+    weight_sum = sum(weights)
+    raw = [total_cents * w / weight_sum for w in weights]
+    floors = [int(x) for x in raw]
+    remainder = total_cents - sum(floors)
+    order = sorted(range(len(raw)), key=lambda i: raw[i] - floors[i], reverse=True)
+    for i in range(remainder):
+        floors[order[i]] += 1
+    return [f / 100 for f in floors]
+
+
+def load_stripe_invoice_attribution(invoices):
+    """Re-attribute each Stripe 'aggregated' payout to specific invoice(s)
+    using reference/stripe-balance-history-*.csv's Description/Transfer
+    linkage (H-061 finding 8, quantified in H-064, built here per CONTEXT.md
+    Follow-Up #25, H-074).
+
+    Stripe's own Description field cites invoice numbers directly (e.g.
+    "Invoice#74") -- the same citation signal tier 1 already uses for
+    Relay's Reference field, so this mirrors that existing citation-match
+    pattern rather than inventing a new one. For each payout, every
+    underlying charge's cited invoice(s) are resolved against
+    model/data/revenue-invoices.csv; only if EVERY charge in the payout
+    resolves cleanly is the payout included in the returned lookup, keyed
+    the same way load_stripe_fee_lookup() is (date, net) so callers can
+    match it against a Relay-side 'aggregated' row's own (date, amount).
+
+    A charge citing more than one invoice (observed once in the full
+    history: the 2025-08-27 payout's $381.60 charge for Invoice#12 and
+    Invoice#13 combined) has its own net split between the cited invoices
+    in proportion to each invoice's gross via split_proportional() -- exact
+    here, since gross_12 + gross_13 == that charge's Amount to the penny,
+    confirmed directly against model/data/revenue-invoices.csv.
+
+    Returns {} if no reference/stripe-balance-history-*.csv file is present
+    (same fallback contract as load_stripe_fee_lookup). A payout missing
+    from the returned lookup must fall back to the old single 'unattributed
+    [aggregated]' row -- never a partial or guessed attribution."""
+    files = glob.glob(STRIPE_BALANCE_HISTORY_GLOB)
+    if not files:
+        return {}
+
+    inv_by_num = {inv["invoice"]: inv for inv in invoices}
+
+    seen_ids = set()
+    charges_by_transfer = {}
+    payouts = []
+    for fn in files:
+        with open(fn, newline="") as f:
+            for row in csv.DictReader(f):
+                if row["id"] in seen_ids:
+                    continue
+                seen_ids.add(row["id"])
+                if row["Type"] == "charge":
+                    charges_by_transfer.setdefault(row["Transfer"], []).append(row)
+                elif row["Type"] == "payout" and float(row["Amount"]) < 0:
+                    payouts.append(row)
+
+    lookup = {}
+    for p in payouts:
+        date = p["Available On (UTC)"][:10]
+        net = round(abs(float(p["Net"])), 2)
+        batch = charges_by_transfer.get(p["Source"], [])
+        if not batch:
+            continue
+
+        allocations = []
+        resolved = True
+        for c in batch:
+            refs = INVOICE_REF_RE.findall(c["Description"])
+            if not refs or any(ref not in inv_by_num for ref in refs):
+                resolved = False
+                break
+            charge_net = float(c["Net"])
+            if len(refs) == 1:
+                inv = inv_by_num[refs[0]]
+                allocations.append((refs[0], inv["customer"], charge_net))
+            else:
+                weights = [float(inv_by_num[ref]["gross"]) for ref in refs]
+                for ref, amt in zip(refs, split_proportional(charge_net, weights)):
+                    allocations.append((ref, inv_by_num[ref]["customer"], amt))
+        if resolved:
+            lookup[(date, net)] = allocations
+    return lookup
+
+
 def subcategory_for(m):
     tier = m["tier"]
     if tier == "exact":
@@ -349,18 +443,47 @@ def subcategory_for(m):
     raise ValueError(f"Unresolved tier requiring a decision before this can run: {m}")
 
 
-def build_ledger_rows(classified, stripe_fee_lookup):
+def build_ledger_rows(classified, stripe_fee_lookup, stripe_invoice_attribution):
     payment_rows, fee_rows = [], []
     true_count = 0
+    reattributed_payouts, reattributed_rows, fallback_aggregated = 0, 0, 0
     for m in classified:
-        customer = m["customer"] if m["tier"] != "aggregated" else ""
-        payment_rows.append({
-            "date": m["date"], "type": "revenue", "event": "payment",
-            "category": "payment", "subcategory": subcategory_for(m),
-            "customer": customer or "", "quantity": "1",
-            "unit_rate": f"{m['amount']:.2f}", "amount": f"{m['amount']:.2f}",
-            "status": "ACTUAL", "source": m["source_file"],
-        })
+        if m["tier"] == "aggregated":
+            key = (m["date"], round(m["amount"], 2))
+            attribution = stripe_invoice_attribution.get(key)
+            if attribution:
+                reattributed_payouts += 1
+                for invoice_num, customer, amt in attribution:
+                    reattributed_rows += 1
+                    payment_rows.append({
+                        "date": m["date"], "type": "revenue", "event": "payment",
+                        "category": "payment",
+                        "subcategory": f"Invoice {invoice_num} [stripe-reattributed]",
+                        "customer": customer, "quantity": "1",
+                        "unit_rate": f"{amt:.2f}", "amount": f"{amt:.2f}",
+                        "status": "ACTUAL",
+                        "source": (f"{m['source_file']}; reference/stripe-balance-history-*.csv "
+                                   "Description/Transfer linkage (H-074) -- re-attributed from "
+                                   "'unattributed [aggregated]', see CONTEXT.md Follow-Up #25"),
+                    })
+            else:
+                fallback_aggregated += 1
+                payment_rows.append({
+                    "date": m["date"], "type": "revenue", "event": "payment",
+                    "category": "payment", "subcategory": subcategory_for(m),
+                    "customer": "", "quantity": "1",
+                    "unit_rate": f"{m['amount']:.2f}", "amount": f"{m['amount']:.2f}",
+                    "status": "ACTUAL", "source": m["source_file"],
+                })
+        else:
+            payment_rows.append({
+                "date": m["date"], "type": "revenue", "event": "payment",
+                "category": "payment", "subcategory": subcategory_for(m),
+                "customer": m["customer"] or "", "quantity": "1",
+                "unit_rate": f"{m['amount']:.2f}", "amount": f"{m['amount']:.2f}",
+                "status": "ACTUAL", "source": m["source_file"],
+            })
+
         if m["tier"] == "aggregated":
             net = m["amount"]
             key = (m["date"], round(net, 2))
@@ -390,6 +513,9 @@ def build_ledger_rows(classified, stripe_fee_lookup):
     print(f"[stripe-fee] {true_count}/{len(fee_rows)} fee rows use true per-charge sums "
           f"from reference/stripe-balance-history-*.csv; "
           f"{len(fee_rows)-true_count} fall back to the back-solved formula")
+    print(f"[stripe-reattribution] {reattributed_payouts}/{reattributed_payouts + fallback_aggregated} "
+          f"aggregated payouts re-attributed to {reattributed_rows} specific invoice payment "
+          f"row(s) (H-074); {fallback_aggregated} remain 'unattributed [aggregated]'")
     return payment_rows, fee_rows
 
 
@@ -439,7 +565,8 @@ def main():
         sys.exit(1)
 
     stripe_fee_lookup = load_stripe_fee_lookup()
-    payment_rows, fee_rows = build_ledger_rows(classified, stripe_fee_lookup)
+    stripe_invoice_attribution = load_stripe_invoice_attribution(invoices)
+    payment_rows, fee_rows = build_ledger_rows(classified, stripe_fee_lookup, stripe_invoice_attribution)
 
     existing_revenue = read_ledger(LEDGER_REVENUE_PATH)
     kept_revenue = [r for r in existing_revenue if r["event"] != "payment"]
